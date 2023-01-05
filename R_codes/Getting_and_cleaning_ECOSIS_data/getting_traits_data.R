@@ -84,11 +84,11 @@ get_column_name = function(index, trait_vector)
 out1 = list()
 for(i in 1: length(datasets_downloaded))
 {
-  out1[[i]] = check_column_name(i, LMA_vector)
+  out1[[i]] = get_column_name(i, Nitrogen_vector)
 }
 names(out1) = datasets_downloaded
 ####################################################################################
 
-out1[!is.na(out1)] # these are the relavant datasets for the particular trait
+out2 = out1[!is.na(out1)] # these are the relavant datasets for the particular trait
 
 
