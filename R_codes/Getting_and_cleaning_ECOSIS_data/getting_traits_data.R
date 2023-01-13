@@ -1,22 +1,6 @@
-library(stringr)
 
-mainDir = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/ECOSIS_Data_download_Dhruva"
 datasets_downloaded = list.files(mainDir)
-
-#####################################################################################
-###For now I am making a database of the commonly used trait names in the datasets used in ECOSIS
-LMA_vector = c("lma", "leaf_mass_per_area", "leaf mass per area")
-Chl_vector = c("chlorophyll", "chl", "chl_ab", "chlab") # work on how to separate chla and chlb from chltot
-Chla_vector = c("chla", "chl_a", "chlb", "chl_b", "chlorophyll_a", "chlorophyll_b", "chlorophylla", "chlorophyllb")
-Carbon_vector = c("c", "carbon", "c_")
-Calcium_vector = c("Ca", "calcium")
-Nitrogen_vector = c("nitrogen", "n", "n%")
-Carbon_Nitrogen = "c:n"
-Cellulose_vector = c("cellulose")
-Lignin_vector = "lignin"
-Usda_symbol = c("usda", "usda symbol")
-#####################################################################################
-
+source(paste0(Github_dir, "trait_and_sample_id_Database_for_ECOSIS_Data.R")) 
 
 #####################################################################################
 get_column_name = function(index, trait_vector)
@@ -81,14 +65,66 @@ get_column_name = function(index, trait_vector)
 ####################################################################################
 # Apply function to all the ECOSIS datasets
 # can write an lapply loop for this as well (just easier to debug using for loop)
-out1 = list()
-for(i in 1: length(datasets_downloaded))
-{
-  out1[[i]] = get_column_name(i, Nitrogen_vector)
-}
-names(out1) = datasets_downloaded
-####################################################################################
 
-out2 = out1[!is.na(out1)] # these are the relavant datasets for the particular trait
+subset_trait_data_zeroeth_pass_function = function(trait_name)
+{
+  out1 = list()
+  for(i in 1: length(datasets_downloaded))
+  {
+    out1[[i]] = get_column_name(i, trait_vector_list[[trait_name]])
+  }
+  names(out1) = datasets_downloaded
+  ####################################################################################
+  
+  out2 = out1[!is.na(out1)] # these are the relavant datasets for the particular trait
+  out2
+}
+
+subset_column_names_final_pass = function(trait_name)
+{
+  if(trait_name == "Carotenoid_Area")
+  {
+    exact_vector_list_for_covariate_first_pass = c("car", "car_area", "car_area (ug/cm2)", "carot_tot_area_l", "carotenoid ( g/cm )", "carotenoid (µg/cm²)", "carotenoid content ( g/cm )",
+                                                   "carotenoids") # this is after subsetting by eye the output of subset_trait_data_zeroeth_pass_function
+    exact_vector_list_for_covariate_second_pass = c("car_area", "carotenoid content ( g/cm )", "carot_tot_area_l", "car_area (ug/cm2)") # this is subsetting by eye the output of above which has more than one matching dataset for the above. The second pass is imp for example for separating trait_area from trait_mass or chl_a from chl_tot
+  }
+  
+  
+  if(trait_name == "Chlorophyll_Area")
+  {
+    exact_vector_list_for_covariate_first_pass = vector()
+    exact_vector_list_for_covariate_second_pass = vector()
+  }
+  
+  subset_function1 = function(x) 
+  {
+    boolean_1 = any(x %in% exact_vector_list_for_covariate_first_pass) == T
+    if(boolean_1 == T)
+    {
+      y = x
+    }else
+    {
+      y = NA
+    }
+    y
+  }
+  
+  subset_list = lapply(subset_trait_data_zeroeth_pass_function(trait_name), subset_function1)
+  subset_list = subset_list[which(!is.na(subset_list))]
+  
+  ##choosing one item only for multi-item lists
+  
+  trait_name_subset <- function(x) # this is for the datasets which has more than one matching dataset
+  {
+    if(length(x) > 1)
+    {
+      indices_to_keep = which(x %in% exact_vector_list_for_covariate_second_pass)
+    }else{indices_to_keep = 1}
+    x2 = x[indices_to_keep]
+    x2
+  }
+  
+  subset_list = lapply(subset_list, trait_name_subset)
+}
 
 

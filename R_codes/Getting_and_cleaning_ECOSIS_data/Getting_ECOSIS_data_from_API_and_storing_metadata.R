@@ -35,8 +35,8 @@ data_download_function = function(dataset_name)
     r3_trait_only = r3_trait_plus_spectra[, -which(names(r3_trait_plus_spectra) %in% names(r3_spectra_only))]
     subDir = dataset_name
     ifelse(!dir.exists(file.path(mainDir, subDir)), dir.create(file.path(mainDir, subDir)), FALSE)
-    write.csv(r3_trait_only, file = paste0(file.path(mainDir, subDir), "/", "metadata.csv"), row.names = F)
-    write.csv(r3_spectra_only, file = paste0(file.path(mainDir, subDir), "/", "spectra.csv"), row.names = F)
+    readr::write_csv(r3_trait_only, file = paste0(file.path(mainDir, subDir), "/", "metadata.csv"))
+    readr::write_csv(r3_spectra_only, file = paste0(file.path(mainDir, subDir), "/", "spectra.csv"))
     
     out = colnames(r3_trait_only)
     
@@ -50,10 +50,11 @@ data_download_function = function(dataset_name)
 library("parallel")
 
 #detectCores()
-cl <- makeCluster(5)     # set the number of processor cores
+cl <- makeCluster(9)     # set the number of processor cores
 #clusterExport(cl, c()) # export the objects to all cluster
 clusterEvalQ(cl, {library(httr)
   library(jsonlite)
+  library(readr)
 }) # run the following commands in all the clusters
 
 get_colnames = parLapply(cl, datasets_left_to_download, data_download_function)
