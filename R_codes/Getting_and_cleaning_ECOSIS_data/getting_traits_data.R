@@ -82,20 +82,10 @@ subset_trait_data_zeroeth_pass_function = function(trait_name)
 
 subset_column_names_final_pass = function(trait_name)
 {
-  if(trait_name == "Carotenoid_Area")
-  {
-    exact_vector_list_for_covariate_first_pass = c("car", "car_area", "car_area (ug/cm2)", "carot_tot_area_l", "carotenoid ( g/cm )", "carotenoid (µg/cm²)", "carotenoid content ( g/cm )",
-                                                   "carotenoids") # this is after subsetting by eye the output of subset_trait_data_zeroeth_pass_function
-    exact_vector_list_for_covariate_second_pass = c("car_area", "carotenoid content ( g/cm )", "carot_tot_area_l", "car_area (ug/cm2)") # this is subsetting by eye the output of above which has more than one matching dataset for the above. The second pass is imp for example for separating trait_area from trait_mass or chl_a from chl_tot
-  }
   
-  
-  if(trait_name == "Chlorophyll_Area")
-  {
-    exact_vector_list_for_covariate_first_pass = vector()
-    exact_vector_list_for_covariate_second_pass = vector()
-  }
-  
+  exact_vector_list_for_covariate_first_pass = exact_vector_list_for_covariate_first_pass_list[[trait_name]] # this is after subsetting by eye the output of subset_trait_data_zeroeth_pass_function
+  exact_vector_list_for_covariate_second_pass = exact_vector_list_for_covariate_second_pass_list[[trait_name]] # this is subsetting by eye the output of above which has more than one matching dataset for the above. The second pass is imp for example for separating trait_area from trait_mass or chl_a from chl_tot
+
   subset_function1 = function(x) 
   {
     boolean_1 = any(x %in% exact_vector_list_for_covariate_first_pass) == T

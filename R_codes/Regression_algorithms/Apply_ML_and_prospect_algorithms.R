@@ -139,6 +139,7 @@ apply_regression_algorithm <- function(algorithm1, spectra_data_train, covariate
   out1
 }
 
+# this just differs in the number of samples that we take for the Bayesian implementation and the thinning that we intend to use
 apply_regression_algorithm2 <- function(algorithm1, spectra_data_train, covariate_train1, spectra_data_test, covariate_test1)
 {
   Y = covariate_train1
@@ -258,7 +259,7 @@ apply_regression_algorithm2 <- function(algorithm1, spectra_data_train, covariat
   if(algorithm1 == "Bayesian_linear_horseshoe")
   {
     library(bayesreg)
-    rv.G <- bayesreg(Y~., data_matrix_1, model = "t", prior = "hs", n.samples = 1000, t.dof = 1)
+    rv.G <- bayesreg(Y~., data_matrix_1, model = "t", prior = "hs", n.samples = 500, t.dof = 1)
     test1 = data.frame(spectra_data_test)
     colnames(test1) = colnames(data_matrix_1[,-1])
     pred1 = predict(rv.G, test1)

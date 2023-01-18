@@ -11,10 +11,16 @@ Cellulose_vector = c("cellulose")
 Lignin_vector = "lignin"
 Carotenoid_vector = c("car", "carotenoid")
 Usda_symbol = c("usda", "usda symbol")
+Genus_species
 
 #######Put all the traits, and dataset names alphabetical wise
 trait_vector_list = list("Carotenoid_Area" = Carotenoid_vector, "Carotenoid_Mass" = Carotenoid_vector, 
                          "LMA" = LMA_vector)
+
+exact_vector_list_for_covariate_first_pass_list = list("Carotenoid_Area" =  c("car", "car_area", "car_area (ug/cm2)", "carot_tot_area_l", "carotenoid ( g/cm )", "carotenoid (µg/cm²)", "carotenoid content ( g/cm )", "carotenoids")
+                                                       )                         # this is after subsetting by eye the output of subset_trait_data_zeroeth_pass_function
+exact_vector_list_for_covariate_second_pass_list = list("Carotenoid_Area" = c("car_area", "carotenoid content ( g/cm )", "carot_tot_area_l", "car_area (ug/cm2)")
+                                                        )# this is subsetting by eye the output of above which has more than one matching dataset for the above. The second pass is imp for example for separating trait_area from trait_mass or chl_a from chl_tot
 
 ######################################Metadata related to dataset (trait independent)###############################################
 
