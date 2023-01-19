@@ -83,24 +83,36 @@ Carotenoid_values_filtered = lapply(datasets_to_take_for_trait, filter_trait_dat
 
 Carotenoid_vector = unlist(Carotenoid_values_filtered)
 
+Family_vector = unlist(lapply(datasets_to_take_for_trait, function(x)
+  {
+  metadata_arrow_version = read_parquet(paste0(file.path(mainDir, x), "/", "metadata_updated.parquet"))
+  out1 = metadata_arrow_version$family1
+}))
+
 ## Dividing into test and train data
 indices_subset = sample(1:length(Carotenoid_vector), 0.7*length(Carotenoid_vector))
 
 Carotenoid_vector = as.numeric(Carotenoid_vector)
 
-########################################################################################################
+###########################################################################################################
 source("/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Regression_algorithms/Apply_ML_and_prospect_algorithms.R")
 
 PLSR_values = apply_regression_algorithm2 ("PLSR", spectra_matrix[indices_subset, ], Carotenoid_vector[indices_subset ], spectra_matrix[-indices_subset, ], Carotenoid_vector[-indices_subset])
 plot(PLSR_values$obs,PLSR_values$predictions)
 abline(0, 1, col = "red")
 
-ridge_values = apply_regression_algorithm2 ("lasso", spectra_matrix[indices_subset, ], Carotenoid_vector[indices_subset ], spectra_matrix[-indices_subset, ], Carotenoid_vector[-indices_subset])
+ridge_values = apply_regression_algorithm2 ("ridge", spectra_matrix[indices_subset, ], Carotenoid_vector[indices_subset ], spectra_matrix[-indices_subset, ], Carotenoid_vector[-indices_subset])
 plot(ridge_values$obs,ridge_values$predictions)
 abline(0, 1, col = "red")
 
 Bayesian_values2 = apply_regression_algorithm2 ("Bayesian_linear_horseshoe", spectra_matrix[indices_subset, ], Carotenoid_vector[indices_subset ], spectra_matrix[-indices_subset, ], Carotenoid_vector[-indices_subset])
 plot(Bayesian_values2$obs, Bayesian_values2$predictions)
 abline(0, 1, col = "red")
+############################################################################################################
 
+library(ggplot2)
+data_mat = data.frame(Obs = ridge_values$obs, Pred = as.numeric(ridge_values$predictions), Family = Family_vector[-indices_subset])
+
+ggplot(data_mat, aes(x = Pred, y = Obs, color = Family)) +
+  geom_point() + geom_abline()
 

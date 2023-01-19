@@ -11,7 +11,6 @@ Cellulose_vector = c("cellulose")
 Lignin_vector = "lignin"
 Carotenoid_vector = c("car", "carotenoid")
 Usda_symbol = c("usda", "usda symbol")
-Genus_species
 
 #######Put all the traits, and dataset names alphabetical wise
 trait_vector_list = list("Carotenoid_Area" = Carotenoid_vector, "Carotenoid_Mass" = Carotenoid_vector, 
