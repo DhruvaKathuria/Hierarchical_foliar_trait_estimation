@@ -1,4 +1,9 @@
+library(dplyr)
+library(arrow)
+library(units)
+
 mainDir = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/ECOSIS_Data_download_Dhruva"  
+Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/"
 
 trait_name1 = "Carotenoid_Area"
 datasets_already_processed =  list.files(mainDir, recursive = T, pattern = "traits_already_done_for_metadata.txt")
@@ -52,10 +57,9 @@ for(i in 1:length(spectra_filtered))
 #################################################################################################################
 
 ##### Getting traits together
-library(arrow)
-library(units)
 
-filter_trait_data_only = function(x, trait_name1)
+
+filter_trait_data_and_metadata = function(x, trait_name1)
 {
   metadata_arrow_version = read_parquet(paste0(file.path(mainDir, x), "/", "metadata_updated.parquet"))
   name_for_trait = attributes(metadata_arrow_version)$trait_names[[trait_name1]][["trait_name"]]
@@ -64,7 +68,7 @@ filter_trait_data_only = function(x, trait_name1)
   names(metadata_arrow_version) = tolower(names(metadata_arrow_version))
   trait_value = as.numeric(unlist(metadata_arrow_version[name_for_trait]))
   
-  if(!(trait_name1 %in% c("delta_C13", "delta_N15")))
+  if(!(trait_name1 %in% c("delta_C13", "delta_N15"))) # only delta_C13 and delta_N15 can have negative names (Source: figure in Phil Townsend paper)
   {
     trait_value[trait_value < 0] = NA
   }
@@ -75,29 +79,53 @@ filter_trait_data_only = function(x, trait_name1)
   {
     trait_value = set_units(trait_value, microgram/cm^2)
   }
-  trait_value
+  
+  metadata_merged = merge(metadata_arrow_version, input_database, by.x = "genus_species1" , by.y = "Scientific_name", all.x = TRUE)
+  metadata_merged = metadata_merged %>% select(genus_species1, family1, Growth_form, Phenology, Leaf, manufacturer, model)
+  metadata_merged$trait = trait_value
+  metadata_merged$site_name = rep(x, nrow(metadata_merged))
+  metadata_merged
 }
 
-Carotenoid_values_filtered = lapply(datasets_to_take_for_trait, filter_trait_data_only, trait_name1 =  "Carotenoid_Area")
+trait_and_metadata_dataframe_list = lapply(datasets_to_take_for_trait, filter_trait_data_and_metadata, trait_name1 =  "Carotenoid_Area")
 ## IMP: Need to have a check which confirms that the units of each list are the same
 
-Carotenoid_vector = unlist(Carotenoid_values_filtered)
+trait_and_metadata_dataframe = do.call(rbind, trait_and_metadata_dataframe_list)
 
-Family_vector = unlist(lapply(datasets_to_take_for_trait, function(x)
-  {
-  metadata_arrow_version = read_parquet(paste0(file.path(mainDir, x), "/", "metadata_updated.parquet"))
-  out1 = metadata_arrow_version$family1
-}))
+# function to remove rows based on a metadata
+filter_na_values <- function(data, column) 
+{
+  data_filtered <- data[!is.na(data[, column]), ] # Filter the data frame based on the presence of NA values in the specified column
+  return(data_filtered) # Return the filtered data frame
+}
 
 ## Dividing into test and train data
-indices_subset = sample(1:length(Carotenoid_vector), 0.7*length(Carotenoid_vector))
 
-Carotenoid_vector = as.numeric(Carotenoid_vector)
+get_indices_subset_function <- function(data_frame1, filtering_type, test_site, fraction_split)
+{
+  if(filtering_type == "Global")
+  {
+    indices_subset = sample(1:nrow(data_frame1), fraction_split * nrow(data_frame1))
+  }else if(filtering_type == "Site_specific")
+  {
+   indices_subset = which(data_frame1$site_name != test_site)
+  }
+  indices_subset
+}
+
+indices_subset= get_indices_subset_function(trait_and_metadata_dataframe, filtering_type = "Global", test_site = "None", fraction_split = 0.7)
+indices_subset_local = get_indices_subset_function(trait_and_metadata_dataframe, filtering_type = "Site_specific", test_site = datasets_to_take_for_trait[1]  , fraction_split = 0.7)
 
 ###########################################################################################################
 source("/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Regression_algorithms/Apply_ML_and_prospect_algorithms.R")
 
-PLSR_values = apply_regression_algorithm2 ("PLSR", spectra_matrix[indices_subset, ], Carotenoid_vector[indices_subset ], spectra_matrix[-indices_subset, ], Carotenoid_vector[-indices_subset])
+# prepping data
+Y_train = as.numeric(trait_and_metadata_dataframe$trait[indices_subset ])
+Y_test = as.numeric(trait_and_metadata_dataframe$trait[-indices_subset ])
+X_train = spectra_matrix[indices_subset, ]
+X_test = spectra_matrix[-indices_subset, ]
+
+PLSR_values = apply_regression_algorithm2 ("ridge", X_train, Y_train, X_test, Y_test)
 plot(PLSR_values$obs,PLSR_values$predictions)
 abline(0, 1, col = "red")
 
@@ -111,8 +139,15 @@ abline(0, 1, col = "red")
 ############################################################################################################
 
 library(ggplot2)
-data_mat = data.frame(Obs = ridge_values$obs, Pred = as.numeric(ridge_values$predictions), Family = Family_vector[-indices_subset])
+metadata_filter = "Growth_form"
 
-ggplot(data_mat, aes(x = Pred, y = Obs, color = Family)) +
-  geom_point() + geom_abline()
+data_mat = trait_and_metadata_dataframe[-indices_subset, ]
+Regression_apply2 = apply_regression_algorithm2 ("PLSR", X_train, Y_train, X_test, Y_test)
+data_mat$pred = Regression_apply2$predictions
+data_mat = data_mat[!data_mat[, metadata_filter] %in% c("Data unavailable", "Error in extraction, check"), ]
+data_mat$trait = as.numeric(data_mat$trait)
+data_mat$error = (data_mat$pred - data_mat$trait)
+
+ggplot(data_mat, aes(x = trait, y = error, color = .data[[metadata_filter]])) +
+  geom_point() #+ geom_abline()
 
