@@ -4,10 +4,11 @@ library(arrow)
 library(stringr)
 
 mainDir = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/ECOSIS_Data_download_Dhruva"  
-
-
-trait_name1 = "Carotenoid_Area"
 Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Getting_and_cleaning_ECOSIS_data/"
+
+trait_name1 = "LMA" # the names of the traits are given in "trait_and_sample_id_Database_for_ECOSIS_Data.R" under "trait_vector_list"
+
+#IMP: Check "Steps_to_Add_Metadata_for_a_Trait_in_a_dataset.R" Lines 5 - 8 to see whether you have the names list associated with trait. If not, follow the steps outlined there.
 source(paste0(Github_dir, "getting_traits_data.R"))
 
 # Check all datasets relavant to that trait_name
