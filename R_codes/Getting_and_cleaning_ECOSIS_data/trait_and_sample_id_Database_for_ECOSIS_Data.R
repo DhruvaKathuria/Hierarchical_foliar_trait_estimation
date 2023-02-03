@@ -32,7 +32,8 @@ is_spectral_measurement_reflectance_only_Boolean_list = list("cabo-2018-2019-lea
                                                              "leaf-optical-properties-experiment-database--lopex93-" = TRUE,
                                                              "leaf-reflectance-plant-functional-gradient-ifgg-kit" = TRUE,
                                                              "productivity-and-characterization-of-soybean-foliar-traits-under-aphid-pressure" = TRUE,
-                                                             "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = TRUE) 
+                                                             "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = TRUE,
+                                                             "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = TRUE) 
 
 
 #################Sample id column name for each dataset, in case the data does not have it, I might have to create one
@@ -43,7 +44,8 @@ sample_id_list = list("cabo-2018-2019-leaf-level-spectra" = "sample_id",
                       "leaf-optical-properties-experiment-database--lopex93-" = "Refl_file",
                       "leaf-reflectance-plant-functional-gradient-ifgg-kit" = NA,
                       "productivity-and-characterization-of-soybean-foliar-traits-under-aphid-pressure" = "SAMP_ID",
-                      "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = "Spectra")
+                      "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = "Spectra",
+                      "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = "guid")
 
 
 ############Link to the journal paper##############################
@@ -54,7 +56,8 @@ Paper_link_list = list("cabo-2018-2019-leaf-level-spectra" = c("https://ecoevorx
                        "leaf-optical-properties-experiment-database--lopex93-" = c("http://teledetection.ipgp.jussieu.fr/opticleaf/lopex.htm", "http://opticleaf.ipgp.fr/index.php?page=database"),
                        "leaf-reflectance-plant-functional-gradient-ifgg-kit" = c("https://doi.org/10.1002/rse2.86", "https://doi.org/10.1038/s41598-019-43011-1"),
                        "productivity-and-characterization-of-soybean-foliar-traits-under-aphid-pressure" = NA,
-                       "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = c("https://doi.org/10.1093/jxb/err294", "https://figshare.com/articles/Spectroscopic_determination_of_leaf_nutritional_morphological_and_metabolic_traits/745311"))
+                       "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = c("https://doi.org/10.1093/jxb/err294", "https://figshare.com/articles/Spectroscopic_determination_of_leaf_nutritional_morphological_and_metabolic_traits/745311"),
+                       "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = NA)
 
 
 ###Spectral instrument info#################################
@@ -66,7 +69,8 @@ is_spectral_instrument_used_globally_list = list("cabo-2018-2019-leaf-level-spec
                                                  "leaf-optical-properties-experiment-database--lopex93-" = T,
                                                  "leaf-reflectance-plant-functional-gradient-ifgg-kit" = T,
                                                  "productivity-and-characterization-of-soybean-foliar-traits-under-aphid-pressure" = T,
-                                                 "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = )
+                                                 "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = T,
+                                                 "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = T)
 
 ###if *is_spectral_instrument_used_globally_list* is T, then fill in below
 instrument_manufacturer_info_global_list = list("cabo-2018-2019-leaf-level-spectra" = "spectra vista corporation",
@@ -76,7 +80,8 @@ instrument_manufacturer_info_global_list = list("cabo-2018-2019-leaf-level-spect
                                                 "leaf-optical-properties-experiment-database--lopex93-" = "perkin elmer",
                                                 "leaf-reflectance-plant-functional-gradient-ifgg-kit" = "malvern panalytical",
                                                 "productivity-and-characterization-of-soybean-foliar-traits-under-aphid-pressure" = "analytical spectral devices",
-                                                "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = "analytical spectral devices")
+                                                "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = "analytical spectral devices",
+                                                "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = "analytical spectral devices")
 
 instrument_model_info_global_list = list("cabo-2018-2019-leaf-level-spectra" = "hr-1024i",
                                          "fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains" = "psr-3500",
@@ -85,7 +90,8 @@ instrument_model_info_global_list = list("cabo-2018-2019-leaf-level-spectra" = "
                                          "leaf-optical-properties-experiment-database--lopex93-" = "lambda-19 spectrophotometer",
                                          "leaf-reflectance-plant-functional-gradient-ifgg-kit" = "asd fieldspec 3",
                                          "productivity-and-characterization-of-soybean-foliar-traits-under-aphid-pressure" = "fieldspec4",
-                                         "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = "asd fieldspec 3")
+                                         "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = "asd fieldspec 3",
+                                         "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = "asd fieldspec 3")
 
 ###if *is_spectral_instrument_used_globally_list* is F, then fill in below
 instrument_manufacturer_info_local_list = list()

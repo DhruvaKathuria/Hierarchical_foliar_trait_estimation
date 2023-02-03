@@ -12,10 +12,10 @@ trait_name1 = "LMA" # the names of the traits are given in "trait_and_sample_id_
 source(paste0(Github_dir, "getting_traits_data.R"))
 
 # Check all datasets relavant to that trait_name
-print(subset_column_names_final_pass(trait_name1))
-
+datasets_vector = subset_column_names_final_pass(trait_name1)
+print(datasets_vector)
 ## Pick a dataset and change the dataset_name1
-dataset_name1 = "productivity-and-characterization-of-soybean-foliar-traits-under-aphid-pressure"
+dataset_name1 = names(datasets_vector)[2]
 
 ## Datasets which have issues, for specific issues why a dataset wasnt selected, laod the metadata_arrow_version.parquet using read_parquet and type comment(metadta_arrow_version) 
 datasets_not_to_take = c("leaf-reflectance-plant-functional-gradient-ifgg-kit")
@@ -26,7 +26,7 @@ if(!(dataset_name1 %in% datasets_not_to_take))
   ##IMP NOTE Go through the *Steps_to_Add_Metadata_for_a_Trait_in_a_dataset.R* for this trait and dataset combination
   ##IMP NOTE Only move further after completing all the steps
   
-  trait_name1_unit = "microgram/cm^2"
+  trait_name1_unit = "gram/m^2"
   source(paste0(Github_dir, "getting_traits_data.R"))
   
   
@@ -63,7 +63,7 @@ if(!(dataset_name1 %in% datasets_not_to_take))
       if(length(sample_id_vector)!=0)
       {
         metadata_arrow_version = metadata_arrow_version[!names(metadata_arrow_version) %in% sample_id_list[[dataset_name]] ]
-        metadata_arrow_version$sample_id = as.character(sample_id_vector)
+        metadata_arrow_version$sample_id = as.character(unlist(sample_id_vector))
       }else
       {
         metadata_arrow_version$sample_id = rep(NA, nrow(metadata_arrow_version))
@@ -118,8 +118,8 @@ if(!(dataset_name1 %in% datasets_not_to_take))
   #####################Add a comment below if you want to add a comment to the dataset; otherwise keep it to NULL##########################
   # always add the date when adding comments
 }else{metadata_arrow_version  = data.frame()}
-comment_to_add = "January 11, 2023: The Carotenoid data does not have any units, and I did not find any papers on ECOSIS and could not search as well. Plotting the data and comparing with TRY data does seem to suggest that the data is in ug/cm2.So assuming that unit for now."
-#comment_to_add = NULL
+#comment_to_add = "January 11, 2023: The Carotenoid data does not have any units, and I did not find any papers on ECOSIS and could not search as well. Plotting the data and comparing with TRY data does seem to suggest that the data is in ug/cm2.So assuming that unit for now."
+comment_to_add = NULL
 
 if(!is.null(comment_to_add))
 {
