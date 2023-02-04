@@ -39,7 +39,7 @@ dataset_name1 %in% names(instrument_manufacturer_info_global_list)
 dataset_name1 %in% names(instrument_model_info_global_list)
 
 
-###IMP: Always check that the data are leaf only. can be seen from going to paste0("https://ecosis.org/package/", dataset_name1)
+###IMP: Always check that the data are leaf only. can be seen from going to paste0("https://ecosis.org/package/", dataset_name1) and also check the metadata file
 #### Add the **is_spectral_measurement_reflectance_only_Boolean_list** in **trait_and_sample_id_Database_for_ECOSIS_Data.R** (if available from metadata). Also check Open paste0("https://ecosis.org/package/", dataset_name1) and confirm
 #########If the Boolean_list is F or if the spectral_information is not global,in the original data folder 
 #########and create a new R-code which first does source(source(paste0(Github_dir,  "Creating_folder_for_further_data_cleaning_and moving_data_there.R"))). This source makes a new folde and transfers the metadata and spectra files there, and then write new metadata/spectra file filtered only with reflectance data (or with the added manufacturer/model columns in dataframe if spectral instrument is not global ) and save in the dataset folder

@@ -42,7 +42,14 @@ is_spectral_measurement_reflectance_only_Boolean_list = list("cabo-2018-2019-lea
                                                              "fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems" = TRUE,
                                                              "fresh-leaf-spectra-to-estimate-lma-over-neon-domains-in-eastern-united-states" = TRUE,
                                                              "ground-leaf-cabo-spectra-from-herbarium-project" = TRUE,
-                                                             "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = TRUE) 
+                                                             "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = TRUE,
+                                                             "leaf-and-canopy-spectroscopy-and-biochemical-data-of-field-grown-cucurbita-pepo-under-two-stresses" = TRUE,
+                                                             "leaf-reflectance-and-tratis-of-floating-and-emergent-macrophytes" = TRUE,
+                                                             "leaf-spectra--structural-and-biochemical-leaf-traits-of-eight-crop-species" = TRUE, 
+                                                             "leaf-spectra-of-36-species-growing-in-rosa-rugosa-invaded-coastal-grassland-communities-in-belgium" = TRUE, 
+                                                             "leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan" = TRUE, 
+                                                             "nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests" = TRUE,
+                                                             "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = TRUE) 
 
 
 #################Sample id column name for each dataset, in case the data does not have it, I might have to create one
@@ -63,7 +70,14 @@ sample_id_list = list("cabo-2018-2019-leaf-level-spectra" = "sample_id",
                       "fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems" = "spectra",
                       "fresh-leaf-spectra-to-estimate-lma-over-neon-domains-in-eastern-united-states" = "Sample_ID",
                       "ground-leaf-cabo-spectra-from-herbarium-project" = "sample_name",
-                      "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = "uniquefield")
+                      "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = "uniquefield",
+                      "leaf-and-canopy-spectroscopy-and-biochemical-data-of-field-grown-cucurbita-pepo-under-two-stresses" = "uniquefield",
+                      "leaf-reflectance-and-tratis-of-floating-and-emergent-macrophytes" = NA,
+                      "leaf-spectra--structural-and-biochemical-leaf-traits-of-eight-crop-species" = "sample_id", 
+                      "leaf-spectra-of-36-species-growing-in-rosa-rugosa-invaded-coastal-grassland-communities-in-belgium" = "ids", 
+                      "leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan" = "ids",
+                      "nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests" = "SampleID",
+                      "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = "Sample_ID" )
 
 
 ############Link to the journal paper##############################
@@ -84,7 +98,14 @@ Paper_link_list = list("cabo-2018-2019-leaf-level-spectra" = c("https://ecoevorx
                        "fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems" = NA,
                        "fresh-leaf-spectra-to-estimate-lma-over-neon-domains-in-eastern-united-states" = NA,
                        "ground-leaf-cabo-spectra-from-herbarium-project" = c("https://www.biorxiv.org/content/10.1101/2021.04.21.440856v5", "https://github.com/ShanKothari/pressed-leaf-models"),
-                       "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = "https://doi.org/10.1093/jxb/erab255")
+                       "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = "https://doi.org/10.1093/jxb/erab255",
+                       "leaf-and-canopy-spectroscopy-and-biochemical-data-of-field-grown-cucurbita-pepo-under-two-stresses" = "https://doi.org/10.1111/pce.14056",
+                       "leaf-reflectance-and-tratis-of-floating-and-emergent-macrophytes" = "https://doi.org/10.1186/s13007-021-00816-4",
+                       "leaf-spectra--structural-and-biochemical-leaf-traits-of-eight-crop-species" = "https://doi.org/10.1093/jxb/erz061",
+                       "leaf-spectra-of-36-species-growing-in-rosa-rugosa-invaded-coastal-grassland-communities-in-belgium" = "https://doi.org/10.1111/1365-2745.13389", 
+                       "leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan" = "https://doi.org/10.1016/j.ecolind.2021.108111",
+                       "nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests" = "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.16123",
+                       "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = c("https://doi.org/10.5440/1430079", "https://doi.org/10.5440/1430080"))
 
 
 ###Spectral instrument info#################################
@@ -106,7 +127,14 @@ is_spectral_instrument_used_globally_list = list("cabo-2018-2019-leaf-level-spec
                                                  "fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems" = T,
                                                  "fresh-leaf-spectra-to-estimate-lma-over-neon-domains-in-eastern-united-states" = F,
                                                  "ground-leaf-cabo-spectra-from-herbarium-project" = T,
-                                                 "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = T)
+                                                 "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = T,
+                                                 "leaf-and-canopy-spectroscopy-and-biochemical-data-of-field-grown-cucurbita-pepo-under-two-stresses" = T,
+                                                 "leaf-reflectance-and-tratis-of-floating-and-emergent-macrophytes" = T, 
+                                                 "leaf-spectra--structural-and-biochemical-leaf-traits-of-eight-crop-species" = T, 
+                                                 "leaf-spectra-of-36-species-growing-in-rosa-rugosa-invaded-coastal-grassland-communities-in-belgium" = T, 
+                                                 "leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan" = T, 
+                                                 "nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests" = T,
+                                                 "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = T)
 
 ###if *is_spectral_instrument_used_globally_list* is F, add the manufacturer and model info in the meadata itself, eg look at /Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Getting_and_cleaning_ECOSIS_data/Further_data_cleaning/fresh-leaf-spectra-to-estimate-lma-over-neon-domains-in-eastern-united-states.R
 ###if *is_spectral_instrument_used_globally_list* is T, then fill in below
@@ -126,7 +154,14 @@ instrument_manufacturer_info_global_list = list("cabo-2018-2019-leaf-level-spect
                                                 "fresh-leaf-spectra-to-estimate-leaf-morphology-and-biochemistry-for-northern-temperate-forests" = "analytical spectral devices",
                                                 "fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems" = "analytical spectral devices",
                                                 "ground-leaf-cabo-spectra-from-herbarium-project" = "spectral evolution",
-                                                "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = "spectral evolution")
+                                                "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = "spectral evolution",
+                                                "leaf-and-canopy-spectroscopy-and-biochemical-data-of-field-grown-cucurbita-pepo-under-two-stresses" = "spectral evolution",
+                                                "leaf-reflectance-and-tratis-of-floating-and-emergent-macrophytes" = "spectral evolution", 
+                                                "leaf-spectra--structural-and-biochemical-leaf-traits-of-eight-crop-species" = "spectra vista corporation", 
+                                                "leaf-spectra-of-36-species-growing-in-rosa-rugosa-invaded-coastal-grassland-communities-in-belgium" = "spectra vista corporation", 
+                                                "leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan" = "spectra vista corporation",
+                                                "nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests" = "analytical spectral devices",
+                                                "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = "spectra vista corporation")
 
 instrument_model_info_global_list = list("cabo-2018-2019-leaf-level-spectra" = "hr-1024i",
                                          "fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains" = "psr-3500",
@@ -144,7 +179,14 @@ instrument_model_info_global_list = list("cabo-2018-2019-leaf-level-spectra" = "
                                          "fresh-leaf-spectra-to-estimate-leaf-morphology-and-biochemistry-for-northern-temperate-forests" = "fieldspec 3",
                                          "fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems" = "fieldspec 3",
                                          "ground-leaf-cabo-spectra-from-herbarium-project" = "psr+ 3500",
-                                         "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = "psr+" )
+                                         "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = "psr+" ,
+                                         "leaf-and-canopy-spectroscopy-and-biochemical-data-of-field-grown-cucurbita-pepo-under-two-stresses" = "psr+",
+                                         "leaf-reflectance-and-tratis-of-floating-and-emergent-macrophytes" = "sr-3500", 
+                                         "leaf-spectra--structural-and-biochemical-leaf-traits-of-eight-crop-species" = "hr-1024i", 
+                                         "leaf-spectra-of-36-species-growing-in-rosa-rugosa-invaded-coastal-grassland-communities-in-belgium" = "hr-1024", 
+                                         "leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan" = "hr-1024",
+                                         "nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests" = "fieldspec 3",
+                                         "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = "hr-1024i")
                                          
 
 
