@@ -33,7 +33,16 @@ is_spectral_measurement_reflectance_only_Boolean_list = list("cabo-2018-2019-lea
                                                              "leaf-reflectance-plant-functional-gradient-ifgg-kit" = TRUE,
                                                              "productivity-and-characterization-of-soybean-foliar-traits-under-aphid-pressure" = TRUE,
                                                              "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = TRUE,
-                                                             "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = TRUE) 
+                                                             "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = TRUE,
+                                                             "2018-talladega-national-forest--leaf-level-reflectance-spectra-and-foliar-traits" = TRUE,
+                                                             "common-milkweed-leaf-responses-to-water-stress-and-elevated-temperature" = TRUE,
+                                                             "dried-leaf-spectra-to-estimate-leaf-morphology-and-biochemistry-for-northern-temperate-forests" = TRUE,
+                                                             "fresh-leaf-cabo-spectra-from-herbarium-project" = TRUE,
+                                                             "fresh-leaf-spectra-to-estimate-leaf-morphology-and-biochemistry-for-northern-temperate-forests" = TRUE,
+                                                             "fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems" = TRUE,
+                                                             "fresh-leaf-spectra-to-estimate-lma-over-neon-domains-in-eastern-united-states" = TRUE,
+                                                             "ground-leaf-cabo-spectra-from-herbarium-project" = TRUE,
+                                                             "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = TRUE) 
 
 
 #################Sample id column name for each dataset, in case the data does not have it, I might have to create one
@@ -45,7 +54,16 @@ sample_id_list = list("cabo-2018-2019-leaf-level-spectra" = "sample_id",
                       "leaf-reflectance-plant-functional-gradient-ifgg-kit" = NA,
                       "productivity-and-characterization-of-soybean-foliar-traits-under-aphid-pressure" = "SAMP_ID",
                       "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = "Spectra",
-                      "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = "guid")
+                      "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = "guid",
+                      "2018-talladega-national-forest--leaf-level-reflectance-spectra-and-foliar-traits" = "Sample_ID",
+                      "common-milkweed-leaf-responses-to-water-stress-and-elevated-temperature" = "ID",
+                      "dried-leaf-spectra-to-estimate-leaf-morphology-and-biochemistry-for-northern-temperate-forests" = "UniqueID",
+                      "fresh-leaf-cabo-spectra-from-herbarium-project" = "sample_name",
+                      "fresh-leaf-spectra-to-estimate-leaf-morphology-and-biochemistry-for-northern-temperate-forests" = "UniqueID",
+                      "fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems" = "spectra",
+                      "fresh-leaf-spectra-to-estimate-lma-over-neon-domains-in-eastern-united-states" = "Sample_ID",
+                      "ground-leaf-cabo-spectra-from-herbarium-project" = "sample_name",
+                      "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = "uniquefield")
 
 
 ############Link to the journal paper##############################
@@ -57,7 +75,16 @@ Paper_link_list = list("cabo-2018-2019-leaf-level-spectra" = c("https://ecoevorx
                        "leaf-reflectance-plant-functional-gradient-ifgg-kit" = c("https://doi.org/10.1002/rse2.86", "https://doi.org/10.1038/s41598-019-43011-1"),
                        "productivity-and-characterization-of-soybean-foliar-traits-under-aphid-pressure" = NA,
                        "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = c("https://doi.org/10.1093/jxb/err294", "https://figshare.com/articles/Spectroscopic_determination_of_leaf_nutritional_morphological_and_metabolic_traits/745311"),
-                       "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = NA)
+                       "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = NA,
+                       "2018-talladega-national-forest--leaf-level-reflectance-spectra-and-foliar-traits" = NA,
+                       "common-milkweed-leaf-responses-to-water-stress-and-elevated-temperature" = NA,
+                       "dried-leaf-spectra-to-estimate-leaf-morphology-and-biochemistry-for-northern-temperate-forests" = NA,
+                       "fresh-leaf-cabo-spectra-from-herbarium-project" = c("https://www.biorxiv.org/content/10.1101/2021.04.21.440856v5.full", "https://github.com/ShanKothari/pressed-leaf-models"),
+                       "fresh-leaf-spectra-to-estimate-leaf-morphology-and-biochemistry-for-northern-temperate-forests" = "http://onlinelibrary.wiley.com/doi/10.1890/13-2110.1/abstract",
+                       "fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems" = NA,
+                       "fresh-leaf-spectra-to-estimate-lma-over-neon-domains-in-eastern-united-states" = NA,
+                       "ground-leaf-cabo-spectra-from-herbarium-project" = c("https://www.biorxiv.org/content/10.1101/2021.04.21.440856v5", "https://github.com/ShanKothari/pressed-leaf-models"),
+                       "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = "https://doi.org/10.1093/jxb/erab255")
 
 
 ###Spectral instrument info#################################
@@ -70,8 +97,18 @@ is_spectral_instrument_used_globally_list = list("cabo-2018-2019-leaf-level-spec
                                                  "leaf-reflectance-plant-functional-gradient-ifgg-kit" = T,
                                                  "productivity-and-characterization-of-soybean-foliar-traits-under-aphid-pressure" = T,
                                                  "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = T,
-                                                 "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = T)
+                                                 "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = T,
+                                                 "2018-talladega-national-forest--leaf-level-reflectance-spectra-and-foliar-traits" = T,
+                                                 "common-milkweed-leaf-responses-to-water-stress-and-elevated-temperature" = T,
+                                                 "dried-leaf-spectra-to-estimate-leaf-morphology-and-biochemistry-for-northern-temperate-forests" = T,
+                                                 "fresh-leaf-cabo-spectra-from-herbarium-project" = T,
+                                                 "fresh-leaf-spectra-to-estimate-leaf-morphology-and-biochemistry-for-northern-temperate-forests" = T,
+                                                 "fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems" = T,
+                                                 "fresh-leaf-spectra-to-estimate-lma-over-neon-domains-in-eastern-united-states" = F,
+                                                 "ground-leaf-cabo-spectra-from-herbarium-project" = T,
+                                                 "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = T)
 
+###if *is_spectral_instrument_used_globally_list* is F, add the manufacturer and model info in the meadata itself, eg look at /Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Getting_and_cleaning_ECOSIS_data/Further_data_cleaning/fresh-leaf-spectra-to-estimate-lma-over-neon-domains-in-eastern-united-states.R
 ###if *is_spectral_instrument_used_globally_list* is T, then fill in below
 instrument_manufacturer_info_global_list = list("cabo-2018-2019-leaf-level-spectra" = "spectra vista corporation",
                                                 "fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains" = "spectral evolution",
@@ -81,7 +118,15 @@ instrument_manufacturer_info_global_list = list("cabo-2018-2019-leaf-level-spect
                                                 "leaf-reflectance-plant-functional-gradient-ifgg-kit" = "malvern panalytical",
                                                 "productivity-and-characterization-of-soybean-foliar-traits-under-aphid-pressure" = "analytical spectral devices",
                                                 "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = "analytical spectral devices",
-                                                "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = "analytical spectral devices")
+                                                "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = "analytical spectral devices",
+                                                "2018-talladega-national-forest--leaf-level-reflectance-spectra-and-foliar-traits" = "spectra vista corporation",
+                                                "common-milkweed-leaf-responses-to-water-stress-and-elevated-temperature" = "analytical spectral devices",
+                                                "dried-leaf-spectra-to-estimate-leaf-morphology-and-biochemistry-for-northern-temperate-forests" = "analytical spectral devices",
+                                                "fresh-leaf-cabo-spectra-from-herbarium-project" = "spectra vista corporation",
+                                                "fresh-leaf-spectra-to-estimate-leaf-morphology-and-biochemistry-for-northern-temperate-forests" = "analytical spectral devices",
+                                                "fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems" = "analytical spectral devices",
+                                                "ground-leaf-cabo-spectra-from-herbarium-project" = "spectral evolution",
+                                                "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = "spectral evolution")
 
 instrument_model_info_global_list = list("cabo-2018-2019-leaf-level-spectra" = "hr-1024i",
                                          "fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains" = "psr-3500",
@@ -91,11 +136,19 @@ instrument_model_info_global_list = list("cabo-2018-2019-leaf-level-spectra" = "
                                          "leaf-reflectance-plant-functional-gradient-ifgg-kit" = "asd fieldspec 3",
                                          "productivity-and-characterization-of-soybean-foliar-traits-under-aphid-pressure" = "fieldspec4",
                                          "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = "asd fieldspec 3",
-                                         "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = "asd fieldspec 3")
+                                         "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = "asd fieldspec 3",
+                                         "2018-talladega-national-forest--leaf-level-reflectance-spectra-and-foliar-traits" = "svc hr-1024i spectroradiometer with an attached lc-rp-pro leaf clip foreoptic",
+                                         "common-milkweed-leaf-responses-to-water-stress-and-elevated-temperature" = "fieldspec 3",
+                                         "dried-leaf-spectra-to-estimate-leaf-morphology-and-biochemistry-for-northern-temperate-forests" = "fieldspec 3",
+                                         "fresh-leaf-cabo-spectra-from-herbarium-project" = "hr-1024i",
+                                         "fresh-leaf-spectra-to-estimate-leaf-morphology-and-biochemistry-for-northern-temperate-forests" = "fieldspec 3",
+                                         "fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems" = "fieldspec 3",
+                                         "ground-leaf-cabo-spectra-from-herbarium-project" = "psr+ 3500",
+                                         "hyperspectral-leaf-reflectance--biochemistry--and-physiology-of-droughted-and-watered-crops" = "psr+" )
+                                         
 
-###if *is_spectral_instrument_used_globally_list* is F, then fill in below
-instrument_manufacturer_info_local_list = list()
-instrument_model_info_local_list = list( )
+
+
 #################################################################
 
 

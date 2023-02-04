@@ -25,7 +25,8 @@ subset_list3
 
 
 metadata_file_from_ECOSIS = readr :: read_csv(file = paste0(file.path(mainDir, dataset_name1), "/", "metadata.csv"), show_col_types = FALSE)
-
+spectra_file_from_ECOSIS = readr :: read_csv(file = paste0(file.path(mainDir, dataset_name1), "/", "spectra.csv"), show_col_types = FALSE)
+# Step 2:Check the spectra file to see if you have relavant spectra or not
 # Step:4 Get data from Metadata file
 #### If trait units are available in the metadata file, go to *adding_more_metadata_information_to_metadata_files.R* and add the unit under *trait_name1_unit* (Line 10).
 
@@ -37,9 +38,11 @@ dataset_name1 %in% names(is_spectral_instrument_used_globally_list)
 dataset_name1 %in% names(instrument_manufacturer_info_global_list)
 dataset_name1 %in% names(instrument_model_info_global_list)
 
+
+###IMP: Always check that the data are leaf only. can be seen from going to paste0("https://ecosis.org/package/", dataset_name1)
 #### Add the **is_spectral_measurement_reflectance_only_Boolean_list** in **trait_and_sample_id_Database_for_ECOSIS_Data.R** (if available from metadata). Also check Open paste0("https://ecosis.org/package/", dataset_name1) and confirm
-#########If the Boolean_list is F,in the original data folder, create a folder "data_downloaded_using_api" and transfer both the metadata and spectra files there 
-#########and create A new R-code which writes new metadata/spectra file filtered only with reflectance data and save in the dataset folder
+#########If the Boolean_list is F or if the spectral_information is not global,in the original data folder 
+#########and create a new R-code which first does source(source(paste0(Github_dir,  "Creating_folder_for_further_data_cleaning_and moving_data_there.R"))). This source makes a new folde and transfers the metadata and spectra files there, and then write new metadata/spectra file filtered only with reflectance data (or with the added manufacturer/model columns in dataframe if spectral instrument is not global ) and save in the dataset folder
 #########For future reference, save the R filename in *GitHub_folder/Hierarchical_foliar_trait_estimation/R_codes/Getting_and_cleaning_ECOSIS_data/Further_data_cleaning* 
 
 #### Add the **sample_id** variable name in **trait_and_sample_id_Database_for_ECOSIS_Data.R** (if available)

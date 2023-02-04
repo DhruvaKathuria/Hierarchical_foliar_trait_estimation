@@ -13,12 +13,14 @@ source(paste0(Github_dir, "getting_traits_data.R"))
 
 # Check all datasets relavant to that trait_name
 datasets_vector = subset_column_names_final_pass(trait_name1)
-print(datasets_vector)
+#print(datasets_vector)
 ## Pick a dataset and change the dataset_name1
-dataset_name1 = names(datasets_vector)[2]
+dataset_name1 = names(datasets_vector)[17]
 
-## Datasets which have issues, for specific issues why a dataset wasnt selected, laod the metadata_arrow_version.parquet using read_parquet and type comment(metadta_arrow_version) 
-datasets_not_to_take = c("leaf-reflectance-plant-functional-gradient-ifgg-kit")
+#paste0("https://ecosis.org/package/", dataset_name1)
+#metadata_arrow_version = read_parquet(paste0(file.path(mainDir, dataset_name1), "/", "metadata_updated.parquet"))
+## Datasets which have issues, for specific issues why a dataset wasnt selected, load the metadata_arrow_version.parquet using read_parquet and type comment(metadta_arrow_version) 
+datasets_not_to_take = c("leaf-reflectance-plant-functional-gradient-ifgg-kit", "2018-cedar-creek-pressed-leaves", "fresh-leaf-tir-spectra-to-estimate-leaf-traits-for-california-ecosystems")
 
 if(!(dataset_name1 %in% datasets_not_to_take))
 {
@@ -51,7 +53,7 @@ if(!(dataset_name1 %in% datasets_not_to_take))
     }else{metadata_traits_already_added = NA}
     
     # read in the previous version of metadata_arrow_version
-    if(!is.na(metadata_traits_already_added))
+    if(all(!is.na(metadata_traits_already_added)))
     {
       metadata_arrow_version = read_parquet(paste0(file.path(mainDir, dataset_name), "/", "metadata_updated.parquet"))
     }else
@@ -71,10 +73,6 @@ if(!(dataset_name1 %in% datasets_not_to_take))
       
       ## only reflectance values
       attributes(metadata_arrow_version)$reflectance_values_only = is_spectral_measurement_reflectance_only_Boolean_list[[dataset_name]] # if this is FALSE, then need to filter out the reflectance values
-      if(is_spectral_measurement_reflectance_only_Boolean_list[[dataset_name]] == F)
-      {
-        
-      }
       
       ## paper_link
       attributes(metadata_arrow_version)$Paper_links = Paper_link_list[[dataset_name]]
@@ -85,9 +83,6 @@ if(!(dataset_name1 %in% datasets_not_to_take))
       {
         metadata_arrow_version$manufacturer = rep(instrument_manufacturer_info_global_list[[dataset_name]], nrow(metadata_arrow_version))
         metadata_arrow_version$model = rep(instrument_model_info_global_list[[dataset_name]], nrow(metadata_arrow_version))
-      }else
-      {
-        
       }
       
     }
@@ -118,8 +113,8 @@ if(!(dataset_name1 %in% datasets_not_to_take))
   #####################Add a comment below if you want to add a comment to the dataset; otherwise keep it to NULL##########################
   # always add the date when adding comments
 }else{metadata_arrow_version  = data.frame()}
-#comment_to_add = "January 11, 2023: The Carotenoid data does not have any units, and I did not find any papers on ECOSIS and could not search as well. Plotting the data and comparing with TRY data does seem to suggest that the data is in ug/cm2.So assuming that unit for now."
-comment_to_add = NULL
+comment_to_add = "Feb 03, 2023: All units are in attached readme.txt file."
+#comment_to_add = NULL
 
 if(!is.null(comment_to_add))
 {
