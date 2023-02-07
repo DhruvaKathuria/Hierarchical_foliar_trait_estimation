@@ -1,4 +1,17 @@
 Scientific_name,Growth_form,Phenology,Leaf
+Populus deltoides,tree,Data unavailable,broad
+Populus tremuloides,tree,deciduous,Data unavailable
+NA NA,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Carya glabra,tree,deciduous,broad
+Carya tomentosa,tree,Data unavailable,Data unavailable
+Liquidambar styraciflua,tree,deciduous,broad
+Liriodendron tulipifera,tree,Data unavailable,broad
+Pinus palustris,tree,Data unavailable,needle
+Pinus taeda,tree,evergreen,needle
+Quercus alba,tree,Data unavailable,broad
+Quercus falcate,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Quercus marilandica,tree,deciduous,broad
+Quercus montana,tree,Data unavailable,broad
 Acer negundo,tree,Data unavailable,broad
 Acer pseudoplatanus,tree,deciduous,broad
 Alnus glutinosa,tree,Data unavailable,broad
@@ -16,8 +29,6 @@ Hydrangea macrophylla,shrub,deciduous,broad
 Ilex aquifolium,tree,evergreen,broad
 Juglans regia,tree,deciduous,broad
 Ligustrum vulgare,shrub,evergreen,broad
-Liquidambar styraciflua,tree,deciduous,broad
-Liriodendron tulipifera,tree,Data unavailable,broad
 Osmanthus heterophyllus,tree,evergreen,broad
 Parthenocissus tricuspidata,vine,deciduous,Data unavailable
 Populus alba,tree,deciduous,broad
@@ -103,13 +114,10 @@ Plectritis congesta,Data unavailable,Data unavailable,Data unavailable
 Poa pratensis,grass,Data unavailable,broad
 Polystichum munitum,Data unavailable,evergreen,Data unavailable
 Populus balsamifera,tree,Data unavailable,Data unavailable
-Populus deltoides,tree,Data unavailable,broad
 Populus grandidentata,tree,deciduous,Data unavailable
-Populus tremuloides,tree,deciduous,Data unavailable
 Prunus nigra,tree,deciduous,broad
 Prunus pensylvanica,Data unavailable,Data unavailable,Data unavailable
 Prunus serotina,tree,deciduous,Data unavailable
-Quercus alba,tree,Data unavailable,broad
 Quercus bicolor,tree,Data unavailable,broad
 Quercus garryana,tree,deciduous,broad
 Quercus Linnaeus,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
@@ -188,99 +196,198 @@ Viburnum lantana,tree,deciduous,broad
 Viburnum lantanoides,shrub,Data unavailable,Data unavailable
 Viburnum lentago,tree,Data unavailable,broad
 Viburnum opulus,shrub,deciduous,broad
-Abutilon berlandieri,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+ABBA,Data unavailable,Data unavailable,broad
+ACNE,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+ACPE,Data unavailable,Data unavailable,Data unavailable
+ACPL,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+ACRU,Data unavailable,Data unavailable,Data unavailable
+ACSM,Data unavailable,Data unavailable,Data unavailable
+ACSN,Data unavailable,Data unavailable,broad
+ACSP,Data unavailable,Data unavailable,Data unavailable
+ALIN,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+ANGE,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+BEAL,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+BEGL,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+BEPA,Data unavailable,Data unavailable,Data unavailable
+CACO,Data unavailable,Data unavailable,Data unavailable
+CAOV,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+CAREX,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+CEOC,Data unavailable,Data unavailable,Data unavailable
+CHCA,Data unavailable,Data unavailable,Data unavailable
+COAM,Data unavailable,Data unavailable,broad
+FAGR,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+FRAM,Data unavailable,Data unavailable,Data unavailable
+FRNI,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+FRPE,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+GRASS,Data unavailable,Data unavailable,Data unavailable
+JUNI,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+JUVI,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+LALA,Data unavailable,Data unavailable,Data unavailable
+LEGR,Data unavailable,Data unavailable,Data unavailable
+LITU,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+LONICERA,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+OSVI,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+PHAR,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+PIBA,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+PIMA,Data unavailable,Data unavailable,Data unavailable
+PIRE,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+PIRU,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+PIST,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+PISY,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+PODE,Data unavailable,Data unavailable,Data unavailable
+POGR,Data unavailable,Data unavailable,Data unavailable
+POTR,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+PRSE,Data unavailable,Data unavailable,broad
+QUAL,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+QUEL,Data unavailable,Data unavailable,Data unavailable
+QUMA,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+QURU,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+RHCA,Data unavailable,Data unavailable,Data unavailable
+ROPS,Data unavailable,Data unavailable,broad
+SALIX,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+SOLIDAGO,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+SORU,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+SPPE,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+THOC,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+TIAM,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+TSCA,Data unavailable,Data unavailable,broad
+TYLA,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+ULAM,Data unavailable,Data unavailable,Data unavailable
+Tilia cordata,tree,deciduous,broad
+Acalypha neomexicana,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Acamptopappus sphaerocephalus,shrub,Data unavailable,Data unavailable
+Allionia incarnata,herbaceous,Data unavailable,Data unavailable
+Besseya alpina,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Betula glandulosa,shrub,Data unavailable,broad
+Carex NA,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Conopholis americana,tree,Data unavailable,Data unavailable
+Juniperus virginiana,tree,evergreen,needle
+Ledum groenlandicum,shrub,evergreen,broad
+Phacelia argentea,grass,Data unavailable,Data unavailable
+Pinus balfouriana,tree,Data unavailable,needle
+Pinus sylvestris,tree,evergreen,broad
+Poa tracyi,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Polycarpon depressum,Data unavailable,Data unavailable,Data unavailable
+Prenanthes serpentaria,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Quercus ×macnabiana,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Quercus ellipsoidalis,tree,deciduous,broad
+Salix NA,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Spartina pectinata,grass,Data unavailable,Data unavailable
+Thalictrum occidentale,Data unavailable,Data unavailable,Data unavailable
+Abies Concolor,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Adenostoma fasciculatum,shrub,evergreen,needle
+Arctostaphylos glauca/glandulosa,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Baccharis pilularis,shrub,Data unavailable,Data unavailable
+Calocedrus decurrens,tree,evergreen,broad
+Ceanothus cuneatus,shrub,evergreen,Data unavailable
+Ceanothus megacarpus,shrub,evergreen,Data unavailable
+Ceanothus spinosus,shrub,evergreen,Data unavailable
+Heteromeles arbutifolia,shrub,evergreen,Data unavailable
+Pinus lambertiana,tree,deciduous,needle
+Pinus ponderosa,tree,evergreen,needle
+Quercus agrifolia,tree,evergreen,broad
+Quercus douglasii,tree,deciduous,Data unavailable
+Quercus lobata,tree,deciduous,Data unavailable
+Salvia leucophylla,shrub,evergreen,Data unavailable
+Umbellularia californica,tree,evergreen,broad
+Acacia baileyana,tree,Data unavailable,Data unavailable
 Acacia saligna,tree,Data unavailable,Data unavailable
-Acacia schottii,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
-Acer circinatum,vine,Data unavailable,broad
 Acer floridanum,tree,deciduous,broad
-Acer macrophyllum,tree,deciduous,Data unavailable
-Aesculus californica,grass,deciduous,broad
 Ailanthus altissima,tree,deciduous,broad
 Albizia julibrissin,tree,deciduous,broad
-Allionia incarnata,herbaceous,Data unavailable,Data unavailable
-Alnus rubra,tree,deciduous,broad
 Amaranthus arenicola,Data unavailable,Data unavailable,Data unavailable
 Amaranthus californicus,Data unavailable,Data unavailable,Data unavailable
 Ambrosia trifida,Data unavailable,Data unavailable,Data unavailable
 Andropogon gerardii,grass,Data unavailable,Data unavailable
+Arabis sparsiflora,Data unavailable,Data unavailable,Data unavailable
+Arundinaria gigantea,grass,Data unavailable,Data unavailable
+Asclepias tuberosa,Data unavailable,Data unavailable,broad
+Asclepias verticillata,Data unavailable,Data unavailable,Data unavailable
 Asimina triloba,tree,deciduous,broad
+Baptisia australis,herbaceous,Data unavailable,Data unavailable
 Betula lenta,tree,deciduous,broad
+Betula nigra,tree,deciduous,broad
+Cabomba caroliniana,herbaceous,Data unavailable,Data unavailable
 Calla palustris,herbaceous,Data unavailable,broad
 Calliandra conferta,Data unavailable,Data unavailable,Data unavailable
-Calochortus greenei,Data unavailable,Data unavailable,Data unavailable
 Calochortus tolmiei,Data unavailable,Data unavailable,Data unavailable
 Carex illota,Data unavailable,Data unavailable,Data unavailable
+Cedronella canariensis,herbaceous,Data unavailable,Data unavailable
 Celtis laevigata,tree,Data unavailable,Data unavailable
-Cocos nucifera,tree,Data unavailable,broad
 Conyza floribunda,Data unavailable,Data unavailable,broad
-Cornus drummondii,tree,deciduous,Data unavailable
+Delphinium purpusii,Data unavailable,Data unavailable,Data unavailable
+Desmanthus illinoensis,Data unavailable,Data unavailable,Data unavailable
+Dicentra pauciflora,Data unavailable,Data unavailable,Data unavailable
+Dichanthelium oligosanthes,grass,Data unavailable,Data unavailable
+Digitaria villosa,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
 Distichlis spicata,grass,Data unavailable,Data unavailable
+Echinacea pallida,herbaceous,Data unavailable,Data unavailable
+Eryngium yuccifolium,grass,Data unavailable,broad
 Gleditsia triacanthos,tree,deciduous,Data unavailable
 Gordonia lasianthus,tree,evergreen,broad
-Juncus nevadensis,Data unavailable,Data unavailable,Data unavailable
-Juniperus virginiana,tree,evergreen,needle
+Ilex montana,Data unavailable,deciduous,broad
+Kalmia latifolia,shrub,evergreen,broad
 Koeleria macrantha,grass,Data unavailable,Data unavailable
-Labordia kaalae,Data unavailable,Data unavailable,Data unavailable
-Lagenaria siceraria,vine,Data unavailable,broad
+Linanthus bellus,Data unavailable,Data unavailable,needle
 Linum striatum,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Maclura pomifera,tree,deciduous,Data unavailable
 Macromeria viridiflora,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
 Madia madioides,Data unavailable,Data unavailable,Data unavailable
 Magnolia acuminata,tree,deciduous,broad
-Medicago sativa,grass,Data unavailable,broad
+Malva sylvestris,Data unavailable,Data unavailable,broad
 Melia azedarach,tree,deciduous,Data unavailable
+Monarda fistulosa,herbaceous,Data unavailable,Data unavailable
 Monarda russeliana,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
-NA NA,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Morus alba,tree,Data unavailable,Data unavailable
 Nymphoides aquatica,Data unavailable,Data unavailable,Data unavailable
+Nyssa sylvatica,tree,deciduous,broad
+Osmunda cinnamomea,herbaceous,deciduous,broad
 Oxydendrum arboreum,tree,deciduous,broad
 Palafoxia rosea,Data unavailable,Data unavailable,Data unavailable
-Pascopyrum smithii,grass,Data unavailable,Data unavailable
-Phacelia argentea,grass,Data unavailable,Data unavailable
+Panax quinquefolius,herbaceous,deciduous,Data unavailable
+Panicum torridum,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
 Phacelia austromontana,Data unavailable,Data unavailable,Data unavailable
-Picea pungens,tree,evergreen,needle
-Picramnia pentandra,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
-Picris echioides,vine,Data unavailable,Data unavailable
-Pinaropappus parvus,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
-Pinus balfouriana,tree,Data unavailable,needle
-Pinus nigra,tree,evergreen,needle
-Pinus sylvestris,tree,evergreen,broad
-Pinus taeda,tree,evergreen,needle
-Poa tracyi,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
-Polycarpon depressum,Data unavailable,Data unavailable,Data unavailable
-Polygala barbeyana,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
 Proserpinaca pectinata,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
-Pseudotsuga menziesii,tree,evergreen,needle
 Quercus ×heterophylla,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
-Quercus ×macnabiana,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
 Quercus ×palaeolithicola,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
-Quercus ×willdenowiana,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
-Quercus chapmanii,Data unavailable,Data unavailable,Data unavailable
-Quercus douglasii,tree,deciduous,Data unavailable
 Quercus falcata,tree,deciduous,broad
-Quercus kelloggii,tree,Data unavailable,broad
 Quercus laceyi,tree,deciduous,Data unavailable
 Quercus lyrata,tree,deciduous,broad
-Quercus michauxii,tree,Data unavailable,broad
 Quercus mohriana,Data unavailable,evergreen,broad
+Quercus muehlenbergii,tree,deciduous,Data unavailable
 Quercus nigra,tree,deciduous,broad
 Quercus phellos,tree,deciduous,broad
 Quercus shumardii,tree,Data unavailable,broad
 Quercus stellata,tree,Data unavailable,Data unavailable
 Quercus velutina,tree,Data unavailable,broad
 Quercus virginiana,tree,evergreen,Data unavailable
-Rhus copallinum,tree,deciduous,Data unavailable
+Rhexia aristosa,Data unavailable,Data unavailable,Data unavailable
+Rhexia mariana,Data unavailable,Data unavailable,Data unavailable
 Rhus glabra,shrub,Data unavailable,Data unavailable
+Rosa multiflora,shrub,Data unavailable,Data unavailable
 Sabal palmetto,tree,Data unavailable,Data unavailable
-Sagittaria lancifolia,herbaceous,Data unavailable,Data unavailable
+Salix alaxensis,tree,Data unavailable,Data unavailable
 Salix nigra,tree,deciduous,broad
 Schizachyrium scoparium,grass,Data unavailable,Data unavailable
-Shepherdia argentea,shrub,deciduous,Data unavailable
 Sicyos laciniatus,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
 Solanum campechiense,Data unavailable,Data unavailable,Data unavailable
 Sophora nuttalliana,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
-Spartina pectinata,grass,Data unavailable,Data unavailable
 Teucrium laciniatum,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
-Thalictrum occidentale,Data unavailable,Data unavailable,Data unavailable
 Trichomanes davallioides,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Ulmus alata,tree,deciduous,broad
+Ulmus pumila,tree,deciduous,broad
+Verbena stricta,Data unavailable,Data unavailable,Data unavailable
+Vernonia baldwinii,Data unavailable,Data unavailable,Data unavailable
+Crataegus chrysocarpa,tree,Data unavailable,Data unavailable
+Eutrochium maculatum,herbaceous,Data unavailable,Data unavailable
+Lonicera tatarica,shrub,Data unavailable,Data unavailable
+Capsicum annuum,shrub,Data unavailable,Data unavailable
+Cucurbita pepo,vine,Data unavailable,Data unavailable
+Helianthus annuus,Data unavailable,Data unavailable,broad
+Populus ×canadensis,tree,deciduous,broad
+Raphanus sativus,Data unavailable,Data unavailable,broad
+Setaria italica,grass,Data unavailable,Data unavailable
+Sorghum bicolor,grass,Data unavailable,Data unavailable
 Bambusa arundinacea,Data unavailable,Data unavailable,Data unavailable
 Beta vulgaris,herbaceous,Data unavailable,Data unavailable
 Betula pendula,tree,deciduous,broad
@@ -292,12 +399,11 @@ Fagus sylvatica,tree,deciduous,broad
 Ficus carica,tree,deciduous,Data unavailable
 Fraxinus excelsior,tree,deciduous,broad
 Glycine max,grass,Data unavailable,broad
-Helianthus annuus,Data unavailable,Data unavailable,broad
 Iris germanica,Data unavailable,Data unavailable,Data unavailable
 Lactuca sativa,vine,Data unavailable,broad
 Laurus nobilis,tree,evergreen,broad
 Lycopersicum esculentum,vine,Data unavailable,broad
-Morus alba,tree,Data unavailable,Data unavailable
+Medicago sativa,grass,Data unavailable,broad
 Morus nigra,tree,deciduous,broad
 Oryza sativa,grass,Data unavailable,broad
 Phleum pratense,grass,Data unavailable,broad
@@ -311,3 +417,77 @@ Sorghum halepense,grass,Data unavailable,Data unavailable
 Tilia platyphyllos,tree,deciduous,broad
 Ulmus glabra,tree,deciduous,broad
 Zea mays,grass,Data unavailable,Data unavailable
+Nelumbo nucifera,vine,Data unavailable,Data unavailable
+Nuphar lutea,tree,Data unavailable,Data unavailable
+Nymphaea alba,Data unavailable,Data unavailable,Data unavailable
+Trapa natans,Data unavailable,Data unavailable,Data unavailable
+Cucumis sativus,vine,Data unavailable,Data unavailable
+Ocimum basilicum,Data unavailable,Data unavailable,Data unavailable
+Phaseolus vulgaris,herbaceous,Data unavailable,broad
+Populus NA,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Solanum lycopersicum,vine,Data unavailable,broad
+Ammophila arenaria,grass,Data unavailable,Data unavailable
+Arrhenatherum elatius,grass,Data unavailable,broad
+Carex arenaria,Data unavailable,Data unavailable,Data unavailable
+Carex hirta,Data unavailable,Data unavailable,Data unavailable
+Convolvulus soldanella,vine,Data unavailable,Data unavailable
+Crepis capillaris,grass,Data unavailable,Data unavailable
+Elytrigia juncea,grass,Data unavailable,broad
+Euonymus europaeus,Data unavailable,deciduous,broad
+Festuca arenaria,grass,Data unavailable,needle
+Galium aparine,herbaceous,Data unavailable,Data unavailable
+Geranium robertianum,Data unavailable,Data unavailable,Data unavailable
+Glechoma hederacea,grass,evergreen,Data unavailable
+Hieracium umbellatum,Data unavailable,Data unavailable,Data unavailable
+Hippophae rhamnoides,shrub,deciduous,Data unavailable
+Holcus lanatus,grass,Data unavailable,Data unavailable
+Hypochaeris radicata,Data unavailable,Data unavailable,Data unavailable
+Jacobaea vulgaris,Data unavailable,Data unavailable,Data unavailable
+Lepidium draba,Data unavailable,Data unavailable,broad
+Leymus arenarius,grass,Data unavailable,Data unavailable
+Lolium multiflorum,grass,Data unavailable,broad
+Lonicera periclymenum,Data unavailable,deciduous,Data unavailable
+Oenothera glazioviana,Data unavailable,Data unavailable,Data unavailable
+Ononis repens,grass,Data unavailable,Data unavailable
+Plantago lanceolata,Data unavailable,Data unavailable,Data unavailable
+Potentilla reptans,Data unavailable,Data unavailable,Data unavailable
+Rhinanthus minor,herbaceous,Data unavailable,Data unavailable
+Rosa rugosa,shrub,Data unavailable,broad
+Rubus caesius,shrub,Data unavailable,broad
+Rumex crispus,Data unavailable,Data unavailable,Data unavailable
+Senecio inaequidens,grass,Data unavailable,Data unavailable
+Thalictrum minus,grass,Data unavailable,Data unavailable
+Callirhoe alcaeoides,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Picea pungens,tree,evergreen,needle
+Pinguicula villosa,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Quercus prinoides,shrub,Data unavailable,Data unavailable
+Alnus viridis,tree,Data unavailable,broad
+Salix glauca,shrub,Data unavailable,Data unavailable
+Salix pulchra,shrub,deciduous,Data unavailable
+Salix richardsonii,shrub,Data unavailable,Data unavailable
+Abutilon berlandieri,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Acacia schottii,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Acer circinatum,vine,Data unavailable,broad
+Acer macrophyllum,tree,deciduous,Data unavailable
+Aesculus californica,grass,deciduous,broad
+Alnus rubra,tree,deciduous,broad
+Calochortus greenei,Data unavailable,Data unavailable,Data unavailable
+Cocos nucifera,tree,Data unavailable,broad
+Cornus drummondii,tree,deciduous,Data unavailable
+Juncus nevadensis,Data unavailable,Data unavailable,Data unavailable
+Labordia kaalae,Data unavailable,Data unavailable,Data unavailable
+Lagenaria siceraria,vine,Data unavailable,broad
+Pascopyrum smithii,grass,Data unavailable,Data unavailable
+Picramnia pentandra,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Picris echioides,vine,Data unavailable,Data unavailable
+Pinaropappus parvus,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Pinus nigra,tree,evergreen,needle
+Polygala barbeyana,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Pseudotsuga menziesii,tree,evergreen,needle
+Quercus ×willdenowiana,"Error in extraction, check","Error in extraction, check","Error in extraction, check"
+Quercus chapmanii,Data unavailable,Data unavailable,Data unavailable
+Quercus kelloggii,tree,Data unavailable,broad
+Quercus michauxii,tree,Data unavailable,broad
+Rhus copallinum,tree,deciduous,Data unavailable
+Sagittaria lancifolia,herbaceous,Data unavailable,Data unavailable
+Shepherdia argentea,shrub,deciduous,Data unavailable

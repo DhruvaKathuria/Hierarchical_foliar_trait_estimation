@@ -52,7 +52,8 @@ get_extra_metadata = function(index1, classification_form)
   out = sapply(names(table(metadata_arrow_version$genus_species1)), function(scientific_name, classification_form1 = classification_form)
   {return(tryCatch(get_final_classification_for_species(scientific_name, classification_form1), error=function(e) "Error in extraction, check"))}
   )
-  
+  closeAllConnections()
+  out
 }
 #########################################################################################################################
 
@@ -65,7 +66,7 @@ classification_list = list("Growth_form" = c("shrub", "tree", "herbaceous", "gra
                            "Phenology" = c("deciduous", "evergreen"),
                            "Leaf" = c("broad", "needle")) # These are the various classifications that I am using right now. More classifications can be easily added here
 
-trait_name1 = "Carotenoid_Area"
+trait_name1 = "LMA"
 datasets_already_processed =  list.files(mainDir, recursive = T, pattern = "traits_already_done_for_metadata.txt")
 indices_of_datasets_containing_trait_name =  unlist(lapply(datasets_already_processed, function(x)
 {
@@ -98,8 +99,9 @@ for(ii in 1:length(classification_names))
 
 colnames(out_mat) = c("Scientific_name", classification_names)
 out_mat1 = unique(out_mat)
-readr:: write_csv(data.frame(out_mat1), paste0("/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Species_data/", "Species_attribute_data_Dhruva.csv"))
-##########################################################################################################################
 
-
+out_mat2 = readr :: read_csv(paste0("/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Species_data/", "Species_attribute_data_Dhruva.csv"))
+out_mat3 = rbind(data.frame(out_mat1), out_mat2)
+out_mat3 = unique(out_mat3)
+readr:: write_csv(data.frame(out_mat3), paste0("/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Species_data/", "Species_attribute_data_Dhruva.csv"))
 

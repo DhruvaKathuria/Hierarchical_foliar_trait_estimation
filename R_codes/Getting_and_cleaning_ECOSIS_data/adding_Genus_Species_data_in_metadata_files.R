@@ -1,8 +1,10 @@
 library(taxize)
 library(arrow)
+library(stringr)
+
 mainDir = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/ECOSIS_Data_download_Dhruva"  
 
-trait_name1 = "Carotenoid_Area"
+trait_name1 = "LMA"
 datasets_already_processed =  list.files(mainDir, recursive = T, pattern = "traits_already_done_for_metadata.txt")
 indices_of_datasets_containing_trait_name =  unlist(lapply(datasets_already_processed, function(x)
 {
@@ -130,7 +132,7 @@ get_latin_genus = function(index)
           USDA_codes = unlist(metadata_arrow_version[column_to_take])
           Genus_Species_Name = unlist(lapply(USDA_codes, function(x)
           {
-            ind1 = which(USDA_attribute_data$Symbol == x)
+            ind1 = which(tolower(USDA_attribute_data$Symbol) == tolower(x))
             if(length(ind1) == 0)
             {
               out1 = NA
@@ -143,9 +145,9 @@ get_latin_genus = function(index)
               }
             out1
           }))
-          check_Genus_Species_names = strsplit(Genus_Species_Name,  " ")
+          check_Genus_Species_names = sapply(Genus_Species_Name, function(x) {if(is.na(x)) {out = NA} else {out = strsplit(x,  " ")}}) 
           Genus_Species_Name =  unlist(lapply(check_Genus_Species_names, function(x) paste(x[1], x[2], sep = " ")))
-        }
+        }else{Genus_Species_Name = rep(NA, nrow(metadata_arrow_version))}
       }
     }
     #Genus_Species_Name
@@ -164,3 +166,4 @@ get_latin_genus = function(index)
     }
 }
 
+for(i in 1:length(datasets_to_take_for_trait)) {get_latin_genus(i)}

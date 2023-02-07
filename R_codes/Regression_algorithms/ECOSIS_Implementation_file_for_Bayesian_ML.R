@@ -5,6 +5,7 @@ library(ggplot2)
 
 source("/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Regression_algorithms/Apply_ML_and_prospect_algorithms.R")
 #################################################functions used in this code#######################################
+x = datasets_to_take_for_trait[1]
 
 filter_spectra_data = function(x) # this function only works for Carotenoid data for filtering the spectra # need to solve the Github issue
 {
@@ -12,7 +13,8 @@ filter_spectra_data = function(x) # this function only works for Carotenoid data
   index_start = which(as.numeric(colnames(spectra)) == 400 )
   index_end = which(as.numeric(colnames(spectra)) == 2400)
   
-  spectra_filtered = spectra[, index_start:index_end]
+  if(length(index_start)!= 0 & length(index_end)!=0 & (index_end - index_start) == 2000)
+  {spectra_filtered = spectra[, index_start:index_end]}else{spectra_filtered = NA}
   
 }
 
@@ -70,8 +72,10 @@ get_test_data_frame_predictions = function(indices_subset, algorithm1) # gives t
 
 
 ###############################################Datasets########################################################################
+Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/"
 datasets_already_processed =  list.files(mainDir, recursive = T, pattern = "traits_already_done_for_metadata.txt")
 database_for_metadata = readr :: read_csv(paste0(Github_dir, "R_codes/Species_data/Species_attribute_data_Dhruva.csv")) # this is the metadata file that I made from "get_growth_form_phenology_leaf_type_etc_from_Wiki.R"datasets_already_processed =  list.files(mainDir, recursive = T, pattern = "traits_already_done_for_metadata.txt") # we take the datasets for which atleast one of the traits has been processed
+trait_name1 = "LMA"
 indices_of_datasets_containing_trait_name =  unlist(lapply(datasets_already_processed, function(x)
 {
   read_file1 = readr :: read_lines(file.path(mainDir, x))
