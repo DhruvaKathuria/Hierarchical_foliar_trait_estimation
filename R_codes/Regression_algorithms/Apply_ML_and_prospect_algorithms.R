@@ -192,7 +192,7 @@ apply_regression_algorithm2 <- function(algorithm1, spectra_data_train, covariat
     ncol1 = ncol(data_matrix_1)
     grid_rf <- expand.grid(.mtry = c(ncol1/2,ncol1/3,ncol1/4))
     
-    ntree = 100
+    ntree = 500
     tuneResult <- train(Y ~., data = data_matrix_1, method = "rf",tuneGrid = grid_rf,ntree = ntree,
                         trControl = trainControl(method = "cv", number = 5,
                                                  #index = folds,                    #for pre-setting your own folds 

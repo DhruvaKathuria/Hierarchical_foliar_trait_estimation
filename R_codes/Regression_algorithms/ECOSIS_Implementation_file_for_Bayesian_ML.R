@@ -5,7 +5,7 @@ library(ggplot2)
 
 source("/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Regression_algorithms/Apply_ML_and_prospect_algorithms.R")
 #################################################functions used in this code#######################################
-x = datasets_to_take_for_trait[1]
+#x = datasets_to_take_for_trait[1]
 
 filter_spectra_data = function(x) # this function only works for Carotenoid data for filtering the spectra # need to solve the Github issue
 {
@@ -13,8 +13,12 @@ filter_spectra_data = function(x) # this function only works for Carotenoid data
   index_start = which(as.numeric(colnames(spectra)) == 400 )
   index_end = which(as.numeric(colnames(spectra)) == 2400)
   
-  if(length(index_start)!= 0 & length(index_end)!=0 & (index_end - index_start) == 2000)
-  {spectra_filtered = spectra[, index_start:index_end]}else{spectra_filtered = NA}
+  if(length(index_start)!= 0 & length(index_end)!=0)
+  {
+    if((index_end - index_start) == 2000)
+    {
+    spectra_filtered = spectra[, index_start:index_end]
+    }else{spectra_filtered = NA}} else{spectra_filtered = NA}
   
 }
 
@@ -37,6 +41,11 @@ filter_trait_data_and_metadata = function(x, trait_name1) # attaches the trait v
   if(trait_name1 == "Carotenoid_Area") # instead of the for loop, for each trait I need to make a list like the ones I made in "trait_and_sample_id_Database_for_ECOSIS_Data.R" which connects the trait_name and the chosen unit
   {
     trait_value = set_units(trait_value, microgram/cm^2)
+  }
+  
+  if(trait_name1 == "LMA") # instead of the for loop, for each trait I need to make a list like the ones I made in "trait_and_sample_id_Database_for_ECOSIS_Data.R" which connects the trait_name and the chosen unit
+  {
+    trait_value = set_units(trait_value, gram/m^2)
   }
   
   metadata_merged = merge(metadata_arrow_version, database_for_metadata, by.x = "genus_species1" , by.y = "Scientific_name", all.x = TRUE)
@@ -86,11 +95,16 @@ indices_of_datasets_containing_trait_name =  unlist(lapply(datasets_already_proc
 datasets_to_take_for_trait = unlist(lapply(datasets_already_processed[indices_of_datasets_containing_trait_name], function(x) strsplit(x, "/traits_already_done_for_metadata.txt" )[[1]])) 
 
 spectra_filtered = lapply(datasets_to_take_for_trait, filter_spectra_data)
-spectra_df = do.call(rbind, spectra_filtered)
+indices_spectra_to_take = which(sapply(spectra_filtered, length) == 2001)
 
-trait_and_metadata_dataframe_list = lapply(datasets_to_take_for_trait, filter_trait_data_and_metadata, trait_name1 =  "Carotenoid_Area")
+
+trait_and_metadata_dataframe_list = lapply(datasets_to_take_for_trait, function(x){ return(tryCatch(filter_trait_data_and_metadata(x = x, trait_name1 =  "LMA"), error=function(e) NA)) })
+indices_to_take_metadata = which(sapply(trait_and_metadata_dataframe_list, length) != 1)
+indices_to_take = intersect(indices_spectra_to_take, indices_to_take_metadata)
 ## IMP: Need to have a check which confirms that the units of each list are the same
-trait_and_metadata_dataframe = do.call(rbind, trait_and_metadata_dataframe_list)
+
+spectra_df = do.call(rbind, spectra_filtered[indices_to_take])
+trait_and_metadata_dataframe = do.call(rbind, trait_and_metadata_dataframe_list[indices_to_take])
 #################################################################################################################
 
 ## The below is just a quick fix (Just for Caretonoid) for a first pass at data. Will be replaced by a more formal approach for dealing with spectra
@@ -117,7 +131,7 @@ if(filtering_type == "Global")
 }else if (filtering_type == "Site_specific") 
 {
   indices_subset = lapply(datasets_to_take_for_trait, get_indices_subset_function, filtering_type = "Site_specific", data_frame1 = trait_and_metadata_dataframe, fraction_split = 0.7)
-  data_mat_test = lapply(indices_subset, get_test_data_frame_predictions, algorithm1 = "ridge") 
+  data_mat_test = lapply(indices_subset, get_test_data_frame_predictions, algorithm1 = algorithm1) 
   names(data_mat_test) = datasets_to_take_for_trait
 }
 

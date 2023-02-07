@@ -5,8 +5,8 @@ Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_e
 
 ###########Parameters to change in the code###################
 algorithm1 = "ridge" # can be PLSR, "Bayesian_linear_horseshoe; check "Apply_ML_and_prospect_algorithms.R" for various options on algorithms
-filtering_type = "Site_specific" # "Global", "Site_specific"
-trait_name1 = "Carotenoid_Area"
+filtering_type = "Global" # "Global", "Site_specific"
+trait_name1 = "LMA"
 
 # The below code gives "data_mat_test" which gives us the test matrix for a trait with predictions as "pred" and observations as "trait"
 source(paste0(Github_dir, "R_codes/Regression_algorithms/ECOSIS_Implementation_file_for_Bayesian_ML.R"))
@@ -24,11 +24,11 @@ function_for_plotting <- function(data_mat, name1) # name1 is either "Global" or
     data_mat$trait = as.numeric(data_mat$trait)
     data_mat$error = (data_mat$pred - data_mat$trait)
     
-    gg_pred[[metadata_filter]] <-  ggplot(data_mat, aes(x = trait, y = pred, color = .data[[metadata_filter]])) +
+    gg_pred[[metadata_filter]] <-  ggplot(data_mat, aes(x = pred, y = trait, color = .data[[metadata_filter]], alpha = 0.5)) +
       geom_point() + geom_abline()+ ggtitle(name1) + scale_fill_manual(values = colors_list[[jj]]) +
       theme(plot.title = element_text(size = 6))
     
-    gg_error[[metadata_filter]] <- ggplot(data_mat, aes(x = trait, y = error, color = .data[[metadata_filter]])) +
+    gg_error[[metadata_filter]] <- ggplot(data_mat, aes(x = trait, y = error, color = .data[[metadata_filter]], alpha = 0.5)) +
       geom_point() + ggtitle(name1) +scale_fill_manual(values = colors_list[[jj]]) +
       theme(plot.title = element_text(size = 6)) #+ geom_abline()
   }
