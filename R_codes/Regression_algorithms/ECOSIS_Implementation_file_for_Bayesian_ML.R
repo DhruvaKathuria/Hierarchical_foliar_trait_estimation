@@ -20,7 +20,11 @@ filter_spectra_data = function(x) # this function only works for Carotenoid data
     spectra_filtered = spectra[, index_start:index_end]
     }else{spectra_filtered = NA}} else{spectra_filtered = NA}
   
+  spectra_filtered |> filter()
+  
 }
+
+this
 
 filter_trait_data_and_metadata = function(x, trait_name1) # attaches the trait value and also the metadata associated with species as well as the instrument error
 {
