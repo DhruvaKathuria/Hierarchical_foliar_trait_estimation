@@ -19,12 +19,29 @@ filter_spectra_data = function(x) # this function only works for Carotenoid data
     {
     spectra_filtered = spectra[, index_start:index_end]
     }else{spectra_filtered = NA}} else{spectra_filtered = NA}
-  
-  spectra_filtered |> filter()
+
+}
+
+look_and_correct_for_spectra_scaling_errors <- function(spectra_data)
+{
+  if(is_tibble(spectra_data))
+  {
+    fraction_of_observations_with_error = apply(spectra_data, 1, function(y) {length(which(y[500:700] > 1))/ length(y[500:700])})
+    if(all(fraction_of_observations_with_error == 0))
+    {
+      spectra_data = spectra_data
+    }else if(all(fraction_of_observations_with_error > 0.7))
+    {
+      spectra_data = spectra_data/100
+    }else{
+      print("Need to investigate")
+      stop
+    }
+  }else{spectra_data = NA}
+  spectra_data
   
 }
 
-this
 
 filter_trait_data_and_metadata = function(x, trait_name1) # attaches the trait value and also the metadata associated with species as well as the instrument error
 {
@@ -99,6 +116,7 @@ indices_of_datasets_containing_trait_name =  unlist(lapply(datasets_already_proc
 datasets_to_take_for_trait = unlist(lapply(datasets_already_processed[indices_of_datasets_containing_trait_name], function(x) strsplit(x, "/traits_already_done_for_metadata.txt" )[[1]])) 
 
 spectra_filtered = lapply(datasets_to_take_for_trait, filter_spectra_data)
+spectra_filtered = sapply(spectra_filtered, look_and_correct_for_spectra_scaling_errors)
 indices_spectra_to_take = which(sapply(spectra_filtered, length) == 2001)
 
 
