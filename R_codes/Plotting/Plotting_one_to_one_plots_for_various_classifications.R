@@ -1,12 +1,7 @@
 library(cowplot)
 rm(list = ls())
-mainDir = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/ECOSIS_Data_download_Dhruva"  
-Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/"
 
-###########Parameters to change in the code###################
-algorithm1 = "ridge" # can be PLSR, "Bayesian_linear_horseshoe; check "Apply_ML_and_prospect_algorithms.R" for various options on algorithms
-filtering_type = "Global" # "Global", "Site_specific"
-trait_name1 = "LMA"
+
 
 # The below code gives "data_mat_test" which gives us the test matrix for a trait with predictions as "pred" and observations as "trait"
 source(paste0(Github_dir, "R_codes/Regression_algorithms/ECOSIS_Implementation_file_for_Bayesian_ML.R"))

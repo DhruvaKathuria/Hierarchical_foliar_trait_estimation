@@ -1,8 +1,15 @@
-library(dplyr)
+library(tidyverse)
 library(arrow)
 library(units)
-library(ggplot2)
 
+mainDir = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/ECOSIS_Data_download_Dhruva"  
+Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/"
+
+###########Parameters to change in the code###################
+algorithm1 = "ridge" # can be PLSR, "Bayesian_linear_horseshoe; check "Apply_ML_and_prospect_algorithms.R" for various options on algorithms
+filtering_type = "Global" # "Global", "Site_specific"
+trait_name1 = "LMA"
+get_only_train_test_indices = T # we set this value to T if we do not want to run the regression algorithm and only want the train/test split indices. This is helpful if I am exploring some new regression approach and I can just call this R file from another R code to get the indices and the input matrices
 source("/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Regression_algorithms/Apply_ML_and_prospect_algorithms.R")
 #################################################functions used in this code#######################################
 #x = datasets_to_take_for_trait[1]
@@ -145,16 +152,22 @@ trait_and_metadata_dataframe = do.call(rbind, trait_and_metadata_dataframe_list[
 # }
 
 
-
+set.seed(100)
 if(filtering_type == "Global")
 {
   indices_subset = get_indices_subset_function(trait_and_metadata_dataframe, filtering_type = "Global", test_site = "None", fraction_split = 0.7)
-  data_mat_test =   get_test_data_frame_predictions(indices_subset, algorithm1)
+  if(get_only_train_test_indices == F)
+  {
+    data_mat_test =   get_test_data_frame_predictions(indices_subset, algorithm1)
+  }
 }else if (filtering_type == "Site_specific") 
 {
   indices_subset = lapply(datasets_to_take_for_trait, get_indices_subset_function, filtering_type = "Site_specific", data_frame1 = trait_and_metadata_dataframe, fraction_split = 0.7)
-  data_mat_test = lapply(indices_subset, get_test_data_frame_predictions, algorithm1 = algorithm1) 
-  names(data_mat_test) = datasets_to_take_for_trait
+  if(get_only_train_test_indices == F)
+  {
+    data_mat_test = lapply(indices_subset, get_test_data_frame_predictions, algorithm1 = algorithm1) 
+    names(data_mat_test) = datasets_to_take_for_trait
+  }
 }
 
 
