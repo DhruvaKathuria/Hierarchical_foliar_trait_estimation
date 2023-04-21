@@ -3,9 +3,9 @@
 LMA_vector = c("lma", "leaf_mass_per_area", "leaf mass per area")
 Chl_vector = c("chlorophyll", "chl", "chl_ab", "chlab") # work on how to separate chla and chlb from chltot
 Chla_vector = c("chla", "chl_a", "chlb", "chl_b", "chlorophyll_a", "chlorophyll_b", "chlorophylla", "chlorophyllb")
-Carbon_vector = c("c", "carbon", "c_")
+Carbon_vector = c("c", "carbon", "c_", "carea", "c_area", "c_mass", "cmass")
 Calcium_vector = c("Ca", "calcium")
-Nitrogen_vector = c("nitrogen", "n", "n%")
+Nitrogen_vector = c("nitrogen", "n", "n%", "narea", "n_area", "nmass", "n_mass")
 Carbon_Nitrogen = "c:n"
 Cellulose_vector = c("cellulose")
 Lignin_vector = "lignin"
@@ -18,9 +18,11 @@ trait_vector_list = list("Carotenoid_Area" = Carotenoid_vector, "Carotenoid_Mass
 
 exact_vector_list_for_covariate_first_pass_list = list("Carotenoid_Area" =  c("car", "car_area", "car_area (ug/cm2)", "carot_tot_area_l", "carotenoid ( g/cm )", "carotenoid (µg/cm²)", "carotenoid content ( g/cm )", "carotenoids"),
                                                        "LMA" = c("lma_gdw_m2", "lma g m2", "lma", "leaf mass per area", "lma_g_m2", "leaf mass per area (g/cm )", "lma_gm2", "leaf mass per area (g/cm²)",
-                                                                 "leaf mass per area (mg/cm2)", "lma_gdw_m2", "leaf mass per area (mg/cm2)", "leaf mass per area (g/cm2)"))                         # this is after subsetting by eye the output of subset_trait_data_zeroeth_pass_function
+                                                                 "leaf mass per area (mg/cm2)", "lma_gdw_m2", "leaf mass per area (mg/cm2)", "leaf mass per area (g/cm2)"),
+                                                       "Nitrogen" = c("nmass_percent", "n", "nmass", "leaf nitrogen content per leaf area (% dm)", "nitrogen", "nitrogen (mg/g)", "leaf nitrogen content per leaf dry mass (% dw)", "nitrogen_percent", "n_mass_g_g", "leaf nitrogen content per leaf dry mass", "n%", "nmass_perc", "nmass_g_g", "nmass_pc", "pct_nitrogen"))                         # this is after subsetting by eye the output of subset_trait_data_zeroeth_pass_function
 exact_vector_list_for_covariate_second_pass_list = list("Carotenoid_Area" = c("car_area", "carotenoid content ( g/cm )", "carot_tot_area_l", "car_area (ug/cm2)"),
-                                                        "LMA" = exact_vector_list_for_covariate_first_pass_list[["LMA"]])# this is subsetting by eye the output of above which has more than one matching dataset for the above. used choosing one item only for multi-item datasets. The second pass is imp for example for separating trait_area from trait_mass or chl_a from chl_tot
+                                                        "LMA" = exact_vector_list_for_covariate_first_pass_list[["LMA"]],
+                                                        "Nitrogen" = exact_vector_list_for_covariate_first_pass_list[["Nitrogen"]])# this is subsetting by eye the output of above which has more than one matching dataset for the above. used choosing one item only for multi-item datasets. The second pass is imp for example for separating trait_area from trait_mass or chl_a from chl_tot
 
 ######################################Metadata related to dataset (trait independent)###############################################
 
@@ -49,7 +51,12 @@ is_spectral_measurement_reflectance_only_Boolean_list = list("cabo-2018-2019-lea
                                                              "leaf-spectra-of-36-species-growing-in-rosa-rugosa-invaded-coastal-grassland-communities-in-belgium" = TRUE, 
                                                              "leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan" = TRUE, 
                                                              "nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests" = TRUE,
-                                                             "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = TRUE) 
+                                                             "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = TRUE,
+                                                             "dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states" = TRUE,
+                                                             "dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains" = TRUE,
+                                                             "leaf-reflectance-spectra-and-nitrogen-concentration-of-oilseed-rape" = TRUE,
+                                                             "leaf-spectra-and-physiological-and-chemical-traits-from-maize-grown-under-nitrogen-stress" = TRUE,
+                                                             "leaf-spectra-and-physiological-and-chemical-traits-from-sorghum-grown-under-nitrogen-stress" = TRUE) 
 
 
 #################Sample id column name for each dataset, in case the data does not have it, I might have to create one
@@ -77,7 +84,12 @@ sample_id_list = list("cabo-2018-2019-leaf-level-spectra" = "sample_id",
                       "leaf-spectra-of-36-species-growing-in-rosa-rugosa-invaded-coastal-grassland-communities-in-belgium" = "ids", 
                       "leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan" = "ids",
                       "nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests" = "SampleID",
-                      "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = "Sample_ID" )
+                      "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = "Sample_ID",
+                      "dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states" = "Sample_ID",
+                      "dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains" = "Sample_ID",
+                      "leaf-reflectance-spectra-and-nitrogen-concentration-of-oilseed-rape" = NA,
+                      "leaf-spectra-and-physiological-and-chemical-traits-from-maize-grown-under-nitrogen-stress" = "ID",
+                      "leaf-spectra-and-physiological-and-chemical-traits-from-sorghum-grown-under-nitrogen-stress" = "ID")
 
 
 ############Link to the journal paper##############################
@@ -105,7 +117,12 @@ Paper_link_list = list("cabo-2018-2019-leaf-level-spectra" = c("https://ecoevorx
                        "leaf-spectra-of-36-species-growing-in-rosa-rugosa-invaded-coastal-grassland-communities-in-belgium" = "https://doi.org/10.1111/1365-2745.13389", 
                        "leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan" = "https://doi.org/10.1016/j.ecolind.2021.108111",
                        "nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests" = "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.16123",
-                       "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = c("https://doi.org/10.5440/1430079", "https://doi.org/10.5440/1430080"))
+                       "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = c("https://doi.org/10.5440/1430079", "https://doi.org/10.5440/1430080"),
+                       "dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states" = "https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.16711",
+                       "dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains" = NA,
+                       "leaf-reflectance-spectra-and-nitrogen-concentration-of-oilseed-rape" = NA,
+                       "leaf-spectra-and-physiological-and-chemical-traits-from-maize-grown-under-nitrogen-stress" = "https://plantmethods.biomedcentral.com/articles/10.1186/s13007-019-0450-8",
+                       "leaf-spectra-and-physiological-and-chemical-traits-from-sorghum-grown-under-nitrogen-stress" = NA)
 
 
 ###Spectral instrument info#################################
@@ -134,7 +151,12 @@ is_spectral_instrument_used_globally_list = list("cabo-2018-2019-leaf-level-spec
                                                  "leaf-spectra-of-36-species-growing-in-rosa-rugosa-invaded-coastal-grassland-communities-in-belgium" = T, 
                                                  "leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan" = T, 
                                                  "nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests" = T,
-                                                 "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = T)
+                                                 "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = T,
+                                                 "dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states" = T,
+                                                 "dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains" = T,
+                                                 "leaf-reflectance-spectra-and-nitrogen-concentration-of-oilseed-rape" = T,
+                                                 "leaf-spectra-and-physiological-and-chemical-traits-from-maize-grown-under-nitrogen-stress" = T,
+                                                 "leaf-spectra-and-physiological-and-chemical-traits-from-sorghum-grown-under-nitrogen-stress" = T)
 
 ###if *is_spectral_instrument_used_globally_list* is F, add the manufacturer and model info in the meadata itself, eg look at /Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Getting_and_cleaning_ECOSIS_data/Further_data_cleaning/fresh-leaf-spectra-to-estimate-lma-over-neon-domains-in-eastern-united-states.R
 ###if *is_spectral_instrument_used_globally_list* is T, then fill in below
@@ -161,16 +183,21 @@ instrument_manufacturer_info_global_list = list("cabo-2018-2019-leaf-level-spect
                                                 "leaf-spectra-of-36-species-growing-in-rosa-rugosa-invaded-coastal-grassland-communities-in-belgium" = "spectra vista corporation", 
                                                 "leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan" = "spectra vista corporation",
                                                 "nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests" = "analytical spectral devices",
-                                                "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = "spectra vista corporation")
+                                                "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = "spectra vista corporation",
+                                                "dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states" = "analytical spectral devices",
+                                                "dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains" = "analytical spectral devices",
+                                                "leaf-reflectance-spectra-and-nitrogen-concentration-of-oilseed-rape" = "analytical spectral devices",
+                                                "leaf-spectra-and-physiological-and-chemical-traits-from-maize-grown-under-nitrogen-stress" = "malvern panalytical ltd.",
+                                                "leaf-spectra-and-physiological-and-chemical-traits-from-sorghum-grown-under-nitrogen-stress" = "malvern panalytical ltd.")
 
 instrument_model_info_global_list = list("cabo-2018-2019-leaf-level-spectra" = "hr-1024i",
                                          "fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains" = "psr-3500",
                                          "angers-leaf-optical-properties-database--2003-" = "fieldspec",
-                                         "dessain-project-reflectance-spectra" = "field spec 4",
+                                         "dessain-project-reflectance-spectra" = "fieldspec 4",
                                          "leaf-optical-properties-experiment-database--lopex93-" = "lambda-19 spectrophotometer",
-                                         "leaf-reflectance-plant-functional-gradient-ifgg-kit" = "asd fieldspec 3",
+                                         "leaf-reflectance-plant-functional-gradient-ifgg-kit" = "fieldspec 3",
                                          "productivity-and-characterization-of-soybean-foliar-traits-under-aphid-pressure" = "fieldspec4",
-                                         "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = "asd fieldspec 3",
+                                         "2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits" = "fieldspec 3",
                                          "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions" = "asd fieldspec 3",
                                          "2018-talladega-national-forest--leaf-level-reflectance-spectra-and-foliar-traits" = "svc hr-1024i spectroradiometer with an attached lc-rp-pro leaf clip foreoptic",
                                          "common-milkweed-leaf-responses-to-water-stress-and-elevated-temperature" = "fieldspec 3",
@@ -186,7 +213,12 @@ instrument_model_info_global_list = list("cabo-2018-2019-leaf-level-spectra" = "
                                          "leaf-spectra-of-36-species-growing-in-rosa-rugosa-invaded-coastal-grassland-communities-in-belgium" = "hr-1024", 
                                          "leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan" = "hr-1024",
                                          "nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests" = "fieldspec 3",
-                                         "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = "hr-1024i")
+                                         "ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska" = "hr-1024i",
+                                         "dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states" = "fieldspec 3",
+                                         "dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains" = "fieldspec 3",
+                                         "leaf-reflectance-spectra-and-nitrogen-concentration-of-oilseed-rape" = "fieldspec 4",
+                                         "leaf-spectra-and-physiological-and-chemical-traits-from-maize-grown-under-nitrogen-stress" = "fieldspec 4",
+                                         "leaf-spectra-and-physiological-and-chemical-traits-from-sorghum-grown-under-nitrogen-stress" = "fieldspec 4")
                                          
 
 

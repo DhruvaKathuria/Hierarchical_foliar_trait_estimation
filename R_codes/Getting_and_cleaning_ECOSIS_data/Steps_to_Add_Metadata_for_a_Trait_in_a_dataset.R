@@ -10,12 +10,12 @@ out1
 ## Once we fill in all the values in *exact_vector_list_for_covariate_first_pass*, run
 exact_vector_list_for_covariate_first_pass = exact_vector_list_for_covariate_first_pass_list[[trait_name1]]
 subset_list1 = lapply(subset_trait_data_zeroeth_pass_function(trait_name1), subset_function1)
-subset_list2 = subset_list[which(!is.na(subset_list))]
+subset_list2 = subset_list1[which(!is.na(subset_list1))]
 ## If there is difference in the length of subset_list1 and subset_list2 then there are some datasets which are giving NA. Look it up to confirm that you have not accidentaly left out a column name for a trait
 subset_list2
 ## For the datasets, which have more than one matching columns, choose the ones which match exactly and them to the to *exact_vector_list_for_covariate_second_pass_list* in *trait_and_sample_id_Database_for_ECOSIS_Data.R*
 exact_vector_list_for_covariate_second_pass = exact_vector_list_for_covariate_second_pass_list[[trait_name1]] # this is subsetting by eye the output of above which has more than one matching dataset for the above. The second pass is imp for example for separating trait_area from trait_mass or chl_a from chl_tot
-subset_list3 = lapply(subset_list, trait_name_subset)
+subset_list3 = lapply(subset_list1, trait_name_subset)
 subset_list3
 ## Make sure each dataset in subset_list3 has only one element, if not you will have to tweak the code (based on a particular trait) in *getting_traits_data.R* under function "subset_column_names_final_pass"
 ############################################################################################################################
@@ -23,6 +23,7 @@ subset_list3
 ##################################################Metadata related to specific dataset####################################
 # Step:3 Open the metadata file
 
+dataset_name1 = dataset_name1
 
 metadata_file_from_ECOSIS = readr :: read_csv(file = paste0(file.path(mainDir, dataset_name1), "/", "metadata.csv"), show_col_types = FALSE)
 spectra_file_from_ECOSIS = readr :: read_csv(file = paste0(file.path(mainDir, dataset_name1), "/", "spectra.csv"), show_col_types = FALSE)

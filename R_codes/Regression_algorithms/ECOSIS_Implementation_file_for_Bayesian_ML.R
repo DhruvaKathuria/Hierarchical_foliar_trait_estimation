@@ -8,7 +8,7 @@ Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_e
 ###########Parameters to change in the code###################
 algorithm1 = "ridge" # can be PLSR, "Bayesian_linear_horseshoe; check "Apply_ML_and_prospect_algorithms.R" for various options on algorithms
 filtering_type = "Global" # "Global", "Site_specific"
-trait_name1 = "LMA"
+trait_name1 = "Nitrogen"
 get_only_train_test_indices = T # we set this value to T if we do not want to run the regression algorithm and only want the train/test split indices. This is helpful if I am exploring some new regression approach and I can just call this R file from another R code to get the indices and the input matrices
 source("/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Regression_algorithms/Apply_ML_and_prospect_algorithms.R")
 #################################################functions used in this code#######################################
@@ -76,6 +76,11 @@ filter_trait_data_and_metadata = function(x, trait_name1) # attaches the trait v
     trait_value = set_units(trait_value, gram/m^2)
   }
   
+  if(trait_name1 == "Nitrogen")
+  {
+    trait_value = set_units(trait_value, mg/g)
+  }
+  
   metadata_merged = merge(metadata_arrow_version, database_for_metadata, by.x = "genus_species1" , by.y = "Scientific_name", all.x = TRUE)
   metadata_merged = metadata_merged %>% select(genus_species1, family1, Growth_form, Phenology, Leaf, manufacturer, model)
   metadata_merged$trait = trait_value
@@ -112,7 +117,6 @@ get_test_data_frame_predictions = function(indices_subset, algorithm1) # gives t
 Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/"
 datasets_already_processed =  list.files(mainDir, recursive = T, pattern = "traits_already_done_for_metadata.txt")
 database_for_metadata = readr :: read_csv(paste0(Github_dir, "R_codes/Species_data/Species_attribute_data_Dhruva.csv")) # this is the metadata file that I made from "get_growth_form_phenology_leaf_type_etc_from_Wiki.R"datasets_already_processed =  list.files(mainDir, recursive = T, pattern = "traits_already_done_for_metadata.txt") # we take the datasets for which atleast one of the traits has been processed
-trait_name1 = "LMA"
 indices_of_datasets_containing_trait_name =  unlist(lapply(datasets_already_processed, function(x)
 {
   read_file1 = readr :: read_lines(file.path(mainDir, x))
@@ -123,11 +127,11 @@ indices_of_datasets_containing_trait_name =  unlist(lapply(datasets_already_proc
 datasets_to_take_for_trait = unlist(lapply(datasets_already_processed[indices_of_datasets_containing_trait_name], function(x) strsplit(x, "/traits_already_done_for_metadata.txt" )[[1]])) 
 
 spectra_filtered = lapply(datasets_to_take_for_trait, filter_spectra_data)
-spectra_filtered = sapply(spectra_filtered, look_and_correct_for_spectra_scaling_errors)
+spectra_filtered = lapply(spectra_filtered, look_and_correct_for_spectra_scaling_errors)
 indices_spectra_to_take = which(sapply(spectra_filtered, length) == 2001)
 
 
-trait_and_metadata_dataframe_list = lapply(datasets_to_take_for_trait, function(x){ return(tryCatch(filter_trait_data_and_metadata(x = x, trait_name1 =  "LMA"), error=function(e) NA)) })
+trait_and_metadata_dataframe_list = lapply(datasets_to_take_for_trait, function(x){ return(tryCatch(filter_trait_data_and_metadata(x = x, trait_name1 =  "Nitrogen"), error=function(e) NA)) })
 indices_to_take_metadata = which(sapply(trait_and_metadata_dataframe_list, length) != 1)
 indices_to_take = intersect(indices_spectra_to_take, indices_to_take_metadata)
 ## IMP: Need to have a check which confirms that the units of each list are the same

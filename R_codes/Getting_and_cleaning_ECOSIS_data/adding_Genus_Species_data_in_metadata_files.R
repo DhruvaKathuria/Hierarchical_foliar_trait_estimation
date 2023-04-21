@@ -4,7 +4,7 @@ library(stringr)
 
 mainDir = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/ECOSIS_Data_download_Dhruva"  
 
-trait_name1 = "LMA"
+trait_name1 = "Nitrogen"
 datasets_already_processed =  list.files(mainDir, recursive = T, pattern = "traits_already_done_for_metadata.txt")
 indices_of_datasets_containing_trait_name =  unlist(lapply(datasets_already_processed, function(x)
 {

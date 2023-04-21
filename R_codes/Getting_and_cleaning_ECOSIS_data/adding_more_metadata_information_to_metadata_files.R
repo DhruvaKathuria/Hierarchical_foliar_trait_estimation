@@ -6,7 +6,7 @@ library(stringr)
 mainDir = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/ECOSIS_Data_download_Dhruva"  
 Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Getting_and_cleaning_ECOSIS_data/"
 
-trait_name1 = "LMA" # the names of the traits are given in "trait_and_sample_id_Database_for_ECOSIS_Data.R" under "trait_vector_list"
+trait_name1 = "Nitrogen" # the names of the traits are given in "trait_and_sample_id_Database_for_ECOSIS_Data.R" under "trait_vector_list"
 
 #IMP: Check "Steps_to_Add_Metadata_for_a_Trait_in_a_dataset.R" Lines 5 - 8 to see whether you have the names list associated with trait. If not, follow the steps outlined there.
 source(paste0(Github_dir, "getting_traits_data.R"))
@@ -15,12 +15,23 @@ source(paste0(Github_dir, "getting_traits_data.R"))
 datasets_vector = subset_column_names_final_pass(trait_name1)
 #print(datasets_vector)
 ## Pick a dataset and change the dataset_name1
-dataset_name1 = names(datasets_vector)[28]
+dataset_name1 = names(datasets_vector)[21]
+#datasets_vector[17]
 
 #paste0("https://ecosis.org/package/", dataset_name1)
 #metadata_arrow_version = read_parquet(paste0(file.path(mainDir, dataset_name1), "/", "metadata_updated.parquet"))
+#attributes(metadata_arrow_version)
 ## Datasets which have issues, for specific issues why a dataset wasnt selected, load the metadata_arrow_version.parquet using read_parquet and type comment(metadta_arrow_version) 
-datasets_not_to_take = c("leaf-reflectance-plant-functional-gradient-ifgg-kit", "2018-cedar-creek-pressed-leaves", "fresh-leaf-tir-spectra-to-estimate-leaf-traits-for-california-ecosystems", "nasa-fft-project-leaf-transmittance-morphology-and-biochemistry-for-northern-temperate-forests")
+datasets_not_to_take = c("leaf-reflectance-plant-functional-gradient-ifgg-kit", 
+                         "2018-cedar-creek-pressed-leaves", 
+                         "fresh-leaf-tir-spectra-to-estimate-leaf-traits-for-california-ecosystems", 
+                         "nasa-fft-project-leaf-transmittance-morphology-and-biochemistry-for-northern-temperate-forests",
+                         "2014-cedar-creek-esr-grassland-biodiversity-experiment--leaf-level-contact-data--trait-predictions",
+                         "3d-lma-leaf-level-spectra",
+                         "leaf-level-spectra-and-lma-for-a-set-of-trees--forbs--vines-and-grasses-collected-in-madison--wi",
+                         "leaf-reflectance-and-tratis-of-floating-and-emergent-macrophytes",
+                         "leaf-spectral-reflectance-of-tropical-plants-growing-in-biosphere-2",
+                         "fresh-leaf-tir-spectra-to-estimate-leaf-traits-for-california-ecosystems")
 
 if(!(dataset_name1 %in% datasets_not_to_take))
 {
@@ -28,7 +39,7 @@ if(!(dataset_name1 %in% datasets_not_to_take))
   ##IMP NOTE Go through the *Steps_to_Add_Metadata_for_a_Trait_in_a_dataset.R* for this trait and dataset combination
   ##IMP NOTE Only move further after completing all the steps
   
-  trait_name1_unit = "g/m^2"
+  trait_name1_unit = "%"
   source(paste0(Github_dir, "getting_traits_data.R"))
   
   

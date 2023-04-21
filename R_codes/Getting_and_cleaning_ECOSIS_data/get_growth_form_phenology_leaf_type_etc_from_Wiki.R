@@ -66,7 +66,7 @@ classification_list = list("Growth_form" = c("shrub", "tree", "herbaceous", "gra
                            "Phenology" = c("deciduous", "evergreen"),
                            "Leaf" = c("broad", "needle")) # These are the various classifications that I am using right now. More classifications can be easily added here
 
-trait_name1 = "LMA"
+trait_name1 = "Nitrogen"
 datasets_already_processed =  list.files(mainDir, recursive = T, pattern = "traits_already_done_for_metadata.txt")
 indices_of_datasets_containing_trait_name =  unlist(lapply(datasets_already_processed, function(x)
 {

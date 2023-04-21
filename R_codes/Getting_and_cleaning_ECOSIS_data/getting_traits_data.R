@@ -104,17 +104,30 @@ subset_column_names_final_pass = function(trait_name)
   
   ##choosing one item only for multi-item lists
   
-  trait_name_subset <- function(x) # this is for the datasets which has more than one matching dataset
-  {
-    if(length(x) > 1)
-    {
-      indices_to_keep = which(x %in% exact_vector_list_for_covariate_second_pass)
-    }else{indices_to_keep = 1}
-    x2 = x[indices_to_keep]
-    x2
-  }
+  
   
   subset_list = lapply(subset_list, trait_name_subset)
 }
 
+subset_function1 = function(x) 
+{
+  boolean_1 = any(x %in% exact_vector_list_for_covariate_first_pass) == T
+  if(boolean_1 == T)
+  {
+    y = x
+  }else
+  {
+    y = NA
+  }
+  y
+}
 
+trait_name_subset <- function(x) # this is for the datasets which has more than one matching dataset
+{
+  if(length(x) > 1)
+  {
+    indices_to_keep = which(x %in% exact_vector_list_for_covariate_second_pass)
+  }else{indices_to_keep = 1}
+  x2 = x[indices_to_keep]
+  x2
+}
