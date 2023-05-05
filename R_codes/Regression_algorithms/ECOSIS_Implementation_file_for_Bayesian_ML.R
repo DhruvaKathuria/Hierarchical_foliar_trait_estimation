@@ -1,6 +1,9 @@
 library(tidyverse)
 library(arrow)
 library(units)
+library(conflicted)
+conflicts_prefer(dplyr::select)
+conflicts_prefer(base::intersect)
 
 mainDir = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/ECOSIS_Data_download_Dhruva"  
 Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/"
@@ -8,7 +11,6 @@ Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_e
 ###########Parameters to change in the code###################
 algorithm1 = "ridge" # can be PLSR, "Bayesian_linear_horseshoe; check "Apply_ML_and_prospect_algorithms.R" for various options on algorithms
 filtering_type = "Global" # "Global", "Site_specific"
-trait_name1 = "Nitrogen"
 get_only_train_test_indices = T # we set this value to T if we do not want to run the regression algorithm and only want the train/test split indices. This is helpful if I am exploring some new regression approach and I can just call this R file from another R code to get the indices and the input matrices
 source("/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Regression_algorithms/Apply_ML_and_prospect_algorithms.R")
 #################################################functions used in this code#######################################
@@ -82,10 +84,18 @@ filter_trait_data_and_metadata = function(x, trait_name1) # attaches the trait v
   }
   
   metadata_merged = merge(metadata_arrow_version, database_for_metadata, by.x = "genus_species1" , by.y = "Scientific_name", all.x = TRUE)
-  metadata_merged = metadata_merged %>% select(genus_species1, family1, Growth_form, Phenology, Leaf, manufacturer, model)
+  metadata_merged = metadata_merged |> 
+    select(genus_species1, family1, Growth_form, Phenology, Leaf, manufacturer, model)
   metadata_merged$trait = trait_value
   metadata_merged$site_name = rep(x, nrow(metadata_merged))
   metadata_merged
+}
+
+filter_trait_data_and_metadata_without_error <- function(x, trait_name)
+{
+  return(tryCatch(
+    filter_trait_data_and_metadata(x, trait_name), 
+    error=function(e) NA)) 
 }
 
 get_indices_subset_function <- function(data_frame1, filtering_type, test_site, fraction_split) # get the indices for the training and testing data according to whether the split is to made globally or site-wise
@@ -130,8 +140,9 @@ spectra_filtered = lapply(datasets_to_take_for_trait, filter_spectra_data)
 spectra_filtered = lapply(spectra_filtered, look_and_correct_for_spectra_scaling_errors)
 indices_spectra_to_take = which(sapply(spectra_filtered, length) == 2001)
 
+#trait_and_metadata_dataframe_list = lapply(datasets_to_take_for_trait, function(x){ return(tryCatch(filter_trait_data_and_metadata(x = x, trait_name1 =  "Nitrogen"), error=function(e) NA)) })
+trait_and_metadata_dataframe_list = lapply(datasets_to_take_for_trait, filter_trait_data_and_metadata_without_error, trait_name = trait_name1)
 
-trait_and_metadata_dataframe_list = lapply(datasets_to_take_for_trait, function(x){ return(tryCatch(filter_trait_data_and_metadata(x = x, trait_name1 =  "Nitrogen"), error=function(e) NA)) })
 indices_to_take_metadata = which(sapply(trait_and_metadata_dataframe_list, length) != 1)
 indices_to_take = intersect(indices_spectra_to_take, indices_to_take_metadata)
 ## IMP: Need to have a check which confirms that the units of each list are the same

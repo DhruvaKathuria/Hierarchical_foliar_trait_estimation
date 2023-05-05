@@ -27,7 +27,7 @@ apply_regression_algorithm <- function(algorithm1, spectra_data_train, covariate
     #summary(ll_1)
     RMSE_values_cv = RMSEP(ll_1)
     RMSE_values = RMSE_values_cv$val[1, , ]
-    index1_min = which.min(RMSE_values[1:20])
+    index1_min = which.min(RMSE_values[1:100])
     # validationplot(ll_1, val.type = "MSEP")
     pred1 <- predict(ll_1, spectra_data_test, ncomp = index1_min)
     pred1 = pred1[,1,1]
