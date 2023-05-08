@@ -29,6 +29,7 @@ get_optimal_components_for_spline = function(data_train,
                                              number_of_components_to_search,
                                              num_clusters)
 {
+  set.seed(123)
   cv  <<- crossv_kfold(data_train, k = 5)
   #RMSE_vector = vector(mode = "double", length = 30)
   
@@ -84,7 +85,7 @@ get_RMSE_for_when_we_have_i_components <- function(i)
   normal_group = paste(paste0("s(" , "PC", 1:i, ")") , collapse = "+")
   fla_mixed  = paste("trait ~ 1 + ", normal_group, sep = "")
   RMSE1 = vector(mode = "double", length = 5)
-  
+ 
   for (j in 1:5)
   {
     data_train_cv = as.data.frame(cv$train[[j]])
@@ -159,8 +160,7 @@ PLSR_function = function(data_train, data_test)
            .after = trait)
 }
 
-Prediction_function <-
-  function(data_frame1, method1, Unique_groups)
+Prediction_function <- function(data_frame1, method1, Unique_groups)
     # method1 takes arguments "mixed" or "mixed_Bayesian
   {
     data_frame1_known_groups <-
@@ -210,7 +210,7 @@ scale1  <-  function(data_frame)
 
 # Setting global parameters -----------------------------------------------
 
-trait_name1 = "Carotenoid_Area"
+trait_name1 = "LMA"
 site_name1 = c("cabo-2018-2019-leaf-level-spectra")
 group_variable = "Growth_form"
 
@@ -303,14 +303,14 @@ rmse_values_for_different_PCS_for_spline_analysis <-
   unlist(
     get_optimal_components_for_spline(
       data_train_for_hierarchical_analysis,
-      number_of_components_to_search = 20,
+      number_of_components_to_search = 40,
       num_clusters = 9
     )
   )
 PCs_for_spline_analysis = paste(paste0(
   "s(" ,
   "PC",
-  1:8,
+  1:28,
   ")"
 ) , collapse = "+")
 # equation_formula_for_spline = paste("trait ~ 1 + ",
