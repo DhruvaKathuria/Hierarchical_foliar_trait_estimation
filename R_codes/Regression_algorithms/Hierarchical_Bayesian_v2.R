@@ -210,7 +210,7 @@ scale1  <-  function(data_frame)
 
 # Setting global parameters -----------------------------------------------
 
-trait_name1 = "LMA"
+trait_name1 = "Nitrogen"
 site_name1 = c("cabo-2018-2019-leaf-level-spectra")
 group_variable = "Growth_form"
 
@@ -247,10 +247,10 @@ check_for_distinct_input_data_using_spectra <-
 
 data_frame_out <-  trait_and_metadata_dataframe %>%
   bind_cols(spectra_df) %>%
-  filter(!(site_name %in% sites_remove_vector)) %>%
-  filter(!is.na(trait)) %>%
-  distinct(trait, site_name, .keep_all = TRUE) %>%
-  distinct(trait, across(all_of(
+  dplyr::filter(!(site_name %in% sites_remove_vector)) %>%
+  dplyr::filter(!is.na(trait)) %>%
+  dplyr::distinct(trait, site_name, .keep_all = TRUE) %>%
+  dplyr::distinct(trait, across(all_of(
     check_for_distinct_input_data_using_spectra
   )), .keep_all = TRUE) %>%
   mutate(trait = as.numeric(trait))
@@ -405,7 +405,7 @@ data_frame_with_predictions <-
 data_frame_with_predictions <- data_frame_with_predictions %>%
   mutate(trait = trait[, 1])
 
-folder_for_writing_data = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/output_data_frame_predictions/GAM_ouput"
+folder_for_writing_data = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/GAM_ouput"
 readr::write_csv(
   data_frame_with_predictions,
   paste0(

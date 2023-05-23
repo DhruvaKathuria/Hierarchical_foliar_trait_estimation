@@ -1,0 +1,492 @@
+Scientific_name,Growth_form,Phenology,Leaf,leaf_classification
+Populus deltoides,tree,deciduous,broad,broadleaf
+Populus tremuloides,tree,deciduous,broad,broadleaf
+Carya glabra,tree,deciduous,broad,broadleaf
+Carya tomentosa,tree,deciduous,broad,broadleaf
+Liquidambar styraciflua,tree,deciduous,broad,broadleaf
+Liriodendron tulipifera,tree,deciduous,broad,broadleaf
+Pinus palustris,tree,evergreen,needle,needle
+Pinus taeda,tree,evergreen,needle,needle
+Quercus alba,tree,deciduous,broad,broadleaf
+Quercus falcate,tree,deciduous,broad,broadleaf
+Quercus marilandica,tree,deciduous,broad,broadleaf
+Quercus montana,tree,deciduous,broad,broadleaf
+Acer negundo,tree,deciduous,broad,broadleaf
+Acer pseudoplatanus,tree,deciduous,broad,broadleaf
+Alnus glutinosa,tree,deciduous,broad,broadleaf
+Calicarpa bodinieri,shrub,deciduous,broad,broadleaf
+Castanea sativa,tree,deciduous,broad,broadleaf
+Cercis siliquastrum,tree,deciduous,broad,broadleaf
+Cornus alba,shrub,deciduous,broad,broadleaf
+Corylus maxima,shrub,deciduous,broad,broadleaf
+Cotinus coggygria,shrub,deciduous,broad,broadleaf
+Eucalyptus gunnii,tree,evergreen,broad,broadleaf
+Euonymus fortunei,vine,evergreen,broad,NA
+Geranium NA,NA,NA,NA,NA
+Hedera helix,vine,evergreen,broad,NA
+Hydrangea macrophylla,shrub,deciduous,broad,broadleaf
+Ilex aquifolium,tree,evergreen,broad,broadleaf
+Juglans regia,tree,deciduous,broad,broadleaf
+Ligustrum vulgare,shrub,evergreen,broad,broadleaf
+Osmanthus heterophyllus,shrub,evergreen,broad,broadleaf
+Parthenocissus tricuspidata,vine,deciduous,broad,NA
+Populus alba,tree,deciduous,broad,broadleaf
+Prunus laurocerasus,tree,evergreen,broad,broadleaf
+Prunus lusitanica,tree,evergreen,broad,broadleaf
+Quercus ilex,tree,evergreen,broad,broadleaf
+Quercus palustris,tree,deciduous,broad,broadleaf
+Rhododendron calophytum,shrub,evergreen,broad,broadleaf
+Rhus typhina,shrub,deciduous,broad,broadleaf
+Robinia pseudoacacia,tree,deciduous,broad,broadleaf
+Salix atrocinerea,tree,deciduous,broad,broadleaf
+Schefflera arboricola,shrub,evergreen,broad,broadleaf
+Syringa vulgaris,shrub,deciduous,broad,broadleaf
+Tilia tomentosa,tree,deciduous,broad,broadleaf
+Viburnum plicatum,shrub,deciduous,broad,broadleaf
+Viburnum rhytidophyllum,shrub,evergreen,broad,broadleaf
+Viburnum tinus,shrub,evergreen,broad,broadleaf
+Vitis vinifera,vine,deciduous,broad,NA
+Weigela florida,shrub,deciduous,broad,broadleaf
+Abies balsamea,tree,evergreen,needle,needle
+Acer nigrum,tree,deciduous,broad,broadleaf
+Acer pensylvanicum,tree,deciduous,broad,broadleaf
+Acer platanoides,tree,deciduous,broad,broadleaf
+Acer rubrum,tree,deciduous,broad,broadleaf
+Acer saccharinum,tree,deciduous,broad,broadleaf
+Acer saccharum,tree,deciduous,broad,broadleaf
+Acer spicatum,tree,deciduous,broad,broadleaf
+Aesculus hippocastanum,tree,deciduous,broad,broadleaf
+Agonis flexuosa,tree,evergreen,broad,broadleaf
+Alnus incana,tree,deciduous,broad,broadleaf
+Apocynum androsaemifolium,shrub,deciduous,broad,broadleaf
+Asclepias syriaca,shrub,deciduous,broad,broadleaf
+Berberis aquifolium,shrub,evergreen,broad,broadleaf
+Betula alleghaniensis,tree,deciduous,broad,broadleaf
+Betula papyrifera,tree,deciduous,broad,broadleaf
+Betula populifolia,tree,deciduous,broad,broadleaf
+Bromus inermis,grass,perennial,N/A,grass
+Bromus sitchensis,grass,perennial,N/A,grass
+Bromus sterilis,grass,perennial,N/A,grass
+Calamagrostis canadensis,grass,perennial,N/A,grass
+Camassia leichtlinii,herbaceous,perennial,broad,herbaceous
+Camassia quamash,herbaceous,perennial,broad,herbaceous
+Carpinus caroliniana,tree,deciduous,broad,broadleaf
+Carya cordiformis,tree,deciduous,broad,broadleaf
+Carya ovata,tree,deciduous,broad,broadleaf
+Celtis occidentalis,tree,deciduous,broad,broadleaf
+Chamaedaphne calyculata,shrub,evergreen,broad,broadleaf
+Cirsium arvense,herbaceous,perennial,broad,herbaceous
+Claytonia perfoliata,herbaceous,annual,broad,herbaceous
+Cornus sericea,shrub,deciduous,broad,broadleaf
+Crataegus monogyna,tree,deciduous,broad,broadleaf
+Cytisus scoparius,shrub,deciduous,broad,broadleaf
+Dactylis glomerata,grass,perennial,N/A,grass
+Eriophorum vaginatum,herbaceous,perennial,broad,herbaceous
+Euthamia graminifolia,herbaceous,perennial,broad,herbaceous
+Fagus grandifolia,tree,deciduous,broad,broadleaf
+Festuca idahoensis,grass,perennial,N/A,grass
+Frangula alnus,shrub,deciduous,broad,broadleaf
+Fraxinus americana,tree,deciduous,broad,broadleaf
+Fraxinus nigra,tree,deciduous,broad,broadleaf
+Fraxinus pennsylvanica,tree,deciduous,broad,broadleaf
+Holodiscus discolor,shrub,deciduous,broad,broadleaf
+Juglans cinerea,tree,deciduous,broad,broadleaf
+Juglans nigra,tree,deciduous,broad,broadleaf
+Kalmia angustifolia,shrub,evergreen,broad,broadleaf
+Larix laricina,tree,deciduous,needle,needle
+Lathyrus sphaericus,vine,perennial,broad,NA
+Lomatium utriculatum,herbaceous,perennial,broad,herbaceous
+Lythrum salicaria,herbaceous,perennial,broad,herbaceous
+Oemleria cerasiformis,shrub,deciduous,broad,broadleaf
+Ostrya virginiana,tree,deciduous,broad,broadleaf
+Phalaris arundinacea,grass,perennial,N/A,grass
+Phragmites australis,grass,perennial,N/A,grass
+Picea abies,tree,evergreen,needle,needle
+Picea glauca,tree,evergreen,needle,needle
+Picea mariana,tree,evergreen,needle,needle
+Picea rubens,tree,evergreen,needle,needle
+Pinus banksiana,tree,evergreen,needle,needle
+Pinus resinosa,tree,evergreen,needle,needle
+Pinus rigida,tree,evergreen,needle,needle
+Pinus strobus,tree,evergreen,needle,needle
+Plectritis congesta,herbaceous,annual,broad,herbaceous
+Poa pratensis,grass,perennial,N/A,grass
+Polystichum munitum,fern,evergreen,broad,NA
+Populus balsamifera,tree,deciduous,broad,broadleaf
+Populus grandidentata,tree,deciduous,broad,broadleaf
+Prunus nigra,tree,deciduous,broad,broadleaf
+Prunus pensylvanica,tree,deciduous,broad,broadleaf
+Prunus serotina,tree,deciduous,broad,broadleaf
+Quercus bicolor,tree,deciduous,broad,broadleaf
+Quercus garryana,tree,deciduous,broad,broadleaf
+Quercus Linnaeus,tree,deciduous,broad,broadleaf
+Quercus macrocarpa,tree,deciduous,broad,broadleaf
+Quercus rubra,tree,deciduous,broad,broadleaf
+Rhamnus cathartica,shrub,deciduous,broad,broadleaf
+Rhododendron groenlandicum,shrub,evergreen,broad,broadleaf
+Rosa nutkana,shrub,deciduous,broad,broadleaf
+Rubus idaeus,shrub,deciduous,broad,broadleaf
+Salix alba,tree,deciduous,broad,broadleaf
+Salix interior,shrub,deciduous,broad,broadleaf
+Sanicula crassicaulis,herbaceous,perennial,broad,herbaceous
+Sericocarpus rigidus,herbaceous,perennial,broad,herbaceous
+Solidago altissima,herbaceous,perennial,broad,herbaceous
+Solidago gigantea,herbaceous,perennial,broad,herbaceous
+Solidago Linnaeus,herbaceous,perennial,broad,herbaceous
+Solidago rugosa,herbaceous,perennial,broad,herbaceous
+Sorbus americana,tree,deciduous,broad,broadleaf
+Sorbus decora,tree,deciduous,broad,broadleaf
+Spiraea alba,shrub,deciduous,broad,broadleaf
+Symphoricarpos albus,shrub,deciduous,broad,broadleaf
+Thuja occidentalis,tree,evergreen,needle,needle
+Tilia americana,tree,deciduous,broad,broadleaf
+Tsuga canadensis,tree,evergreen,needle,needle
+Typha angustifolia,herbaceous,perennial,N/A,herbaceous
+Typha latifolia,herbaceous,perennial,N/A,herbaceous
+Typha Linnaeus,herbaceous,perennial,N/A,herbaceous
+Ulmus americana,tree,deciduous,broad,broadleaf
+Ulmus rubra,tree,deciduous,broad,broadleaf
+Vicia cracca,vine,perennial,broad,NA
+Vicia sativa,herbaceous,annual,broad,herbaceous
+Vitis riparia,vine,deciduous,broad,NA
+Aesculus glabra,tree,deciduous,broad,broadleaf
+Alnus alnobetula,tree,deciduous,broad,broadleaf
+Amelanchier canadensis,shrub,deciduous,broad,broadleaf
+Amelanchier humilis,shrub,deciduous,broad,broadleaf
+Anemonastrum canadense,herbaceous,perennial,broad,herbaceous
+Apocynum cannabinum,herbaceous,perennial,broad,herbaceous
+Aralia nudicaulis,herbaceous,perennial,broad,herbaceous
+Aronia melanocarpa,shrub,deciduous,broad,broadleaf
+Chelone glabra,herbaceous,perennial,broad,herbaceous
+Cornus alternifolia,tree,deciduous,broad,broadleaf
+Cornus obliqua,shrub,deciduous,broad,broadleaf
+Corylus cornuta,shrub,deciduous,broad,broadleaf
+Elaeagnus angustifolia,shrub,deciduous,broad,broadleaf
+Fallopia convolvulus,vine,annual,broad,NA
+Fragaria virginiana,herbaceous,perennial,broad,herbaceous
+Ginkgo biloba,tree,deciduous,broad,broadleaf
+Helianthus divaricatus,herbaceous,perennial,broad,herbaceous
+Helianthus tuberosus,herbaceous,perennial,broad,herbaceous
+Ilex mucronata,shrub,deciduous,broad,broadleaf
+Lonicera villosa,shrub,deciduous,broad,broadleaf
+Myrica gale,shrub,deciduous,broad,broadleaf
+Onoclea sensibilis,herbaceous,perennial,broad,herbaceous
+Osmunda claytoniana,herbaceous,perennial,broad,herbaceous
+Osmunda regalis,herbaceous,perennial,broad,herbaceous
+Parthenocissus quinquefolia,vine,deciduous,broad,NA
+Physostegia virginiana,herbaceous,perennial,broad,herbaceous
+Platanus occidentalis,tree,deciduous,broad,broadleaf
+Pontederia cordata,herbaceous,perennial,broad,herbaceous
+Prunus virginiana,tree,deciduous,broad,broadleaf
+Rosa blanda,shrub,deciduous,broad,broadleaf
+Rubus allegheniensis,shrub,deciduous,broad,broadleaf
+Rubus odoratus,shrub,deciduous,broad,broadleaf
+Rudbeckia laciniata,herbaceous,perennial,broad,herbaceous
+Salix Linnaeus,tree,deciduous,broad,broadleaf
+Salix sepulcralis,tree,deciduous,broad,broadleaf
+Sambucus canadensis,shrub,deciduous,broad,broadleaf
+Staphylea trifolia,shrub,deciduous,broad,broadleaf
+Trifolium pratense,herbaceous,perennial,broad,herbaceous
+Tussilago farfara,herbaceous,perennial,broad,herbaceous
+Ulmus thomasii,tree,deciduous,broad,broadleaf
+Urtica dioica,herbaceous,perennial,broad,herbaceous
+Verbascum thapsus,herbaceous,biennial,broad,herbaceous
+Viburnum lantana,shrub,deciduous,broad,broadleaf
+Viburnum lantanoides,shrub,deciduous,broad,broadleaf
+Viburnum lentago,shrub,deciduous,broad,broadleaf
+Viburnum opulus,shrub,deciduous,broad,broadleaf
+ABBA,Data unavailable,Data unavailable,broad,NA
+ACNE,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+ACPE,Data unavailable,Data unavailable,Data unavailable,NA
+ACPL,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+ACRU,Data unavailable,Data unavailable,Data unavailable,NA
+ACSM,Data unavailable,Data unavailable,Data unavailable,NA
+ACSN,Data unavailable,Data unavailable,broad,NA
+ACSP,Data unavailable,Data unavailable,Data unavailable,NA
+ALIN,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+ANGE,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+BEAL,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+BEGL,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+BEPA,Data unavailable,Data unavailable,Data unavailable,NA
+CACO,Data unavailable,Data unavailable,Data unavailable,NA
+CAOV,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+CAREX,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+CEOC,Data unavailable,Data unavailable,Data unavailable,NA
+CHCA,Data unavailable,Data unavailable,Data unavailable,NA
+COAM,Data unavailable,Data unavailable,broad,NA
+FAGR,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+FRAM,Data unavailable,Data unavailable,Data unavailable,NA
+FRNI,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+FRPE,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+GRASS,Data unavailable,Data unavailable,Data unavailable,NA
+JUNI,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+JUVI,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+LALA,Data unavailable,Data unavailable,Data unavailable,NA
+LEGR,Data unavailable,Data unavailable,Data unavailable,NA
+LITU,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+LONICERA,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+OSVI,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+PHAR,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+PIBA,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+PIMA,Data unavailable,Data unavailable,Data unavailable,NA
+PIRE,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+PIRU,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+PIST,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+PISY,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+PODE,Data unavailable,Data unavailable,Data unavailable,NA
+POGR,Data unavailable,Data unavailable,Data unavailable,NA
+POTR,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+PRSE,Data unavailable,Data unavailable,broad,NA
+QUAL,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+QUEL,Data unavailable,Data unavailable,Data unavailable,NA
+QUMA,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+QURU,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+RHCA,Data unavailable,Data unavailable,Data unavailable,NA
+ROPS,Data unavailable,Data unavailable,broad,NA
+SALIX,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+SOLIDAGO,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+SORU,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+SPPE,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+THOC,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+TIAM,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+TSCA,Data unavailable,Data unavailable,broad,NA
+TYLA,"Error in extraction, check","Error in extraction, check","Error in extraction, check",NA
+ULAM,Data unavailable,Data unavailable,Data unavailable,NA
+Tilia cordata,tree,deciduous,broad,broadleaf
+Acalypha neomexicana,shrub,deciduous,broad,broadleaf
+Acamptopappus sphaerocephalus,shrub,evergreen,broad,broadleaf
+Allionia incarnata,vine,deciduous,broad,NA
+Besseya alpina,herbaceous,deciduous,broad,herbaceous
+Betula glandulosa,shrub,deciduous,broad,broadleaf
+Carex NA,grass,NA,NA,grass
+Conopholis americana,herbaceous,deciduous,broad,herbaceous
+Juniperus virginiana,tree,evergreen,needle,needle
+Ledum groenlandicum,shrub,evergreen,broad,broadleaf
+Phacelia argentea,herbaceous,annual,broad,herbaceous
+Pinus balfouriana,tree,evergreen,needle,needle
+Pinus sylvestris,tree,evergreen,needle,needle
+Poa tracyi,grass,deciduous,NA,grass
+Polycarpon depressum,herbaceous,annual,broad,herbaceous
+Prenanthes serpentaria,herbaceous,deciduous,broad,herbaceous
+Quercus ×macnabiana,tree,deciduous,broad,broadleaf
+Quercus ellipsoidalis,tree,deciduous,broad,broadleaf
+Salix NA,tree/shrub,deciduous,broad,NA
+Spartina pectinata,grass,perennial,NA,grass
+Thalictrum occidentale,herbaceous,deciduous,broad,herbaceous
+Abies Concolor,tree,evergreen,needle,needle
+Adenostoma fasciculatum,shrub,evergreen,needle,needle
+Arctostaphylos glauca/glandulosa,shrub,evergreen,broad,broadleaf
+Baccharis pilularis,shrub,evergreen,broad,broadleaf
+Calocedrus decurrens,tree,evergreen,needle,needle
+Ceanothus cuneatus,shrub,evergreen,broad,broadleaf
+Ceanothus megacarpus,shrub,evergreen,broad,broadleaf
+Ceanothus spinosus,shrub,evergreen,broad,broadleaf
+Heteromeles arbutifolia,shrub,evergreen,broad,broadleaf
+Pinus lambertiana,tree,evergreen,needle,needle
+Pinus ponderosa,tree,evergreen,needle,needle
+Quercus agrifolia,tree,evergreen,broad,broadleaf
+Quercus douglasii,tree,deciduous,broad,broadleaf
+Quercus lobata,tree,deciduous,broad,broadleaf
+Salvia leucophylla,shrub,evergreen,broad,broadleaf
+Umbellularia californica,tree,evergreen,broad,broadleaf
+Acacia baileyana,tree,evergreen,broad,broadleaf
+Acacia saligna,shrub,evergreen,broad,broadleaf
+Acer floridanum,tree,deciduous,broad,broadleaf
+Ailanthus altissima,tree,deciduous,broad,broadleaf
+Albizia julibrissin,tree,deciduous,broad,broadleaf
+Amaranthus arenicola,herbaceous,annual,broad,herbaceous
+Amaranthus californicus,herbaceous,annual,broad,herbaceous
+Ambrosia trifida,herbaceous,annual,broad,herbaceous
+Andropogon gerardii,grass,perennial,NA,grass
+Arabis sparsiflora,herbaceous,perennial,broad,herbaceous
+Arundinaria gigantea,grass,perennial,NA,grass
+Asclepias tuberosa,herbaceous,perennial,broad,herbaceous
+Asclepias verticillata,herbaceous,perennial,broad,herbaceous
+Asimina triloba,tree,deciduous,broad,broadleaf
+Baptisia australis,herbaceous,perennial,broad,herbaceous
+Betula lenta,tree,deciduous,broad,broadleaf
+Betula nigra,tree,deciduous,broad,broadleaf
+Cabomba caroliniana,Aquatic,perennial,broad,NA
+Calla palustris,herbaceous,perennial,broad,herbaceous
+Calliandra conferta,shrub,evergreen,broad,broadleaf
+Calochortus tolmiei,herbaceous,perennial,broad,herbaceous
+Carex illota,grass,perennial,NA,grass
+Cedronella canariensis,herbaceous,perennial,broad,herbaceous
+Celtis laevigata,tree,deciduous,broad,broadleaf
+Conyza floribunda,herbaceous,perennial,broad,herbaceous
+Delphinium purpusii,herbaceous,perennial,broad,herbaceous
+Desmanthus illinoensis,shrub,perennial,broad,broadleaf
+Dicentra pauciflora,herbaceous,perennial,broad,herbaceous
+Dichanthelium oligosanthes,grass,perennial,NA,grass
+Digitaria villosa,grass,annual,NA,grass
+Distichlis spicata,grass,perennial,NA,grass
+Echinacea pallida,herbaceous,perennial,broad,herbaceous
+Eryngium yuccifolium,herbaceous,perennial,broad,herbaceous
+Gleditsia triacanthos,tree,deciduous,broad,broadleaf
+Gordonia lasianthus,tree,evergreen,broad,broadleaf
+Ilex montana,shrub,evergreen,broad,broadleaf
+Kalmia latifolia,shrub,evergreen,broad,broadleaf
+Koeleria macrantha,grass,perennial,NA,grass
+Linanthus bellus,herbaceous,perennial,broad,herbaceous
+Linum striatum,herbaceous,perennial,broad,herbaceous
+Maclura pomifera,tree,deciduous,broad,broadleaf
+Macromeria viridiflora,shrub,perennial,broad,broadleaf
+Madia madioides,herbaceous,annual,broad,herbaceous
+Magnolia acuminata,tree,deciduous,broad,broadleaf
+Malva sylvestris,herbaceous,perennial,broad,herbaceous
+Melia azedarach,tree,deciduous,broad,broadleaf
+Monarda fistulosa,herbaceous,perennial,broad,herbaceous
+Monarda russeliana,herbaceous,perennial,broad,herbaceous
+Morus alba,tree,deciduous,broad,broadleaf
+Nymphoides aquatica,Aquatic,perennial,broad,NA
+Nyssa sylvatica,tree,deciduous,broad,broadleaf
+Osmunda cinnamomea,herbaceous,perennial,broad,herbaceous
+Oxydendrum arboreum,tree,deciduous,broad,broadleaf
+Palafoxia rosea,herbaceous,perennial,broad,herbaceous
+Panax quinquefolius,herbaceous,perennial,broad,herbaceous
+Panicum torridum,grass,annual,NA,grass
+Phacelia austromontana,herbaceous,annual,broad,herbaceous
+Proserpinaca pectinata,Aquatic,perennial,broad,NA
+Quercus ×heterophylla,tree,deciduous,broad,broadleaf
+Quercus ×palaeolithicola,tree,deciduous,broad,broadleaf
+Quercus falcata,tree,deciduous,broad,broadleaf
+Quercus laceyi,tree,deciduous,broad,broadleaf
+Quercus lyrata,tree,deciduous,broad,broadleaf
+Quercus mohriana,tree,deciduous,broad,broadleaf
+Quercus muehlenbergii,tree,deciduous,broad,broadleaf
+Quercus nigra,tree,deciduous,broad,broadleaf
+Quercus phellos,tree,deciduous,broad,broadleaf
+Quercus shumardii,tree,deciduous,broad,broadleaf
+Quercus stellata,tree,deciduous,broad,broadleaf
+Quercus velutina,tree,deciduous,broad,broadleaf
+Quercus virginiana,tree,evergreen,broad,broadleaf
+Rhexia aristosa,herbaceous,perennial,broad,herbaceous
+Rhexia mariana,herbaceous,perennial,broad,herbaceous
+Rhus glabra,shrub,deciduous,broad,broadleaf
+Rosa multiflora,shrub,deciduous,broad,broadleaf
+Sabal palmetto,tree,evergreen,broad,broadleaf
+Salix alaxensis,tree,deciduous,broad,broadleaf
+Salix nigra,tree,deciduous,broad,broadleaf
+Schizachyrium scoparium,grass,perennial,NA,grass
+Sicyos laciniatus,vine,annual,broad,NA
+Solanum campechiense,shrub,perennial,broad,broadleaf
+Sophora nuttalliana,shrub,perennial,broad,broadleaf
+Teucrium laciniatum,herbaceous,perennial,broad,herbaceous
+Trichomanes davallioides,fern,perennial,broad,NA
+Ulmus alata,tree,deciduous,broad,broadleaf
+Ulmus pumila,tree,deciduous,broad,broadleaf
+Verbena stricta,herbaceous,perennial,broad,herbaceous
+Vernonia baldwinii,herbaceous,perennial,broad,herbaceous
+Crataegus chrysocarpa,tree,deciduous,broad,broadleaf
+Eutrochium maculatum,herbaceous,perennial,broad,herbaceous
+Lonicera tatarica,shrub,deciduous,broad,broadleaf
+Capsicum annuum,shrub,perennial,broad,broadleaf
+Cucurbita pepo,vine,annual,broad,NA
+Helianthus annuus,herbaceous,annual,broad,herbaceous
+Populus ×canadensis,tree,deciduous,broad,broadleaf
+Raphanus sativus,herbaceous,annual,broad,herbaceous
+Setaria italica,grass,annual,NA,grass
+Sorghum bicolor,grass,annual,NA,grass
+Bambusa arundinacea,grass,perennial,NA,grass
+Beta vulgaris,herbaceous,biennial,broad,herbaceous
+Betula pendula,tree,deciduous,broad,broadleaf
+Brassica oleracea,herbaceous,biennial,broad,herbaceous
+Chamaerops humilis,tree,evergreen,broad,broadleaf
+Corylus avellana,shrub,deciduous,broad,broadleaf
+Ensete ventricosum,herbaceous,perennial,broad,herbaceous
+Fagus sylvatica,tree,deciduous,broad,broadleaf
+Ficus carica,tree,deciduous,broad,broadleaf
+Fraxinus excelsior,tree,deciduous,broad,broadleaf
+Glycine max,herbaceous,annual,broad,herbaceous
+Iris germanica,herbaceous,perennial,broad,herbaceous
+Lactuca sativa,herbaceous,annual,broad,herbaceous
+Laurus nobilis,tree,evergreen,broad,broadleaf
+Lycopersicum esculentum,herbaceous,annual,broad,herbaceous
+Medicago sativa,herbaceous,perennial,broad,herbaceous
+Morus nigra,tree,deciduous,broad,broadleaf
+Oryza sativa,grass,annual,NA,grass
+Phleum pratense,grass,perennial,NA,grass
+Populus tremula,tree,deciduous,broad,broadleaf
+Populus x,tree,deciduous,broad,broadleaf
+Prunus armeniaca,tree,deciduous,broad,broadleaf
+Quercus pubescens,tree,deciduous,broad,broadleaf
+Salvia officinalis,shrub,perennial,broad,broadleaf
+Solanum tuberosum,herbaceous,annual,broad,herbaceous
+Sorghum halepense,grass,perennial,NA,grass
+Tilia platyphyllos,tree,deciduous,broad,broadleaf
+Ulmus glabra,tree,deciduous,broad,broadleaf
+Zea mays,grass,annual,NA,grass
+Nelumbo nucifera,herbaceous,perennial,broad,herbaceous
+Nuphar lutea,herbaceous,perennial,broad,herbaceous
+Nymphaea alba,herbaceous,perennial,broad,herbaceous
+Trapa natans,herbaceous,annual,broad,herbaceous
+Cucumis sativus,vine,annual,broad,NA
+Ocimum basilicum,herbaceous,annual,broad,herbaceous
+Phaseolus vulgaris,vine,annual,broad,NA
+Populus NA,tree,deciduous,broad,broadleaf
+Solanum lycopersicum,herbaceous,annual,broad,herbaceous
+Ammophila arenaria,grass,perennial,NA,grass
+Arrhenatherum elatius,grass,perennial,NA,grass
+Carex arenaria,grass,perennial,NA,grass
+Carex hirta,grass,perennial,NA,grass
+Convolvulus soldanella,vine,perennial,broad,NA
+Crepis capillaris,herbaceous,annual,broad,herbaceous
+Elytrigia juncea,grass,perennial,NA,grass
+Euonymus europaeus,shrub,deciduous,broad,broadleaf
+Festuca arenaria,grass,perennial,NA,grass
+Galium aparine,herbaceous,annual,broad,herbaceous
+Geranium robertianum,herbaceous,annual,broad,herbaceous
+Glechoma hederacea,herbaceous,perennial,broad,herbaceous
+Hieracium umbellatum,herbaceous,perennial,broad,herbaceous
+Hippophae rhamnoides,shrub,deciduous,broad,broadleaf
+Holcus lanatus,grass,perennial,NA,grass
+Hypochaeris radicata,herbaceous,perennial,broad,herbaceous
+Jacobaea vulgaris,herbaceous,perennial,broad,herbaceous
+Lepidium draba,herbaceous,annual,broad,herbaceous
+Leymus arenarius,grass,perennial,NA,grass
+Lolium multiflorum,grass,annual,NA,grass
+Lonicera periclymenum,vine,deciduous,broad,NA
+Oenothera glazioviana,herbaceous,biennial,broad,herbaceous
+Ononis repens,shrub,perennial,broad,broadleaf
+Plantago lanceolata,herbaceous,perennial,broad,herbaceous
+Potentilla reptans,herbaceous,perennial,broad,herbaceous
+Rhinanthus minor,herbaceous,annual,broad,herbaceous
+Rosa rugosa,shrub,deciduous,broad,broadleaf
+Rubus caesius,shrub,perennial,broad,broadleaf
+Rumex crispus,herbaceous,perennial,broad,herbaceous
+Senecio inaequidens,herbaceous,perennial,broad,herbaceous
+Thalictrum minus,herbaceous,perennial,broad,herbaceous
+Callirhoe alcaeoides,herbaceous,perennial,broad,herbaceous
+Picea pungens,tree,evergreen,needle,needle
+Pinguicula villosa,herbaceous,perennial,broad,herbaceous
+Quercus prinoides,tree,deciduous,broad,broadleaf
+Alnus viridis,tree,deciduous,broad,broadleaf
+Salix glauca,shrub,deciduous,broad,broadleaf
+Salix pulchra,shrub,deciduous,broad,broadleaf
+Salix richardsonii,shrub,deciduous,broad,broadleaf
+Abutilon berlandieri,shrub,perennial,broad,broadleaf
+Acacia schottii,shrub,evergreen,broad,broadleaf
+Acer circinatum,tree,deciduous,broad,broadleaf
+Acer macrophyllum,tree,deciduous,broad,broadleaf
+Aesculus californica,tree,deciduous,broad,broadleaf
+Alnus rubra,tree,deciduous,broad,broadleaf
+Calochortus greenei,herbaceous,perennial,broad,herbaceous
+Cocos nucifera,tree,evergreen,broad,broadleaf
+Cornus drummondii,shrub,deciduous,broad,broadleaf
+Juncus nevadensis,grass,perennial,NA,grass
+Labordia kaalae,shrub,perennial,broad,broadleaf
+Lagenaria siceraria,vine,annual,broad,NA
+Pascopyrum smithii,grass,perennial,NA,grass
+Picramnia pentandra,tree,evergreen,broad,broadleaf
+Picris echioides,herbaceous,annual,broad,herbaceous
+Pinaropappus parvus,herbaceous,annual,broad,herbaceous
+Pinus nigra,tree,evergreen,needle,needle
+Polygala barbeyana,herbaceous,perennial,broad,herbaceous
+Pseudotsuga menziesii,tree,evergreen,needle,needle
+Quercus ×willdenowiana,tree,deciduous,broad,broadleaf
+Quercus chapmanii,tree,deciduous,broad,broadleaf
+Quercus kelloggii,tree,evergreen,broad,broadleaf
+Quercus michauxii,tree,deciduous,broad,broadleaf
+Rhus copallinum,shrub,deciduous,broad,broadleaf
+Sagittaria lancifolia,herbaceous,perennial,broad,herbaceous
+Shepherdia argentea,shrub,deciduous,broad,broadleaf
