@@ -85,7 +85,7 @@ filter_trait_data_and_metadata = function(x, trait_name1) # attaches the trait v
   
   metadata_merged = merge(metadata_arrow_version, database_for_metadata, by.x = "genus_species1" , by.y = "Scientific_name", all.x = TRUE)
   metadata_merged = metadata_merged |> 
-    select(genus_species1, family1, Growth_form, Phenology, Leaf, manufacturer, model)
+    select(genus_species1, family1, Growth_form, Phenology, Leaf, leaf_classification, manufacturer, model)
   metadata_merged$trait = trait_value
   metadata_merged$site_name = rep(x, nrow(metadata_merged))
   metadata_merged

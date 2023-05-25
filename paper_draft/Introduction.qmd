@@ -1,0 +1,42 @@
+---
+title: "Introduction"
+format: html
+editor: visual
+bibliography: references.bib
+echo: false
+---
+
+## 1.1 Importance of foliar functional traits
+
+```{r}
+# TODO: You can add other trait names from Roamresearch I.2-Paper-2
+```
+
+Foliar Functional traits are chemical (such as chlorophyll), physiological (such as photosynthetic rate) and structural (such as leaf area) features of a leaf which mediate ecosystem functioning and its response to perturbations by regulating the growth fitness of plants in diverse ecosystems (@lavorel2002, `# TODO add the other citations from Roam Research Reich et al., 2003; 2014; Wright et al., 2004; Funk et al., 2017` )
+
+## 1.2 History of using spectroscopy for predicting foliar traits
+
+## 1.3 Why PLSR methods are the most widely used methods for predicting traits
+
+## 1.4 Drawbacks of PLSR approach
+
+## 1.5 How our approach improves upon PLSR
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).

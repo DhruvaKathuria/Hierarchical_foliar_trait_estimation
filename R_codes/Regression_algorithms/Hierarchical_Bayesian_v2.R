@@ -97,7 +97,7 @@ get_RMSE_for_when_we_have_i_components <- function(i)
   mean(RMSE1)
 }
 
-get_top_n_PC_names_for_a_trait_using_lasso <-
+get_top_n_PC_names_for_a_trait_using_lasso <- 
   function(data_frame1, n_PC, type_of_validation = "normal_cv")
   {
     formula_PC <-
@@ -212,7 +212,7 @@ scale1  <-  function(data_frame)
 
 trait_name1 = "Nitrogen"
 site_name1 = c("cabo-2018-2019-leaf-level-spectra")
-group_variable = "Growth_form"
+group_variable = "leaf_classification"
 
 # Getting data ready for analysis -----------------------------------------
 
@@ -228,7 +228,8 @@ filter_vector_list <-
     "Leaf" = c("broad", "needle"),
     "Phenology" = c("deciduous", "evergreen"),
     "genus_species1" = unique(trait_and_metadata_dataframe$genus_species1[!(trait_and_metadata_dataframe$genus_species1 %in% "NA NA")]),
-    "family1" = unique(trait_and_metadata_dataframe$family1[!is.na(trait_and_metadata_dataframe$family1)])
+    "family1" = unique(trait_and_metadata_dataframe$family1[!is.na(trait_and_metadata_dataframe$family1)]),
+    "leaf_classification" = c("broadleaf",  "needle", "grass", "herbaceous")
   )
 
 
