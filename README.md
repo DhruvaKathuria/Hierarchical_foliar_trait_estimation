@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Hierarchical_foliar_trait_estimation
  Estimating  foliar plant function traits using hyperspectral data.
 ## Getting and Cleaning ECOSIS data
