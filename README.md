@@ -7,7 +7,7 @@ All codes in R_codes/Getting_and_cleaning_ECOSIS_data
 2) [[getting_traits_data.R]]: Use this code to extract the dataset names (downloaded using the above code) for a particular covariate. Code is mostly automatic but needs a visual inspection for new trait names and build the database in [[trait_and_sample_id_Database_for_ECOSIS_Data.R]].
 
 ### Cleaning ECOSIS data
-1) "[[adding_more_metadata_information_to_metadata_files.R]]": This is the main code that writes the parquet file for the metadata. Each data folder that is analyzed has its own parquet file which contains the metadata dataframe plus the metadata that I add. The code also writes a "[[trait_already_done_for_metadata.txt]] to the data folder which contains the traits that I have already added the metadata for.
+1) "[[adding_more_metadata_information_to_metadata_files.R]]": This is the main code that writes the parquet file for the metadata. Each data folder that is analyzed has its own parquet file which contains the downloaded metadata dataframe plus the metadata parquet file that I create. The code also writes a "[[trait_already_done_for_metadata.txt]] to the data folder which contains the traits that I have already added the metadata for.
 
 2) The code [[adding_Genus_Species_data_in_metadata_files.R]] crunches the metadata and adds a column for genus and species. We also add Family data using taxize package. Other data related to taxize can be added as well if the user wants.
 
