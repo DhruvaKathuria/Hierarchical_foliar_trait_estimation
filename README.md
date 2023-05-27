@@ -1,7 +1,5 @@
 ---
-output:
-  html_document: default
-  pdf_document: default
+
 ---
 # Hierarchical_foliar_trait_estimation
 Estimating  foliar plant function traits using hyperspectral data.
