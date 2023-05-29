@@ -12,11 +12,17 @@ echo: false
 # TODO: You can add other trait names from Roamresearch I.2-Paper-2
 ```
 
-Foliar Functional traits are chemical (such as chlorophyll), physiological (such as photosynthetic rate) and structural (such as leaf area) features of a leaf which mediate ecosystem functioning and its response to perturbations by regulating the growth fitness of plants in diverse ecosystems (@serbin2020; @lavorel2002; @wright2005; @funk2017). \
-\
+### 1.1.1 General importance
+
+Foliar Functional traits are chemical (such as chlorophyll), physiological (such as photosynthetic rate) and structural (such as leaf area) features of a leaf which mediate ecosystem functioning and its response to perturbations by regulating the growth fitness of plants in diverse ecosystems (@serbin2020; @lavorel2002; @wright2005; @funk2017).
+
+### 1.1.2 Leaf economic spectrum
+
 In an ecosystem, foliar functional traits influence the resource allocation and reallocation of resources by a plant under diverse environmental conditions ( @reich2014; @wang2020) and affect the functional diversity driving ecosystem productivity ( @cadotte2009 )
 
-Foliar traits
+### 1.1.2 Role in Vegetation models
+
+Foliar traits' significance in parameterizing terrestrial vegetation plays a crucial role in Earth System models, which, if not precisely characterized, introduces substantial uncertainty into climate change predictions ( @wullschleger2014; @friedlingstein2006 ).
 
 ## 1.2 History of using spectroscopy for predicting foliar traits
 
