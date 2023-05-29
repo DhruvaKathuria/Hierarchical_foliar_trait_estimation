@@ -2,34 +2,14 @@ library(taxize)
 library(arrow)
 library(stringr)
 
-mainDir = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/ECOSIS_Data_download_Dhruva"  
+#mainDir = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/ECOSIS_Data_download_Dhruva"  
 
-trait_name1 = "Nitrogen"
-datasets_already_processed =  list.files(mainDir, recursive = T, pattern = "traits_already_done_for_metadata.txt")
-indices_of_datasets_containing_trait_name =  unlist(lapply(datasets_already_processed, function(x)
-{
-  read_file1 = readr :: read_lines(file.path(mainDir, x))
-  trait_name1 %in% read_file1
-})
-)
 
-datasets_to_take_for_trait = unlist(lapply(datasets_already_processed[indices_of_datasets_containing_trait_name], function(x) strsplit(x, "/traits_already_done_for_metadata.txt" )[[1]])) 
+# Function list start -----------------------------------------------------
 
-x = datasets_to_take_for_trait[1]
-
-USDA_symbol_vector = c("usda", "usda symbol")
-
-genus_only_vector_first_list = c("genus")
-genus_only_vector_second_list = c("latin genus", "latin.genus")
-
-species_only_vector_first_list = c("species")
-species_only_vector_second_list = c("latin species", "latin.species")
-
-no_genus_or_species_first_list = c("latin name", "latin")
-no_genus_or_species_second_list = c("latin name", "latin.name")
-
-USDA_attribute_data =  readr ::read_csv("/Users/dhruvakathuria/Downloads/USDA_Plant_database.txt")
-trait_name_subset <- function(x, exact_vector_list_for_covariate_second_pass) # this is for the datasets which has more than one matching dataset
+trait_name_subset <- function(x, exact_vector_list_for_covariate_second_pass) # this is for the datasets 
+  # which has more than one 
+  # matching dataset
 {
   if(length(x) > 1)
   {
@@ -38,7 +18,7 @@ trait_name_subset <- function(x, exact_vector_list_for_covariate_second_pass) # 
   x2 = x[indices_to_keep]
   x2
 }
-index = 6
+
 get_latin_genus = function(index)
 {
   dataset_name = datasets_to_take_for_trait[index]
@@ -50,7 +30,7 @@ get_latin_genus = function(index)
     metadata_arrow_version = read_parquet(paste0(file.path(mainDir, dataset_name), "/", "metadata_updated.parquet"))
     names1 = tolower(names(metadata_arrow_version)) # we do everything lower case so that there are no discrepancies
     names(metadata_arrow_version) = names1
-   
+    
     
     match_genus<- paste(genus_only_vector_first_list[order(-nchar(genus_only_vector_first_list))], collapse = '|^') 
     test_genus <- str_extract_all(names1, match_genus, simplify= T) # this shows the exact name in the trait vector which matches with the column name. "" indicates no match.
@@ -98,7 +78,7 @@ get_latin_genus = function(index)
       check_Genus_Species_names = strsplit(Genus_Species_Name,  " ")
       if(all(unlist(lapply(check_Genus_Species_names, length)) > 1))
       {
-      Genus_Species_Name = unlist(lapply(check_Genus_Species_names, function(x) paste(x[1], x[2], sep = " ")))
+        Genus_Species_Name = unlist(lapply(check_Genus_Species_names, function(x) paste(x[1], x[2], sep = " ")))
       }
     }
     
@@ -136,13 +116,13 @@ get_latin_genus = function(index)
             if(length(ind1) == 0)
             {
               out1 = NA
-              }else if(length(ind1) == 1)
-              {
-                out1 = USDA_attribute_data$`Scientific Name with Author`[ind1]
-              }else if (length(ind1) > 1)
-              {
-                out1 = USDA_attribute_data$`Scientific Name with Author`[ind1[1]] # arbitratily right now taking as first index where there are multiple matches with the USDA plant base
-              }
+            }else if(length(ind1) == 1)
+            {
+              out1 = USDA_attribute_data$`Scientific Name with Author`[ind1]
+            }else if (length(ind1) > 1)
+            {
+              out1 = USDA_attribute_data$`Scientific Name with Author`[ind1[1]] # arbitratily right now taking as first index where there are multiple matches with the USDA plant base
+            }
             out1
           }))
           check_Genus_Species_names = sapply(Genus_Species_Name, function(x) {if(is.na(x)) {out = NA} else {out = strsplit(x,  " ")}}) 
@@ -163,7 +143,46 @@ get_latin_genus = function(index)
     metadata_traits_already_added = c(metadata_traits_already_added, "Genus_Species", "Family")
     metadata_traits_already_added = as.character(na.omit(metadata_traits_already_added))
     readr::write_lines(metadata_traits_already_added, traits_already_done_path)
-    }
+  }
 }
 
-for(i in 1:length(datasets_to_take_for_trait)) {get_latin_genus(i)}
+
+# Global parameters and datasets ------------------------------------------
+
+trait_name1 = "Nitrogen"
+datasets_already_processed =  list.files(mainDir, recursive = T, 
+                                         pattern = "traits_already_done_for_metadata.txt")
+USDA_attribute_data =  readr ::read_csv("data/USDA_Plant_database.txt")
+
+# Analysis start ----------------------------------------------------------
+
+indices_of_datasets_containing_trait_name =  unlist(lapply(datasets_already_processed, 
+                                                           function(x){
+                                                             read_file1 = readr :: read_lines(file.path(mainDir,
+                                                                                                        x))
+                                                             trait_name1 %in% read_file1
+                                                             })
+                                                    )
+
+datasets_to_take_for_trait = unlist(lapply(datasets_already_processed[indices_of_datasets_containing_trait_name], 
+                                           function(x) strsplit(x, 
+                                                                "/traits_already_done_for_metadata.txt" )[[1]])) 
+
+#x = datasets_to_take_for_trait[1]
+
+USDA_symbol_vector = c("usda", "usda symbol")
+
+genus_only_vector_first_list = c("genus")
+genus_only_vector_second_list = c("latin genus", "latin.genus")
+
+species_only_vector_first_list = c("species")
+species_only_vector_second_list = c("latin species", "latin.species")
+
+no_genus_or_species_first_list = c("latin name", "latin")
+no_genus_or_species_second_list = c("latin name", "latin.name")
+
+
+for(i in 1:length(datasets_to_take_for_trait)) 
+{
+  get_latin_genus(i)
+}
