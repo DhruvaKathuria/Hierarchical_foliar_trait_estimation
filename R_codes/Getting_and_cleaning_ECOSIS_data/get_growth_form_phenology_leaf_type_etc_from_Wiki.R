@@ -60,7 +60,7 @@ get_extra_metadata = function(index1, classification_form)
 
 
 ########################################################Implementation#########################################################
-mainDir = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/ECOSIS_Data_download_Dhruva"  
+#mainDir = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/ECOSIS_Data_download_Dhruva"  
 
 classification_list = list("Growth_form" = c("shrub", "tree", "herbaceous", "grass", "vine"),
                            "Phenology" = c("deciduous", "evergreen"),
