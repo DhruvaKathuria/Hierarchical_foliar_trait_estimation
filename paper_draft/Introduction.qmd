@@ -32,6 +32,7 @@ Foliar traits' significance in parameterizing terrestrial vegetation plays a cru
 
 ## 1.5 Ending
 
-The National Academy of Sciences 2017 Decadal Survey specifically identifies the spatio-temporal distribution of plant functional traits as a crucial objective (E-1a).It is not surprising that plant functional traits are identified as an Essential Biodiversity Variable (@pereira2013, @pettorelli2016).
+The National Academy of Sciences 2017 Decadal Survey specifically identifies the spatio-temporal distribution of plant functional traits as a crucial objective (E-1a).
+It is not surprising that plant functional traits are identified as an Essential Biodiversity Variable (@pereira2013, @pettorelli2016).
 
 ## 
