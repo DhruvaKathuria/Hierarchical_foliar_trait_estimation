@@ -28,10 +28,19 @@ Foliar traits' significance in parameterizing terrestrial vegetation plays a cru
 
 ## 1.3 Why PLSR methods are the most widely used methods for predicting traits
 
+PLSR methods have been the most successful method for predicting traits for spectra. \
+The upcoming SBG mission has PLSR method as one of the strong candidates for predicting traits\
+
 ## 1.4 Drawbacks of PLSR approach
+
+The PLSR approach to trait estimation does not provide uncertainty estimates which are crucial to understand how variable the predictions will be when applied to new study regions.\
+Another drawback of the PLSR approach is that it assumes a linear relationship between the traits and spectra. Though there have been a few applications of kernel based PLSR approaches for trait prediction (e.g. @arenas-garcia2008) , the majority of the studies still use the standard PLSR assuming a linear relationship between the traits and spectra.\
+PLSR approaches also cannot account for the hierarchical structure that might exist in certain traits. \
+PLSR is challenged by the variability of the relationship between traits and spectra across species, functional types, and biomes. It will either a global function between the traits and spectra which ignores the across-group variability or else it is used to fit functions separately for different groups which might not be always be possible due to scarcity of sampled trait data.
 
 ## 1.5 Ending
 
-The National Academy of Sciences 2017 Decadal Survey specifically identifies the spatio-temporal distribution of plant functional traits as a crucial objective (E-1a). It is not surprising that plant functional traits are identified as an Essential Biodiversity Variable (@pereira2013, @pettorelli2016).
+The National Academy of Sciences 2017 Decadal Survey specifically identifies the spatio-temporal distribution of plant functional traits as a crucial objective (E-1a). \
+It is not surprising that plant functional traits are identified as an Essential Biodiversity Variable (@pereira2013, @pettorelli2016).
 
 ## 
