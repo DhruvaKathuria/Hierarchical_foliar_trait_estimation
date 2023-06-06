@@ -17,10 +17,15 @@ add_extra_metadata = function(dataset_name1, metadata_name1, metadata_value1) # 
 # Main metadata adding function
 add_metadata_function = function(dataset_name, variable_name1, units_for_variable_name1)
 {
-  metadata_file_from_ECOSIS = readr :: read_csv(file = paste0(file.path(mainDir, dataset_name), "/", "metadata.csv"), show_col_types = FALSE)
+  metadata_file_from_ECOSIS = readr :: read_csv(file = paste0(file.path(mainDir, dataset_name), 
+                                                              "/", 
+                                                              "metadata.csv"), 
+                                                show_col_types = FALSE)
   
   ## See if you already have added metadata to the dataset for any other trait_name
-  traits_already_done_path = paste0(file.path(mainDir, dataset_name), "/", "traits_already_done_for_metadata.txt")
+  traits_already_done_path = paste0(file.path(mainDir, dataset_name), 
+                                    "/", 
+                                    "traits_already_done_for_metadata.txt")
   if(file.exists(traits_already_done_path))
   {
     metadata_traits_already_added = readr :: read_lines(traits_already_done_path)
@@ -29,12 +34,15 @@ add_metadata_function = function(dataset_name, variable_name1, units_for_variabl
   # read in the previous version of metadata_arrow_version
   if(all(!is.na(metadata_traits_already_added)))
   {
-    metadata_arrow_version = read_parquet(paste0(file.path(mainDir, dataset_name), "/", "metadata_updated.parquet"))
+    metadata_arrow_version = read_parquet(paste0(file.path(mainDir, 
+                                                           dataset_name), 
+                                                 "/", 
+                                                 "metadata_updated.parquet"))
   }else
   {
     metadata_arrow_version = metadata_file_from_ECOSIS
-    ##################set global attributes########################
-    ## sample_id
+    ##set global attributes
+    ###sample_id
     if(!is.na(sample_id_list[[dataset_name]]))
     {
       sample_id_vector = metadata_arrow_version[sample_id_list[[dataset_name]] ]

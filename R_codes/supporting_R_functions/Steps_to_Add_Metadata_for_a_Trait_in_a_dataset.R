@@ -52,7 +52,7 @@ spectra_file_from_ECOSIS = readr :: read_csv(file = paste0(file.path(mainDir, da
 ## Check the spectra file to see if you have relavant spectra or not
 
 ## If trait units are available in the metadata file, go to 
-## *Getting_and_Cleaning_Ecosis_data/adding_more_metadata_information_to_metadata_files.R* 
+## *Getting_and_Cleaning_Ecosis_data/02_create_parquet_metadata.R* 
 ## and add the unit under *trait_name1_unit*.
 
 ## Fill in the below lists in *trait_and_sample_id_Database_for_ECOSIS_Data.R* 
@@ -90,7 +90,7 @@ dataset_name1 %in% names(instrument_model_info_global_list)
 ## Open paste0("https://ecosis.org/package/", dataset_name1)
 ## From the ECOSIS site, look at the Paper under *Linked Resources* 
 ## If trait_units not found in step 4, Check the paper for units of the trait 
-## and add under *adding_more_metadata_information_to_metadata_files.R*
+## and add under *02_create_parquet_metadata.R*
 
 ## If **is_spectral_measurement_reflectance_only_Boolean_list** not found in step 4, 
 ## look under measurement quantity on the ECOSIS site

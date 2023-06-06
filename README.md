@@ -11,7 +11,7 @@ All codes in R_codes/Getting_and_cleaning_ECOSIS_data
 1) The code [[01_get_data_ecosis.R]] reads the ECOSIS website and downloads data which has not been already downloaded and separates the output into metadata and spectra folders
 
 ### Cleaning ECOSIS data
-1) [[adding_more_metadata_information_to_metadata_files.R]]: This is the main code that writes the parquet file for the metadata. Each data folder that is analyzed has its own parquet file which contains the downloaded metadata dataframe plus the metadata parquet file that I create. The code also writes a [[trait_already_done_for_metadata.txt]] to the data folder which contains the traits that I have already added the metadata for.
+1) [[02_create_parquet_metadata.R]]: This is the main code that writes the parquet file for the metadata. Each data folder that is analyzed has its own parquet file which contains the downloaded metadata dataframe plus the metadata parquet file that I create. The code also writes a [[trait_already_done_for_metadata.txt]] to the data folder which contains the traits that I have already added the metadata for.
 
 2) The code [[adding_Genus_Species_data_in_metadata_files.R]] crunches the metadata and adds a column for genus and species. We also add Family data using taxize package. Other data related to taxize can be added as well if the user wants.
 

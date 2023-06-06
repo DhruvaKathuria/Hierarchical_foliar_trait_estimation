@@ -7,9 +7,10 @@ library(stringr)
 
 # Function list start -----------------------------------------------------
 
-trait_name_subset <- function(x, exact_vector_list_for_covariate_second_pass) # this is for the datasets 
-  # which has more than one 
-  # matching dataset
+trait_name_subset <- function(x, 
+                              exact_vector_list_for_covariate_second_pass) # this is for the datasets 
+                                                                           # which has more than one 
+                                                                           # matching dataset
 {
   if(length(x) > 1)
   {
@@ -22,19 +23,32 @@ trait_name_subset <- function(x, exact_vector_list_for_covariate_second_pass) # 
 get_latin_genus = function(index)
 {
   dataset_name = datasets_to_take_for_trait[index]
-  traits_already_done_path = paste0(file.path(mainDir, dataset_name), "/", "traits_already_done_for_metadata.txt")
+  traits_already_done_path = paste0(file.path(mainDir, 
+                                              dataset_name), 
+                                    "/", 
+                                    "traits_already_done_for_metadata.txt")
   metadata_traits_already_added = readr :: read_lines(traits_already_done_path)
-  if( !("Genus_Species" %in% metadata_traits_already_added & "Family" %in% metadata_traits_already_added))
+  if( !("Genus_Species" %in% metadata_traits_already_added & 
+        "Family" %in% metadata_traits_already_added))
   {
-    # the below datasets have been downloaded for "leaf" from ECOSIS using "Getting_ECOSIS_data_from_API_and_storing_metadata.R"
-    metadata_arrow_version = read_parquet(paste0(file.path(mainDir, dataset_name), "/", "metadata_updated.parquet"))
+    # the below datasets have been downloaded for "leaf" from ECOSIS using "01_get_data_ecosis.R"
+    metadata_arrow_version = read_parquet(paste0(file.path(mainDir, 
+                                                           dataset_name), 
+                                                 "/", 
+                                                 "metadata_updated.parquet"))
     names1 = tolower(names(metadata_arrow_version)) # we do everything lower case so that there are no discrepancies
     names(metadata_arrow_version) = names1
     
-    
-    match_genus<- paste(genus_only_vector_first_list[order(-nchar(genus_only_vector_first_list))], collapse = '|^') 
-    test_genus <- str_extract_all(names1, match_genus, simplify= T) # this shows the exact name in the trait vector which matches with the column name. "" indicates no match.
-    covariate_test_genus = unique(test_genus[test_genus!= ""]) # these are the names in trait_vector that match (approximately) with the column names
+    match_genus<- paste(genus_only_vector_first_list[order(-nchar(genus_only_vector_first_list))], 
+                        collapse = '|^') 
+    test_genus <- str_extract_all(names1, 
+                                  match_genus, 
+                                  simplify= T) # this shows the exact name in the trait vector 
+                                               # which matches with the column name. 
+                                               # "" indicates no match.
+    covariate_test_genus = unique(test_genus[test_genus!= ""]) # these are the names in 
+                                                               # trait_vector that match 
+                                                               # (approximately) with the column names
     column_to_take_genus = names1[test_genus != ""]
     
     if(length(column_to_take_genus) > 1)
@@ -42,8 +56,14 @@ get_latin_genus = function(index)
       column_to_take_genus =  trait_name_subset(column_to_take_genus, genus_only_vector_second_list)
     }
     
-    match_species<- paste(species_only_vector_first_list[order(-nchar(species_only_vector_first_list))], collapse = '|^') 
-    test_species <- str_extract_all(names1, match_species, simplify= T) # this shows the exact name in the trait vector which matches with the column name. "" indicates no match.
+    match_species<- paste(species_only_vector_first_list[order(-nchar(species_only_vector_first_list))], 
+                          collapse = '|^') 
+    test_species <- str_extract_all(names1, 
+                                    match_species, 
+                                    simplify= T) # this shows the exact name in 
+                                                 # the trait vector which matches 
+                                                 # with the column name. 
+                                                 # "" indicates no match.
     covariate_test_species = unique(test_species[test_species!= ""]) # these are the names in trait_vector that match (approximately) with the column names
     column_to_take_species = names1[test_species != ""]
     
@@ -86,7 +106,9 @@ get_latin_genus = function(index)
     {
       match_names<- paste(no_genus_or_species_first_list[order(-nchar(no_genus_or_species_first_list))], collapse = '|^') 
       test_names <- str_extract_all(names1, match_names, simplify= T) # this shows the exact name in the trait vector which matches with the column name. "" indicates no match.
-      covariate_test_names = unique(test_names[test_names!= ""]) # these are the names in trait_vector that match (approximately) with the column names
+      covariate_test_names = unique(test_names[test_names!= ""]) # these are the 
+                                                                 # names in trait_vector 
+                                                                 # that match (approximately) with the column names
       column_to_take_names = names1[test_names != ""]
       
       if(length(column_to_take_names) != 0)
@@ -103,8 +125,12 @@ get_latin_genus = function(index)
       {
         usda_trait_vector = tolower(USDA_symbol_vector)
         match_USDA<- paste(USDA_symbol_vector[order(-nchar(USDA_symbol_vector))], collapse = '|^') 
-        test_USDA <- str_extract_all(names1, match_USDA, simplify= T) # this shows the exact name in the trait vector which matches with the column name. "" indicates no match.
-        covariate_test_USDA = unique(test_USDA[test_USDA!= ""]) # these are the names in usda_trait_vector that match (approximately) with the column names
+        # test_USDA shows the exact name in the trait vector which matches with 
+        # the column name. "" indicates no match.
+        test_USDA <- str_extract_all(names1, match_USDA, simplify= T) 
+        # covariate_test_USDA are the names in usda_trait_vector that match 
+        # (approximately) with the column names
+        covariate_test_USDA = unique(test_USDA[test_USDA!= ""]) 
         
         if(length(covariate_test_USDA) != 0)
         {
@@ -121,26 +147,41 @@ get_latin_genus = function(index)
               out1 = USDA_attribute_data$`Scientific Name with Author`[ind1]
             }else if (length(ind1) > 1)
             {
-              out1 = USDA_attribute_data$`Scientific Name with Author`[ind1[1]] # arbitratily right now taking as first index where there are multiple matches with the USDA plant base
+              # arbitratily right now taking as first index where there are 
+              # multiple matches with the USDA plant base
+              out1 = USDA_attribute_data$`Scientific Name with Author`[ind1[1]] 
             }
             out1
           }))
-          check_Genus_Species_names = sapply(Genus_Species_Name, function(x) {if(is.na(x)) {out = NA} else {out = strsplit(x,  " ")}}) 
-          Genus_Species_Name =  unlist(lapply(check_Genus_Species_names, function(x) paste(x[1], x[2], sep = " ")))
-        }else{Genus_Species_Name = rep(NA, nrow(metadata_arrow_version))}
+          check_Genus_Species_names = sapply(Genus_Species_Name, 
+                                             function(x) {if(is.na(x)) {out = NA} else {out = strsplit(x,  " ")}}) 
+          Genus_Species_Name =  unlist(lapply(check_Genus_Species_names, 
+                                              function(x) paste(x[1], 
+                                                                x[2], 
+                                                                sep = " ")))
+        }else{Genus_Species_Name = rep(NA, 
+                                       nrow(metadata_arrow_version))}
       }
     }
     #Genus_Species_Name
     table_Genus_Species_Name = table(Genus_Species_Name)
-    table_family = lapply(names(table_Genus_Species_Name), function(x){ return(tryCatch(tax_name(query = x, get = "family", db = "ncbi")$family, error=function(e) NA)) })
+    table_family = lapply(names(table_Genus_Species_Name), function(x){ return(tryCatch(tax_name(query = x, 
+                                                                                                 get = "family", 
+                                                                                                 db = "ncbi")$family, 
+                                                                                        error=function(e) NA)) })
     table_family1 = unlist(table_family)
-    family_names = unlist(lapply(Genus_Species_Name, function(x) { table_family1[which(x == names(table_Genus_Species_Name))]} ) )
+    family_names = unlist(lapply(Genus_Species_Name, 
+                                 function(x) { table_family1[which(x == names(table_Genus_Species_Name))]} ) )
     
     metadata_arrow_version$genus_species1 = Genus_Species_Name
     metadata_arrow_version$family1 = family_names
-    write_parquet(metadata_arrow_version,  paste0(file.path(mainDir, dataset_name), "/", "metadata_updated.parquet"))
+    write_parquet(metadata_arrow_version,  paste0(file.path(mainDir, dataset_name), 
+                                                  "/",
+                                                  "metadata_updated.parquet"))
     
-    metadata_traits_already_added = c(metadata_traits_already_added, "Genus_Species", "Family")
+    metadata_traits_already_added = c(metadata_traits_already_added, 
+                                      "Genus_Species", 
+                                      "Family")
     metadata_traits_already_added = as.character(na.omit(metadata_traits_already_added))
     readr::write_lines(metadata_traits_already_added, traits_already_done_path)
   }
@@ -149,7 +190,7 @@ get_latin_genus = function(index)
 
 # Global parameters and datasets ------------------------------------------
 
-trait_name1 = "Nitrogen"
+#trait_name1 = "Nitrogen"
 datasets_already_processed =  list.files(mainDir, recursive = T, 
                                          pattern = "traits_already_done_for_metadata.txt")
 USDA_attribute_data =  readr ::read_csv("data/USDA_Plant_database.txt")
