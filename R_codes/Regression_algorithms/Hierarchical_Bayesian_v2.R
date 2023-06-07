@@ -218,7 +218,7 @@ group_variable = "leaf_classification"
 
 #Source the file below to get the input data matrices and the output trait
 source(
-  "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Regression_algorithms/ECOSIS_Implementation_file_for_Bayesian_ML.R"
+  "R_codes/Regression_algorithms/ECOSIS_Implementation_file_for_Bayesian_ML.R"
 )
 
 #The below list is formed to do form groups for the hierarchical type analysis
@@ -273,7 +273,8 @@ data_frame_with_PLSR_predictions <-
 
 # PC implementation -------------------------------------------------------
 
-## We are doing the analysis on PC rather than on input covariates to not go into the effects of correlated covariates
+## We are doing the analysis on PC rather than on input covariates to not go 
+## into the effects of correlated covariates
 spectra_names <-  400:2400 %>% as.character()
 data_frame_PC <-  data_frame_out %>%
   get_PC_data_frame(spectra_names = spectra_names)
@@ -311,7 +312,7 @@ rmse_values_for_different_PCS_for_spline_analysis <-
 PCs_for_spline_analysis = paste(paste0(
   "s(" ,
   "PC",
-  1:28,
+  which.min(round(rmse_values_for_different_PCS_for_spline_analysis, 2)),
   ")"
 ) , collapse = "+")
 # equation_formula_for_spline = paste("trait ~ 1 + ",

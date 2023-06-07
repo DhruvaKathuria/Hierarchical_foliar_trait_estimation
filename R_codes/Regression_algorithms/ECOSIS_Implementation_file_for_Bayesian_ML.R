@@ -5,16 +5,17 @@ library(units)
 #conflicts_prefer(dplyr::select)
 #conflicts_prefer(base::intersect)
 
-mainDir = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/ECOSIS_Data_download_Dhruva"  
-Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/"
+mainDir = "data/raw_data"  
+#Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/"
 
 ###########Parameters to change in the code###################
 algorithm1 = "ridge" # can be PLSR, "Bayesian_linear_horseshoe; check "Apply_ML_and_prospect_algorithms.R" for various options on algorithms
 filtering_type = "Global" # "Global", "Site_specific"
 get_only_train_test_indices = T # we set this value to T if we do not want to run the regression algorithm and only want the train/test split indices. This is helpful if I am exploring some new regression approach and I can just call this R file from another R code to get the indices and the input matrices
-source("/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Regression_algorithms/Apply_ML_and_prospect_algorithms.R")
-#################################################functions used in this code#######################################
-#x = datasets_to_take_for_trait[1]
+source("R_codes/supporting_R_functions/Apply_ML_and_prospect_algorithms.R")
+
+
+# Function list start -----------------------------------------------------
 
 filter_spectra_data = function(x) # this function only works for Carotenoid data for filtering the spectra # need to solve the Github issue
 {
@@ -124,9 +125,13 @@ get_test_data_frame_predictions = function(indices_subset, algorithm1) # gives t
 
 
 ###############################################Datasets########################################################################
-Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/"
-datasets_already_processed =  list.files(mainDir, recursive = T, pattern = "traits_already_done_for_metadata.txt")
-database_for_metadata = readr :: read_csv(paste0(Github_dir, "R_codes/Species_data/Species_attribute_data_Dhruva_GPT.csv")) # this is the metadata file that I made from "get_growth_form_phenology_leaf_type_etc_from_Wiki.R"datasets_already_processed =  list.files(mainDir, recursive = T, pattern = "traits_already_done_for_metadata.txt") # we take the datasets for which atleast one of the traits has been processed
+#Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/"
+database_for_metadata = readr :: read_csv("data/Species_data/Species_attribute_data_Dhruva_GPT.csv") # Currently using the ChatGPT version
+# this is the metadata file that I made from "scrape_wikipedia_for_species_metadata_table.R"
+datasets_already_processed =  list.files(mainDir, 
+                                         recursive = T, 
+                                         pattern = "traits_already_done_for_metadata.txt") 
+# we take the datasets for which atleast one of the traits has been processed
 indices_of_datasets_containing_trait_name =  unlist(lapply(datasets_already_processed, function(x)
 {
   read_file1 = readr :: read_lines(file.path(mainDir, x))
