@@ -27,7 +27,8 @@ filter_out_error_groups <-  function(data_frame1)
 
 get_optimal_components_for_spline = function(data_train,
                                              number_of_components_to_search,
-                                             num_clusters)
+                                             num_clusters,
+                                             hierarchical)
 {
   set.seed(123)
   cv  <<- crossv_kfold(data_train, k = 5)
@@ -35,15 +36,20 @@ get_optimal_components_for_spline = function(data_train,
   
   cl <-
     makeCluster(num_clusters)     # set the number of processor cores
-  clusterExport(cl, c("cv", "RMSE_function")) # export the objects to all cluster
+  clusterExport(cl, c("cv", 
+                      "RMSE_function", 
+                      "group_variable")) # export the objects to all cluster
   clusterEvalQ(cl, {
     library(modelr)
     library(mgcv)
+    library(tidyverse)
+    library(gamm4)
   }) # run the following commands in all the clusters
   
   RMSE_out = parLapply(cl = cl,
-                       1:number_of_components_to_search,
-                       get_RMSE_for_when_we_have_i_components)
+                       40:number_of_components_to_search,
+                       get_RMSE_for_when_we_have_i_components,
+                       hierarchical = hierarchical)
   stopCluster(cl)
   RMSE_out
 }
@@ -80,17 +86,30 @@ get_PLSR_data_frames = function(data_frame_out, site_name1)
        data_test = data_test_for_hierarchical_analysis_PLSR)
 }
 
-get_RMSE_for_when_we_have_i_components <- function(i)
+get_RMSE_for_when_we_have_i_components <- function(i, hierarchical)
 {
   normal_group = paste(paste0("s(" , "PC", 1:i, ")") , collapse = "+")
-  fla_mixed  = paste("trait ~ 1 + ", normal_group, sep = "")
+  if(hierarchical == F)
+  {
+    fla_mixed  = str_glue("trait ~ 1 +  {normal_group} ")
+  }else{
+    fla_mixed  = str_glue("trait ~ {normal_group}")
+    #fla_mixed = str_glue(" trait ~ {normal_group}  + (1|{group_variable})")
+  }
   RMSE1 = vector(mode = "double", length = 5)
  
   for (j in 1:5)
   {
     data_train_cv = as.data.frame(cv$train[[j]])
     data_test_cv = as.data.frame(cv$test[[j]])
-    model_gamm =   gamm(as.formula(fla_mixed), data = data_train_cv)
+    if(hierarchical == F)
+    {
+      model_gamm =   gamm(as.formula(fla_mixed), data = data_train_cv)
+    }else{
+      model_gamm =   gamm4(as.formula(fla_mixed), 
+                          data = data_train_cv, 
+                          random=~(1 +  PC2 |leaf_classification))
+    }
     predict1 = predict(model_gamm$gam, data_test_cv)
     RMSE1[j] = RMSE_function(predict1, data_test_cv$trait)
   }
@@ -146,7 +165,7 @@ PLSR_function = function(data_train, data_test)
   #summary(ll_1)
   RMSE_values_cv = RMSEP(ll_1)
   RMSE_values = RMSE_values_cv$val[1, ,]
-  index1_min = which.min(RMSE_values[1:100])
+  index1_min = round(which.min(RMSE_values[1:100]), 1)
   # validationplot(ll_1, val.type = "MSEP")
   
   data_test1 = data_test |>
@@ -213,6 +232,7 @@ scale1  <-  function(data_frame)
 trait_name1 = "Nitrogen"
 site_name1 = c("cabo-2018-2019-leaf-level-spectra")
 group_variable = "leaf_classification"
+hierarchical = T
 
 # Getting data ready for analysis -----------------------------------------
 
@@ -277,9 +297,8 @@ data_frame_with_PLSR_predictions <-
 ## into the effects of correlated covariates
 spectra_names <-  400:2400 %>% as.character()
 data_frame_PC <-  data_frame_out %>%
-  get_PC_data_frame(spectra_names = spectra_names)
-
-
+  get_PC_data_frame(spectra_names = spectra_names) 
+#data_frame_PC[group_variable] = as.factor(unlist(data_frame_PC[group_variable]))
 
 #RMSE_matrix <-  matrix(NA, ncol = 4, nrow = length(site_names))
 #cor_matrix <-  matrix(NA, ncol = 4, nrow = length(site_names))
@@ -288,6 +307,7 @@ data_frame_PC <-  data_frame_out %>%
 #colnames(RMSE_matrix) = colnames(cor_matrix) = c("Fixed", "Mixed", "Mixed_Fixed", "Bayesian_mean")
 
 # This for loop is for moving along various sites as I am doing a site transfer analysis
+
 data_train  = data_frame_PC %>%
   filter(!(site_name %in% site_name1))
 
@@ -301,12 +321,14 @@ data_test_for_hierarchical_analysis = data_test  %>%
   filter_out_error_groups()
 
 #Give the cross-validation function here to choose the components to be taken for spline/linear analysis
+
 rmse_values_for_different_PCS_for_spline_analysis <-
   unlist(
     get_optimal_components_for_spline(
       data_train_for_hierarchical_analysis,
-      number_of_components_to_search = 40,
-      num_clusters = 9
+      number_of_components_to_search = 60,
+      num_clusters = 9,
+      hierarchical = F
     )
   )
 PCs_for_spline_analysis = paste(paste0(
@@ -315,13 +337,18 @@ PCs_for_spline_analysis = paste(paste0(
   which.min(round(rmse_values_for_different_PCS_for_spline_analysis, 2)),
   ")"
 ) , collapse = "+")
+
+normal_group = paste(paste0("s(" , "PC", 1:which.min(round(rmse_values_for_different_PCS_for_spline_analysis, 2)), ")") , collapse = "+")
+fla_mixed = str_glue("trait ~ {normal_group} + (1|{group_variable})")
+fla_fixed = str_glue("trait ~ 1 + {normal_group}")
+
 # equation_formula_for_spline = paste("trait ~ 1 + ",
 #                                     PCs_for_spline_analysis,
 #                                     ", sigma ~ s(PC1)",
 #                                     sep = "")
-equation_formula_for_spline = paste("trait ~ 1 + ",
-                                    PCs_for_spline_analysis,
-                                    sep = "")
+# equation_formula_for_spline = paste("trait ~ 1 + ",
+#                                     PCs_for_spline_analysis,
+#                                     sep = "")
 
 # PC_to_take_for_analysis = data_train_for_hierarchical_analysis %>%
 #   get_top_n_PC_names_for_a_trait_using_lasso(n_PC = 30, type_of_validation = "normal_cv")
@@ -340,27 +367,31 @@ equation_formula_for_spline = paste("trait ~ 1 + ",
 #                    data = .) # lmer
 
 # Mixed-effects/Hierarchical bayesian model
-model_mixed_Bayesian =
-  data_train_for_hierarchical_analysis %>%
-  brm(
-    formula = as.formula(equation_formula_for_spline),
-    data = .,
-    family = gaussian(),
-    prior = c(
-      set_prior("normal(0, 0.05)", class = "b"),
-      set_prior("normal(0, 0.05)", class = "Intercept")
-      #set_prior("lkj(2)", class = "cor")
-    ),
-    #prior = set_prior(horseshoe(df = 3, par_ratio = 0.1)),
-    
-    warmup = 10000,
-    iter = 20000,
-    chains = 3,
-    cores = 3,
-    control = list(adapt_delta = 0.99, max_treedepth = 20)
-  ) # bayesian hierarchical modeling
+if(hierarchical == T)
+{
+  model_mixed_Bayesian =
+    data_train_for_hierarchical_analysis %>%
+    brm(
+      #formula = as.formula(fla_mixed),
+      formula = trait ~ s(PC1)+s(PC2)+s(PC3)+s(PC4)+s(PC5)+s(PC6)+s(PC7)+s(PC8)+s(PC9)+s(PC10)+s(PC11)+s(PC12)+s(PC13)+s(PC14)+s(PC15)+s(PC16)+s(PC17)+s(PC18)+s(PC19)+s(PC20)+s(PC21)+s(PC22) + (1|leaf_classification),
+      data = .,
+      family = gaussian(),
+      prior = c(
+        set_prior("normal(0, 0.05)", class = "b"),
+        set_prior("normal(0, 0.05)", class = "Intercept")
+        #set_prior("student_t(3, 0, 1)", class = "sds")
+      ),
+      #prior = set_prior(horseshoe(df = 3, par_ratio = 0.1)),
+      
+      warmup = 10000,
+      iter = 20000,
+      chains = 3,
+      cores = 3,
+      control = list(adapt_delta = 0.99, max_treedepth = 20)
+      #sample_prior = "only"
+    ) # bayesian hierarchical modeling
 
-
+}
 
 # Predicting test data ----------------------------------------------------
 
