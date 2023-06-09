@@ -1,0 +1,15 @@
+---
+title: "Methods"
+format: pdf
+editor: visual
+---
+
+## 1. Methods
+
+We use a Bayesian implementation for predicting traits from spectra. We apply three variants of the Bayesian approach: (1) Linear Bayesian (2) Generalized Bayesian additive models (3) Hierarchical Bayesian. We compare all three approaches with PLSR algorithm as well.
+
+### 1.1 Implementation
+
+To reduce the dimensionality of the input spectra as well as to account for multi-collinearity between the spectra, we first reproject the spectra into p-Principal components which are orthogonal to each other. This helps to both reduce the dimensionality of the input as well as reduce the multi-collinearity between the input traits. The p components are chosen based on cross-validation (similar to the PLSR approach.) The PCs are then assumed as inputs to the Bayesian algorithm. For taking the prior for each of the traits, we assume take a wide prior but also perform prior predictive checks so that the priors do not lead to unrealistic values of the traits. The reasonable range of values for the traits are based on publicly available trait value ranges (such as the TRY datasets). The Bayesian methodology helps to both get the uncertainty related to the parameters of the algorithm (posterior parameter distributions) and predictions (posterior predictive distribution). The methodology is summarized in @fig-flowchart
+
+![Methods_Flowchart](/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/paper_draft/figures/methods_flowchart.png){#fig-flowchart}
