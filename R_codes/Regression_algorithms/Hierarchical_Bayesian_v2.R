@@ -47,7 +47,7 @@ get_optimal_components_for_spline = function(data_train,
   }) # run the following commands in all the clusters
   
   RMSE_out = parLapply(cl = cl,
-                       40:number_of_components_to_search,
+                       21:number_of_components_to_search,
                        get_RMSE_for_when_we_have_i_components,
                        hierarchical = hierarchical)
   stopCluster(cl)
@@ -68,6 +68,19 @@ get_PC_data_frame <-  function(data_frame1, spectra_names)
     bind_cols(PC_values_scaled)
 }
 
+get_PC_data_frame_without_trait_scale <-  function(data_frame1, spectra_names)
+{
+  PC_values_scaled <-  data_frame1 %>%
+    select(all_of(spectra_names)) %>%
+    prcomp(center = T, scale = T) %>%
+    pluck("x") %>%
+    scale1()
+  
+  data_frame_PC <-  data_frame1  %>%
+    select(-all_of(spectra_names)) %>%
+    bind_cols(PC_values_scaled)
+}
+
 get_PLSR_data_frames = function(data_frame_out, site_name1)
 {
   data_frame_out1 = data_frame_out %>% mutate(trait = scale(trait))
@@ -75,6 +88,24 @@ get_PLSR_data_frames = function(data_frame_out, site_name1)
   data_train_PLSR  = data_frame_out1 %>%
     filter(!(site_name %in% site_name1))
   data_test_PLSR = data_frame_out1 %>%
+    filter(site_name %in% site_name1)
+  
+  data_train_for_hierarchical_analysis_PLSR = data_train_PLSR  %>%
+    filter_out_error_groups() %>% select(-c(genus_species1:model, site_name))
+  data_test_for_hierarchical_analysis_PLSR = data_test_PLSR  %>%
+    filter_out_error_groups()
+  
+  list(data_train = data_train_for_hierarchical_analysis_PLSR,
+       data_test = data_test_for_hierarchical_analysis_PLSR)
+}
+
+get_PLSR_data_frames_without_trait_scale = function(data_frame_out, site_name1)
+{
+  #data_frame_out1 = data_frame_out %>% mutate(trait = scale(trait))
+  
+  data_train_PLSR  = data_frame_out %>%
+    filter(!(site_name %in% site_name1))
+  data_test_PLSR = data_frame_out %>%
     filter(site_name %in% site_name1)
   
   data_train_for_hierarchical_analysis_PLSR = data_train_PLSR  %>%
@@ -165,7 +196,38 @@ PLSR_function = function(data_train, data_test)
   #summary(ll_1)
   RMSE_values_cv = RMSEP(ll_1)
   RMSE_values = RMSE_values_cv$val[1, ,]
-  index1_min = round(which.min(RMSE_values[1:100]), 1)
+  index1_min = which.min(RMSE_values[1:100])
+  # validationplot(ll_1, val.type = "MSEP")
+  
+  data_test1 = data_test |>
+    select(trait, num_range("", 400:2400))
+  
+  pred1 <- predict(ll_1, data_test1, ncomp = index1_min)
+  pred1 = pred1[, 1, 1]
+  
+  data_test_out = data_test |>
+    mutate(Prediction_PLSR = pred1,
+           .after = trait)
+}
+
+PLSR_function_without_trait_scale = function(data_train, data_test)
+{
+  mean_data_train <- mean(data_train$trait, na.rm = T)
+  sd_data_train <- sd(data_train$trait, na.rm = T)
+  library(pls)
+  set.seed(123)
+  ll_1 = plsr(
+    trait ~ .,
+    data = data_train,
+    validation = "CV",
+    scale = T,
+    center = T,
+    segments = 5
+  )
+  #summary(ll_1)
+  RMSE_values_cv = RMSEP(ll_1)
+  RMSE_values = RMSE_values_cv$val[1, ,]
+  index1_min = which.min(RMSE_values[1:100])
   # validationplot(ll_1, val.type = "MSEP")
   
   data_test1 = data_test |>
@@ -285,7 +347,7 @@ site_names <-  data_frame_out %>%
 # PLSR implementation -----------------------------------------------------
 
 data_frames_for_PLSR  <-
-  get_PLSR_data_frames(data_frame_out, site_name1)
+  get_PLSR_data_frames_without_trait_scale(data_frame_out, site_name1)
 data_frame_with_PLSR_predictions <-
   PLSR_function(data_frames_for_PLSR[['data_train']],
                 data_frames_for_PLSR[["data_test"]]) %>%
@@ -297,7 +359,7 @@ data_frame_with_PLSR_predictions <-
 ## into the effects of correlated covariates
 spectra_names <-  400:2400 %>% as.character()
 data_frame_PC <-  data_frame_out %>%
-  get_PC_data_frame(spectra_names = spectra_names) 
+  get_PC_data_frame_without_trait_scale(spectra_names = spectra_names) 
 #data_frame_PC[group_variable] = as.factor(unlist(data_frame_PC[group_variable]))
 
 #RMSE_matrix <-  matrix(NA, ncol = 4, nrow = length(site_names))
@@ -326,7 +388,7 @@ rmse_values_for_different_PCS_for_spline_analysis <-
   unlist(
     get_optimal_components_for_spline(
       data_train_for_hierarchical_analysis,
-      number_of_components_to_search = 60,
+      number_of_components_to_search = 40,
       num_clusters = 9,
       hierarchical = F
     )
