@@ -5,15 +5,18 @@
 #regression and we can also use Generalized Additive Models for our analysis to
 #take into account the non-linear effects of the PCs on the output.
 
-library(brms)
-library(caret)
-library(tidyverse)
-library(ggpmisc)
-library(glmnetUtils)
-library(lme4)
-library(mgcv)
-library(modelr)
-library(parallel)
+{
+  library(brms)
+  library(caret)
+  library(tidyverse)
+  library(ggpmisc)
+  library(glmnetUtils)
+  library(lme4)
+  library(mgcv)
+  library(modelr)
+  library(parallel)
+  library(janitor)
+  }
 
 # Function List Start -----------------------------------------------------
 
@@ -187,13 +190,20 @@ PLSR_function = function(data_train, data_test)
     select(trait, num_range("", 400:2400))
   library(pls)
   set.seed(123)
+  # ll_1 = plsr(
+  #   trait ~ .,
+  #   data = data_train,
+  #   validation = "CV",
+  #   scale = T,
+  #   center = T,
+  #   segments = 5
+  # )
   ll_1 = plsr(
     trait ~ .,
     data = data_train,
-    validation = "CV",
+    validation = "LOO",
     scale = T,
-    center = T,
-    segments = 5
+    center = T
   )
   #summary(ll_1)
   RMSE_values_cv = RMSEP(ll_1)
@@ -295,12 +305,6 @@ scale1  <-  function(data_frame)
   out = data.frame(scale(matrix1))
 }
 
-# Setting global parameters -----------------------------------------------
-
-trait_name1 = "Nitrogen"
-site_name1 = c("cabo-2018-2019-leaf-level-spectra")
-group_variable = "leaf_classification"
-hierarchical = T
 
 # Getting data ready for analysis -----------------------------------------
 
@@ -352,265 +356,274 @@ site_names <-  data_frame_out %>%
   unique() %>%
   pull(site_name)
 
+spectra_names <-  400:2400 %>% as.character()
 # PLSR implementation -----------------------------------------------------
 
 #data_frame_out <- data_frame_out |> filter(site_name != "dessain-project-reflectance-spectra")
 data_frames_for_PLSR  <-
   get_PLSR_data_frames_without_trait_scale(data_frame_out, site_name1)
-data_frame_with_PLSR_predictions <-
-  PLSR_function(data_frames_for_PLSR[['data_train']],
-                data_frames_for_PLSR[["data_test"]]) %>%
-  select(-any_of(num_range("", 400:2400)))
+
+if(PLSR_implementation == T)
+{
+  data_frame_with_PLSR_predictions <-
+    PLSR_function(data_frames_for_PLSR[['data_train']],
+                  data_frames_for_PLSR[["data_test"]]) %>%
+    select(-any_of(num_range("", 400:2400)))
+}
 
 # PC implementation -------------------------------------------------------
 
 ## We are doing the analysis on PC rather than on input covariates to not go 
 ## into the effects of correlated covariates
-spectra_names <-  400:2400 %>% as.character()
-data_frame_PC <-  data_frame_out %>%
-  get_PC_data_frame_without_trait_scale(spectra_names = spectra_names) 
-#data_frame_PC[group_variable] = as.factor(unlist(data_frame_PC[group_variable]))
 
-#RMSE_matrix <-  matrix(NA, ncol = 4, nrow = length(site_names))
-#cor_matrix <-  matrix(NA, ncol = 4, nrow = length(site_names))
-
-# What I am trying to do here is that I am comparing the results if I only do the non-Bayesian PCR analysis, Mixed is when we also have a hierarchical model involved, mixed-fixed is when we use the fixed model for non-group data and mixed model for the data for which we have group information in the test data, bayesian mean is the RMSE/cor metrics when we do the Bayesian equivalant of the hierarchical approach and take the mean as the accuracy metric
-#colnames(RMSE_matrix) = colnames(cor_matrix) = c("Fixed", "Mixed", "Mixed_Fixed", "Bayesian_mean")
-
-# This for loop is for moving along various sites as I am doing a site transfer analysis
-
-data_train  = data_frame_PC %>%
-  filter(!(site_name %in% site_name1))
-
-data_test = data_frame_PC %>%
-  filter(site_name %in% site_name1)
-
-# We first get the Principal component data matrix along with the trait value
-data_train_for_hierarchical_analysis = data_train  %>%
-  filter_out_error_groups()
-data_test_for_hierarchical_analysis = data_test  %>%
-  filter_out_error_groups()
-
-#Give the cross-validation function here to choose the components to be taken for spline/linear analysis
-
-rmse_values_for_different_PCS_for_spline_analysis <-
-  unlist(
-    get_optimal_components_for_spline(
-      data_train_for_hierarchical_analysis,
-      number_of_components_to_search = 40,
-      num_clusters = 9,
-      hierarchical = F
-    )
-  )
-PCs_for_spline_analysis = paste(paste0(
-  "s(" ,
-  "PC",
-  which.min(round(rmse_values_for_different_PCS_for_spline_analysis, 2)),
-  ")"
-) , collapse = "+")
-
-normal_group = paste(paste0("s(" , "PC", 1:which.min(round(rmse_values_for_different_PCS_for_spline_analysis, 2)), ")") , collapse = "+")
-fla_mixed = str_glue("trait ~ {normal_group} + (1|{group_variable})")
-fla_fixed = str_glue("trait ~ 1 + {normal_group}")
-
-# equation_formula_for_spline = paste("trait ~ 1 + ",
-#                                     PCs_for_spline_analysis,
-#                                     ", sigma ~ s(PC1)",
-#                                     sep = "")
-# equation_formula_for_spline = paste("trait ~ 1 + ",
-#                                     PCs_for_spline_analysis,
-#                                     sep = "")
-
-# PC_to_take_for_analysis = data_train_for_hierarchical_analysis %>%
-#   get_top_n_PC_names_for_a_trait_using_lasso(n_PC = 30, type_of_validation = "normal_cv")
-#PC_to_take_for_linear_analysis = paste0("PC", 1:100)
-#fla_mixed = paste("trait ~ 1 + ", paste(PC_to_take_for_analysis, collapse = "+"), "+(", "PC2", paste("|", group_variable, ")", sep = ""), sep = "")
-#fla_fixed  = paste("trait ~ 1 + ", paste(PC_to_take_for_analysis, collapse = "+"), sep = "")
-
-# Setting up the models for analysis
-#Linear Regression
-# model_fixed = data_train_for_hierarchical_analysis %>%
-#   lm(formula = as.formula(fla_fixed) ,
-#            data = .) # Simple lm
-#Mixed-effects model
-# model_mixed = data_train_for_hierarchical_analysis %>%
-#   lmer(formula = as.formula(fla_mixed) ,
-#                    data = .) # lmer
-
-# Mixed-effects/Hierarchical bayesian model
-if(hierarchical == T)
+if(prediction_algorithm == "naive_pc")
 {
-  model_mixed_Bayesian =
-    data_train_for_hierarchical_analysis %>%
-    brm(
-      #formula = as.formula(fla_mixed),
-      formula = trait ~ s(PC1)+s(PC2)+s(PC3)+s(PC4)+s(PC5)+s(PC6)+s(PC7)+s(PC8)+s(PC9)+s(PC10)+s(PC11)+s(PC12)+s(PC13)+s(PC14)+s(PC15)+s(PC16)+s(PC17)+s(PC18)+s(PC19)+s(PC20)+s(PC21)+s(PC22) + (1|leaf_classification),
-      data = .,
-      family = gaussian(),
-      prior = c(
-        set_prior("normal(0, 0.05)", class = "b"),
-        set_prior("normal(0, 0.05)", class = "Intercept")
-        #set_prior("student_t(3, 0, 1)", class = "sds")
-      ),
-      #prior = set_prior(horseshoe(df = 3, par_ratio = 0.1)),
-      
-      warmup = 10000,
-      iter = 20000,
-      chains = 3,
-      cores = 3,
-      control = list(adapt_delta = 0.99, max_treedepth = 20)
-      #sample_prior = "only"
-    ) # bayesian hierarchical modeling
 
+  data_frame_PC <-  data_frame_out %>%
+    get_PC_data_frame_without_trait_scale(spectra_names = spectra_names) 
+  
+  data_train  = data_frame_PC %>%
+    filter(!(site_name %in% site_name1))
+  
+  data_test = data_frame_PC %>%
+    filter(site_name %in% site_name1)
 }
 
-# Predicting test data ----------------------------------------------------
-
-Unique_groups = data_train_for_hierarchical_analysis %>%
-  select(all_of(group_variable)) %>%
-  unique() %>%
-  pull(.data[[group_variable]])
-
-prediction_function_list_known <-
-  list(
-    fixed = function(data_frame1)
-      data_frame1 %>% predict(object = model_fixed) %>% data.frame(),
-    mixed = function(data_frame1)
-      data_frame1 %>% predict(object = model_mixed) %>% data.frame(),
-    mixed_Bayesian = function(data_frame1)
-      data_frame1 %>% predict(object = model_mixed_Bayesian) %>% data.frame()
-  )
-
-prediction_function_list_unknown  <-
-  list(
-    mixed = function(data_frame1)
-      data_frame1 %>% predict(object = model_mixed, re.form = NA) %>% data.frame(),
-    mixed_Bayesian = function(data_frame1)
-      data_frame1 %>% predict(object = model_mixed_Bayesian, re_formula = NA) %>% data.frame()
-  )
-
-# Prediction function for fixed, mixed-effects/Bayesian_mixed effects model
-data_frame_with_bayesian_prediction = Prediction_function(
-  data_test_for_hierarchical_analysis,
-  method1 = "mixed_Bayesian",
-  Unique_groups = Unique_groups
-) %>%
-  select(-any_of(paste0("PC", 1:2001)))
-
-#Combining the PLSR and Bayesian model
-data_frame_with_predictions <-
-  data_frame_with_bayesian_prediction %>%
-  left_join(
-    data_frame_with_PLSR_predictions,
-    by = c("genus_species1", "trait", "site_name"),
-    suffix = c("", ".y")
-  ) %>%
-  select(-ends_with(".y"))
-data_frame_with_predictions <- data_frame_with_predictions %>%
-  mutate(trait = trait[, 1])
-
-folder_for_writing_data = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/GAM_ouput"
-readr::write_csv(
-  data_frame_with_predictions,
-  paste0(
-    folder_for_writing_data,
-    "/Prediction_data_frame_for_",
-    trait_name1,
-    ".csv"
-  )
-)
-saveRDS(
-  model_mixed_Bayesian,
-  paste0(
-    folder_for_writing_data,
-    "/Bayesian_brms_fit_for_",
-    trait_name1,
-    ".rds"
-  )
-)
-
-
-
-# Making plots ------------------------------------------------------------
-data_frame_with_predictions <- data_frame_with_predictions %>%
-  pivot_longer(
-    cols = c(Pred_mixed_Bayesian_mean, Prediction_PLSR),
-    names_to = "Prediction_Algorithm",
-    values_to = "Mean_Prediction"
-  )
-
-data_frame_with_predictions %>%
-  ggplot(aes(x = Mean_Prediction, y = trait, color = Growth_form)) +
-  geom_point(alpha = 0.2) +
-  geom_smooth(se = F) +
-  facet_grid(Prediction_Algorithm ~ Growth_form) +
-  geom_abline()
-
-data_frame_with_predictions %>%
-  filter(Prediction_Algorithm == "Pred_mixed_Bayesian_mean") %>%
-  ggplot(aes(x = Mean_Prediction, y = trait, color = Growth_form)) +
-  geom_point(alpha = 1) +
-  geom_errorbar(
-    aes(xmin = Pred_mixed_Bayesian_lower_2.5_quantile,
-        xmax = Pred_mixed_Bayesian_upper_97.5_quantile),
-    width = 0.2,
-    alpha = 0.3
-  ) +
-  facet_wrap( ~ Growth_form) +
-  geom_abline()
-
-data_frame_with_predictions %>%
-  group_by(Growth_form, Prediction_Algorithm) %>%
-  summarize(RMSE1 = sqrt((mean((Mean_Prediction - trait) ^ 2
-  ))),
-  cor1 = cor(Mean_Prediction, trait))
-
-RMSE_function(hh$trait, hh$Pred_mixed_Bayesian_mean)
-cor_function(hh$trait, hh$Pred_mixed_Bayesian_mean)
-plot(hh$Pred_mixed_Bayesian_mean, hh$trait)
-abline(0, 1)
-
-
-hh %>%
-  filter(Growth_form %in% filter_vector_list[["Growth_form"]]) %>%
-  ggplot() +
-  geom_point(mapping = aes(
-    x = trait,
-    y = Pred_mixed_Bayesian$Estimate,
-    color = Growth_form
-  )) +
-  geom_abline()
-
-
-
-
-
-
-
-out_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/output_data_frame_predictions"
-data_test_out = readr::write_csv(data_test_out,
-                                 file  = paste0(out_dir, "/", site_names[i,], group_variable, ".csv"))
-
-## Now lets compare the models
-RMSE_function1 = function(data_frame1) {
-  RMSE_function(data_frame1[, 1], data_frame1[, 2])
-}
-cor_function1 = function(data_frame1) {
-  cor_function(data_frame1[, 1], data_frame1[, 2])
+if(prediction_algorithm %in% c("supervised_pc", "raw_spectra"))
+{
+  data_train <- data_frames_for_PLSR[["data_train"]]
+  data_test <- data_frames_for_PLSR[["data_test"]]
 }
 
-RMSE_fixed = data_test_out %>% select(trait, Pred_fixed_only) %>% RMSE_function1()
-RMSE_mixed = data_test_out %>% select(trait, Pred_mixed_only) %>% RMSE_function1()
-RMSE_mixed_fixed = data_test_out %>% select(trait, Pred_mixed_fixed) %>% RMSE_function1()
-RMSE_mixed_Bayesian = data_test_out %>% select(trait, Pred_mixed_Bayesian) %>% RMSE_function1()
+data_train_for_hierarchical_analysis = data_train  %>%
+  filter_out_error_groups() |> 
+  clean_names()
+data_test_for_hierarchical_analysis = data_test  %>%
+  filter_out_error_groups() |> 
+  clean_names()
 
 
-RMSE_matrix[i,] = c(RMSE_fixed, RMSE_mixed, RMSE_mixed_fixed, RMSE_mixed_Bayesian)
 
-cor_fixed = data_test_out %>% select(trait, Pred_fixed_only) %>% cor_function1()
-cor_mixed = data_test_out %>% select(trait, Pred_mixed_only) %>% cor_function1()
-cor_mixed_fixed = data_test_out %>% select(trait, Pred_mixed_fixed) %>% cor_function1()
-cor_matrix[i,] = c(cor_fixed, cor_mixed, cor_mixed_fixed, cor_mixed_Bayesian)
-cor_mixed_Bayesian = data_test_out %>% select(trait, Pred_mixed_Bayesian) %>% cor_function1()
-
-}
+# #Give the cross-validation function here to choose the components to be taken for spline/linear analysis
+# 
+# rmse_values_for_different_PCS_for_spline_analysis <-
+#   unlist(
+#     get_optimal_components_for_spline(
+#       data_train_for_hierarchical_analysis,
+#       number_of_components_to_search = 40,
+#       num_clusters = 9,
+#       hierarchical = F
+#     )
+#   )
+# PCs_for_spline_analysis = paste(paste0(
+#   "s(" ,
+#   "PC",
+#   which.min(round(rmse_values_for_different_PCS_for_spline_analysis, 2)),
+#   ")"
+# ) , collapse = "+")
+# 
+# normal_group = paste(paste0("s(" , "PC", 1:which.min(round(rmse_values_for_different_PCS_for_spline_analysis, 2)), ")") , collapse = "+")
+# fla_mixed = str_glue("trait ~ {normal_group} + (1|{group_variable})")
+# fla_fixed = str_glue("trait ~ 1 + {normal_group}")
+# 
+# # equation_formula_for_spline = paste("trait ~ 1 + ",
+# #                                     PCs_for_spline_analysis,
+# #                                     ", sigma ~ s(PC1)",
+# #                                     sep = "")
+# # equation_formula_for_spline = paste("trait ~ 1 + ",
+# #                                     PCs_for_spline_analysis,
+# #                                     sep = "")
+# 
+# # PC_to_take_for_analysis = data_train_for_hierarchical_analysis %>%
+# #   get_top_n_PC_names_for_a_trait_using_lasso(n_PC = 30, type_of_validation = "normal_cv")
+# #PC_to_take_for_linear_analysis = paste0("PC", 1:100)
+# #fla_mixed = paste("trait ~ 1 + ", paste(PC_to_take_for_analysis, collapse = "+"), "+(", "PC2", paste("|", group_variable, ")", sep = ""), sep = "")
+# #fla_fixed  = paste("trait ~ 1 + ", paste(PC_to_take_for_analysis, collapse = "+"), sep = "")
+# 
+# # Setting up the models for analysis
+# #Linear Regression
+# # model_fixed = data_train_for_hierarchical_analysis %>%
+# #   lm(formula = as.formula(fla_fixed) ,
+# #            data = .) # Simple lm
+# #Mixed-effects model
+# # model_mixed = data_train_for_hierarchical_analysis %>%
+# #   lmer(formula = as.formula(fla_mixed) ,
+# #                    data = .) # lmer
+# 
+# # Mixed-effects/Hierarchical bayesian model
+# if(hierarchical == T)
+# {
+#   model_mixed_Bayesian =
+#     data_train_for_hierarchical_analysis %>%
+#     brm(
+#       #formula = as.formula(fla_mixed),
+#       formula = trait ~ s(PC1)+s(PC2)+s(PC3)+s(PC4)+s(PC5)+s(PC6)+s(PC7)+s(PC8)+s(PC9)+s(PC10)+s(PC11)+s(PC12)+s(PC13)+s(PC14)+s(PC15)+s(PC16)+s(PC17)+s(PC18)+s(PC19)+s(PC20)+s(PC21)+s(PC22) + (1|leaf_classification),
+#       data = .,
+#       family = gaussian(),
+#       prior = c(
+#         set_prior("normal(0, 0.05)", class = "b"),
+#         set_prior("normal(0, 0.05)", class = "Intercept")
+#         #set_prior("student_t(3, 0, 1)", class = "sds")
+#       ),
+#       #prior = set_prior(horseshoe(df = 3, par_ratio = 0.1)),
+#       
+#       warmup = 10000,
+#       iter = 20000,
+#       chains = 3,
+#       cores = 3,
+#       control = list(adapt_delta = 0.99, max_treedepth = 20)
+#       #sample_prior = "only"
+#     ) # bayesian hierarchical modeling
+# 
+# }
+# 
+# # Predicting test data ----------------------------------------------------
+# 
+# Unique_groups = data_train_for_hierarchical_analysis %>%
+#   select(all_of(group_variable)) %>%
+#   unique() %>%
+#   pull(.data[[group_variable]])
+# 
+# prediction_function_list_known <-
+#   list(
+#     fixed = function(data_frame1)
+#       data_frame1 %>% predict(object = model_fixed) %>% data.frame(),
+#     mixed = function(data_frame1)
+#       data_frame1 %>% predict(object = model_mixed) %>% data.frame(),
+#     mixed_Bayesian = function(data_frame1)
+#       data_frame1 %>% predict(object = model_mixed_Bayesian) %>% data.frame()
+#   )
+# 
+# prediction_function_list_unknown  <-
+#   list(
+#     mixed = function(data_frame1)
+#       data_frame1 %>% predict(object = model_mixed, re.form = NA) %>% data.frame(),
+#     mixed_Bayesian = function(data_frame1)
+#       data_frame1 %>% predict(object = model_mixed_Bayesian, re_formula = NA) %>% data.frame()
+#   )
+# 
+# # Prediction function for fixed, mixed-effects/Bayesian_mixed effects model
+# data_frame_with_bayesian_prediction = Prediction_function(
+#   data_test_for_hierarchical_analysis,
+#   method1 = "mixed_Bayesian",
+#   Unique_groups = Unique_groups
+# ) %>%
+#   select(-any_of(paste0("PC", 1:2001)))
+# 
+# #Combining the PLSR and Bayesian model
+# data_frame_with_predictions <-
+#   data_frame_with_bayesian_prediction %>%
+#   left_join(
+#     data_frame_with_PLSR_predictions,
+#     by = c("genus_species1", "trait", "site_name"),
+#     suffix = c("", ".y")
+#   ) %>%
+#   select(-ends_with(".y"))
+# data_frame_with_predictions <- data_frame_with_predictions %>%
+#   mutate(trait = trait[, 1])
+# 
+# folder_for_writing_data = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/GAM_ouput"
+# readr::write_csv(
+#   data_frame_with_predictions,
+#   paste0(
+#     folder_for_writing_data,
+#     "/Prediction_data_frame_for_",
+#     trait_name1,
+#     ".csv"
+#   )
+# )
+# saveRDS(
+#   model_mixed_Bayesian,
+#   paste0(
+#     folder_for_writing_data,
+#     "/Bayesian_brms_fit_for_",
+#     trait_name1,
+#     ".rds"
+#   )
+# )
+# 
+# 
+# 
+# # Making plots ------------------------------------------------------------
+# data_frame_with_predictions <- data_frame_with_predictions %>%
+#   pivot_longer(
+#     cols = c(Pred_mixed_Bayesian_mean, Prediction_PLSR),
+#     names_to = "Prediction_Algorithm",
+#     values_to = "Mean_Prediction"
+#   )
+# 
+# data_frame_with_predictions %>%
+#   ggplot(aes(x = Mean_Prediction, y = trait, color = Growth_form)) +
+#   geom_point(alpha = 0.2) +
+#   geom_smooth(se = F) +
+#   facet_grid(Prediction_Algorithm ~ Growth_form) +
+#   geom_abline()
+# 
+# data_frame_with_predictions %>%
+#   filter(Prediction_Algorithm == "Pred_mixed_Bayesian_mean") %>%
+#   ggplot(aes(x = Mean_Prediction, y = trait, color = Growth_form)) +
+#   geom_point(alpha = 1) +
+#   geom_errorbar(
+#     aes(xmin = Pred_mixed_Bayesian_lower_2.5_quantile,
+#         xmax = Pred_mixed_Bayesian_upper_97.5_quantile),
+#     width = 0.2,
+#     alpha = 0.3
+#   ) +
+#   facet_wrap( ~ Growth_form) +
+#   geom_abline()
+# 
+# data_frame_with_predictions %>%
+#   group_by(Growth_form, Prediction_Algorithm) %>%
+#   summarize(RMSE1 = sqrt((mean((Mean_Prediction - trait) ^ 2
+#   ))),
+#   cor1 = cor(Mean_Prediction, trait))
+# 
+# RMSE_function(hh$trait, hh$Pred_mixed_Bayesian_mean)
+# cor_function(hh$trait, hh$Pred_mixed_Bayesian_mean)
+# plot(hh$Pred_mixed_Bayesian_mean, hh$trait)
+# abline(0, 1)
+# 
+# 
+# hh %>%
+#   filter(Growth_form %in% filter_vector_list[["Growth_form"]]) %>%
+#   ggplot() +
+#   geom_point(mapping = aes(
+#     x = trait,
+#     y = Pred_mixed_Bayesian$Estimate,
+#     color = Growth_form
+#   )) +
+#   geom_abline()
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# out_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/output_data_frame_predictions"
+# data_test_out = readr::write_csv(data_test_out,
+#                                  file  = paste0(out_dir, "/", site_names[i,], group_variable, ".csv"))
+# 
+# ## Now lets compare the models
+# RMSE_function1 = function(data_frame1) {
+#   RMSE_function(data_frame1[, 1], data_frame1[, 2])
+# }
+# cor_function1 = function(data_frame1) {
+#   cor_function(data_frame1[, 1], data_frame1[, 2])
+# }
+# 
+# RMSE_fixed = data_test_out %>% select(trait, Pred_fixed_only) %>% RMSE_function1()
+# RMSE_mixed = data_test_out %>% select(trait, Pred_mixed_only) %>% RMSE_function1()
+# RMSE_mixed_fixed = data_test_out %>% select(trait, Pred_mixed_fixed) %>% RMSE_function1()
+# RMSE_mixed_Bayesian = data_test_out %>% select(trait, Pred_mixed_Bayesian) %>% RMSE_function1()
+# 
+# 
+# RMSE_matrix[i,] = c(RMSE_fixed, RMSE_mixed, RMSE_mixed_fixed, RMSE_mixed_Bayesian)
+# 
+# cor_fixed = data_test_out %>% select(trait, Pred_fixed_only) %>% cor_function1()
+# cor_mixed = data_test_out %>% select(trait, Pred_mixed_only) %>% cor_function1()
+# cor_mixed_fixed = data_test_out %>% select(trait, Pred_mixed_fixed) %>% cor_function1()
+# cor_matrix[i,] = c(cor_fixed, cor_mixed, cor_mixed_fixed, cor_mixed_Bayesian)
+# cor_mixed_Bayesian = data_test_out %>% select(trait, Pred_mixed_Bayesian) %>% cor_function1()
+# 
+# }

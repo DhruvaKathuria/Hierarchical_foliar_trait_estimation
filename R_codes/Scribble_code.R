@@ -284,52 +284,193 @@ brms_gamm <- brm(trait~ 1 + PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8 + PC9 
             prior(gamma(0.01,0.01),class="shape")),
     chains=2,iter=1000, cores=4)
 
-i = 50
+i = 100
+PC_vec <- c(1, 2, 3,  5,  6, 20,  3, 13, 15, 18, 42)
+
+normal_group = paste(vsel , collapse = "+")
 normal_group = paste(paste0("PC", 1:i) , collapse = "+")
+normal_group = paste(paste0("PC", vec2[1:16]) , collapse = "+")
+normal_group = paste(paste0("PC", res_pimom$hppm) , collapse = "+")
+normal_group_spline = paste(paste0("s(" , "PC", 1:50, ")") , collapse = "+")
+
 fla_fixed  = paste("trait ~ 1 + ", normal_group, sep = "")
+fla_fixed  = paste("trait|trunc(lb = 0) ~ 1 + ", normal_group, sep = "")
+
+fla_fixed_hierarchical <- str_glue("{fla_fixed} + (1 + PC1 +  PC2 + PC3 +  PC4 + PC5 + PC6 + PC7 + PC8 + PC9+ PC10 ||leaf_classification)")
+fla_fixed_hierarchical_sigma <- str_glue("bf({fla_fixed} + (1|ID1|site_name), 
+                                         sigma ~ (1|ID1|site_name))")
+
+fla_fixed_spline  = paste("trait ~ 1 + ", normal_group_spline, sep = "")
 
 #options(brms.backend = "cmdstanr")
+data_train_for_hierarchical_analysis_2<- data_train_for_hierarchical_analysis 
+data_train_for_hierarchical_analysis_2$trait[data_train_for_hierarchical_analysis_2$trait == 0] = 0.001
+
+
 brms_gamm <- brm(as.formula(fla_fixed), 
-                 data= data_train_for_hierarchical_analysis , 
+                 data = data_train_for_hierarchical_analysis, 
                  family=Gamma(link="log"),
-                 prior=c(prior(normal(0,0.2),class="Intercept"),
-                         prior(normal(0, 0.5),class="b"),
-                         prior(gamma(1,1),class="shape")),
-                 chains=2, warmup = 10000, iter = 20000, cores=4,
-                 save_pars = save_pars(all = TRUE)
+                 prior=c(prior(normal(20,5),class="Intercept"),
+                         #prior(horseshoe(df = 1, par_ratio = 0.5),class="b"),
+                         prior(normal(0, 0.05),class="b"),
+                         prior(gamma(0.01,0.01),class="shape")),
+                 backend = "cmdstanr",
+                 #threads = threading(4), 
+                 chains=2, warmup = 10000, iter = 20000, cores=2,
+                 #control = list(adapt_delta = 0.95, max_treedepth = 15)
+                 #save_pars = save_pars(all = TRUE)
                  )
 
 brms_normal <- brm(as.formula(fla_fixed), 
-                 data= data_train_for_hierarchical_analysis , 
+                 data= data_train_for_hierarchical_analysis, 
                  family= gaussian(),
                  prior=c(prior(normal(20,5),class="Intercept"),
-                         prior(normal(0, 1),class="b")
+                         prior(horseshoe(df = 1, par_ratio = 0.4),class="b")
                          ),
-                 chains=2, warmup = 10000, iter = 20000, cores=4,
-                 save_pars = save_pars(all = TRUE)
+                 chains = 2, cores = 2,
+                 backend = "cmdstanr", 
+                 #threads = threading(4), 
+                 warmup = 10000, iter = 20000, 
+                 #sample_prior = "only"
+                 #save_pars = save_pars(all = TRUE),
+                 control = list(adapt_delta = 0.95, max_treedepth = 15)
 )
+
+brms_student <- brm(as.formula(fla_fixed), 
+                   data= data_train_for_hierarchical_analysis, 
+                   family= student(),
+                   prior=c(prior(normal(5,2),class="Intercept"),
+                           prior(normal(0, 0.05),class="b"),
+                           prior(gamma(4, 1), class = nu),
+                           prior(cauchy(0, 1),  class = sigma)
+                   ),
+                   chains = 2, cores = 2,
+                   backend = "cmdstanr", 
+                   #threads = threading(4), 
+                   warmup = 10000, iter = 20000, 
+                   #save_pars = save_pars(all = TRUE),
+                   #control = list(adapt_delta = 0.95, max_treedepth = 15)
+)
+
+
+
+brms_lognormal <- brm(as.formula(fla_fixed), 
+                   data= data_test_for_hierarchical_analysis , 
+                   family= lognormal(),
+                   prior=c(prior(normal(4,1),class="Intercept"),
+                           prior(horseshoe(df = 3, par_ratio = 3),class="b")
+                   ),
+                   chains = 2, cores = 2,
+                   backend = "cmdstanr", threads = threading(4), warmup = 10000, iter = 20000,
+                   save_pars = save_pars(all = TRUE)
+)
+
+brms_student <- brm(as.formula(fla_fixed), 
+                   data= data_train_for_hierarchical_analysis , 
+                   family= student(),
+                   # prior=c(prior(normal(10,5),class="Intercept"),
+                   #         prior(normal(0, 1),class="b")
+                   #  ),
+                   chains = 2, cores = 2,
+                   backend = "cmdstanr", threads = threading(4), warmup = 10000, iter = 20000,
+                   save_pars = save_pars(all = TRUE)
+)
+
+loo_gamm <- loo(brms_gamm)
+plot(loo_gamm)
+ids <- pareto_k_ids(loo_gamm)
+data_train_for_hierarchical_analysis[ids, ]$trait
+data_train_for_hierarchical_analysis_2 <- data_train_for_hierarchical_analysis_3[-ids, ]
+
 pp_check(brms_gamm, ndraws = 1000) 
 pp_check(brms_normal, ndraws = 1000)
+pp_check(brms_lognormal, ndraws = 1000)
+pp_check(brms_student, ndraws = 1000) 
+
+data_frame_with_PLSR_predictions_2 <-  data_frame_with_PLSR_predictions |> filter(site_name != unique(data_frame_with_PLSR_predictions$site_name)[5])
 
 
-p1_pred <- predict(brms_gamm, data_test_for_hierarchical_analysis)
+plot(data_frame_with_PLSR_predictions$Prediction_PLSR, data_frame_with_PLSR_predictions$trait)
+RMSE_function(data_frame_with_PLSR_predictions$Prediction_PLSR, data_frame_with_PLSR_predictions$trait)
+cor_function(data_frame_with_PLSR_predictions$Prediction_PLSR, data_frame_with_PLSR_predictions$trait)
+abline(0, 1)
+readr::write_csv(data_frame_with_PLSR_predictions, "nitrogen_PLSR.csv")
+
+data_test_for_hierarchical_analysis_1 <- data_test_for_hierarchical_analysis |> mutate(obs = 1:nrow(data_test_for_hierarchical_analysis))
+
+data_train_for_hierarchical_analysis_2 <-  data_train_for_hierarchical_analysis |> filter(site_name != "productivity-and-characterization-of-soybean-foliar-traits-under-aphid-pressure")
+
+p1_pred <- predict(brms_gamm, data_test_for_hierarchical_analysis, allow_new_levels = T)
 plot(p1_pred[, 1], data_test_for_hierarchical_analysis$trait)
 abline(0, 1)
 
 RMSE_function(p1_pred[, 1], data_test_for_hierarchical_analysis$trait)
 cor_function(p1_pred[, 1], data_test_for_hierarchical_analysis$trait)
 
+data_test_for_hierarchical_analysis <- data_test_for_hierarchical_analysis |> mutate(prediction_gamm = p1_pred[, 1],
+                                              lower_quant_gamm = p1_pred[, 3],
+                                              upper_quant_gamm = p1_pred[, 4])
+
+readr::write_csv(data_test_for_hierarchical_analysis, "nitrogen_gamm.csv")
+saveRDS(brms_gamm, "nitrogen_brms_gamm.rds")
+
+RMSE_function(p1_pred[-ind1, 1], data_train_for_hierarchical_analysis_2$trait[-ind1])
+cor_function(p1_pred[-ind1, 1], data_train_for_hierarchical_analysis_2$trait[-ind1])
+
+p1_pred_student <- predict(brms_student, data_test_for_hierarchical_analysis)
+plot(p1_pred_student[, 1], data_test_for_hierarchical_analysis$trait)
+abline(0, 1)
+
+RMSE_function(p1_pred_student[, 1], data_test_for_hierarchical_analysis$trait)
+cor_function(p1_pred_student[, 1], data_test_for_hierarchical_analysis$trait)
+
+d1 <- data_test_for_hierarchical_analysis |> filter(trait > 30)
+data_test_for_hierarchical_analysis |> 
+  filter(genus_species1 == "Symphoricarpos albus") |>
+  ggplot(aes(x = trait)) + geom_histogram()
+
+d1 |> ggplot(aes(x = 1:nrow(d1), y = trait, color = genus_species1)) +
+  geom_point()
 
 p1_pred_n <- predict(brms_normal, data_test_for_hierarchical_analysis)
 plot(p1_pred_n[, 1], data_test_for_hierarchical_analysis$trait)
 abline(0, 1)
+RMSE_function(p1_pred_n[, 1], data_test_for_hierarchical_analysis$trait)
+cor_function(p1_pred_n[, 1], data_test_for_hierarchical_analysis$trait)
+
+data_train_for_hierarchical_analysis_1 <- data_train_for_hierarchical_analysis_2 |> 
+  mutate(residual_normal = p1_pred_n[, 1] - data_train_for_hierarchical_analysis_2$trait)
+
+data_train_for_hierarchical_analysis_1 |> 
+  ggplot(aes(x = 1:nrow(data_train_for_hierarchical_analysis_1), 
+             y = residual_normal,
+             color = site_name)) + 
+  geom_point()
+
+p1_pred_ln <- predict(brms_lognormal, data_train_for_hierarchical_analysis)
+plot(p1_pred_ln[, 1], data_train_for_hierarchical_analysis$trait)
+abline(0, 1)
+RMSE_function(p1_pred_ln[, 1], data_train_for_hierarchical_analysis$trait)
+cor_function(p1_pred_ln[, 1], data_train_for_hierarchical_analysis$trait)
+
 
 y = data_train_for_hierarchical_analysis$trait
 yrep = posterior_predict(brms_gamm,  ndraws = 20000)
 y_rep_normal = posterior_predict(brms_normal, ndraws = 20000)
+y_rep_lognormal <- posterior_predict(brms_lognormal, ndraws = 20000)
 library(bayesplot)
-ppc_stat(y, yrep, stat = "median")
-ppc_stat(y, y_rep_normal, stat = "median")
+ppc_stat(y, yrep, stat = "max")
+ppc_stat(y, yrep, stat = "max")
+ppc_stat(y, yrep, stat = "sd")
+
+ppc_stat(y, y_rep_normal, stat = "max")
+
+ppc_stat(y, y_rep_lognormal, stat = "median")
+
+ppc_stat(y, yrep, stat = "sd")
+ppc_stat(y, y_rep_normal, stat = "sd")
+ppc_stat(y, y_rep_lognormal, stat = "sd")
+
 
 loo1 <- loo(brms_gamm, save_psis = TRUE, cores = 4)
 psis1 <- loo1$psis_object
@@ -338,16 +479,63 @@ lw <- weights(psis1)
 ppc_loo_pit_overlay(y, yrep, lw = lw)
 
 keep_obs <- 1:50
-ppc_loo_intervals(y, yrep, psis_object = psis1, subset = keep_obs)
+ppc_loo_intervals(y, yrep, psis_object = psis1_ln, subset = keep_obs, order = "median")
 
 
 loo1_n <- loo(brms_normal, save_psis = TRUE, cores = 4)
 psis1_n <- loo1_n$psis_object
 lw_n <- weights(psis1_n)
 
-ppc_loo_pit_overlay(y, yrep, lw = lw_n)
+loo1_ln <- loo(brms_lognormal, save_psis = TRUE, cores = 4)
+psis1_ln <- loo1_ln$psis_object
+lw_ln <- weights(psis1_ln)
 
-loo_c <- loo_compare(loo1, loo1_n)
+library(bayesplot)
+ppc_loo_pit_overlay(y, yrep, lw = lw_n)
+ppc_loo_pit_overlay(y, y_rep_normal, lw = lw_n)
+ppc_loo_pit_overlay(y, y_rep_lognormal, lw = lw_n)
+
+loo_student <- loo(brms_student)
+loo_c <- loo_compare(loo1, loo1_n, loo1_ln)
 
 
 k1 <- psis1$log_weights
+
+train_pred <- predict(brms_normal_3, data_train_for_hierarchical_analysis_2)
+data_train_for_hierarchical_analysis_2 <- data_train_for_hierarchical_analysis_2 |> 
+  mutate(residual_normal = train_pred[, 1]- data_train_for_hierarchical_analysis_2$trait)
+
+data_train_for_hierarchical_analysis_2 |> 
+  ggplot(aes(x = 1:nrow(data_train_for_hierarchical_analysis_2),
+             y = residual_normal,
+             color = site_name)) +
+  geom_point()
+data_train_for_hierarchical_analysis_2 |> 
+  ggplot(aes(x = 1:nrow(data_train_for_hierarchical_analysis_2),
+             y = residual_normal,
+             color = leaf_classification)) +
+  geom_point() +
+  facet_wrap(~leaf_classification)
+
+
+data_train_for_hierarchical_analysis_2 |> 
+  ggplot(aes(x = 1:nrow(data_train_for_hierarchical_analysis_2),
+             y = residual_normal,
+             color = leaf_classification)) +
+  geom_point() +
+  facet_grid(leaf_classification ~ site_name)
+
+data_test_for_hierarchical_analysis |> 
+  ggplot(aes(x = PC13, y = trait, color = Growth_form, fill = Growth_form)) +
+  geom_smooth(method = "lm")
+
+data_train_for_hierarchical_analysis_2  |> 
+  mutate(prediction = predict(brms_normal_3, data_train_for_hierarchical_analysis_2)[,1]) |> 
+  group_by(site_name, leaf_classification) |> 
+  summarize(RMSE = RMSE_function(prediction, trait),
+            correltion = cor_function(prediction, trait))
+
+data_train_for_hierarchical_analysis |> 
+  ggplot(aes(x = PC10, y = trait)) +
+  geom_smooth(aes(x = PC10, y = trait, color = leaf_classification), method = "lm") +
+  geom_smooth(method = "lm", color = "black", se = F, linetype = "dashed") +  geom_point(aes(color = leaf_classification), alpha = 0.3)
