@@ -190,21 +190,21 @@ PLSR_function = function(data_train, data_test)
     select(trait, num_range("", 400:2400))
   library(pls)
   set.seed(123)
-  # ll_1 = plsr(
-  #   trait ~ .,
-  #   data = data_train,
-  #   validation = "CV",
-  #   scale = T,
-  #   center = T,
-  #   segments = 5
-  # )
   ll_1 = plsr(
     trait ~ .,
     data = data_train,
-    validation = "LOO",
+    validation = "CV",
     scale = T,
-    center = T
+    center = T,
+    segments = 5
   )
+  # ll_1 = plsr(
+  #   trait ~ .,
+  #   data = data_train,
+  #   validation = "LOO",
+  #   scale = T,
+  #   center = T
+  # )
   #summary(ll_1)
   RMSE_values_cv = RMSEP(ll_1)
   RMSE_values = RMSE_values_cv$val[1, ,]
@@ -308,6 +308,18 @@ scale1  <-  function(data_frame)
 
 # Getting data ready for analysis -----------------------------------------
 
+# PLSR implementation
+PLSR_filepath <-  paste0("data/code_output_data/PLSR_object_",
+                         trait_name1, 
+                         ".rds")
+if(file.exists(PLSR_filepath))
+{
+  data_frame_with_PLSR_predictions <- readRDS(paste0("data/code_output_data/PLSR_object_",
+                                                     trait_name1, 
+                                                     ".rds"))
+  PLSR_implementation = F
+}
+
 #Source the file below to get the input data matrices and the output trait
 source(
   "R_codes/Regression_algorithms/ECOSIS_Implementation_file_for_Bayesian_ML.R"
@@ -402,6 +414,66 @@ data_test_for_hierarchical_analysis = data_test  %>%
   filter_out_error_groups() |> 
   clean_names()
 
+
+if(PLSR_implementation == T)
+{
+  saveRDS(data_frame_with_PLSR_predictions,  
+          paste0("data/code_output_data/PLSR_object_",
+                 trait_name1, 
+                 ".rds"))
+}
+
+
+# getting data ready for the chosen algorithm -----------------------------
+
+if(prediction_algorithm == "supervised_pc")
+{
+  x_train <- data_train_for_hierarchical_analysis |> 
+    select(num_range("x",400:2400)) |> 
+    mutate(intercept = 1)
+  y_train <- data_train_for_hierarchical_analysis$trait
+  
+  x_test <- data_test_for_hierarchical_analysis |> 
+    select(num_range("x",400:2400))|> 
+    mutate(intercept = 1)
+  y_test <- data_test_for_hierarchical_analysis$trait
+  
+  # Comment: I found that the iterative PC of Vehtari group https://arxiv.org/abs/1710.06229 
+  # was better than the original https://hastie.su.domains/Papers/spca_JASA.pdf
+  # I set the nctot to 40 for lma because of a large number of observations there
+  get_super_pcs <- ispca(x_train,
+                         y_train, 
+                         nctot=20) # ispca; nctot is the total PCs
+  # I arbitrarily set it to 50
+  # the ispca will first set the 
+  # supervised PCs and then take the
+  # rest as naive PCs
+  
+  x_super_pc_train <- predict(get_super_pcs, 
+                              x_train) |> 
+    data.frame() |> 
+    clean_names()
+  x_super_pc_test <- predict(get_super_pcs, 
+                             x_test)|> 
+    data.frame() |> 
+    clean_names()
+  
+  #remove the input spectra and replace by super+ normal pcs
+  data_train_for_analysis <- data_train_for_hierarchical_analysis |> 
+    select(-starts_with("x")) |> bind_cols(x_super_pc_train)
+  data_test_for_analysis <- data_test_for_hierarchical_analysis |> 
+    select(-starts_with("x")) |> bind_cols(x_super_pc_test)
+  
+  par_ratio1 = 0.7
+  
+}
+
+if(prediction_algorithm == "raw_spectra")
+{
+  data_train_for_analysis <- data_train_for_hierarchical_analysis
+  data_test_for_analysis <- data_test_for_hierarchical_analysis
+  par_ratio1 = 0.05
+}
 
 
 # #Give the cross-validation function here to choose the components to be taken for spline/linear analysis
