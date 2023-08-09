@@ -51,7 +51,7 @@ plot(cv_out,
      stats = c('mlpd', 'rmse'), 
      deltas=FALSE)
 
-nsel <- suggest_size(fitrhs_cvvs, stat = "elpd", alpha=0.1) # Dont rely on this
+nsel <- suggest_size(fitrhs_cvvs, stat = "mlpd", alpha=0.1) # Dont rely on this
                                                             # look more on the plot
 vsel <- solution_terms(fitrhs_cvvs)[1:nsel]
 

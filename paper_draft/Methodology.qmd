@@ -10,12 +10,11 @@ We use a Bayesian implementation for predicting traits from spectra. We apply th
 
 ### 1.1 Implementation
 
-To reduce the dimensionality of the input spectra as well as to account for multi-collinearity between the spectra, we first reproject the spectra into p-Principal components which are orthogonal to each other. \
-This helps to both reduce the dimensionality of the input as well as reduce the multi-collinearity between the input traits. \
-The p components are chosen based on cross-validation (similar to the PLSR approach). The PCs are then assumed as inputs to the Bayesian algorithm. \
-For taking the prior for each of the traits, we assume take a wide prior but also perform prior predictive checks so that the priors do not lead to unrealistic values of the traits. The reasonable range of values for the traits are based on publicly available trait value ranges (such as the TRY datasets). \
-An argument against using flat priors (for example taking the regression coefficient of a linear regression model to vary from $-\infty$ to $\infty$ is that it can lead to unrealistic values of the traits when sampled from the predictive distribution and therefore is an incorrect representation of our prior beliefs i.e the knowldge that the trait values are physically supposed to lie in a particular interval.
-The Bayesian methodology helps to both get the uncertainty related to the parameters of the algorithm (posterior parameter distributions) and predictions (posterior predictive distribution). \
+To reduce the dimensionality of the input spectra as well as to account for multi-collinearity between the spectra, we first reproject the spectra into p-Principal components which are orthogonal to each other.\
+This helps to both reduce the dimensionality of the input as well as reduce the multi-collinearity between the input traits.\
+The p components are chosen based on cross-validation (similar to the PLSR approach). The PCs are then assumed as inputs to the Bayesian algorithm.\
+For taking the prior for each of the traits, we assume take a wide prior but also perform prior predictive checks so that the priors do not lead to unrealistic values of the traits. The reasonable range of values for the traits are based on publicly available trait value ranges (such as the TRY datasets).\
+An argument against using flat priors (for example taking the regression coefficient of a linear regression model to vary from $-\infty$ to $\infty$ is that it can lead to unrealistic values of the traits when sampled from the predictive distribution and therefore is an incorrect representation of our prior beliefs i.e the knowldge that the trait values are physically supposed to lie in a particular interval. The Bayesian methodology helps to both get the uncertainty related to the parameters of the algorithm (posterior parameter distributions) and predictions (posterior predictive distribution).\
 The methodology is summarized in @fig-flowchart
 
 ![Methods_Flowchart](/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/paper_draft/figures/methods_flowchart.png){#fig-flowchart}

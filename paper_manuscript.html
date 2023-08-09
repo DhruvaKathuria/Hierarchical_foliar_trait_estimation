@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="methods_files/libs/clipboard/clipboard.min.js"></script>
+<script src="methods_files/libs/quarto-html/quarto.js"></script>
+<script src="methods_files/libs/quarto-html/popper.min.js"></script>
+<script src="methods_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="methods_files/libs/quarto-html/anchor.min.js"></script>
+<link href="methods_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="methods_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="methods_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="methods_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="methods_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Methods</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="outline" class="level2">
+<h2 class="anchored" data-anchor-id="outline">Outline</h2>
+<p>In this section, we first describe the Bayesian regression model used in predicting traits using hyperspectral data. We elucidate models both in the actual spectral space as well as dimensionally reduced orthogonal space (like PLSR). Formulating appropriate priors is essential for high dimensional (where number of input spectral bands is large) problems, therefore we also define the relevant priors used in the current work. To enable computationally efficient prediction on new datasets and select wavelengths which best approximate the predictive capabilities of the above models, we transform both model to a simpler model on the original spectral space requiring only a subset of input spectra using projective inference <span class="citation" data-cites="juhopiironenProjectiveInferenceHighdimensional2020">(<a href="#ref-juhopiironenProjectiveInferenceHighdimensional2020" role="doc-biblioref">Juho Piironen, Markus Paasiniemi, and Aki Vehtari 2020</a>)</span>. Notationally, we denote a scalar with a lower case letter and a vector with bold lower case letter. Superscript <span class="math inline">\(T\)</span> refers to transpose.</p>
+</section>
+<section id="m.1-bayesian-regression-model-original-hyperspectral-space" class="level2">
+<h2 class="anchored" data-anchor-id="m.1-bayesian-regression-model-original-hyperspectral-space">M.1 Bayesian Regression model-Original hyperspectral space</h2>
+<p>Let the trait to be predicted be defined as a random variable <span class="math inline">\(y\)</span>. For an <span class="math inline">\(i^{th}\)</span> observation, let the measured trait value be defined as <span class="math inline">\(y_i\)</span> and the corresponding input (intercept plus) hyperspectral wavelength be defined as the vector <span class="math inline">\(\boldsymbol{x_i} = (1, x_{i,400}, x_{i,401}, ..., x_{i,2399}, x_{i,2400})\)</span>. We assume that <span class="math inline">\(y_i\)</span> is a linear function of <span class="math inline">\(\boldsymbol{x}\)</span> such that:</p>
+<p><span class="math inline">\(y_i = \boldsymbol{\beta}^T \boldsymbol{x_i} + \epsilon_i, \; \epsilon \sim N(0, \sigma^2), \; i = 1,..., n\)</span></p>
+<p>where <span class="math inline">\(n\)</span> is the number of observations. Here the dimension of <span class="math inline">\(x_i\)</span> is <span class="math inline">\(p = 2002\)</span>. <span class="math inline">\(\boldsymbol{\beta}\)</span> denotes the corresponding regression coefficients for <span class="math inline">\(\boldsymbol{x_i}\)</span>, and <span class="math inline">\(\sigma^2\)</span> is the noise variance. Let the training data for the regression model i.e.&nbsp;the <span class="math inline">\(n\)</span> observations of both the trait and spectra be denoted by <span class="math inline">\(\mathcal{D}\)</span>.</p>
+<section id="m.1.2-formulating-priors" class="level3">
+<h3 class="anchored" data-anchor-id="m.1.2-formulating-priors">M.1.2 Formulating priors</h3>
+<p>An important component of the Bayesian approach is to formulate appropriate priors for the parameter vector <span class="math inline">\(\boldsymbol{\theta} :=(\boldsymbol{\beta}, \sigma^{2})\)</span> used in the model. Since the dimension of <span class="math inline">\(\boldsymbol{\beta}\)</span> (2002) is large and a functional trait is typically sensitive to a small subset of the wavelengths, using traditionally used priors for <span class="math inline">\(\boldsymbol{\beta}\)</span> (such as normally distributed priors) can lead to over-fitting of the Bayesian model. To alleviate this, we use a special prior distribution for <span class="math inline">\(\beta_j\)</span> called the regularized horseshoe prior <span class="citation" data-cites="piironen2017">(<a href="#ref-piironen2017" role="doc-biblioref">Piironen and Vehtari 2017</a>)</span>.</p>
+<p>The regularized horseshoe prior belongs to a class of priors called shrinkage or sparsifiying priors which shrink <span class="math inline">\(\beta\)</span> coefficients of the non-important wavelengths to zero. For <span class="math inline">\(j^{th}\)</span> regresssion coefficient <span class="math inline">\(\beta_j\)</span>, the regularized horsehoe prior is defined as:</p>
+<p><span class="math inline">\(\beta_j|\lambda_j, \tau, c \sim N(0, \tau^2 \xi_j^2), \; \xi_j^2 = \frac{c^2\lambda_j^2} {c^2 + \tau^2\lambda_j^2}\)</span>,</p>
+<p><span class="math inline">\(\lambda_j \sim C^+(0, 1), j = 1,..., p\)</span></p>
+<p><span class="math inline">\(c^2 \sim Inv-Gamma (\nu, s^2)\)</span></p>
+<p>where <span class="math inline">\(C^+\)</span> is a standard half-Cauchy distribution on the positive reals.</p>
+<p>It is an extension of the horseshoe prior <span class="citation" data-cites="carvalho2010">(<a href="#ref-carvalho2010" role="doc-biblioref">Carvalho, Polson, and Scott 2010</a>)</span> which has been widely used in high-dimensional regression. Similar to the horseshoe prior, the <span class="math inline">\(\tau\)</span> parameter in regularized horseshoe prior drives all regression coefficients to zero. The thick Cauchy-tails for <span class="math inline">\(\lambda_j\)</span> allow some of the regression coefficients to escape this shrinkage towards zero.</p>
+<p>The regularized horsehoe has an extra parameter <span class="math inline">\(c\)</span> which better penalizes the non-shrinkage coefficients (i.e.&nbsp;the regression coefficients that are not equal to zero). This helps if the regression coefficients are weakly identified and also speeds up the sampling during posterior parameter inference using Markov Chain Monte Carlo (MCMC) methods.</p>
+</section>
+</section>
+<section id="m.2-bayesian-regression-model-dimensionally-reduced-orthogonal-space" class="level2">
+<h2 class="anchored" data-anchor-id="m.2-bayesian-regression-model-dimensionally-reduced-orthogonal-space">M.2 Bayesian Regression model-dimensionally reduced orthogonal space</h2>
+<p>##Add text about bayesian supervised principal components##</p>
+</section>
+<section id="m.3-model-reduction-in-original-spectral-space" class="level2">
+<h2 class="anchored" data-anchor-id="m.3-model-reduction-in-original-spectral-space">M.3 Model reduction in original spectral space</h2>
+<p>The 2 models in the previous approach were designed to give good predictions even if the model has non-important wavelengths as input. While the model in Section M.1 has high computational cost, model in Section M.2 loses interpretability due to projection of spectra into orthogonal latent dimensions. We want our predictive model to be (a) computationally fast when predicting new data and (b) interpretable and (c) be able to account for uncertainties in the input wavelengths.</p>
+<p>The simplest way to achieve the above three objectives is to define a model which takes a relevant subset of the hyperspectral wavelengths as input (satisfying (a) and (c)) and does not do any transformation of input wavelengths (satisfying (b)) while still predicting comparably to the full model on new datasets.</p>
+<p>Therefore, our aim is to find a reduced model such that</p>
+<p><span class="math inline">\(y_i = \boldsymbol{\beta_{*}^T} \boldsymbol{x_{i*}} + \epsilon_i, \; \epsilon \sim N(0, \sigma^2), \; i = 1,..., n\)</span></p>
+<p>such that <span class="math inline">\(|\boldsymbol{x_i*}| = p_{*} &lt;&lt; \boldsymbol{x_i} = p =2002\)</span> where <span class="math inline">\(|\boldsymbol{a}|\)</span> denotes the length of a vector <span class="math inline">\(\boldsymbol{a}\)</span>. Note that, in this work we are not aiming to find all all wavelengths are that are statistically related to the trait, but instead are only focused on finding a minimal subset of wavelengths that give a good predictive model for the given trait such that adding more wavelengths to the model will not significantly improve the predictive accuracy <span class="citation" data-cites="juhopiironenProjectiveInferenceHighdimensional2020">(<a href="#ref-juhopiironenProjectiveInferenceHighdimensional2020" role="doc-biblioref">Juho Piironen, Markus Paasiniemi, and Aki Vehtari 2020</a>)</span>.</p>
+<section id="m.3.1-posterior-projection-of-full-model" class="level3">
+<h3 class="anchored" data-anchor-id="m.3.1-posterior-projection-of-full-model">M.3.1 Posterior projection of full model</h3>
+<p>To formulate the reduced model, we use posterior projection (<span class="citation" data-cites="juhopiironenProjectiveInferenceHighdimensional2020">(<a href="#ref-juhopiironenProjectiveInferenceHighdimensional2020" role="doc-biblioref">Juho Piironen, Markus Paasiniemi, and Aki Vehtari 2020</a>)</span>), which consists of replacing the posterior distribution of the parameters of the full model –e.g.&nbsp;<span class="math inline">\(\boldsymbol{\theta}\)</span> of the Bayesian regression model in Section M.1– with a simpler distribution <span class="math inline">\(q(\theta_{*}\)</span>). The full model is also called the reference model and we denote posterior distribution of its parameters as <span class="math inline">\(p(\boldsymbol{\theta}|\mathcal{D})\)</span>, where <span class="math inline">\(\mathcal{D}\)</span> is the training data.</p>
+<p>For the reference model in Section M.1, restricting the model means setting some regression coefficients in <span class="math inline">\(\boldsymbol{\beta}\)</span> in the reference model equal to zero. For supervised PC (Section M.3), since the reference model is now in the latent orthogonal space, the projection works a bit differently since the input variables in the reference model and the reduced model (original spectral scale) are not similar.</p>
+<p>Therefore, to make the method model agnostic, posterior projection is defined in terms of the loss in posterior predictive accuracy –in terms of the Kullback-Liebler or KL divergence– when the reduced model is used in place of the reference model. Specifically,</p>
+<p><span class="math inline">\(KL(p(\tilde{y}|\mathcal{D}) || q(\tilde{y}) ) = E_{\tilde{y}}(log(p(\tilde{y}|\mathcal{D})) - log(q(\tilde{y})))\)</span></p>
+<p>We use the ‘tilde’ notation to denote future measurements of the trait, hence <span class="math inline">\(\tilde{y}\)</span> denotes future measurement of the trait . Here, <span class="math inline">\(p(\tilde{y}|\mathcal{D})\)</span> is the posterior predictive distribution of future measurements of the trait given the training data <span class="math inline">\(\mathcal{D}\)</span> for the reference model, <span class="math inline">\(q(\tilde{y})\)</span> is the distribution of <span class="math inline">\(\tilde{y}\)</span> from the reduced model, <span class="math inline">\(E_{\tilde{y}}\)</span> means the expectation over all possible future measurements of the trait.</p>
+<p>The objective of the posterior projection approach is to find the reduced model <span class="math inline">\(q(\theta_{*})\)</span> that minimizes equation (). In our case, we will the posterior projection to determine the complexity (i.e the number of input wavelengths to be used) of our linear spectral model. There are various ways to empirically find the reduced model including draw-by-draw approach <span class="citation" data-cites="goutisModelChoiceGeneralised1998">(<a href="#ref-goutisModelChoiceGeneralised1998" role="doc-biblioref">GOUTIS and ROBERT 1998</a>)</span>, <span class="citation" data-cites="dupuisVariableSelectionQualitative2003">(<a href="#ref-dupuisVariableSelectionQualitative2003" role="doc-biblioref">Dupuis and Robert 2003</a>)</span> and the single point approach <span class="citation" data-cites="tranPredictiveLasso2012">(<a href="#ref-tranPredictiveLasso2012" role="doc-biblioref">Tran, Nott, and Leng 2012</a>)</span>. Here we use the clustered projection approach by <span class="citation" data-cites="juhopiironenProjectiveInferenceHighdimensional2020">(<a href="#ref-juhopiironenProjectiveInferenceHighdimensional2020" role="doc-biblioref">Juho Piironen, Markus Paasiniemi, and Aki Vehtari 2020</a>)</span> which can be thought of as a unification of the above-mentioned approaches and gives a nice tradeoff between speed and accuracy.</p>
+<p>Equation () gives us the optimal model for a given complexity i.e.&nbsp;for a given number of input wavelengths <span class="math inline">\(p_*\)</span>. To determine the minimum value of <span class="math inline">\(p_*\)</span>, we compare the predictive utility of the reference model and the set of reduced models for each <span class="math inline">\(p_*\)</span> over a validation set. Since we are working in a Bayesian framework, we choose the mean log predictive density (MLPD) as our predictive utility function as it not only compares the point predictions but also the predictive uncertainties associated with the reduced model. This gives MLPD a significant advantage over commonly used utility functions such as mean squared error (MSE). For the validation set, we use K-fold cross validation, fitting and validating the reduced model K times to avoid over fitting.</p>
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-carvalho2010" class="csl-entry" role="listitem">
+Carvalho, Carlos M., Nicholas G. Polson, and James G. Scott. 2010. <span>“The Horseshoe Estimator for Sparse Signals.”</span> <em>Biometrika</em> 97 (2): 465–80. <a href="https://www.jstor.org/stable/25734098">https://www.jstor.org/stable/25734098</a>.
+</div>
+<div id="ref-dupuisVariableSelectionQualitative2003" class="csl-entry" role="listitem">
+Dupuis, Jérome A., and Christian P. Robert. 2003. <span>“Variable Selection in Qualitative Models via an Entropic Explanatory Power.”</span> <em>Journal of Statistical Planning and Inference</em>, Special issue I: Model Selection, Model Diagnostics, Empirical Ba yes and Hierarchical Bayes, 111 (1): 77–94. <a href="https://doi.org/10.1016/S0378-3758(02)00286-0">https://doi.org/10.1016/S0378-3758(02)00286-0</a>.
+</div>
+<div id="ref-goutisModelChoiceGeneralised1998" class="csl-entry" role="listitem">
+GOUTIS, CONSTANTINOS, and CHRISTIAN P. ROBERT. 1998. <span>“Model Choice in Generalised Linear Models: A Bayesian Approach via Kullback-Leibler Projections.”</span> <em>Biometrika</em> 85 (1): 29–37. <a href="https://doi.org/10.1093/biomet/85.1.29">https://doi.org/10.1093/biomet/85.1.29</a>.
+</div>
+<div id="ref-juhopiironenProjectiveInferenceHighdimensional2020" class="csl-entry" role="listitem">
+Juho Piironen, Markus Paasiniemi, and Aki Vehtari. 2020. <span>“Projective Inference in High-Dimensional Problems: Prediction and Feature Selection.”</span> <em>Electronic Journal of Statistics</em> 14 (1): 2155–97. <a href="https://doi.org/10.1214/20-EJS1711">https://doi.org/10.1214/20-EJS1711</a>.
+</div>
+<div id="ref-piironen2017" class="csl-entry" role="listitem">
+Piironen, Juho, and Aki Vehtari. 2017. <span>“Sparsity Information and Regularization in the Horseshoe and Other Shrinkage Priors.”</span> <em>Electronic Journal of Statistics</em> 11 (2): 5018–51. <a href="https://doi.org/10.1214/17-EJS1337SI">https://doi.org/10.1214/17-EJS1337SI</a>.
+</div>
+<div id="ref-tranPredictiveLasso2012" class="csl-entry" role="listitem">
+Tran, Minh-Ngoc, David J. Nott, and Chenlei Leng. 2012. <span>“The Predictive Lasso.”</span> <em>Statistics and Computing</em> 22 (5): 1069–84. <a href="https://doi.org/10.1007/s11222-011-9279-3">https://doi.org/10.1007/s11222-011-9279-3</a>.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

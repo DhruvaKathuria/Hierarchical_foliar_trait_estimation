@@ -16,10 +16,11 @@ country_colors <- c("USA" = "firebrick1", "France" = "deepskyblue4", "Canada" = 
                     "Italy" = "seagreen3", "Belgium" = "gold1", "Japan" = "forestgreen", "China" = "cyan", "Other" = "gainsboro")
 
 # Create the ggplot world map, coloring the specified countries with different colors
-ggplot(data = world_map, aes(x = long, y = lat, group = group, fill = country_colored)) +
+plot_out <- ggplot(data = world_map, aes(x = long, y = lat, group = group, fill = country_colored)) +
   geom_polygon(color = "dimgrey") +
   scale_fill_manual(values = country_colors, guide = "none") +
   theme_minimal() +
   labs(title = "World Map with Selected Countries Colored") +
   theme(plot.title = element_text(hjust = 0.5))
+
 
