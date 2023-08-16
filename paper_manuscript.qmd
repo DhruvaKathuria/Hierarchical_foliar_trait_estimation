@@ -75,11 +75,18 @@ Let the trait to be predicted be defined as a random variable $y$. For an $i^{th
 
 $y_i = \boldsymbol{\beta}^T \boldsymbol{x_i} + \epsilon_i, \; \epsilon \sim N(0, \sigma^2), \; i = 1,..., n$
 
-where $n$ is the number of observations. Here the dimension of $x_i$ is $p = 2002$. $\boldsymbol{\beta}$ denotes the corresponding regression coefficients for $\boldsymbol{x_i}$, and $\sigma^2$ is the noise variance. Let the training data for the regression model i.e. the $n$ observations of both the trait and spectra be denoted by $\mathcal{D}$.
+where $n$ is the number of observations. \
+Here the dimension of $x_i$ is $p = 2002$. $\boldsymbol{\beta}$ denotes the corresponding regression coefficients for $\boldsymbol{x_i}$, and $\sigma^2$ is the noise variance. Let the training data for the regression model i.e. the $n$ observations of both the trait and spectra be denoted by $\mathcal{D}$.
 
 #### Formulating priors
 
-An important component of the Bayesian approach is to formulate appropriate priors for the parameter vector $\boldsymbol{\theta} :=(\boldsymbol{\beta}, \sigma^{2})$ used in the model. Since the dimension of $\boldsymbol{\beta}$ (2002) is large and a functional trait is typically sensitive to a small subset of the wavelengths, using traditionally used priors for $\boldsymbol{\beta}$ (such as normally distributed priors) can lead to over-fitting of the Bayesian model. To alleviate this, we use a special prior distribution for $\beta_j$ called the regularized horseshoe prior [@piironen2017]. The regularized horseshoe prior belongs to a class of priors called shrinkage or sparsifiying priors which shrink $\beta$ coefficients of the non-important wavelengths to zero. For $j^{th}$ regresssion coefficient $\beta_j$, the regularized horsehoe prior is defined as:
+An important component of the Bayesian approach is to formulate appropriate priors for the parameter vector $\boldsymbol{\theta} :=(\boldsymbol{\beta}, \sigma^{2})$ used in the model.\
+Since the dimension of $\boldsymbol{\beta}$ (2002) is large and a functional trait is typically sensitive to a small subset of the wavelengths, using traditionally used priors for $\boldsymbol{\beta}$ (such as normally distributed priors) can lead to over-fitting of the Bayesian model.\
+This is especially true when the number of observations in \$\\mathcal{D}\$ is less than \$p = 2002\$.\
+Since, a given trait is sensitive to a small number of wavelengths, we need a prior distribution which shrinks the \$\\beta\$ coefficients of the non-important wavelengths to zero while letting the regression coefficients of the important wavelengths escape this shrinkage.\
+Such a prior distribution should therefore assign a high probability density at zero while also have heavy-tail (which allows the modeling of large values of \$\\beta\$) fo important wavelengths.\
+To achieve this, we use a special prior distribution for $\beta_j$ called the regularized horseshoe prior [@piironen2017].\
+The regularized horseshoe prior belongs to a class of priors called shrinkage or sparsifiying priors which shrink $\beta$ coefficients of the non-important wavelengths to zero and also have heavy-tails. For $j^{th}$ regresssion coefficient $\beta_j$, the regularized horsehoe prior is defined as:
 
 $\beta_j|\lambda_j, \tau, c \sim N(0, \tau^2 \xi_j^2), \; \xi_j^2 = \frac{c^2\lambda_j^2} {c^2 + \tau^2\lambda_j^2}$,
 
@@ -87,9 +94,12 @@ $\lambda_j \sim C^+(0, 1), j = 1,..., p$
 
 $c^2 \sim Inv-Gamma (\nu, s^2)$
 
-where $C^+$ is a standard half-Cauchy distribution on the positive reals.
-
-It is an extension of the horseshoe prior [@carvalho2010] which has been widely used in high-dimensional regression. Similar to the horseshoe prior, the $\tau$ parameter in regularized horseshoe prior drives all regression coefficients to zero. The thick Cauchy-tails for $\lambda_j$ allow some of the regression coefficients to escape this shrinkage towards zero. The regularized horsehoe has an extra parameter $c$ which better penalizes the non-shrinkage coefficients (i.e. the regression coefficients that are not equal to zero). This helps if the regression coefficients are weakly identified and also speeds up the sampling during posterior parameter inference using Markov Chain Monte Carlo (MCMC) methods.
+where $C^+$ is a standard half-Cauchy distribution on the positive reals.\
+It is an extension of the horseshoe prior [@carvalho2010] which has been widely used in high-dimensional regression.\
+Similar to the horseshoe prior, the $\tau$ parameter in regularized horseshoe prior drives all regression coefficients to zero.\
+The thick Cauchy-tails for $\lambda_j$ allow some of the regression coefficients to escape this shrinkage towards zero.\
+The regularized horsehoe has an extra parameter $c$ which better penalizes the non-shrinkage coefficients (i.e. the regression coefficients that are not equal to zero).\
+This helps if the regression coefficients are weakly identified and also speeds up the sampling during posterior parameter inference using Markov Chain Monte Carlo (MCMC) methods.\
 
 ```{r}
 #| echo: FALSE
@@ -150,11 +160,48 @@ It is an extension of the horseshoe prior [@carvalho2010] which has been widely 
 ```
 
 ```{r}
-# library(LaplacesDemon)
-# library(ggplot2)
+library(extraDistr)
+library(ggplot2)
+m_eff <- 0.05
+nu <- 4
+s = 2
+n_sim <- 500
 
+set.seed(100)
+# simulating from regularized horseshoe
+beta_j <- vector()
+for(i in 1: n_sim)
+{
+  sigma = 1
+  tau_0_sq <- m_eff *sigma
+  tau_sq <- rhcauchy(n = 1, sigma = tau_0_sq)
+  
+  lambda_j <- rhcauchy(n = 1, sigma = 1)
+  
+  alpha = nu/2; beta <- (nu *s^2)/2
+  c_sq <- rinvgamma(n = 1, alpha = alpha, beta = beta)
+  
+  lambda_j_tilde_sq <- (c_sq * lambda_j^2)/(c_sq + tau_sq *lambda_j^2)
+  beta_j[i] <- rnorm(1, mean = 0, sd = sqrt(tau_sq * lambda_j_tilde_sq))
+}
+hist(beta_j, 1e4, freq = FALSE, col = "red")
+# simulating from normal distribution
 
+sigma = 0.05
+beta_j_normal <- rnorm(n_sim, sigma)
+hist(beta_j_normal, 1e4, freq = FALSE, col = "red")
 
+##make plot using ggplot
+
+beta_df <- data.frame(value =  c(beta_j, beta_j_normal), 
+                      prior = rep(c("horseshoe", "gaussian"), each = n_sim))
+                      
+
+ggplot(beta_df, aes(x = value, color = prior)) + geom_histogram() +
+#geom_freqpoly(linewidth = 0.5) + 
+  facet_wrap(~prior) 
+
+ggsave()
 ```
 
 ### Bayesian Regression model-dimensionally reduced orthogonal space
