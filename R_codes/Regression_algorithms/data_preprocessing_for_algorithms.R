@@ -305,6 +305,48 @@ scale1  <-  function(data_frame)
   out = data.frame(scale(matrix1))
 }
 
+get_scaled_inputs <- function(data_train_for_hierarchical_analysis, 
+                              data_test_for_hierarchical_analysis, 
+                              scale_x, 
+                              scale_y)
+{
+
+  x_train <- data_train_for_hierarchical_analysis |> 
+    select(num_range("x",400:2400)) 
+  y_train <- data_train_for_hierarchical_analysis$trait
+  
+  x_test <- data_test_for_hierarchical_analysis |> 
+    select(num_range("x",400:2400))
+  y_test <- data_test_for_hierarchical_analysis$trait
+  
+  if(scale_x == T)
+  {
+    x_train_colmeans <- colMeans(x_train, na.rm = T)
+    x_train_sd <- apply(x_train, 2, function(x) sd(x, na.rm = T))
+    
+    x_train <- scale(x_train) |> data.frame()
+    
+    for(i in 1:ncol(x_train))
+    {
+      x_test[ ,i] <- (x_test[ ,i] - x_train_colmeans[i])/x_train_sd[i]
+    }
+    
+  }
+  
+  if(scale_y == T)
+  {
+    y_colmean <- mean(y_train, na.rm = T)
+    y_train_sd <- sd(y_train, na.rm = T)
+    
+    y_train <- scale(y_train)
+    y_test <- (y_test - y_colmean)/y_train_sd
+  }
+  
+  list(x_train = x_train,
+       y_train = y_train,
+       x_test = x_test, 
+       y_test = y_test)
+}
 
 # Getting data ready for analysis -----------------------------------------
 
@@ -426,24 +468,23 @@ if(PLSR_implementation == T)
 
 # getting data ready for the chosen algorithm -----------------------------
 
+data_scaled <- get_scaled_inputs(data_train_for_hierarchical_analysis, 
+                                 data_test_for_hierarchical_analysis,
+                                 scale_x,
+                                 scale_y)
+
+x_train <- data_scaled$x_train; y_train = data_scaled$y_train
+x_test <- data_scaled$x_test; y_test = data_scaled$y_test
+
 if(prediction_algorithm == "supervised_pc")
 {
-  x_train <- data_train_for_hierarchical_analysis |> 
-    select(num_range("x",400:2400)) |> 
-    mutate(intercept = 1)
-  y_train <- data_train_for_hierarchical_analysis$trait
-  
-  x_test <- data_test_for_hierarchical_analysis |> 
-    select(num_range("x",400:2400))|> 
-    mutate(intercept = 1)
-  y_test <- data_test_for_hierarchical_analysis$trait
   
   # Comment: I found that the iterative PC of Vehtari group https://arxiv.org/abs/1710.06229 
   # was better than the original https://hastie.su.domains/Papers/spca_JASA.pdf
   # I set the nctot to 40 for lma because of a large number of observations there
   get_super_pcs <- ispca(x_train,
                          y_train, 
-                         nctot=20) # ispca; nctot is the total PCs
+                         nctot=30) # ispca; nctot is the total PCs
   # I arbitrarily set it to 50
   # the ispca will first set the 
   # supervised PCs and then take the
@@ -460,18 +501,31 @@ if(prediction_algorithm == "supervised_pc")
   
   #remove the input spectra and replace by super+ normal pcs
   data_train_for_analysis <- data_train_for_hierarchical_analysis |> 
-    select(-starts_with("x")) |> bind_cols(x_super_pc_train)
-  data_test_for_analysis <- data_test_for_hierarchical_analysis |> 
-    select(-starts_with("x")) |> bind_cols(x_super_pc_test)
+    select(-starts_with("x")) |> 
+    bind_cols(x_super_pc_train) |> 
+    mutate(trait = y_train)
   
-  par_ratio1 = 0.7
+  data_test_for_analysis <- data_test_for_hierarchical_analysis |> 
+    select(-starts_with("x")) |> 
+    bind_cols(x_super_pc_test) |> 
+    mutate(trait = y_test)
+  
+  par_ratio1 = 0.25
   
 }
 
 if(prediction_algorithm == "raw_spectra")
 {
-  data_train_for_analysis <- data_train_for_hierarchical_analysis
-  data_test_for_analysis <- data_test_for_hierarchical_analysis
+  data_train_for_analysis <- data_train_for_hierarchical_analysis |> 
+    select(-starts_with("x")) |> 
+    bind_cols(x_train) |> 
+    mutate(trait = y_train)
+  
+  data_test_for_analysis <- data_test_for_hierarchical_analysis |> 
+    select(-starts_with("x")) |> 
+    bind_cols(x_test) |> 
+    mutate(trait = y_test)
+
   par_ratio1 = 0.05
 }
 
