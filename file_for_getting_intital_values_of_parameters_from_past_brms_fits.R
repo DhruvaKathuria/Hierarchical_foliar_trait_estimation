@@ -3,32 +3,34 @@ library(brms)
 
 trait_name1 = "Nitrogen"
 prediction_algorithm <- "raw_spectra"
-date_for_brms_file <- "2023-07-24" #this is the date the brms file was saved
-# in folder code data/code_output_data. brms
-# files are saved using supervised_pc_and....R
-
-brms_normal <- readRDS("/Users/dkathuri/Downloads/brms_object_Nitrogen_raw_spectra_2023-07-03 11:15:30.466665.rds")
-
-par1 <- fixef(brms_normal)
-par2 <- par1[, 1]
-
-sigma1 <- posterior_summary(as.data.frame(brms_normal)$sigma)
-
-plot(par2)
-data_frame_input <- brms_normal$data
-cmeans <- colMeans(data_frame_input)
-plot(cmeans)
-
-csd_1 <- apply(data_frame_input, 2, sd)
-plot(csd_1)
-
-saveRDS(par2, file = "Nitrogen_population_level_parameters.rds")
-saveRDS(sigma1, file = "Nitrogen_sigma_parameters.rds")
+# date_for_brms_file <- "2023-07-24" #this is the date the brms file was saved
+# # in folder code data/code_output_data. brms
+# # files are saved using supervised_pc_and....R
+# 
+# brms_normal <- readRDS("/Users/dkathuri/Downloads/brms_object_Nitrogen_raw_spectra_2023-07-03 11:15:30.466665.rds")
+# 
+# par1 <- fixef(brms_normal)
+# par2 <- par1[, 1]
+# 
+# sigma1 <- posterior_summary(as.data.frame(brms_normal)$sigma)
+# 
+# plot(par2)
+# data_frame_input <- brms_normal$data
+# cmeans <- colMeans(data_frame_input)
+# plot(cmeans)
+# 
+# csd_1 <- apply(data_frame_input, 2, sd)
+# plot(csd_1)
+# 
+# saveRDS(par2, file = "Nitrogen_population_level_parameters.rds")
+# saveRDS(sigma1, file = "Nitrogen_sigma_parameters.rds")
 
 # Setting up brms init function -------------------------------------------
 
 # Initial kicks
 
+par2 <- readRDS("Nitrogen_population_level_parameters.rds")
+sigma1 <- readRDS("Nitrogen_sigma_parameters.rds")
 
 init_func <- function(chain_id=1) {
   list ( Intercept  =  par2[1] ,
@@ -36,11 +38,11 @@ init_func <- function(chain_id=1) {
          sigma  =  sigma1[1])
 }
 # See an example output
-init_func(chain_id = 1)
+#init_func(chain_id = 1)
 # In your case just two chains is needed.
 init_list <- list(
   init_func(chain_id = 1)
-  #init_func(chain_id = 2),
+  #init_func(chain_id = 2)
   #init_func(chain_id = 3),
   #init_func(chain_id = 4)
   # init_func(chain_id = 5),

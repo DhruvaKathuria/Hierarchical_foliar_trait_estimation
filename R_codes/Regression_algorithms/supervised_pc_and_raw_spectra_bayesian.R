@@ -27,10 +27,11 @@ brms_normal <- brm(as.formula(formula_for_brms),
                    prior=c(prior(horseshoe(par_ratio = par_ratio1),class="b")
                            #prior(normal(0, 0.05),class="b")
                    ),
-                   chains = 3, cores = 3,
+                   chains = 1, cores = 1,
                    backend = "cmdstanr", 
                    #threads = threading(4), 
-                   warmup = 10000, iter = 20000, 
+                   init = init_list,
+                   warmup = 5000, iter = 15000, 
                    #sample_prior = "only"
                    #save_pars = save_pars(all = TRUE),
                    #control = list(adapt_delta = 0.95, max_treedepth = 15)
