@@ -3,7 +3,7 @@ library(projpred)
 
 trait_name1 = "Carotenoid_Area"
 prediction_algorithm <- "raw_spectra"
-date_for_brms_file <- "2023-06-29" #this is the date the brms file was saved
+date_for_brms_file <- "2023-08-14" #this is the date the brms file was saved
                                    # in folder code data/code_output_data. brms
                                    # files are saved using supervised_pc_and....R
 
@@ -12,7 +12,7 @@ brms_normal <- readRDS(paste0("data/code_output_data/brms_object_",
                "_",
                prediction_algorithm,
                "_",
-               Sys.Date(),
+               date_for_brms_file,
                ".rds"))
 
 
@@ -34,10 +34,20 @@ plot(cvvs_fast, stats = "mlpd", ranking_nterms_max = NA)
 
 
 # actual implementation ---------------------------------------------------
+par_ratio1 <- 0.05
 
-nterms_max1 = 20 # to be determined from cvvs_fast
+library(doParallel)
+cl <- makeCluster(3)
+registerDoParallel(cl)
+
+nterms_max1 = 30 # to be determined from cvvs_fast
 cv_out <- cv_varsel(brms_normal,
-                    nterms_max = nterms_max1)
+                    cv_method = "kfold",
+                    method = "forward",
+                    K = 5,
+                    nterms_max = nterms_max1,
+                    parallel = FALSE,
+                    verbose = T)
 saveRDS(cv_out,
         paste0("data/code_output_data/proj_pred_object_",
                trait_name1, 
@@ -51,7 +61,7 @@ plot(cv_out,
      stats = c('mlpd', 'rmse'), 
      deltas=FALSE)
 
-nsel <- suggest_size(fitrhs_cvvs, stat = "mlpd", alpha=0.1) # Dont rely on this
+nsel <- suggest_size(cv_out, stat = "mlpd", alpha=0.1) # Dont rely on this
                                                             # look more on the plot
-vsel <- solution_terms(fitrhs_cvvs)[1:nsel]
+vsel <- solution_terms(cv_out)[1:11]
 

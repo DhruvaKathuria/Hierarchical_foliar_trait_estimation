@@ -4,8 +4,8 @@ library(brms)
 
 source("R_codes/input_parameter_file.R")
 
-date_for_brms_object <- "2023-07-26"
-brms_read <- readRDS(paste0("data/code_output_data/brms_object_",
+date_for_brms_object <- "2023-08-14"
+brms_normal <- readRDS(paste0("data/code_output_data/brms_object_",
                                 trait_name1, 
                                 "_",
                                 prediction_algorithm,
@@ -16,8 +16,8 @@ brms_read <- readRDS(paste0("data/code_output_data/brms_object_",
 
 # Compare the Bayesian results with PLSR results --------------------------
 
-prediction_bayesian <- predict(brms_read, data_test_for_analysis)
-prediction_bayesian_mean <- prediction_bayesian[, 1]
+prediction_bayesian <- predict(brms_normal, data_test_for_analysis)
+prediction_bayesian_mean <- prediction_bayesian[, 1] * sd(data_train_for_hierarchical_analysis$trait) + mean(data_train_for_hierarchical_analysis$trait)
 
 plot(prediction_bayesian_mean, data_test_for_hierarchical_analysis$trait, pch = 19)
 abline(0, 1)
@@ -31,6 +31,12 @@ RMSE_function(data_frame_with_PLSR_predictions$Prediction_PLSR,
               data_frame_with_PLSR_predictions$trait)
 cor_function(data_frame_with_PLSR_predictions$Prediction_PLSR, 
              data_frame_with_PLSR_predictions$trait)
+
+
+# Posterior parameters ----------------------------------------------------
+
+parameters1 <- fixef(brms_read)
+plot(parameters1[, 1], type = "l")
 
 
 # get loading for supervised PC -------------------------------------------

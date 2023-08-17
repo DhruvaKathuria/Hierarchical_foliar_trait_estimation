@@ -24,17 +24,16 @@ formula_for_brms  = paste("trait ~ 1 + ",
 brms_normal <- brm(as.formula(formula_for_brms), 
                    data= data_train_for_analysis, 
                    family= gaussian(),
-                   prior=c(prior(normal(20,3),class="Intercept"),
-                           prior(horseshoe(df = 1, par_ratio = par_ratio1),class="b")
+                   prior=c(prior(horseshoe(par_ratio = par_ratio1),class="b")
                            #prior(normal(0, 0.05),class="b")
                    ),
-                   chains = 4, cores = 4,
+                   chains = 3, cores = 3,
                    backend = "cmdstanr", 
                    #threads = threading(4), 
                    warmup = 10000, iter = 20000, 
                    #sample_prior = "only"
                    #save_pars = save_pars(all = TRUE),
-                   control = list(adapt_delta = 0.95, max_treedepth = 15)
+                   #control = list(adapt_delta = 0.95, max_treedepth = 15)
 )
 
 saveRDS(brms_normal,  
