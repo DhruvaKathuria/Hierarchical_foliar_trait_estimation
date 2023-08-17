@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Methods</title>
+<title>Beyond PLSR: Bayesian Brilliance in Hyperspectral Trait Estimation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -42,16 +42,16 @@ div.csl-indent {
 }</style>
 
 
-<script src="methods_files/libs/clipboard/clipboard.min.js"></script>
-<script src="methods_files/libs/quarto-html/quarto.js"></script>
-<script src="methods_files/libs/quarto-html/popper.min.js"></script>
-<script src="methods_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="methods_files/libs/quarto-html/anchor.min.js"></script>
-<link href="methods_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="methods_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="methods_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="methods_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="methods_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="paper_manuscript_files/libs/clipboard/clipboard.min.js"></script>
+<script src="paper_manuscript_files/libs/quarto-html/quarto.js"></script>
+<script src="paper_manuscript_files/libs/quarto-html/popper.min.js"></script>
+<script src="paper_manuscript_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="paper_manuscript_files/libs/quarto-html/anchor.min.js"></script>
+<link href="paper_manuscript_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="paper_manuscript_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="paper_manuscript_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="paper_manuscript_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="paper_manuscript_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -66,7 +66,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Methods</h1>
+<h1 class="title">Beyond PLSR: Bayesian Brilliance in Hyperspectral Trait Estimation</h1>
 </div>
 
 
@@ -81,57 +81,147 @@ div.csl-indent {
 
 </header>
 
-<section id="outline" class="level2">
-<h2 class="anchored" data-anchor-id="outline">Outline</h2>
-<p>In this section, we first describe the Bayesian regression model used in predicting traits using hyperspectral data. We elucidate models both in the actual spectral space as well as dimensionally reduced orthogonal space (like PLSR). Formulating appropriate priors is essential for high dimensional (where number of input spectral bands is large) problems, therefore we also define the relevant priors used in the current work. To enable computationally efficient prediction on new datasets and select wavelengths which best approximate the predictive capabilities of the above models, we transform both model to a simpler model on the original spectral space requiring only a subset of input spectra using projective inference <span class="citation" data-cites="juhopiironenProjectiveInferenceHighdimensional2020">(<a href="#ref-juhopiironenProjectiveInferenceHighdimensional2020" role="doc-biblioref">Juho Piironen, Markus Paasiniemi, and Aki Vehtari 2020</a>)</span>. Notationally, we denote a scalar with a lower case letter and a vector with bold lower case letter. Superscript <span class="math inline">\(T\)</span> refers to transpose.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<!--# Importance of foliar functional traits -->
+<!--#General importance  -->
+<p>Foliar Functional traits are chemical (such as chlorophyll), physiological (such as photosynthetic rate) and structural (such as leaf area) features of a leaf which mediate ecosystem functioning and its response to perturbations by regulating the growth fitness of plants in diverse ecosystems (<span class="citation" data-cites="serbin2020">Serbin and Townsend (<a href="#ref-serbin2020" role="doc-biblioref">2020</a>)</span>; <span class="citation" data-cites="lavorel2002">Lavorel and Garnier (<a href="#ref-lavorel2002" role="doc-biblioref">2002</a>)</span>; <span class="citation" data-cites="wright2005">Wright et al. (<a href="#ref-wright2005" role="doc-biblioref">2005</a>)</span>; <span class="citation" data-cites="funk2017">Funk et al. (<a href="#ref-funk2017" role="doc-biblioref">2017</a>)</span>).</p>
+<!--# Leaf Economic Spectrum  -->
+<p>In an ecosystem, foliar functional traits influence the resource allocation and reallocation of resources by a plant under diverse environmental conditions ( <span class="citation" data-cites="reich2014">Reich (<a href="#ref-reich2014" role="doc-biblioref">2014</a>)</span>; <span class="citation" data-cites="wang2020">Wang et al. (<a href="#ref-wang2020" role="doc-biblioref">2020</a>)</span>) and affect the functional diversity driving ecosystem productivity ( <span class="citation" data-cites="cadotte2009">Cadotte et al. (<a href="#ref-cadotte2009" role="doc-biblioref">2009</a>)</span> )</p>
+<!--# Role in Vegetation models -->
+<p>Foliar traits’ significance in parameterizing terrestrial vegetation plays a crucial role in Earth System models, which, if not precisely characterized, introduces substantial uncertainty into climate change predictions ( <span class="citation" data-cites="wullschleger2014">Wullschleger et al. (<a href="#ref-wullschleger2014" role="doc-biblioref">2014</a>)</span>; <span class="citation" data-cites="friedlingstein2006">Friedlingstein et al. (<a href="#ref-friedlingstein2006" role="doc-biblioref">2006</a>)</span> ).</p>
+<!--# History of using spectroscopy for predicting foliar traits -->
+<!--# Why PLSR methods are the most widely used methods for predicting traits -->
+<p>PLSR methods have been the most successful method for predicting traits for spectra.<br>
+The upcoming SBG mission has PLSR method as one of the strong candidates for predicting traits<br>
+</p>
+<!--# Drawbacks of PLSR approach -->
+<p>The PLSR approach to trait estimation does not provide uncertainty estimates which are crucial to understand how variable the predictions will be when applied to new study regions.<br>
+Another drawback of the PLSR approach is that it assumes a linear relationship between the traits and spectra. Though there have been a few applications of kernel based PLSR approaches for trait prediction (e.g. <span class="citation" data-cites="arenas-garcia2008">Arenas-Garcia and Camps-Valls (<a href="#ref-arenas-garcia2008" role="doc-biblioref">2008</a>)</span>) , the majority of the studies still use the standard PLSR assuming a linear relationship between the traits and spectra.<br>
+PLSR approaches also cannot account for the hierarchical structure that might exist in certain traits.<br>
+PLSR is challenged by the variability of the relationship between traits and spectra across species, functional types, and biomes. It will either a global function between the traits and spectra which ignores the across-group variability or else it is used to fit functions separately for different groups which might not be always be possible due to scarcity of sampled trait data.</p>
+<!--# Ending -->
+<p>The National Academy of Sciences 2017 Decadal Survey specifically identifies the spatio-temporal distribution of plant functional traits as a crucial objective (E-1a).<br>
+It is not surprising that plant functional traits are identified as an Essential Biodiversity Variable (<span class="citation" data-cites="pereira2013">Pereira et al. (<a href="#ref-pereira2013" role="doc-biblioref">2013</a>)</span>, <span class="citation" data-cites="pettorelli2016">Pettorelli et al. (<a href="#ref-pettorelli2016" role="doc-biblioref">2016</a>)</span>).</p>
 </section>
-<section id="m.1-bayesian-regression-model-original-hyperspectral-space" class="level2">
-<h2 class="anchored" data-anchor-id="m.1-bayesian-regression-model-original-hyperspectral-space">M.1 Bayesian Regression model-Original hyperspectral space</h2>
+<section id="study-area-and-data" class="level2">
+<h2 class="anchored" data-anchor-id="study-area-and-data">Study Area and Data</h2>
+<p>We use observations of three foliar traits: Carotenoid (<span class="math inline">\(\mu g/cm^{-2}\)</span>), Nitrogen (<span class="math inline">\(mg/g\)</span>) and Leaf Mass per Area (<span class="math inline">\(g/m^{-2}\)</span>) paired with hyperspectral reflectance data from 400 nm to 2400 nm from publicly available Ecological Spectral Information System (EcoSIS) library (citation needed). The observation span a wide range of climatic and geographic range ( <a href="#fig-studyarea">Figure&nbsp;1</a> ) .</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-studyarea" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="paper_manuscript_files/figure-html/fig-studyarea-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Study Area</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">Methods</h2>
+<p>In this section, we first describe the Bayesian regression model used in predicting traits using hyperspectral data. We elucidate models both in the actual spectral space as well as dimensionally reduced orthogonal space (similar to PLSR). Formulating appropriate priors is essential for high dimensional (where number of input spectral bands is large) problems, therefore we also define the relevant priors used in the current work. To enable computationally efficient prediction on new datasets and select wavelengths which best approximate the predictive capabilities of the above models, we transform both model to a simpler model on the original spectral space requiring only a subset of input spectra using projective inference <span class="citation" data-cites="juhopiironenProjectiveInferenceHighdimensional2020">(<a href="#ref-juhopiironenProjectiveInferenceHighdimensional2020" role="doc-biblioref">Juho Piironen, Markus Paasiniemi, and Aki Vehtari 2020</a>)</span>. Notationally, we denote a scalar with a lower case letter and a vector with bold lower case letter. Superscript <span class="math inline">\(T\)</span> refers to transpose.</p>
+<section id="data-processing" class="level3">
+<h3 class="anchored" data-anchor-id="data-processing">Data Processing</h3>
+<p>We downloaded and processed all spectra and trait data from EcoSIS so that they have the same units across datasets.</p>
+<p>The workflow for downloading and processing the data can be reproduced by following the links to the Github page given in Appendix.</p>
+</section>
+<section id="bayesian-regression-model-original-hyperspectral-space" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-regression-model-original-hyperspectral-space">Bayesian Regression model-Original hyperspectral space</h3>
 <p>Let the trait to be predicted be defined as a random variable <span class="math inline">\(y\)</span>. For an <span class="math inline">\(i^{th}\)</span> observation, let the measured trait value be defined as <span class="math inline">\(y_i\)</span> and the corresponding input (intercept plus) hyperspectral wavelength be defined as the vector <span class="math inline">\(\boldsymbol{x_i} = (1, x_{i,400}, x_{i,401}, ..., x_{i,2399}, x_{i,2400})\)</span>. We assume that <span class="math inline">\(y_i\)</span> is a linear function of <span class="math inline">\(\boldsymbol{x}\)</span> such that:</p>
-<p><span class="math inline">\(y_i = \boldsymbol{\beta}^T \boldsymbol{x_i} + \epsilon_i, \; \epsilon \sim N(0, \sigma^2), \; i = 1,..., n\)</span></p>
-<p>where <span class="math inline">\(n\)</span> is the number of observations. Here the dimension of <span class="math inline">\(x_i\)</span> is <span class="math inline">\(p = 2002\)</span>. <span class="math inline">\(\boldsymbol{\beta}\)</span> denotes the corresponding regression coefficients for <span class="math inline">\(\boldsymbol{x_i}\)</span>, and <span class="math inline">\(\sigma^2\)</span> is the noise variance. Let the training data for the regression model i.e.&nbsp;the <span class="math inline">\(n\)</span> observations of both the trait and spectra be denoted by <span class="math inline">\(\mathcal{D}\)</span>.</p>
-<section id="m.1.2-formulating-priors" class="level3">
-<h3 class="anchored" data-anchor-id="m.1.2-formulating-priors">M.1.2 Formulating priors</h3>
-<p>An important component of the Bayesian approach is to formulate appropriate priors for the parameter vector <span class="math inline">\(\boldsymbol{\theta} :=(\boldsymbol{\beta}, \sigma^{2})\)</span> used in the model. Since the dimension of <span class="math inline">\(\boldsymbol{\beta}\)</span> (2002) is large and a functional trait is typically sensitive to a small subset of the wavelengths, using traditionally used priors for <span class="math inline">\(\boldsymbol{\beta}\)</span> (such as normally distributed priors) can lead to over-fitting of the Bayesian model. To alleviate this, we use a special prior distribution for <span class="math inline">\(\beta_j\)</span> called the regularized horseshoe prior <span class="citation" data-cites="piironen2017">(<a href="#ref-piironen2017" role="doc-biblioref">Piironen and Vehtari 2017</a>)</span>.</p>
-<p>The regularized horseshoe prior belongs to a class of priors called shrinkage or sparsifiying priors which shrink <span class="math inline">\(\beta\)</span> coefficients of the non-important wavelengths to zero. For <span class="math inline">\(j^{th}\)</span> regresssion coefficient <span class="math inline">\(\beta_j\)</span>, the regularized horsehoe prior is defined as:</p>
-<p><span class="math inline">\(\beta_j|\lambda_j, \tau, c \sim N(0, \tau^2 \xi_j^2), \; \xi_j^2 = \frac{c^2\lambda_j^2} {c^2 + \tau^2\lambda_j^2}\)</span>,</p>
-<p><span class="math inline">\(\lambda_j \sim C^+(0, 1), j = 1,..., p\)</span></p>
-<p><span class="math inline">\(c^2 \sim Inv-Gamma (\nu, s^2)\)</span></p>
-<p>where <span class="math inline">\(C^+\)</span> is a standard half-Cauchy distribution on the positive reals.</p>
-<p>It is an extension of the horseshoe prior <span class="citation" data-cites="carvalho2010">(<a href="#ref-carvalho2010" role="doc-biblioref">Carvalho, Polson, and Scott 2010</a>)</span> which has been widely used in high-dimensional regression. Similar to the horseshoe prior, the <span class="math inline">\(\tau\)</span> parameter in regularized horseshoe prior drives all regression coefficients to zero. The thick Cauchy-tails for <span class="math inline">\(\lambda_j\)</span> allow some of the regression coefficients to escape this shrinkage towards zero.</p>
-<p>The regularized horsehoe has an extra parameter <span class="math inline">\(c\)</span> which better penalizes the non-shrinkage coefficients (i.e.&nbsp;the regression coefficients that are not equal to zero). This helps if the regression coefficients are weakly identified and also speeds up the sampling during posterior parameter inference using Markov Chain Monte Carlo (MCMC) methods.</p>
+<p><span id="eq-linear_model"><span class="math display">\[
+y_i = \boldsymbol{\beta}^T \boldsymbol{x_i} + \epsilon_i, \; \epsilon \sim N(0, \sigma^2), \; i = 1,..., n
+\tag{1}\]</span></span></p>
+<p>where <span class="math inline">\(n\)</span> is the number of observations.<br>
+Here the length of <span class="math inline">\(x_i\)</span> i.e.&nbsp;intercept + the number of input wavelengths (400 nm - 2400 nm) is <span class="math inline">\(p = 2002\)</span>. <span class="math inline">\(\boldsymbol{\beta}\)</span> denotes the corresponding regression coefficients for <span class="math inline">\(\boldsymbol{x_i}\)</span>, and <span class="math inline">\(\sigma^2\)</span> is the noise variance. Let the training data for the regression model i.e.&nbsp;the <span class="math inline">\(n\)</span> observations of both the trait and spectra be denoted by <span class="math inline">\(\mathcal{D}\)</span>.</p>
+<section id="formulating-priors" class="level4">
+<h4 class="anchored" data-anchor-id="formulating-priors">Formulating priors</h4>
+<p>An important component of the Bayesian approach is to formulate appropriate priors for the parameter vector <span class="math inline">\(\boldsymbol{\theta} :=(\boldsymbol{\beta}, \sigma^{2})\)</span> used in the model.<br>
+Since the dimension of <span class="math inline">\(\boldsymbol{\beta}\)</span> (2002) is large and a functional trait is typically sensitive to a small subset of the wavelengths, using traditionally used priors for <span class="math inline">\(\boldsymbol{\beta}\)</span> (such as normally distributed priors) can lead to over-fitting of the Bayesian model.<br>
+This is especially true when the number of observations in $\mathcal{D}$ is less than $p = 2002$.<br>
+Since, a given trait is sensitive to a small number of wavelengths, we need a prior distribution which shrinks the $\beta$ coefficients of the non-important wavelengths to zero while letting the regression coefficients of the important wavelengths escape this shrinkage.<br>
+Such a prior distribution should therefore assign a high probability density at zero while also have heavy-tail (which allows the modeling of large values of $\beta$) fo important wavelengths.<br>
+To achieve this, we use a special prior distribution for <span class="math inline">\(\beta_j\)</span> called the regularized horseshoe prior <span class="citation" data-cites="piironen2017">(<a href="#ref-piironen2017" role="doc-biblioref">Piironen and Vehtari 2017</a>)</span>.<br>
+The regularized horseshoe prior belongs to a class of priors called shrinkage or sparsifiying priors which shrink <span class="math inline">\(\beta\)</span> coefficients of the non-important wavelengths to zero and also have heavy-tails. For <span class="math inline">\(j^{th}\)</span> regresssion coefficient <span class="math inline">\(\beta_j\)</span>, the regularized horsehoe prior is defined as:</p>
+<p><span id="eq-horseshoe"><span class="math display">\[
+\begin{aligned}
+&amp; \beta_j|\tilde{\lambda_j}, \tau \sim N(0, \tau^2 \hat{\lambda_j}^2),  \; \tilde{\lambda_j^2} = \frac{c^2 \lambda_j^2}{c^2 + \tau^2 \lambda_j^2} \\
+&amp; \lambda_j \sim C^+(0, 1) \text{for } j = 1, ..., D \\
+&amp; c^2 \sim IG(\nu /2, \nu s^2/2) \\
+&amp; \tau^2 \sim C^+(0, \tau_0^2), \; \tau_0^2 = \frac{p_0}{p - p_0} \sigma \\
+\end{aligned}
+\tag{2}\]</span></span></p>
+<p>where <span class="math inline">\(C^+\)</span> is a standard half-Cauchy distribution on the positive reals, IG is the inverse-Gamma distribution and <span class="math inline">\(p_0\)</span> is our prior crude guess on how many non-zero coefficients are there for the model .<br>
+For our analysis, we set <span class="math inline">\(\frac{p_0}{D-p_0}\)</span> as 0.05 for all the traits, denoting our a-priori guess that around 100 wavelengths are important for predicting a particular trait.<br>
+We fix <span class="math inline">\(\nu = 4\)</span> and <span class="math inline">\(s = 2\)</span> following <span class="citation" data-cites="piironen2017">(<a href="#ref-piironen2017" role="doc-biblioref">Piironen and Vehtari 2017</a>)</span>.<br>
+The regularized horseshoe is an extension of the horseshoe prior <span class="citation" data-cites="carvalho2010">(<a href="#ref-carvalho2010" role="doc-biblioref">Carvalho, Polson, and Scott 2010</a>)</span> which has been widely used in high-dimensional regression.<br>
+Similar to the horseshoe prior, the <span class="math inline">\(\tau\)</span> parameter in regularized horseshoe prior drives all regression coefficients to zero.<br>
+The thick Cauchy-tails for <span class="math inline">\(\lambda_j\)</span> allow some of the regression coefficients (of important wavelengths) to escape this shrinkage towards zero.<br>
+The regularized horsehoe has an extra parameter <span class="math inline">\(c\)</span> which better penalizes the non-shrinkage coefficients (i.e.&nbsp;the regression coefficients that are not equal to zero).<br>
+This helps if the regression coefficients are weakly identified and also speeds up the sampling during posterior parameter inference using Markov Chain Monte Carlo (MCMC) methods.<br>
+<a href="#fig-method_horseshoe_vs_gaussian">Figure&nbsp;2</a> gives the comparison between the regularized horseshoe prior and the gaussian prior by simulating 500 samples for a regression coefficient $\beta_j$ following <a href="#eq-horseshoe">Equation&nbsp;2</a> and from a gaussian distribution with mean 0 and standard deviation 0.05.<br>
+The horseshoe prior assigns a significantly higher probability at zero leading to better shrinkage of regression coefficients towards zero for non-important wavelengths.<br>
+It also has a heavier tail than the Gaussian distribution allowing larger values for the beta coefficients for important wavelengths.<br>
+</p>
+<div id="fig-method_horseshoe_vs_gaussian" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="paper_draft/figures/horseshoe_vs_gaussian.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Gaussian prior vs Regularized horseshoe prior</figcaption>
+</figure>
+</div>
 </section>
 </section>
-<section id="m.2-bayesian-regression-model-dimensionally-reduced-orthogonal-space" class="level2">
-<h2 class="anchored" data-anchor-id="m.2-bayesian-regression-model-dimensionally-reduced-orthogonal-space">M.2 Bayesian Regression model-dimensionally reduced orthogonal space</h2>
+<section id="bayesian-regression-model-dimensionally-reduced-orthogonal-space" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-regression-model-dimensionally-reduced-orthogonal-space">Bayesian Regression model-dimensionally reduced orthogonal space</h3>
 <p>##Add text about bayesian supervised principal components##</p>
 </section>
-<section id="m.3-model-reduction-in-original-spectral-space" class="level2">
-<h2 class="anchored" data-anchor-id="m.3-model-reduction-in-original-spectral-space">M.3 Model reduction in original spectral space</h2>
-<p>The 2 models in the previous approach were designed to give good predictions even if the model has non-important wavelengths as input. While the model in Section M.1 has high computational cost, model in Section M.2 loses interpretability due to projection of spectra into orthogonal latent dimensions. We want our predictive model to be (a) computationally fast when predicting new data and (b) interpretable and (c) be able to account for uncertainties in the input wavelengths.</p>
-<p>The simplest way to achieve the above three objectives is to define a model which takes a relevant subset of the hyperspectral wavelengths as input (satisfying (a) and (c)) and does not do any transformation of input wavelengths (satisfying (b)) while still predicting comparably to the full model on new datasets.</p>
+<section id="model-reduction-in-original-spectral-space" class="level3">
+<h3 class="anchored" data-anchor-id="model-reduction-in-original-spectral-space">Model reduction in original spectral space</h3>
+<p>The two models in the previous approach were designed to give good predictions even if the model has redundant wavelengths as input. While the model in Section M.1 has high computational cost, model in Section M.2 loses interpretability due to projection of spectra into orthogonal latent dimensions. We want our predictive model to be (a) computationally fast when predicting new data, (b) interpretable and (c) be able to account for uncertainties in the input wavelengths. A direct way to achieve the above three objectives is to define a model which takes a relevant subset of the hyperspectral wavelengths as input (satisfying (a) and (c)) and does not do any transformation of input wavelengths (satisfying (b)) while still predicting comparably to the full model on new datasets.</p>
 <p>Therefore, our aim is to find a reduced model such that</p>
 <p><span class="math inline">\(y_i = \boldsymbol{\beta_{*}^T} \boldsymbol{x_{i*}} + \epsilon_i, \; \epsilon \sim N(0, \sigma^2), \; i = 1,..., n\)</span></p>
-<p>such that <span class="math inline">\(|\boldsymbol{x_i*}| = p_{*} &lt;&lt; \boldsymbol{x_i} = p =2002\)</span> where <span class="math inline">\(|\boldsymbol{a}|\)</span> denotes the length of a vector <span class="math inline">\(\boldsymbol{a}\)</span>. Note that, in this work we are not aiming to find all all wavelengths are that are statistically related to the trait, but instead are only focused on finding a minimal subset of wavelengths that give a good predictive model for the given trait such that adding more wavelengths to the model will not significantly improve the predictive accuracy <span class="citation" data-cites="juhopiironenProjectiveInferenceHighdimensional2020">(<a href="#ref-juhopiironenProjectiveInferenceHighdimensional2020" role="doc-biblioref">Juho Piironen, Markus Paasiniemi, and Aki Vehtari 2020</a>)</span>.</p>
-<section id="m.3.1-posterior-projection-of-full-model" class="level3">
-<h3 class="anchored" data-anchor-id="m.3.1-posterior-projection-of-full-model">M.3.1 Posterior projection of full model</h3>
-<p>To formulate the reduced model, we use posterior projection (<span class="citation" data-cites="juhopiironenProjectiveInferenceHighdimensional2020">(<a href="#ref-juhopiironenProjectiveInferenceHighdimensional2020" role="doc-biblioref">Juho Piironen, Markus Paasiniemi, and Aki Vehtari 2020</a>)</span>), which consists of replacing the posterior distribution of the parameters of the full model –e.g.&nbsp;<span class="math inline">\(\boldsymbol{\theta}\)</span> of the Bayesian regression model in Section M.1– with a simpler distribution <span class="math inline">\(q(\theta_{*}\)</span>). The full model is also called the reference model and we denote posterior distribution of its parameters as <span class="math inline">\(p(\boldsymbol{\theta}|\mathcal{D})\)</span>, where <span class="math inline">\(\mathcal{D}\)</span> is the training data.</p>
-<p>For the reference model in Section M.1, restricting the model means setting some regression coefficients in <span class="math inline">\(\boldsymbol{\beta}\)</span> in the reference model equal to zero. For supervised PC (Section M.3), since the reference model is now in the latent orthogonal space, the projection works a bit differently since the input variables in the reference model and the reduced model (original spectral scale) are not similar.</p>
-<p>Therefore, to make the method model agnostic, posterior projection is defined in terms of the loss in posterior predictive accuracy –in terms of the Kullback-Liebler or KL divergence– when the reduced model is used in place of the reference model. Specifically,</p>
+<p>such that <span class="math inline">\(|\boldsymbol{x_i*}| = p_{*} &lt;&lt; \boldsymbol{x_i} = p =2002\)</span> where <span class="math inline">\(|\boldsymbol{a}|\)</span> denotes the length of a vector <span class="math inline">\(\boldsymbol{a}\)</span>. Note that, in this work our aim is not to find all wavelengths that are statistically related to the trait, but instead are only focused on finding a minimal subset of wavelengths that give a good predictive model for the given trait such that adding more wavelengths to the model will not significantly improve the predictive accuracy <span class="citation" data-cites="juhopiironenProjectiveInferenceHighdimensional2020">(<a href="#ref-juhopiironenProjectiveInferenceHighdimensional2020" role="doc-biblioref">Juho Piironen, Markus Paasiniemi, and Aki Vehtari 2020</a>)</span>.</p>
+<section id="posterior-projection-of-full-model" class="level4">
+<h4 class="anchored" data-anchor-id="posterior-projection-of-full-model">Posterior projection of full model</h4>
+<p>To formulate the reduced model, we use posterior projection <span class="citation" data-cites="juhopiironenProjectiveInferenceHighdimensional2020">(<a href="#ref-juhopiironenProjectiveInferenceHighdimensional2020" role="doc-biblioref">Juho Piironen, Markus Paasiniemi, and Aki Vehtari 2020</a>)</span>, which consists of replacing the posterior distribution of the parameters of the full model –e.g.&nbsp;<span class="math inline">\(\boldsymbol{\theta}\)</span> of the Bayesian regression model in Section M.1– with a simpler distribution <span class="math inline">\(q(\theta_{*}\)</span>). The full model is also called the reference model and we denote posterior distribution of its parameters as <span class="math inline">\(p(\boldsymbol{\theta}|\mathcal{D})\)</span>, where <span class="math inline">\(\mathcal{D}\)</span> is the training data. For the reference model in Section M.1, restricting the model means setting some regression coefficients in <span class="math inline">\(\boldsymbol{\beta}\)</span> in the reference model equal to zero. For supervised PC (Section M.3), since the reference model is now in the latent orthogonal space, the projection works a bit differently since the input variables in the reference model and the reduced model (original spectral scale) are not similar. Therefore, to make the method model agnostic, posterior projection is defined in terms of the loss in posterior predictive accuracy –in terms of the Kullback-Liebler or KL divergence– when the reduced model is used in place of the reference model. Specifically,</p>
 <p><span class="math inline">\(KL(p(\tilde{y}|\mathcal{D}) || q(\tilde{y}) ) = E_{\tilde{y}}(log(p(\tilde{y}|\mathcal{D})) - log(q(\tilde{y})))\)</span></p>
-<p>We use the ‘tilde’ notation to denote future measurements of the trait, hence <span class="math inline">\(\tilde{y}\)</span> denotes future measurement of the trait . Here, <span class="math inline">\(p(\tilde{y}|\mathcal{D})\)</span> is the posterior predictive distribution of future measurements of the trait given the training data <span class="math inline">\(\mathcal{D}\)</span> for the reference model, <span class="math inline">\(q(\tilde{y})\)</span> is the distribution of <span class="math inline">\(\tilde{y}\)</span> from the reduced model, <span class="math inline">\(E_{\tilde{y}}\)</span> means the expectation over all possible future measurements of the trait.</p>
-<p>The objective of the posterior projection approach is to find the reduced model <span class="math inline">\(q(\theta_{*})\)</span> that minimizes equation (). In our case, we will the posterior projection to determine the complexity (i.e the number of input wavelengths to be used) of our linear spectral model. There are various ways to empirically find the reduced model including draw-by-draw approach <span class="citation" data-cites="goutisModelChoiceGeneralised1998">(<a href="#ref-goutisModelChoiceGeneralised1998" role="doc-biblioref">GOUTIS and ROBERT 1998</a>)</span>, <span class="citation" data-cites="dupuisVariableSelectionQualitative2003">(<a href="#ref-dupuisVariableSelectionQualitative2003" role="doc-biblioref">Dupuis and Robert 2003</a>)</span> and the single point approach <span class="citation" data-cites="tranPredictiveLasso2012">(<a href="#ref-tranPredictiveLasso2012" role="doc-biblioref">Tran, Nott, and Leng 2012</a>)</span>. Here we use the clustered projection approach by <span class="citation" data-cites="juhopiironenProjectiveInferenceHighdimensional2020">(<a href="#ref-juhopiironenProjectiveInferenceHighdimensional2020" role="doc-biblioref">Juho Piironen, Markus Paasiniemi, and Aki Vehtari 2020</a>)</span> which can be thought of as a unification of the above-mentioned approaches and gives a nice tradeoff between speed and accuracy.</p>
+<p>We use the ‘tilde’ notation to denote future measurements of the trait, hence <span class="math inline">\(\tilde{y}\)</span> denotes future measurement of the trait . Here, <span class="math inline">\(p(\tilde{y}|\mathcal{D})\)</span> is the posterior predictive distribution of future measurements of the trait given the training data <span class="math inline">\(\mathcal{D}\)</span> for the reference model, <span class="math inline">\(q(\tilde{y})\)</span> is the distribution of <span class="math inline">\(\tilde{y}\)</span> from the reduced model, <span class="math inline">\(E_{\tilde{y}}\)</span> means the expectation over all possible future measurements of the trait.The objective of the posterior projection approach is to find the reduced model <span class="math inline">\(q(\theta_{*})\)</span> that minimizes equation ().</p>
+<p>In our case, we will use the posterior projection to determine the complexity (i.e the number of input wavelengths to be used) of our linear spectral model. There are various ways to empirically find the reduced model including draw-by-draw approach <span class="citation" data-cites="goutisModelChoiceGeneralised1998">(<a href="#ref-goutisModelChoiceGeneralised1998" role="doc-biblioref">GOUTIS and ROBERT 1998</a>)</span>, <span class="citation" data-cites="dupuisVariableSelectionQualitative2003">(<a href="#ref-dupuisVariableSelectionQualitative2003" role="doc-biblioref">Dupuis and Robert 2003</a>)</span> and the single point approach <span class="citation" data-cites="tranPredictiveLasso2012">(<a href="#ref-tranPredictiveLasso2012" role="doc-biblioref">Tran, Nott, and Leng 2012</a>)</span>. Here we use the clustered projection approach by <span class="citation" data-cites="juhopiironenProjectiveInferenceHighdimensional2020">(<a href="#ref-juhopiironenProjectiveInferenceHighdimensional2020" role="doc-biblioref">Juho Piironen, Markus Paasiniemi, and Aki Vehtari 2020</a>)</span> which can be thought of as a unification of the above-mentioned approaches and gives a nice tradeoff between speed and accuracy.</p>
 <p>Equation () gives us the optimal model for a given complexity i.e.&nbsp;for a given number of input wavelengths <span class="math inline">\(p_*\)</span>. To determine the minimum value of <span class="math inline">\(p_*\)</span>, we compare the predictive utility of the reference model and the set of reduced models for each <span class="math inline">\(p_*\)</span> over a validation set. Since we are working in a Bayesian framework, we choose the mean log predictive density (MLPD) as our predictive utility function as it not only compares the point predictions but also the predictive uncertainties associated with the reduced model. This gives MLPD a significant advantage over commonly used utility functions such as mean squared error (MSE). For the validation set, we use K-fold cross validation, fitting and validating the reduced model K times to avoid over fitting.</p>
-
+<p>The entire methodology is summarized in <a href="#fig-method_flowchart">Figure&nbsp;3</a> :</p>
+<!--# In @fig-method_flowchart, add the prior and add projection predictive variable as another figure at top. Maybe add the horsehoe prior as an image and add all spectra image first and then during the posterior projection, add it as a few spectra -->
+<div id="fig-method_flowchart" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="paper_draft/figures/Method_flowchart.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Comparison between PLSR and the proposed Bayesian approach</figcaption>
+</figure>
+</div>
 </section>
+</section>
+</section>
+<section id="references" class="level2 unnumbered">
+
+
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-arenas-garcia2008" class="csl-entry" role="listitem">
+Arenas-Garcia, JerÓnimo, and Gustavo Camps-Valls. 2008. <span>“Efficient Kernel Orthonormalized PLS for Remote Sensing Applications.”</span> <em>IEEE Transactions on Geoscience and Remote Sensing</em> 46 (10): 2872–81. <a href="https://doi.org/10.1109/TGRS.2008.918765">https://doi.org/10.1109/TGRS.2008.918765</a>.
+</div>
+<div id="ref-cadotte2009" class="csl-entry" role="listitem">
+Cadotte, Marc W., Jeannine Cavender-Bares, David Tilman, and Todd H. Oakley. 2009. <span>“Using Phylogenetic, Functional and Trait Diversity to Understand Patterns of Plant Community Productivity.”</span> <em>PLOS ONE</em> 4 (5): e5695. <a href="https://doi.org/10.1371/journal.pone.0005695">https://doi.org/10.1371/journal.pone.0005695</a>.
+</div>
 <div id="ref-carvalho2010" class="csl-entry" role="listitem">
 Carvalho, Carlos M., Nicholas G. Polson, and James G. Scott. 2010. <span>“The Horseshoe Estimator for Sparse Signals.”</span> <em>Biometrika</em> 97 (2): 465–80. <a href="https://www.jstor.org/stable/25734098">https://www.jstor.org/stable/25734098</a>.
 </div>
 <div id="ref-dupuisVariableSelectionQualitative2003" class="csl-entry" role="listitem">
 Dupuis, Jérome A., and Christian P. Robert. 2003. <span>“Variable Selection in Qualitative Models via an Entropic Explanatory Power.”</span> <em>Journal of Statistical Planning and Inference</em>, Special issue I: Model Selection, Model Diagnostics, Empirical Ba yes and Hierarchical Bayes, 111 (1): 77–94. <a href="https://doi.org/10.1016/S0378-3758(02)00286-0">https://doi.org/10.1016/S0378-3758(02)00286-0</a>.
+</div>
+<div id="ref-friedlingstein2006" class="csl-entry" role="listitem">
+Friedlingstein, P., P. Cox, R. Betts, L. Bopp, W. von Bloh, V. Brovkin, P. Cadule, et al. 2006. <span>“Climate<span></span>Carbon Cycle Feedback Analysis: Results from the C4MIP Model Intercomparison.”</span> <em>Journal of Climate</em> 19 (14): 3337–53. <a href="https://doi.org/10.1175/JCLI3800.1">https://doi.org/10.1175/JCLI3800.1</a>.
+</div>
+<div id="ref-funk2017" class="csl-entry" role="listitem">
+Funk, Jennifer L., Julie E. Larson, Gregory M. Ames, Bradley J. Butterfield, Jeannine Cavender-Bares, Jennifer Firn, Daniel C. Laughlin, Ariana E. Sutton-Grier, Laura Williams, and Justin Wright. 2017. <span>“Revisiting the Holy Grail: Using Plant Functional Traits to Understand Ecological Processes.”</span> <em>Biological Reviews</em> 92 (2): 1156–73. <a href="https://doi.org/10.1111/brv.12275">https://doi.org/10.1111/brv.12275</a>.
 </div>
 <div id="ref-goutisModelChoiceGeneralised1998" class="csl-entry" role="listitem">
 GOUTIS, CONSTANTINOS, and CHRISTIAN P. ROBERT. 1998. <span>“Model Choice in Generalised Linear Models: A Bayesian Approach via Kullback-Leibler Projections.”</span> <em>Biometrika</em> 85 (1): 29–37. <a href="https://doi.org/10.1093/biomet/85.1.29">https://doi.org/10.1093/biomet/85.1.29</a>.
@@ -139,11 +229,35 @@ GOUTIS, CONSTANTINOS, and CHRISTIAN P. ROBERT. 1998. <span>“Model Choice in Ge
 <div id="ref-juhopiironenProjectiveInferenceHighdimensional2020" class="csl-entry" role="listitem">
 Juho Piironen, Markus Paasiniemi, and Aki Vehtari. 2020. <span>“Projective Inference in High-Dimensional Problems: Prediction and Feature Selection.”</span> <em>Electronic Journal of Statistics</em> 14 (1): 2155–97. <a href="https://doi.org/10.1214/20-EJS1711">https://doi.org/10.1214/20-EJS1711</a>.
 </div>
+<div id="ref-lavorel2002" class="csl-entry" role="listitem">
+Lavorel, S., and E. Garnier. 2002. <span>“Predicting Changes in Community Composition and Ecosystem Functioning from Plant Traits: Revisiting the Holy Grail.”</span> <em>Functional Ecology</em> 16 (5): 545–56. <a href="https://doi.org/10.1046/j.1365-2435.2002.00664.x">https://doi.org/10.1046/j.1365-2435.2002.00664.x</a>.
+</div>
+<div id="ref-pereira2013" class="csl-entry" role="listitem">
+Pereira, H. M., S. Ferrier, M. Walters, G. N. Geller, R. H. G. Jongman, R. J. Scholes, M. W. Bruford, et al. 2013. <span>“Essential Biodiversity Variables.”</span> <em>Science</em> 339 (6117): 277–78. <a href="https://doi.org/10.1126/science.1229931">https://doi.org/10.1126/science.1229931</a>.
+</div>
+<div id="ref-pettorelli2016" class="csl-entry" role="listitem">
+Pettorelli, Nathalie, Martin Wegmann, Andrew Skidmore, Sander Mücher, Terence P. Dawson, Miguel Fernandez, Richard Lucas, et al. 2016. <span>“Framing the Concept of Satellite Remote Sensing Essential Biodiversity Variables: Challenges and Future Directions.”</span> <em>Remote Sensing in Ecology and Conservation</em> 2 (3): 122–31. <a href="https://doi.org/10.1002/rse2.15">https://doi.org/10.1002/rse2.15</a>.
+</div>
 <div id="ref-piironen2017" class="csl-entry" role="listitem">
 Piironen, Juho, and Aki Vehtari. 2017. <span>“Sparsity Information and Regularization in the Horseshoe and Other Shrinkage Priors.”</span> <em>Electronic Journal of Statistics</em> 11 (2): 5018–51. <a href="https://doi.org/10.1214/17-EJS1337SI">https://doi.org/10.1214/17-EJS1337SI</a>.
 </div>
+<div id="ref-reich2014" class="csl-entry" role="listitem">
+Reich, Peter B. 2014. <span>“The World-Wide <span>‘</span>Fast<span></span>slow<span>’</span> Plant Economics Spectrum: A Traits Manifesto.”</span> <em>Journal of Ecology</em> 102 (2): 275–301. <a href="https://doi.org/10.1111/1365-2745.12211">https://doi.org/10.1111/1365-2745.12211</a>.
+</div>
+<div id="ref-serbin2020" class="csl-entry" role="listitem">
+Serbin, Shawn P., and Philip A. Townsend. 2020. <span>“Scaling Functional Traits from Leaves to Canopies.”</span> In, edited by Jeannine Cavender-Bares, John A. Gamon, and Philip A. Townsend, 43–82. Cham: Springer International Publishing. <a href="https://doi.org/10.1007/978-3-030-33157-3_3">https://doi.org/10.1007/978-3-030-33157-3_3</a>.
+</div>
 <div id="ref-tranPredictiveLasso2012" class="csl-entry" role="listitem">
 Tran, Minh-Ngoc, David J. Nott, and Chenlei Leng. 2012. <span>“The Predictive Lasso.”</span> <em>Statistics and Computing</em> 22 (5): 1069–84. <a href="https://doi.org/10.1007/s11222-011-9279-3">https://doi.org/10.1007/s11222-011-9279-3</a>.
+</div>
+<div id="ref-wang2020" class="csl-entry" role="listitem">
+Wang, Zhihui, Adam Chlus, Ryan Geygan, Zhiwei Ye, Ting Zheng, Aditya Singh, John J. Couture, Jeannine Cavender-Bares, Eric L. Kruger, and Philip A. Townsend. 2020. <span>“Foliar Functional Traits from Imaging Spectroscopy Across Biomes in Eastern North America.”</span> <em>New Phytologist</em> 228 (2): 494–511. <a href="https://doi.org/10.1111/nph.16711">https://doi.org/10.1111/nph.16711</a>.
+</div>
+<div id="ref-wright2005" class="csl-entry" role="listitem">
+Wright, Ian J., Peter B. Reich, Johannes H. C. Cornelissen, Daniel S. Falster, Philip K. Groom, Kouki Hikosaka, William Lee, et al. 2005. <span>“Modulation of Leaf Economic Traits and Trait Relationships by Climate.”</span> <em>Global Ecology and Biogeography</em> 14 (5): 411–21. <a href="https://doi.org/10.1111/j.1466-822x.2005.00172.x">https://doi.org/10.1111/j.1466-822x.2005.00172.x</a>.
+</div>
+<div id="ref-wullschleger2014" class="csl-entry" role="listitem">
+Wullschleger, Stan D., Howard E. Epstein, Elgene O. Box, Eugénie S. Euskirchen, Santonu Goswami, Colleen M. Iversen, Jens Kattge, Richard J. Norby, Peter M. van Bodegom, and Xiaofeng Xu. 2014. <span>“Plant Functional Types in Earth System Models: Past Experiences and Future Directions for Application of Dynamic Vegetation Models in High-Latitude Ecosystems.”</span> <em>Annals of Botany</em> 114 (1): 1–16. <a href="https://doi.org/10.1093/aob/mcu077">https://doi.org/10.1093/aob/mcu077</a>.
 </div>
 </div></section></div></main>
 <!-- /main column -->
