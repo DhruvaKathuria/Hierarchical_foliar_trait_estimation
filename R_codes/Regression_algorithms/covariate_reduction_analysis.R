@@ -22,7 +22,7 @@ prj_mat <- as.matrix(prj)
 
 bayesplot_theme_set(ggplot2::theme_bw())
 mcmc_intervals(prj_mat) +
-  ggplot2::coord_cartesian(xlim = c(-10, 10))
+  ggplot2::coord_cartesian()
 
 refm_mat <- as.matrix(brms_normal)
 mcmc_intervals(refm_mat, pars = colnames(prj_mat)) +

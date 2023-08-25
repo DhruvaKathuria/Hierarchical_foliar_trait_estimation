@@ -3,7 +3,7 @@ library(projpred)
 
 trait_name1 = "Carotenoid_Area"
 prediction_algorithm <- "raw_spectra"
-date_for_brms_file <- "2023-08-14" #this is the date the brms file was saved
+date_for_brms_file <- "2023-08-17" #this is the date the brms file was saved
                                    # in folder code data/code_output_data. brms
                                    # files are saved using supervised_pc_and....R
 
@@ -61,7 +61,7 @@ plot(cv_out,
      stats = c('mlpd', 'rmse'), 
      deltas=FALSE)
 
-nsel <- suggest_size(cv_out, stat = "mlpd", alpha=0.1) # Dont rely on this
+nsel <- suggest_size(cv_out, stat = "rmse", alpha=0.1) # Dont rely on this
                                                             # look more on the plot
-vsel <- solution_terms(cv_out)[1:11]
+vsel <- solution_terms(cv_out)[1:nsel]
 
