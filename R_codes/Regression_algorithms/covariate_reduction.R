@@ -40,7 +40,7 @@ library(doParallel)
 cl <- makeCluster(3)
 registerDoParallel(cl)
 
-nterms_max1 = 30 # to be determined from cvvs_fast
+nterms_max1 = 50 # to be determined from cvvs_fast
 cv_out <- cv_varsel(brms_normal,
                     cv_method = "kfold",
                     method = "forward",

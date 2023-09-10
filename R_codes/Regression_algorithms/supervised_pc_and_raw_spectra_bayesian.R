@@ -18,6 +18,11 @@ non_hierarchical_group = paste(input_x_names,
 formula_for_brms  = paste("trait ~ 1 + ", 
                    non_hierarchical_group, 
                    sep = "")
+vsel_group <- paste(vsel, 
+                    collapse = "+")
+formula_for_brms  = paste("trait ~ 1 + ",
+                          vsel_group,
+                          sep = "")
 
 # brms implementation -----------------------------------------------------
 

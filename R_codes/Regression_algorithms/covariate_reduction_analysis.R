@@ -2,9 +2,9 @@ library(posterior)
 library(bayesplot)
 # Global parameters -------------------------------------------------------
 
-trait_name1 = "Carotenoid_Area"
+trait_name1 = "Nitrogen"
 prediction_algorithm <- "raw_spectra"
-date_for_brms_file <- "2023-06-29" #this is the date the brms file was saved
+date_for_brms_file <- "2023-08-17" #this is the date the brms file was saved
 # in folder code data/code_output_data. brms
 # files are saved using supervised_pc_and....R
 
@@ -31,7 +31,7 @@ mcmc_intervals(refm_mat, pars = colnames(prj_mat)) +
 prj_linpred <- proj_linpred(prj, newdata = data_test_for_analysis, integrated = TRUE)
 prediction_bayesian_mean_projpred <- as.numeric(prj_linpred$pred) * sd(data_train_for_hierarchical_analysis$trait) + mean(data_train_for_hierarchical_analysis$trait)
 
-plot(prediction_bayesian_mean_projpred, data_test_for_hierarchical_analysis$trait, pch = 19)
+plot(prediction_bayesian_mean_projpred, data_test_for_hierarchical_analysis$trait, pch = 19, xlim = c(0, 50))
 abline(0, 1)
 
 RMSE_function(prediction_bayesian_mean_projpred, data_test_for_hierarchical_analysis$trait)
