@@ -1,9 +1,9 @@
 library(projpred)
 # Global parameters -------------------------------------------------------
 
-trait_name1 = "Carotenoid_Area"
+trait_name1 = "LMA"
 prediction_algorithm <- "raw_spectra"
-date_for_brms_file <- "2023-08-17" #this is the date the brms file was saved
+date_for_brms_file <- "2023-09-12" #this is the date the brms file was saved
                                    # in folder code data/code_output_data. brms
                                    # files are saved using supervised_pc_and....R
 
@@ -34,13 +34,13 @@ plot(cvvs_fast, stats = "mlpd", ranking_nterms_max = NA)
 
 
 # actual implementation ---------------------------------------------------
-par_ratio1 <- 0.05
+par_ratio1 <- 0.025
 
-library(doParallel)
-cl <- makeCluster(3)
-registerDoParallel(cl)
+# library(doParallel)
+# cl <- makeCluster(3)
+# registerDoParallel(cl)
 
-nterms_max1 = 50 # to be determined from cvvs_fast
+nterms_max1 = 30 # to be determined from cvvs_fast
 cv_out <- cv_varsel(brms_normal,
                     cv_method = "kfold",
                     method = "forward",
@@ -48,7 +48,13 @@ cv_out <- cv_varsel(brms_normal,
                     nterms_max = nterms_max1,
                     parallel = FALSE,
                     verbose = T)
-saveRDS(cv_out,
+                    #ndraws = 5000,
+                    #nclusters = NULL,
+                    #ndraws_pred = 200,
+                    #nclusters_pred = NULL)
+
+
+ saveRDS(cv_out,
         paste0("data/code_output_data/proj_pred_object_",
                trait_name1, 
                "_",

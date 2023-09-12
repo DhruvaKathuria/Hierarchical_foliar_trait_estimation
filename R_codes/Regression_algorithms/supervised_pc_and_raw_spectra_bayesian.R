@@ -18,11 +18,11 @@ non_hierarchical_group = paste(input_x_names,
 formula_for_brms  = paste("trait ~ 1 + ", 
                    non_hierarchical_group, 
                    sep = "")
-vsel_group <- paste(vsel, 
-                    collapse = "+")
-formula_for_brms  = paste("trait ~ 1 + ",
-                          vsel_group,
-                          sep = "")
+# vsel_group <- paste(vsel, 
+#                     collapse = "+")
+# formula_for_brms  = paste("trait ~ 1 + ",
+#                           vsel_group,
+#                           sep = "")
 
 # brms implementation -----------------------------------------------------
 
@@ -36,11 +36,23 @@ brms_normal <- brm(as.formula(formula_for_brms),
                    backend = "cmdstanr", 
                    #threads = threading(4), 
                    init = init_list,
-                   warmup = 5000, iter = 15000, 
+                   warmup = 2000, iter = 10000, 
                    #sample_prior = "only"
                    #save_pars = save_pars(all = TRUE),
                    #control = list(adapt_delta = 0.95, max_treedepth = 15)
 )
+
+#for macstudio only
+
+# macstudio_folder <- "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/Github_data/Hierarchical_foliar_trait_estimation"
+# saveRDS(brms_normal,  
+#         paste0(str_glue("{macstudio_folder}/data/code_output_data/brms_object_"),
+#                trait_name1, 
+#                "_",
+#                prediction_algorithm,
+#                "_",
+#                Sys.Date(),
+#                ".rds"))
 
 saveRDS(brms_normal,  
         paste0("data/code_output_data/brms_object_",

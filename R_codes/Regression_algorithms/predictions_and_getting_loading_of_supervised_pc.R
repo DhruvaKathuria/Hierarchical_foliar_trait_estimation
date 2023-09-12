@@ -19,7 +19,7 @@ brms_normal <- readRDS(paste0("data/code_output_data/brms_object_",
 prediction_bayesian <- predict(brms_normal, data_test_for_analysis)
 prediction_bayesian_mean <- prediction_bayesian[, 1] * sd(data_train_for_hierarchical_analysis$trait) + mean(data_train_for_hierarchical_analysis$trait)
 
-plot(prediction_bayesian_mean, data_test_for_hierarchical_analysis$trait, pch = 19, xlim = c(0, 50))
+plot(prediction_bayesian_mean, data_test_for_hierarchical_analysis$trait, pch = 19)
 abline(0, 1)
 RMSE_function(prediction_bayesian_mean, data_test_for_hierarchical_analysis$trait)
 cor_function(prediction_bayesian_mean, data_test_for_hierarchical_analysis$trait)

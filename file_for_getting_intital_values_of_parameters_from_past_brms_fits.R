@@ -1,7 +1,7 @@
 library(brms)
 # Global parameters -------------------------------------------------------
 
-trait_name1 = "Nitrogen"
+trait_name1 = "LMA"
 prediction_algorithm <- "raw_spectra"
 # date_for_brms_file <- "2023-07-24" #this is the date the brms file was saved
 # # in folder code data/code_output_data. brms
@@ -22,15 +22,15 @@ prediction_algorithm <- "raw_spectra"
 # csd_1 <- apply(data_frame_input, 2, sd)
 # plot(csd_1)
 # 
-# saveRDS(par2, file = "Nitrogen_population_level_parameters.rds")
-# saveRDS(sigma1, file = "Nitrogen_sigma_parameters.rds")
+# saveRDS(par2, file = str_glue("{trait_name1}_population_level_parameters.rds"))
+# saveRDS(sigma1, file = str_glue("{trait_name1}_sigma_parameters.rds"))
 
 # Setting up brms init function -------------------------------------------
 
 # Initial kicks
 
-par2 <- readRDS("Nitrogen_population_level_parameters.rds")
-sigma1 <- readRDS("Nitrogen_sigma_parameters.rds")
+par2 <- readRDS(str_glue("{trait_name1}_population_level_parameters.rds"))
+sigma1 <- readRDS(str_glue("{trait_name1}_sigma_parameters.rds"))
 
 init_func <- function(chain_id=1) {
   list ( Intercept  =  par2[1] ,
