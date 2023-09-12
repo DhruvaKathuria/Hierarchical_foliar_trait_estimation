@@ -43,6 +43,7 @@ Usda_symbol = c("usda", "usda symbol")
 #Put all the traits, and dataset names alphabetical wise
 trait_vector_list = list("Carotenoid_Area" = Carotenoid_vector, 
                          "Carotenoid_Mass" = Carotenoid_vector, 
+                         "Chlorophyll"  = Chl_vector,
                          "LMA" = LMA_vector, 
                          "Carbon_mass" = Carbon_vector, 
                          "Nitrogen" = Nitrogen_vector)

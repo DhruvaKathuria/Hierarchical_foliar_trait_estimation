@@ -1,6 +1,6 @@
 
 datasets_downloaded = list.files(mainDir)
-source(paste0(Github_dir, "trait_and_sample_id_Database_for_ECOSIS_Data.R")) 
+source("R_codes/supporting_R_functions/trait_and_sample_id_Database_for_ECOSIS_Data.R")
 
 #####################################################################################
 get_column_name = function(index, trait_vector)
