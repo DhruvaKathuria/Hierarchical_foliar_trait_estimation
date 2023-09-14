@@ -158,8 +158,8 @@ The regularized horseshoe is an extension of the horseshoe prior <span class="ci
 Similar to the horseshoe prior, the <span class="math inline">\(\tau\)</span> parameter in regularized horseshoe prior drives all regression coefficients to zero.<br>
 The thick Cauchy-tails for <span class="math inline">\(\lambda_j\)</span> allow some of the regression coefficients (of important wavelengths) to escape this shrinkage towards zero.<br>
 The regularized horsehoe has an extra parameter <span class="math inline">\(c\)</span> which better penalizes the non-shrinkage coefficients (i.e.&nbsp;the regression coefficients that are not equal to zero).<br>
-This helps if the regression coefficients are weakly identified and also speeds up the sampling during posterior parameter inference using Markov Chain Monte Carlo (MCMC) methods.<br>
-<a href="#fig-method_horseshoe_vs_gaussian">Figure&nbsp;2</a> gives the comparison between the regularized horseshoe prior and the gaussian prior by simulating 500 samples for a regression coefficient $\beta_j$ following <a href="#eq-horseshoe">Equation&nbsp;2</a> and from a gaussian distribution with mean 0 and standard deviation 0.05.<br>
+This helps if the regression coefficients are weakly identified and also improves the sampling robustness during posterior parameter inference using Markov Chain Monte Carlo (MCMC) methods.<br>
+<a href="#fig-method_horseshoe_vs_gaussian">Figure&nbsp;2</a> gives the comparison between the regularized horseshoe prior and the Gaussian prior by simulating 500 samples for a regression coefficient $\beta_j$ following <a href="#eq-horseshoe">Equation&nbsp;2</a> and from a Gaussian distribution with mean 0 and standard deviation 0.05.<br>
 The horseshoe prior assigns a significantly higher probability at zero leading to better shrinkage of regression coefficients towards zero for non-important wavelengths.<br>
 It also has a heavier tail than the Gaussian distribution allowing larger values for the beta coefficients for important wavelengths.<br>
 </p>

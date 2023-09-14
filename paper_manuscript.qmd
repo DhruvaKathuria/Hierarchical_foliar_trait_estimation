@@ -1,6 +1,6 @@
 ---
 title: "Beyond PLSR: Bayesian Brilliance in Hyperspectral Trait Estimation"
-format: html
+format: pdf
 editor: source
 bibliography: references.bib
 editor_options: 
@@ -49,7 +49,8 @@ It is not surprising that plant functional traits are identified as an Essential
 
 ## Study Area and Data
 
-We use observations of three foliar traits: Carotenoid ($\mu g/cm^{-2}$), Nitrogen ($mg/g$) and Leaf Mass per Area ($g/m^{-2}$) paired with hyperspectral reflectance data from 400 nm to 2400 nm from publicly available Ecological Spectral Information System (EcoSIS) library (citation needed). The observation span a wide range of climatic and geographic range ( @fig-studyarea ) .
+We use observations of three foliar traits: Carotenoid ( $Car_{area}$; area basis), Nitrogen ($N{mass}$; mass basis) and Leaf Mass per Area (LMA) paired with hyperspectral reflectance data from 400 nm to 2400 nm from publicly available Ecological Spectral Information System (EcoSIS) library (citation needed). 
+The observation span a wide range of climatic and geographic range ( @fig-studyarea ) though the majority of the observations are from North America.
 
 ```{r studyarea}
 #| echo: FALSE
@@ -59,15 +60,19 @@ source("R_codes/Plotting/world_map_with_countries_used_highlighted.R")
 plot(plot_out)
 ```
 
-## Methods
-
-In this section, we first describe the Bayesian regression model used in predicting traits using hyperspectral data. We elucidate models both in the actual spectral space as well as dimensionally reduced orthogonal space (similar to PLSR). Formulating appropriate priors is essential for high dimensional (where number of input spectral bands is large) problems, therefore we also define the relevant priors used in the current work. To enable computationally efficient prediction on new datasets and select wavelengths which best approximate the predictive capabilities of the above models, we transform both model to a simpler model on the original spectral space requiring only a subset of input spectra using projective inference [@juhopiironenProjectiveInferenceHighdimensional2020]. Notationally, we denote a scalar with a lower case letter and a vector with bold lower case letter. Superscript $T$ refers to transpose.
-
 ### Data Processing
 
 We downloaded and processed all spectra and trait data from EcoSIS so that they have the same units across datasets.
 
-The workflow for downloading and processing the data can be reproduced by following the links to the Github page given in Appendix.
+We took only those data which have all the reflectance spectral wavelengths available from 400 nm-2400 nm at a spectral resolution of 1 nm.
+
+Since the trait units are different across study areas, the traits are converted to common units; Carotenoid : $\mu g/cm^{-2}$, Nitrogen : ($mg/g$) and LMA : $g/m^{-2}$.
+
+To avoid replication of effort, the entire workflow and associated R scripts for downloading the data from the ECOSIS website and compiling/processing the data to user-defined units is given here <!--# add hyperlink to Github page --> .
+
+## Methods
+
+In this section, we first describe the Bayesian regression model used in predicting traits using hyperspectral data. We elucidate models both in the actual spectral space as well as dimensionally reduced orthogonal space (similar to PLSR). Formulating appropriate priors is essential for high dimensional (where number of input spectral bands is large) problems, therefore we also define the relevant priors used in the current work. To enable computationally efficient prediction on new datasets and select wavelengths which best approximate the predictive capabilities of the above models, we transform both model to a simpler model on the original spectral space requiring only a subset of input spectra using projective inference [@juhopiironenProjectiveInferenceHighdimensional2020]. Notationally, we denote a scalar with a lower case letter and a vector with bold lower case letter. Superscript $T$ refers to transpose.
 
 ### Bayesian Regression model-Original hyperspectral space
 
@@ -194,5 +199,48 @@ The entire methodology is summarized in @fig-method_flowchart :
 <!--# In @fig-method_flowchart, add the prior and add projection predictive variable as another figure at top. Maybe add the horsehoe prior as an image and add all spectra image first and then during the posterior projection, add it as a few spectra -->
 
 ![Comparison between PLSR and the proposed Bayesian approach](paper_draft/figures/Method_flowchart.png){#fig-method_flowchart}
+
+## Results and Discussion
+
+### Results on the full Bayesian model
+
+#### Scribble:not included in paper
+Think about what figures need to be included when discussin the results.
+A good idea will be to look at the proj pred paper
+bayesplot paper
+bayesian analysis paper by Gelman
+
+#### Posterior predictive checks
+Bayesian analysis provides us with a nice way to assess how the model performs via posterior predictive checks. 
+What are posterior predictive checks?
+
+### Parameter inference; show parameter correlation etc.
+
+### Prediction of algorithm on CABO data
+
+
+### 
+
+<!--# Included comparison with the PLSR approach -->
+
+<!--# Included the parameter uncertainty quantification plots -->
+
+<!--# includes the prediction uncertainty quantification plots -->
+
+### Results on the reduced model
+
+<!--# Includes the projective inference plots -->
+
+<!--# includes the plots for parameter uncertainty -->
+
+<!--# includes the prediction uncertainty quantification plots -->
+
+<!--# includes the speed comaparison -->
+
+### Future Work
+
+<!--# Includes work on how to extend the work to non-linearity -->
+
+<!--# Includes the discussion of hierarchical modeling -->
 
 ## References
