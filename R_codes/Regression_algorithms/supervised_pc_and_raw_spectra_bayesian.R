@@ -45,9 +45,9 @@ brms_normal <- brm(as.formula(formula_for_brms),
 #for macstudio only
 
 # macstudio_folder <- "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/Github_data/Hierarchical_foliar_trait_estimation"
-# saveRDS(brms_normal,  
+# saveRDS(brms_normal,
 #         paste0(str_glue("{macstudio_folder}/data/code_output_data/brms_object_"),
-#                trait_name1, 
+#                trait_name1,
 #                "_",
 #                prediction_algorithm,
 #                "_",
