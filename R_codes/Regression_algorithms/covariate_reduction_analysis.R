@@ -31,7 +31,7 @@ mcmc_intervals(refm_mat, pars = colnames(prj_mat)) +
 prj_linpred <- proj_linpred(prj, newdata = data_test_for_analysis, integrated = TRUE)
 prediction_bayesian_mean_projpred <- as.numeric(prj_linpred$pred) * sd(data_train_for_hierarchical_analysis$trait) + mean(data_train_for_hierarchical_analysis$trait)
 
-plot(prediction_bayesian_mean_projpred, data_test_for_hierarchical_analysis$trait, pch = 19, xlim = c(0, 50))
+plot(prediction_bayesian_mean_projpred, data_test_for_hierarchical_analysis$trait, pch = 19)
 abline(0, 1)
 
 RMSE_function(prediction_bayesian_mean_projpred, data_test_for_hierarchical_analysis$trait)
