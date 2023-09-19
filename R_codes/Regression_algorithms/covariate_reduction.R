@@ -47,29 +47,59 @@ nterms_max1 = 50 # to be determined from cvvs_fast
 cv_out <- cv_varsel(brms_normal,
                     cv_method = "kfold",
                     method = "forward",
-                    K = 2,
+                    K = 5,
                     nterms_max = nterms_max1,
                     parallel = FALSE,
                     verbose = T,
-                    ndraws = 1000,
-                    nclusters = NULL,
-                    ndraws_pred = 100,
-                    nclusters_pred = NULL)
+                    nclusters_pred = 15,
+                    nclusters = 15, 
+                    search_terms = coln1)
+
 
 #steps for varsel
-set.seed(100)
-search_indices <- sample(1:nrow(data_train_for_analysis), 0.6*nrow(data_train_for_analysis))
-data_train_search <- data_train_for_analysis[search_indices, ]
-data_train_pred <- data_train_for_analysis[-search_indices, ]
+# Use this only if you have fit the data to a subset of data_train_predictors
+# in brms_normal and then you use the other subset for the varsel
+# right now I am just using the same data for both fitting and for 
+# varsel. This might admittedly lead to overfitting, but it saves a ton of
+# memory.
+# set.seed(100)
+# search_indices <- sample(1:nrow(data_train_for_analysis), 0.6*nrow(data_train_for_analysis))
+# data_train_search <- data_train_for_analysis[search_indices, ]
+# data_train_pred <- data_train_for_analysis[-search_indices, ]
+# 
+# data_train_pred_predictors <- data_train_pred %>% select(starts_with("x"))
 
-data_train_pred_predictors <- data_train_pred %>% select(starts_with("x"))
 
-list_for_varsel <- list(data <- data_train_pred_predictors,
-                        offset <- rep(0, nrow(data_train_pred)), 
-                        weights <- rep(1, nrow(data_train_pred)), 
-                        y <-  as.vector(data_train_pred$trait))
+# creating a reference model ----------------------------------------------
 
-reference_model <-  get_refmodel(brms_normal, newdata = data_train_search)
+
+# list_for_varsel <- list(data <- data_train_pred_predictors,
+#                         offset <- rep(0, nrow(data_train_pred)), 
+#                         weights <- rep(1, nrow(data_train_pred)), 
+#                         y <-  as.vector(data_train_pred$trait))
+# 
+# reference_model <-  get_refmodel(brms_normal, newdata = data_train_search)
+# 
+
+
+# using same data for both brms and also for varsel -----------------------
+
+# code to take a subset of spectra using correlation ----------------------
+# uncomment if file not saved
+# data1 <- brms_normal$data
+# cor1 <- apply(data1[, -1], 2, function(x)abs(cor(x, data1[, 1])))
+# plot(cor1)
+# 
+# l1 <- which(cor1 > 0.15)
+# data_input <- data1[ , -1]
+# coln1 <- colnames(data_input)[l1]
+# 
+# s1 <- solution_terms(cv_out)[1:20]
+# which(s1 %in% coln1)
+# 
+# saveRDS(coln1, str_glue("{macstudio_folder}/data/code_output_data/terms_for_{trait_name1}"))
+
+coln1 <- readRDS(paste0(macstudio_folder, "/data/code_output_data/terms_for_LMA"))
 
 nterms_max1 = 40 # to be determined from cvvs_fast
 cv_out <- varsel(brms_normal,
@@ -86,7 +116,7 @@ cv_out <- varsel(brms_normal,
                     nclusters = 15, 
                     search_terms = coln1)
 
- saveRDS(cv_out,
+saveRDS(cv_out,
         paste0(macstudio_folder, "/data/code_output_data/varsel_proj_pred_object_search_terms_with_correlation_greater_than_0.15_nterms_max_",
                nterms_max1,
                trait_name1, 
