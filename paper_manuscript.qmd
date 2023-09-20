@@ -49,8 +49,7 @@ It is not surprising that plant functional traits are identified as an Essential
 
 ## Study Area and Data
 
-We use observations of three foliar traits: Carotenoid ( $Car_{area}$; area basis), Nitrogen ($N{mass}$; mass basis) and Leaf Mass per Area (LMA) paired with hyperspectral reflectance data from 400 nm to 2400 nm from publicly available Ecological Spectral Information System (EcoSIS) library (citation needed). 
-The observation span a wide range of climatic and geographic range ( @fig-studyarea ) though the majority of the observations are from North America.
+We use observations of three foliar traits: Carotenoid ( $Car_{area}$; area basis), Nitrogen ($N{mass}$; mass basis) and Leaf Mass per Area (LMA) paired with hyperspectral reflectance data from 400 nm to 2400 nm from publicly available Ecological Spectral Information System (EcoSIS) library (citation needed). The observation span a wide range of climatic and geographic range ( @fig-studyarea ) though the majority of the observations are from North America.
 
 ```{r studyarea}
 #| echo: FALSE
@@ -105,7 +104,7 @@ $$
 $$ {#eq-horseshoe}
 
 where $C^+$ is a standard half-Cauchy distribution on the positive reals, IG is the inverse-Gamma distribution and $p_0$ is our prior crude guess on how many non-zero coefficients are there for the model .\
-For our analysis, we set $\frac{p_0}{D-p_0}$ as 0.05 for all the traits, denoting our a-priori guess that around 100 wavelengths are important for predicting a particular trait.\
+For our analysis, we set $\frac{p_0}{D-p_0}$ as 0.025 for all the traits, denoting our a-priori guess that around 50 wavelengths are important for predicting a particular trait.\
 We fix $\nu = 4$ and $s = 2$ following [@piironen2017].\
 The regularized horseshoe is an extension of the horseshoe prior [@carvalho2010] which has been widely used in high-dimensional regression.\
 Similar to the horseshoe prior, the $\tau$ parameter in regularized horseshoe prior drives all regression coefficients to zero.\
@@ -205,19 +204,86 @@ The entire methodology is summarized in @fig-method_flowchart :
 ### Results on the full Bayesian model
 
 #### Scribble:not included in paper
-Think about what figures need to be included when discussin the results.
-A good idea will be to look at the proj pred paper
-bayesplot paper
-bayesian analysis paper by Gelman
+
+Think about what figures need to be included when discussin the results. A good idea will be to look at the proj pred paper bayesplot paper bayesian analysis paper by Gelman
 
 #### Posterior predictive checks
-Bayesian analysis provides us with a nice way to assess how the model performs via posterior predictive checks. 
-What are posterior predictive checks?
+
+Bayesian analysis provides us with a nice way to assess how the model performs via posterior predictive checks. What are posterior predictive checks?
 
 ### Parameter inference; show parameter correlation etc.
 
+The $\hat{r}$ values determine whether the parameters of a model have converged or not.
+
+A value of $\hat{r}$ equal to 1 implies that the parameter has converged.
+
+In our analysis, we find that for many variables, the $\hat{r}$ values vary from <!--#  --> to <!--#  -->.
+
+This is a well known issue with the HMC sampler when dealing with highly correlated inputs.
+
+This happens for spectral bands that are highly correlated for each other.
+
+Consider for instance, the reflectance values for wavelengths $400$ nm and $401$ nm.
+
+For, the Nitrogen data, the correlation between the reflectance values in the training data is <!--#  -->.
+
+Therefore, during MCMC samples, there will be some samples for which one of these wavelengths will have a non-zero regression coefficient while the others will be zero leading to a big mass at zero.
+
+This does not however lead to any loss in predictive perfomance.
+
+For highly correlated input variables such as the hyperspectral wavelengths, the $\hat{r}$ value.
+
+Figure <!--#  --> shows the posterior parameter distribution histograms of the five wavelengths with largest absolute mean value for the regression coefficients.
+
+```{r posterior_parameters_histogram_full_model}
+trait_name1 <- "Carotenoid_Area"
+
+date_for_brms_file <- "2023-08-14" #this is the date the brms file was saved
+# in folder code data/code_output_data. brms
+# files are saved using supervised_pc_and....R
+# for personal macbooks
+data_folder <- "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/Github_data/Hierarchical_foliar_trait_estimation"
+
+# Analysis for full model -------------------------------------------------
+
+brms_normal <- readRDS(paste0(data_folder,  "/data/code_output_data/brms_object_",
+                              trait_name1, 
+                              "_",
+                              prediction_algorithm,
+                              "_",
+                              date_for_brms_file,
+                              ".rds"))
+
+# fixed effects -----------------------------------------------------------
+
+posterior_pars <- fixef(brms_normal, summary = F)
+spectra_regression_means <- colMeans(posterior_pars)
+indices_top_five <- which(spectra_regression_means %in% sort(abs(spectra_regression_means), decreasing = T)[1:5])
+wavelength_names <- names(spectra_regression_means)[indices_top_five]
+
+wavelength_names <- unlist(lapply(wavelength_names, function(x) {str_split_1(x, "x")[2]}))
+
+wavelength_names <- paste(wavelength_names, "nm", sep = " ")
+
+posterior_pars_max <- posterior_pars[, indices_top_five] |> 
+  as_tibble()
+
+colnames(posterior_pars_max) = wavelength_names
+
+
+posterior_pars_max |> 
+  pivot_longer(cols = everything(),
+               names_to = "Wavelength",
+               values_to = "Regression Coefficient") |> 
+ ggplot2:: ggplot(aes(x = `Regression Coefficient`)) +
+  geom_histogram(color = "red") +
+  facet_wrap(~Wavelength) +
+  coord_cartesian(ylim = c(0, 5000))
+```
+
 ### Prediction of algorithm on CABO data
 
+The comparison of the mean posterior prediction plots with the
 
 ### 
 
