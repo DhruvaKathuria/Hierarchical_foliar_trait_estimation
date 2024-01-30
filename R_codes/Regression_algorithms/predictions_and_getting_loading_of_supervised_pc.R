@@ -4,7 +4,7 @@ library(brms)
 
 source("R_codes/input_parameter_file.R")
 
-date_for_brms_object <- "2023-08-14"
+date_for_brms_object <- "2023-12-26"
 brms_normal <- readRDS(paste0("data/code_output_data/brms_object_",
                                 trait_name1, 
                                 "_",

@@ -22,7 +22,7 @@ brms_normal <- readRDS(paste0(data_folder,  "/data/code_output_data/brms_object_
 
 data1 <- brms_normal$data
 
-mcmc_plot(brms_normal,
+mcmc_plot(brms_Nitrogen,
           type = "dens",
           variable = "sigma", 
           prob = 0.8)
@@ -30,7 +30,7 @@ mcmc_plot(brms_normal,
 pp_check(brms_normal,
          ndraws = 1000)
 
-mcmc_trace(brms_normal, pars = "b_x410")
+mcmc_trace(brms_normal_Nitrogen, pars = "b_x410")
 # read brms file 
 
 mcmc_plot(brms_normal, type = "pairs", variable = c("b_x850", "b_x865"))

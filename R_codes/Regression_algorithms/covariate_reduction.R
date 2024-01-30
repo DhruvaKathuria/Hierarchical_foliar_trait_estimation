@@ -3,9 +3,9 @@ library(stringr)
 library(brms)
 # Global parameters -------------------------------------------------------
 
-trait_name1 = "LMA"
+trait_name1 = "Carotenoid_Area"
 prediction_algorithm <- "raw_spectra"
-date_for_brms_file <- "2023-09-13" #this is the date the brms file was saved
+date_for_brms_file <- "2023-08-14" #this is the date the brms file was saved
                                    # in folder code data/code_output_data. brms
                                    # files are saved using supervised_pc_and....R
 
@@ -21,13 +21,15 @@ brms_normal <- readRDS(paste0(str_glue("{macstudio_folder}/data/code_output_data
 
 # fast covariate reduction to determine the approximate number of  --------
 
-cvvs_fast <- cv_varsel(
+cvvs_fast <- varsel(
   brms_normal,
-  validate_search = FALSE,
+  validate_search = TRUE,
   ### Only for the sake of speed (not recommended in general):
-  nclusters_pred = 20,
+  nclusters_pred = 5,
+  #cv_method = "kfold",
+  #K = 5,
   ###
-  nterms_max = 30,
+  nterms_max = 5,
   ### In interactive use, we recommend not to deactivate the verbose mode:
   verbose = T
   ### 
@@ -99,26 +101,37 @@ cv_out <- cv_varsel(brms_normal,
 # 
 # saveRDS(coln1, str_glue("{macstudio_folder}/data/code_output_data/terms_for_{trait_name1}"))
 
+cor1 <- apply(brms_normal$data[, -1], 2, function(x) cor(as.vector(brms_normal$data[,1]), x) )
+cor1 = cor1[abs(cor1) >= 0.15]
+spectra_to_take <- names(cor1)
+
 coln1 <- readRDS(paste0(macstudio_folder, "/data/code_output_data/terms_for_LMA"))
 
 nterms_max1 = 40 # to be determined from cvvs_fast
+nclusters1 = 20
+#nclusters_pred1 = 2
 cv_out <- varsel(brms_normal,
                    # cv_method = "kfold",
                     method = "forward",
                     #d_test <- data_train_pred,
                     nterms_max = nterms_max1,
                     parallel = FALSE,
-                    verbose = T,
+                    verbose = T
                     #ndraws = 1000,
                     #nclusters = NULL,
                     #ndraws_pred = 100,
-                    nclusters_pred = 15,
-                    nclusters = 15, 
-                    search_terms = coln1)
+                    #nclusters_pred = nclusters_pred1,
+                    #nclusters = nclusters1
+                 )
+                    #search_terms = spectra_to_take)
 
 saveRDS(cv_out,
-        paste0(macstudio_folder, "/data/code_output_data/varsel_proj_pred_object_search_terms_with_correlation_greater_than_0.15_nterms_max_",
+        paste0(data_folder, "/data/code_output_data/varsel_proj_pred_object_search_terms_with_correlation_greater_than_0.15_nterms_max_",
                nterms_max1,
+               "_nclusters_",
+               nclusters1,
+               "_nclusters_pred_",
+               nclusters_pred1,
                trait_name1, 
                "_",
                prediction_algorithm,
@@ -126,11 +139,60 @@ saveRDS(cv_out,
                date_for_brms_file,
                ".rds"))
 
+
+summary1 <- summary(cv_out, 
+                    stats = "rmse")
+solution_terms1 <- summary1$selection
+
+readr:: write_csv(solution_terms1, 
+        paste0(data_folder, "/data/code_output_data/summary_varsel_proj_pred_object_search_terms_nterms_max_",
+               nterms_max1,
+               "_nclusters_",
+               nclusters1,
+               "_nclusters_pred_",
+               nclusters_pred1,
+               trait_name1, 
+               "_",
+               prediction_algorithm,
+               "_",
+               date_for_brms_file,
+               ".csv"))
+
+plot(cv_out, 
+     stats = "rmse")
+
 plot(cv_out, 
      stats ='rmse', 
-     deltas=FALSE)
+     deltas=FALSE,
+     text_angle = 45,
+     ranking_abbreviate = T,
+     ranking_repel = "text") +
+             theme(axis.text.x = element_text(angle = 45, 
+                                              vjust = 0.5, 
+                                              hjust = 1,
+                                              size = 11),
+                   axis.text.y = element_text(size = 11),
+                   text = element_text(size = 10)) 
+  
+
+ggsave(filename = paste0(data_folder, "/data/code_output_data/plot_varsel_proj_pred_object_search_terms_nterms_max_",
+                         nterms_max1,
+                         "_nclusters_",
+                         nclusters1,
+                         "_nclusters_pred_",
+                         nclusters_pred1,
+                         trait_name1, 
+                         "_",
+                         prediction_algorithm,
+                         "_",
+                         date_for_brms_file,
+                         ".png"),
+       width = 8,
+       height = 3,
+       units = "in"
+         )
 
 nsel <- suggest_size(cv_out, stat = "rmse", alpha=0.1) # Dont rely on this
                                                             # look more on the plot
-vsel <- solution_terms(cv_out)[1:50]
+vsel <- solution_terms(cv_out)[1:40]
 

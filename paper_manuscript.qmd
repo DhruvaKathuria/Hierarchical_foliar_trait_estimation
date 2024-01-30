@@ -1,5 +1,5 @@
 ---
-title: "Beyond PLSR: Bayesian Brilliance in Hyperspectral Trait Estimation"
+title: "Beyond PLSR: Bayesian Brilliance in Hyperspectral Foliar Trait Estimation"
 format: pdf
 editor: source
 bibliography: references.bib
@@ -9,40 +9,40 @@ editor_options:
 
 ## Introduction
 
-<!--# Importance of foliar functional traits -->
+#### Importance of foliar functional traits
 
 ```{r}
 #| echo: FALSE
 # TODO: You can add other trait names from Roamresearch I.2-Paper-2
 ```
 
-<!--#General importance  -->
+#### General importance
 
-Foliar Functional traits are chemical (such as chlorophyll), physiological (such as photosynthetic rate) and structural (such as leaf area) features of a leaf which mediate ecosystem functioning and its response to perturbations by regulating the growth fitness of plants in diverse ecosystems (@serbin2020; @lavorel2002; @wright2005; @funk2017).
+Foliar Functional traits are chemical (such as chlorophyll), physiological (such as photosynthetic rate) and structural (such as leaf area) features of a leaf which mediate ecosystem functioning and its response to perturbations by regulating the growth fitness of plants in diverse ecosystems [@serbin2020; @lavorel2002; @wright2005; @funk2017].
 
-<!--# Leaf Economic Spectrum  -->
+#### Leaf Economic Spectrum
 
-In an ecosystem, foliar functional traits influence the resource allocation and reallocation of resources by a plant under diverse environmental conditions ( @reich2014; @wang2020) and affect the functional diversity driving ecosystem productivity ( @cadotte2009 )
+In an ecosystem, foliar functional traits influence the resource allocation and reallocation of resources by a plant under diverse environmental conditions [@reich2014; @wang2020] and affect the functional diversity driving ecosystem productivity [@cadotte2009]
 
-<!--# Role in Vegetation models -->
+#### Role in Vegetation models
 
-Foliar traits' significance in parameterizing terrestrial vegetation plays a crucial role in Earth System models, which, if not precisely characterized, introduces substantial uncertainty into climate change predictions ( @wullschleger2014; @friedlingstein2006 ).
+Foliar traits' significance in parameterizing terrestrial vegetation plays a crucial role in Earth System models, which, if not precisely characterized, introduces substantial uncertainty into climate change predictions [@wullschleger2014; @friedlingstein2006].
 
-<!--# History of using spectroscopy for predicting foliar traits -->
+#### History of using spectroscopy for predicting foliar traits 
 
-<!--# Why PLSR methods are the most widely used methods for predicting traits -->
+#### Empirical vs physically-based methods
 
-PLSR methods have been the most successful method for predicting traits for spectra.\
-The upcoming SBG mission has PLSR method as one of the strong candidates for predicting traits\
+Broadly, traits are predicted using reflectance spectra using two approaches: physically-based methods and empirical algorithms. The empirical approach has been the dominant method of predicting traits using spectra due to (a) ease in application, (b) higher accuracy than physically-based methods, and (c) ability to be applied on a wide range of traits [@wang2019]. Among empirical methods, though Machine Learning methods such as Random Forest [@pullanagari2016], Neural Networks [@huang2004; @cherif2023] , Gaussian Process Regression [@wang2019], etc., have shown considerable promise in recent studies, the Partial Least Squares Regression (PLSR) [@wold1984] remains the most widely used empirical approach for predicting a wide variety of traits [e.g., @verrelst2019; @coops2003; @hansen2003; @serbinArcticTropicsMultibiome2019] due to its ease of use, computational efficiency and its ability to handle predictor (reflectance wavelengths for our study) collinearity. This is because PLSR transforms the input predictors into a handful of orthogonal latent components [@wold1984] and hence can be applied even when the number of predictors is greater than the number of training observations.
 
-<!--# Drawbacks of PLSR approach -->
+#### Drawbacks of PLSR approach 
 
-The PLSR approach to trait estimation does not provide uncertainty estimates which are crucial to understand how variable the predictions will be when applied to new study regions.\
-Another drawback of the PLSR approach is that it assumes a linear relationship between the traits and spectra. Though there have been a few applications of kernel based PLSR approaches for trait prediction (e.g. @arenas-garcia2008) , the majority of the studies still use the standard PLSR assuming a linear relationship between the traits and spectra.\
-PLSR approaches also cannot account for the hierarchical structure that might exist in certain traits.\
-PLSR is challenged by the variability of the relationship between traits and spectra across species, functional types, and biomes. It will either a global function between the traits and spectra which ignores the across-group variability or else it is used to fit functions separately for different groups which might not be always be possible due to scarcity of sampled trait data.
+The PLSR approach, however, comes with its own set of shortcomings. Chiefly, the PLSR approach to trait estimation does not provide rigorous uncertainty estimates but instead rely on . Another drawback of the PLSR approach is that it assumes a linear relationship between the traits and spectra. Though there have been a few applications of kernel based PLSR approaches for trait prediction (e.g. @arenas-garcia2008) , the majority of the studies still use the standard PLSR assuming a linear relationship between the traits and spectra. PLSR approaches also cannot account for the hierarchical structure that might exist in certain traits. PLSR is challenged by the variability of the relationship between traits and spectra across species, functional types, and biomes. It will either a global function between the traits and spectra which ignores the across-group variability or else it is used to fit functions separately for different groups which might not be always be possible due to scarcity of sampled trait data.
 
-<!--# Ending -->
+#### Benefit of the Bayesian approach
+
+Bayesian methods provide rich uncertainty quantification and are easily amenable to more complex models such as hierarchical Bayesian models which can account site-specific, group-specific (such as PFT level, species level effects), easily integrate within physical models, and account for measurement errors of different instruments as well. Bayesian statisical methods have also been successfully used in accounting for change of scale measurements from point scale to satellite scale in different environmental domains. Therefore, trait estimation motivated by Bayesian empirical methods need more focus in addition to machine learning and PLSR based methods.
+
+#### Ending 
 
 The National Academy of Sciences 2017 Decadal Survey specifically identifies the spatio-temporal distribution of plant functional traits as a crucial objective (E-1a).\
 It is not surprising that plant functional traits are identified as an Essential Biodiversity Variable (@pereira2013, @pettorelli2016).
@@ -61,13 +61,9 @@ plot(plot_out)
 
 ### Data Processing
 
-We downloaded and processed all spectra and trait data from EcoSIS so that they have the same units across datasets.
+We downloaded and processed all spectra and trait data from EcoSIS so that they have the same units across datasets. We took only those data which have all the reflectance spectral wavelengths available from 400 nm-2400 nm at a spectral resolution of 1 nm. Since the trait units are different across study areas, the traits are converted to common units; Carotenoid : $\mu g/cm^{2}$, Nitrogen : ($mg/g$) and LMA : $g/m^{2}$.
 
-We took only those data which have all the reflectance spectral wavelengths available from 400 nm-2400 nm at a spectral resolution of 1 nm.
-
-Since the trait units are different across study areas, the traits are converted to common units; Carotenoid : $\mu g/cm^{-2}$, Nitrogen : ($mg/g$) and LMA : $g/m^{-2}$.
-
-To avoid replication of effort, the entire workflow and associated R scripts for downloading the data from the ECOSIS website and compiling/processing the data to user-defined units is given here <!--# add hyperlink to Github page --> .
+To avoid replication of effort in acquiring ECOSIS trait datasets, the entire workflow and associated R scripts for downloading the data from the ECOSIS website and compiling/processing the data to user-defined units is given here <!--# add hyperlink to Github page --> .
 
 ## Methods
 
@@ -120,56 +116,70 @@ It also has a heavier tail than the Gaussian distribution allowing larger values
 ```{r horseshoe}
 #| echo: FALSE
 # Uncomment below if you want to plot the horseshoe vs gaussian prior simulations
+
 # library(extraDistr)
 # library(ggplot2)
 # m_eff <- 0.05
 # nu <- 4
 # s = 2
-# n_sim <- 500
+# n_sim <- 100000
 # 
 # set.seed(100)
 # # simulating from regularized horseshoe
-# beta_j <- vector()
+# beta_j <- density_j <-  vector()
 # for(i in 1: n_sim)
 # {
 #   sigma = 1
 #   tau_0_sq <- m_eff *sigma
 #   tau_sq <- rhcauchy(n = 1, sigma = tau_0_sq)
-#   
+# 
 #   lambda_j <- rhcauchy(n = 1, sigma = 1)
-#   
+# 
 #   alpha = nu/2; beta <- (nu *s^2)/2
 #   c_sq <- rinvgamma(n = 1, alpha = alpha, beta = beta)
-#   
+# 
 #   lambda_j_tilde_sq <- (c_sq * lambda_j^2)/(c_sq + tau_sq *lambda_j^2)
 #   beta_j[i] <- rnorm(1, mean = 0, sd = sqrt(tau_sq * lambda_j_tilde_sq))
+#   density_j[i] <- dnorm(beta_j[i], mean = 0, sd = sqrt(tau_sq * lambda_j_tilde_sq))
 # }
 # hist(beta_j, 1e4, freq = FALSE, col = "red")
 # # simulating from normal distribution
 # 
-# sigma = 0.05
-# beta_j_normal <- rnorm(n_sim, sigma)
+# sigma = 1
+# beta_j_normal <- rnorm(n_sim, mean = 0, sd = sigma)
+# density_j_normal <- dnorm(beta_j_normal, mean = 0, sd = sigma)
 # hist(beta_j_normal, 1e4, freq = FALSE, col = "red")
 # 
 # ##make plot using ggplot
 # 
-# beta_df <- data.frame(value =  c(beta_j, beta_j_normal), 
+# beta_df <- data.frame(value =  c(beta_j, beta_j_normal),
 #                       prior = rep(c("horseshoe", "gaussian"), each = n_sim))
-#                       
 # 
-# ggplot(beta_df, aes(x = value, color = prior)) + geom_histogram() +
-# #geom_freqpoly(linewidth = 0.5) + 
-#   facet_wrap(~prior) 
+# density_df <- data.frame(value =  c(density_j, density_j_normal),
+#                       prior = rep(c("horseshoe", "gaussian"), each = n_sim))
+# density_df <- density_df |> bind_cols(beta_df[, -2])
+# colnames(density_df) <- c("density", "prior", "beta")
+# 
+# 
+# histogram_plot <- ggplot(beta_df, aes(x = value, color = prior)) + 
+#   geom_histogram(binwidth = 0.1) +
+# #geom_freqpoly(linewidth = 0.5) +
+#   facet_wrap(~prior) +
+#   coord_cartesian (xlim = c(-5, 5))
+# 
+# density_plot <- ggplot(density_df, aes(x = beta, y = density,  color = prior)) + 
+#   #geom_histogram() +
+#   geom_smooth(method = "loess", se = F, span = 0.005) +
+#   #facet_wrap(~prior) +
+#   coord_cartesian (ylim = c(0, 1), xlim = c(-5, 5))
+# 
+# density_plot/histogram_plot
 # 
 # ggsave(filename = "paper_draft/figures/horseshoe_vs_gaussian.png",
-#        height = 2.5,
-#        width = 5,
+#        height = 6,
+#        width = 6,
 #        units = "in")
 ```
-
-### Bayesian Regression model-dimensionally reduced orthogonal space
-
-##Add text about bayesian supervised principal components##
 
 ### Model reduction in original spectral space
 
@@ -180,6 +190,8 @@ Therefore, our aim is to find a reduced model such that
 $y_i = \boldsymbol{\beta_{*}^T} \boldsymbol{x_{i*}} + \epsilon_i, \; \epsilon \sim N(0, \sigma^2), \; i = 1,..., n$
 
 such that $|\boldsymbol{x_i*}| = p_{*} << \boldsymbol{x_i} = p =2002$ where $|\boldsymbol{a}|$ denotes the length of a vector $\boldsymbol{a}$. Note that, in this work our aim is not to find all wavelengths that are statistically related to the trait, but instead are only focused on finding a minimal subset of wavelengths that give a good predictive model for the given trait such that adding more wavelengths to the model will not significantly improve the predictive accuracy [@juhopiironenProjectiveInferenceHighdimensional2020].
+
+![Comparison between PLSR and the proposed Bayesian approach](paper_draft/figures/Method_flowchart.png){#fig-method_flowchart}
 
 #### Posterior projection of full model
 
@@ -197,95 +209,91 @@ The entire methodology is summarized in @fig-method_flowchart :
 
 <!--# In @fig-method_flowchart, add the prior and add projection predictive variable as another figure at top. Maybe add the horsehoe prior as an image and add all spectra image first and then during the posterior projection, add it as a few spectra -->
 
-![Comparison between PLSR and the proposed Bayesian approach](paper_draft/figures/Method_flowchart.png){#fig-method_flowchart}
-
 ## Results and Discussion
 
-### Results on the full Bayesian model
-
-#### Scribble:not included in paper
-
-Think about what figures need to be included when discussin the results. A good idea will be to look at the proj pred paper bayesplot paper bayesian analysis paper by Gelman
+### Full Bayesian model
 
 #### Posterior predictive checks
 
-Bayesian analysis provides us with a nice way to assess how the model performs via posterior predictive checks. What are posterior predictive checks?
+Bayesian analysis provides us with a formal way to assess how the model performs via posterior predictive checks. After fitting the three Bayesian models using the training data, the Bayesian models, in essence, become data generating models. We use posterior predictive checks [@gabry2019] to simulate the posterior predictive distribution $p(\hat{y}|y) = \int p(\hat{y}|\theta) p(theta|y) d\theta$, where y is the training trait data, $\hat{y}$ is the predicted data and $\theta$ are the parameters of the model. Posterior predictive checks serve as an important visual tool to assess how well the model agrees with the training data (or even independent test data). Here we use the posterior predictive checks to see how well the fitted Bayesian models simulate the training data. This will help us to determine the fit of the model. @fig-posterior_predictive_checks presents the posterior predictive checks of the three models. The blue lines represent 1000 replications of the training data simulated from the Bayesian models while the dark black line represents the empirical distribution of the observations.
 
-### Parameter inference; show parameter correlation etc.
+We see that for all the three traits, thought the overall fit of the models to the training data is satisfactory, there are discrepancies associated with each trait. We assumed a normal model as our Bayesian model with the mean of the Bayesian model as a linear combination of the input spectra and a constant error variance. For the Carotenoid dataset, we can observe that the distribution of the data might be multimodal, which can motivate the use of a mixture of two normal models for better parameterizing the trait data. For LMA, the observations are much more skewed than a normal distribution, leading to poor fits for the left and right tail and the peak of the distribution. The fit for the Nitrogen data is much better, though there is a slight discrepancy in the lower tail of the distribution.
 
-The $\hat{r}$ values determine whether the parameters of a model have converged or not.
+We find that overall, for all the three models, there is no overfitting to the observed data though @fig-posterior_predictive_checks points to further potential improvements in the model structure. Though improving individual trait models is beyond the scope of the current work, we provide some directions on how it can be achieved in the "Future Section" below.
 
-A value of $\hat{r}$ equal to 1 implies that the parameter has converged.
+![Posterior predictive checks for assesing model fit for the three traits](paper_draft/figures/posterior%20predictive%20checks.png){#fig-posterior_predictive_checks}
 
-In our analysis, we find that for many variables, the $\hat{r}$ values vary from <!--#  --> to <!--#  -->.
+### Parameter inference
 
-This is a well known issue with the HMC sampler when dealing with highly correlated inputs.
+To determine the convergence of the parameters in the MCMC chain, the most widely used metric is the potential scale reduction factor $\hat{r}$ [@gelman1992]. The $\hat{r}$ values determine whether the independent parametesr of a model have converged or not. A value of $\hat{r}$ equal to 1 implies that the parameter has converged. In our analysis, we find that for many variables, the $\hat{r}$ values vary from <!--#  --> to <!--#  -->. This is a well known issue with the HMC sampler using horseshoe priors when dealing with highly correlated inputs with a low number of observations and has been shown to not cause any loss in predictive accuracy of the model [@piironen2017].
 
-This happens for spectral bands that are highly correlated for each other.
+@fig-posterior_parameters_full_model shows the posterior parameter distribution histograms of the five wavelengths with largest absolute mean value for the regression coefficients. Since, the input spectral wavelengths are highly correlated to each other, they have redundant information available between them about the underlying trait. As a results, during the MCMC iterations, there will be some samples for which only one of these wavelengths will have a non-zero regression coefficient while the others will be zero leading to a big mass at zero. Since the wavelengths are highly correlated, each of the important wavelengths will have non-trivial probability mass at zero and non-zero coefficient values. Though, this does not cause any issues with predictions, it makes the posterior parameter distributions multimodal leading to confusion in parameter inference.
 
-Consider for instance, the reflectance values for wavelengths $400$ nm and $401$ nm.
-
-For, the Nitrogen data, the correlation between the reflectance values in the training data is <!--#  -->.
-
-Therefore, during MCMC samples, there will be some samples for which one of these wavelengths will have a non-zero regression coefficient while the others will be zero leading to a big mass at zero.
-
-This does not however lead to any loss in predictive perfomance.
-
-For highly correlated input variables such as the hyperspectral wavelengths, the $\hat{r}$ value.
-
-Figure <!--#  --> shows the posterior parameter distribution histograms of the five wavelengths with largest absolute mean value for the regression coefficients.
+![Posterior samples for the four regression coefficients with the largest absolute mean values](paper_draft/figures/parameter_posterior_histogram.png){#fig-posterior_parameters_full_model}
 
 ```{r posterior_parameters_histogram_full_model}
-trait_name1 <- "Carotenoid_Area"
+#| echo: FALSE
+# uncomment to plot fig-posterior_parameters_full_model
 
-date_for_brms_file <- "2023-08-14" #this is the date the brms file was saved
-# in folder code data/code_output_data. brms
-# files are saved using supervised_pc_and....R
-# for personal macbooks
-data_folder <- "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/Github_data/Hierarchical_foliar_trait_estimation"
-
-# Analysis for full model -------------------------------------------------
-
-brms_normal <- readRDS(paste0(data_folder,  "/data/code_output_data/brms_object_",
-                              trait_name1, 
-                              "_",
-                              prediction_algorithm,
-                              "_",
-                              date_for_brms_file,
-                              ".rds"))
-
-# fixed effects -----------------------------------------------------------
-
-posterior_pars <- fixef(brms_normal, summary = F)
-spectra_regression_means <- colMeans(posterior_pars)
-indices_top_five <- which(spectra_regression_means %in% sort(abs(spectra_regression_means), decreasing = T)[1:5])
-wavelength_names <- names(spectra_regression_means)[indices_top_five]
-
-wavelength_names <- unlist(lapply(wavelength_names, function(x) {str_split_1(x, "x")[2]}))
-
-wavelength_names <- paste(wavelength_names, "nm", sep = " ")
-
-posterior_pars_max <- posterior_pars[, indices_top_five] |> 
-  as_tibble()
-
-colnames(posterior_pars_max) = wavelength_names
-
-
-posterior_pars_max |> 
-  pivot_longer(cols = everything(),
-               names_to = "Wavelength",
-               values_to = "Regression Coefficient") |> 
- ggplot2:: ggplot(aes(x = `Regression Coefficient`)) +
-  geom_histogram(color = "red") +
-  facet_wrap(~Wavelength) +
-  coord_cartesian(ylim = c(0, 5000))
+# trait_name1 <- "Carotenoid_Area"
+# 
+# date_for_brms_file <- "2023-08-14" #this is the date the brms file was saved
+# # in folder code data/code_output_data. brms
+# # files are saved using supervised_pc_and....R
+# # for personal macbooks
+# data_folder <- "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/Github_data/Hierarchical_foliar_trait_estimation"
+# 
+# # Analysis for full model -------------------------------------------------
+# 
+# brms_normal <- readRDS(paste0(data_folder,  "/data/code_output_data/brms_object_",
+#                               trait_name1, 
+#                               "_",
+#                               prediction_algorithm,
+#                               "_",
+#                               date_for_brms_file,
+#                               ".rds"))
+# 
+# # fixed effects -----------------------------------------------------------
+# 
+# posterior_pars <- fixef(brms_normal, summary = F)
+# spectra_regression_means <- colMeans(posterior_pars)
+# indices_top_five <- which(spectra_regression_means %in% sort(abs(spectra_regression_means), decreasing = T)[1:5])
+# wavelength_names <- names(spectra_regression_means)[indices_top_five]
+# 
+# wavelength_names <- unlist(lapply(wavelength_names, function(x) {str_split_1(x, "x")[2]}))
+# 
+# wavelength_names <- paste(wavelength_names, "nm", sep = " ")
+# 
+# posterior_pars_max <- posterior_pars[, indices_top_five] |> 
+#   as_tibble()
+# 
+# colnames(posterior_pars_max) = wavelength_names
+# 
+# 
+# posterior_pars_max |> 
+#   pivot_longer(cols = everything(),
+#                names_to = "Wavelength",
+#                values_to = "Regression Coefficient") |> 
+#  ggplot2:: ggplot(aes(x = `Regression Coefficient`)) +
+#   geom_histogram(color = "red") +
+#   facet_wrap(~Wavelength) +
+#   coord_cartesian(ylim = c(0, 5000))
+# 
+# ggsave(filename = "paper_draft/figures/parameter_posterior_histogram.png",
+#        height = 5,
+#        width = 5,
+#        units = "in")
 ```
 
 ### Prediction of algorithm on CABO data
 
-The comparison of the mean posterior prediction plots with the
+The comparison of the mean posterior prediction plots for the CABO dataset compared with the PLSR plots are given in @fig-plsr_vs_bayesian_full . We find that the mean posterior predictions are comparable to the PLSR algorithm predictions slightly outperforming it for Carotenoid and LMA while significantly improving upon PLSR for Nitrogen in terms of RMSE. For Nitrogen data, the bayesian approach corrects for the bias in PLSR which leads to an improvement in the RMSE values. It is also important to note that the for both Carotenoid and LMA data, the Bayesian (and the PLSR) algorithm does poorly in predicting some of the trait values. Though it might not always be the case, this is similar to our findings from the posterior predictive checks in @fig-posterior_predictive_checks where Carotenoid and LMA did poorly compared to Nitrogen dataset.
 
-### 
+The Bayesian algorithm comes with the added advantage of providing posterior predictive uncertainty along with the mean predictions which allows us to assess the variability of our predictions associated with new datasets. The top row of @fig-bayesian_full_vs_bayesian_reduced represents the 90% prediction intervals associated with each of the predictions. We find that the uncertainty is the highest for the Carotenoid dataset while it is the least for the LMA dataset. This is understandable as the training data for Carotenoid was the least (??? training observations) and was the highest for LMA ( ??? training observations).\
+\
+The above results showcase the advantage of the Bayesian approach over the traditional PLSR algorithm. First, the Bayesian methods works in the original spectral space as opposed to any transformed latent scale. Combined with the projective inference algorithm, as will be shown in the next section, this helps in understanding which spectra are relevant for a particular trait and also allow a natural way for input spectral uncertainty. Input spectral uncertainty becomes especially important when statistical algorithms are applied for remote sensing data such as airborne and satellite data which are subject to errors due to various atmospheric and topographical effects on remote sensing retrievals. Second, the Bayesian method provides uncertainty in predictions in the form of posterior prediction intervals. Though PLSR methods can also account for predictive uncertainties using bootstrap (give Singh paper citation), it does not take into account the prior information we might have about the relationship of the spectra with trait.\
+
+![Comparison of PLSR predictions vs mean of posterior preductions using the full Bayesian model on CABO dataset.](paper_draft/figures/bayesian_full_vs_PLSR.png){#fig-plsr_vs_bayesian_full}
 
 <!--# Included comparison with the PLSR approach -->
 
@@ -293,20 +301,34 @@ The comparison of the mean posterior prediction plots with the
 
 <!--# includes the prediction uncertainty quantification plots -->
 
-### Results on the reduced model
+## Reduced Bayesian model
 
-<!--# Includes the projective inference plots -->
+Though the full Bayesian model has good predictive capabilities, it is neverthless slow in predicting new data as it requires 2001 spectral bands as input. A commonly mentioned advantage of latent transformation approaches such as the PLSR is their enhanced computational speed due to a few latent input variables. To allow for fast computational speeds for the Bayesian method, we use the projective inference technique mentioned in Section ?? to each of the three fitted Bayesian models while preserving the predictive accuracy of the full Bayesian models. The projective inference also helps us to identify the relevant spectra important for a particular trait.
+
+![Selection of relevant spectral bands for maintaining the same predictive accuracy as the full model](paper_draft/figures/Carotenoid_variable_selection.png){#fig-carotenoid_variable_selection width="544"}
+
+To account for possible overfitting, we take the first 40 important spectra as found by the projective inference technique ( @fig-carotenoid_variable_selection ). Fig @fig-bayesian_full_vs_bayesian_reduced presents the comparison of the posterior predictive uncertainty between the full Bayesian model and the reduced model. We find that in terms of comparing the uncertainty between the two models, the reduced model reduces the posterior predictive uncertainty on the CABO dataset.
+
+![Comparison of full Bayesian model with the reduced Bayesian model](paper_draft/figures/bayesian_full_vs_bayesian_reduced.png){#fig-bayesian_full_vs_bayesian_reduced}
+
+@fig-spectra_importance shows the important spectra for each of the given traits.
+
+![Most important spectra for each of the traits](paper_draft/figures/spectra_importance.png){#fig-spectra_importance}
 
 <!--# includes the plots for parameter uncertainty -->
 
-<!--# includes the prediction uncertainty quantification plots -->
-
 <!--# includes the speed comaparison -->
 
-### Future Work
+### Future Direction
+
+In this work, we have restricted ourselves to using linear gaussian model with a fixed measurement error. But as @fig-posterior_predictive_checks shows us, a simple linear model might not be enough to characterize the effects of spectra on traits. A distinct advantage of Bayesian methods is their ability to easily add complexity to an existing model structure. There are various ways in which we can extend the current linear model. First, we can relax the assumption of a Gaussian model for the traits and experiment with other probability density functions such as Gamma distributions, Student-t distributions and mixture models. The posterior predictive checks or other formal measures of model comparison such as the Deviance Information Criterion (DIC) can be a way to select the appropriate model. Second, we can extend the global Gaussian model to a hierarchical model by recognizing the inherent groups that exist in plants ( @fig-hierarchical_model) such as broadleaf/needleleaf, deciduous/evergreen, etc. Bayesian hierarchical methods explicitly accommodate variability in the relationship between traits and spectra across different groups , effectively sharing information and improving parameter estimation (which is especially important for undersampled groups). Lastly, the linear relationship between spectra and traits is another assumption that can be challenged. Bayesian methods are easily amenable to include non-linear effects of spectra on traits.
+
+## Conclusion
 
 <!--# Includes work on how to extend the work to non-linearity -->
 
 <!--# Includes the discussion of hierarchical modeling -->
+
+![Extension of the Bayesian linear approach to model hierarchical relationships between spectra and trait](paper_draft/figures/future_work_hierarchical.png){#fig-hierarchical_model}
 
 ## References
