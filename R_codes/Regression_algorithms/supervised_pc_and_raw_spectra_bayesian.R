@@ -7,14 +7,14 @@ source("R_codes/input_parameter_file.R")
 # source the data preprocessing code --------------------------------------
 
 source("R_codes/Regression_algorithms/data_preprocessing_for_algorithms.R")
-readr :: write_csv(x_train, 
-                   str_glue("data/code_output_data/input_trait_spectra_files/x_train_{trait_name1}.csv"))
-readr :: write_csv(y_train |> data.frame(), 
-                   str_glue("data/code_output_data/input_trait_spectra_files/y_train_{trait_name1}.csv"))
-readr :: write_csv(x_test, 
-                   str_glue("data/code_output_data/input_trait_spectra_files/x_test_{trait_name1}.csv"))
-readr :: write_csv(y_test |> data.frame(), 
-                   str_glue("data/code_output_data/input_trait_spectra_files/y_test_{trait_name1}.csv"))
+# readr :: write_csv(x_train, 
+#                    str_glue("data/code_output_data/input_trait_spectra_files/x_train_{trait_name1}.csv"))
+# readr :: write_csv(y_train |> data.frame(), 
+#                    str_glue("data/code_output_data/input_trait_spectra_files/y_train_{trait_name1}.csv"))
+# readr :: write_csv(x_test, 
+#                    str_glue("data/code_output_data/input_trait_spectra_files/x_test_{trait_name1}.csv"))
+# readr :: write_csv(y_test |> data.frame(), 
+#                    str_glue("data/code_output_data/input_trait_spectra_files/y_test_{trait_name1}.csv"))
 
 # formula for brms --------------------------------------------------------
 input_x_names <- data_train_for_analysis |> 

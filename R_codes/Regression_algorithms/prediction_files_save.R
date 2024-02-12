@@ -88,7 +88,7 @@ cv_out <- readRDS(paste0(data_folder, "/data/code_output_data/proj_pred_object_"
                          date_for_brms_file,
                          ".rds"))
 
-vsel <- solution_terms(cv_out)[1:40]
+vsel <- solution_terms(cv_out)[1:38]
 
 prj <- project(brms_normal, solution_terms = vsel)
 prj_linpred <- proj_linpred(prj, newdata = data_test_for_analysis, integrated = FALSE)

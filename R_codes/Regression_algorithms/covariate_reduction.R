@@ -192,7 +192,7 @@ ggsave(filename = paste0(data_folder, "/data/code_output_data/plot_varsel_proj_p
        units = "in"
          )
 
-nsel <- suggest_size(cv_out, stat = "rmse", alpha=0.1) # Dont rely on this
+nsel <- suggest_size(cv_out, stat = "rmse", alpha=0.01) # Dont rely on this
                                                             # look more on the plot
 vsel <- solution_terms(cv_out)[1:40]
 

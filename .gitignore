@@ -6,3 +6,5 @@ R_codes/not_using_for_paper_just_exploring
 .Rproj.user
 .Rhistory
 .Rhistory
+data_lma_train_complete.csv
+data_lma_test.csv

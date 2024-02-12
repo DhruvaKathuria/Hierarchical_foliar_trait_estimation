@@ -32,18 +32,18 @@ prediction_algorithm <- "raw_spectra"
 par2 <- readRDS(str_glue("{trait_name1}_population_level_parameters.rds"))
 sigma1 <- readRDS(str_glue("{trait_name1}_sigma_parameters.rds"))
 
-init_func <- function(chain_id=1) {
-  list ( Intercept  =  par2[1] ,
-         beta  =  par2[-1] ,
-         sigma  =  sigma1[1])
+init_func <- function(chain_id) {
+  list ( Intercept  =  par2[1] + rnorm(1, mean = 0, sd = 0.05) ,
+         beta  =  par2[-1] + rnorm(length(par2[-1]), mean = 0, sd = 0.05),
+         sigma  =  sigma1[1] + rnorm(1, mean = 0, sd = 0.05))
 }
 # See an example output
 #init_func(chain_id = 1)
 # In your case just two chains is needed.
 init_list <- list(
-  init_func(chain_id = 1)
-  #init_func(chain_id = 2)
-  #init_func(chain_id = 3),
+  init_func(chain_id = 1),
+  init_func(chain_id = 2),
+  init_func(chain_id = 3)
   #init_func(chain_id = 4)
   # init_func(chain_id = 5),
   # init_func(chain_id = 6),
