@@ -1,6 +1,8 @@
 ---
 title: "Beyond PLSR: Bayesian Brilliance in Hyperspectral Foliar Trait Estimation"
-format: pdf
+format: 
+  pdf:
+   number-sections: true
 editor: source
 bibliography: references.bib
 editor_options: 
@@ -9,47 +11,24 @@ editor_options:
 
 ## Introduction
 
-#### Importance of foliar functional traits
-
 ```{r}
 #| echo: FALSE
 # TODO: You can add other trait names from Roamresearch I.2-Paper-2
 ```
 
-#### General importance
-
-Foliar Functional traits are chemical (such as chlorophyll), physiological (such as photosynthetic rate) and structural (such as leaf area) features of a leaf which mediate ecosystem functioning and its response to perturbations by regulating the growth fitness of plants in diverse ecosystems [@serbin2020; @lavorel2002; @wright2005; @funk2017].
-
-#### Leaf Economic Spectrum
-
-In an ecosystem, foliar functional traits influence the resource allocation and reallocation of resources by a plant under diverse environmental conditions [@reich2014; @wang2020] and affect the functional diversity driving ecosystem productivity [@cadotte2009]
-
-#### Role in Vegetation models
-
-Foliar traits' significance in parameterizing terrestrial vegetation plays a crucial role in Earth System models, which, if not precisely characterized, introduces substantial uncertainty into climate change predictions [@wullschleger2014; @friedlingstein2006].
-
-The National Academy of Sciences 2017 Decadal Survey specifically identifies the spatio-temporal distribution of plant functional traits as a crucial objective (E-1a).\
-It is not surprising that plant functional traits are identified as an Essential Biodiversity Variable (@pereira2013, @pettorelli2016).
-
-#### History of using spectroscopy for predicting foliar traits
+Foliar Functional traits are chemical (such as chlorophyll), physiological (such as photosynthetic rate) and structural (such as leaf area) features of a leaf which mediate ecosystem functioning and its response to perturbations by regulating the growth fitness of plants in diverse ecosystems [@serbin2020; @lavorel2002; @wright2005; @funk2017]. In an ecosystem, foliar functional traits influence the resource allocation and reallocation of resources by a plant under diverse environmental conditions [@reich2014; @wang2020] and affect the functional diversity driving ecosystem productivity [@cadotte2009]. Foliar traits' significance in parameterizing terrestrial vegetation plays a crucial role in Earth System models, which, if not precisely characterized, introduces substantial uncertainty into climate change predictions [@wullschleger2014; @friedlingstein2006]. The National Academy of Sciences 2017 Decadal Survey specifically identifies the spatio-temporal distribution of plant functional traits as a crucial objective (E-1a). It is not surprising that plant functional traits are identified as an Essential Biodiversity Variable (@pereira2013, @pettorelli2016).
 
 Leaf-level measurements of light reflectance and absorption has been used to quantify leaf pigments and leaf structure since the early 1900's [@serbin2020; @cotrozziReflectanceSpectroscopyNovel2018] with important early papers by @shull1929, @mcnicholasVisibleUltravioletAbsorption1931, @rabideauAbsorptionReflectionSpectra1946, @clark1946, @krinovSpectralReflectanceProperties1947 and @gates1965. The past two decades has witnessed an increased application of a wide variety of retrieval algorithms to quantify different vegetation characteristics -- including plant function traits-- using hyperspectral data (see @verrelst2019 for a review).
 
-#### Empirical vs physically-based methods
-
 Broadly, traits are predicted using reflectance spectra using two approaches: physically-based methods and empirical algorithms. The empirical approach has been the dominant method of predicting traits using spectra due to (a) ease in application, (b) higher accuracy than physically-based methods, and (c) ability to be applied on a wide range of traits [@wang2019]. Among empirical methods, though Machine Learning methods such as Random Forest [@pullanagari2016], Neural Networks [@huang2004; @cherif2023] , Gaussian Process Regression [@wang2019], etc., have shown considerable promise in recent studies, the Partial Least Squares Regression (PLSR) [@wold1984] remains the most widely used empirical approach for predicting a wide variety of traits (e.g., @verrelst2019; @coops2003; @hansen2003; @serbinArcticTropicsMultibiome2019) due to its ease of use, computational efficiency and its ability to handle predictor (reflectance wavelengths for our study) collinearity. This is because PLSR transforms the input predictors into a handful of orthogonal latent components [@wold1984] and hence can be applied even when the number of predictors is greater than the number of training observations.
-
-#### Drawbacks of PLSR approach
 
 The PLSR approach, however, comes with its own set of shortcomings. Chiefly, the PLSR approach to trait estimation does not provide rigorous uncertainty estimates but instead rely on . Another drawback of the PLSR approach is that it assumes a linear relationship between the traits and spectra. Though there have been a few applications of kernel based PLSR approaches for trait prediction (e.g. @arenas-garcia2008) , the majority of the studies still use the standard PLSR assuming a linear relationship between the traits and spectra. PLSR approaches also cannot account for the hierarchical structure that might exist in certain traits. PLSR is challenged by the variability of the relationship between traits and spectra across species, functional types, and biomes. It will either a global function between the traits and spectra which ignores the across-group variability or else it is used to fit functions separately for different groups which might not be always be possible due to scarcity of sampled trait data.
 
-#### Benefit of the Bayesian approach
-
 Bayesian methods provide rich uncertainty quantification and are easily amenable to more complex models such as hierarchical Bayesian models which can account site-specific, group-specific (such as PFT level, species level effects), easily integrate within physical models, and account for measurement errors of different instruments as well. Bayesian statistical methods have also been successfully used in accounting for change of scale measurements from point scale to satellite scale in different environmental domains. Therefore, trait estimation motivated by Bayesian empirical methods need more focus in addition to machine learning and PLSR based methods.
 
-#### Ending
+The objective of this paper is to present a computationally efficient Bayesian framework that estimates traits directly from reflectance spectra (without any latent transformation) while propagating uncertainties in a rigorous fashion. To achieve this, we use a special class of shrinkage priors which allow us to use Bayesian regression with high-dimensional correlated hyperspectral data while preventing overfitting. To improve the computational efficiency of the Bayesian algorithm, we apply a predictive projection technique [@juhopiironenProjectiveInferenceHighdimensional2020] which projects the full Bayesian model to a reduced model with a handful of input wavelengths while preserving predictive accuracy. This technique is different in the sense that the selection of the relevant wavelengths is done based on the Bayesian model (which has an error term) instead of directly using the noisy trait observations for selecting the variables. Past studies have shown even if the true error structure of the data is not known, model reduction techniques such as the above outperforms variable selection methods directly applied to (noisy) observations <!--# add citations-->.
 
-The objective of this paper is to present a computationally efficient Bayesian framework that estimates traits directly from reflectance spectra (without any latent transformation) while propagating uncertainties in a rigorous fashion. To achieve this, we use a special class of shrinkage priors which allow us to use Bayesian regression with high-dimensional correlated hyperspectral data without overfitting. To improve the computational efficiency of the Bayesian algorithm, we apply a predictive projection technique [@juhopiironenProjectiveInferenceHighdimensional2020] which projects the full Bayesian model to a reduced model with a handful of input wavelengths while preserving predictive accuracy. We also discuss how the Bayesian framework can be easily extended to.... which will potentially open a previously unexplored research territory of exploring the relationships between spectra and traits beyond finding global relationhips between the two.
+We also discuss how the Bayesian framework can be easily extended to.... which will potentially open a previously unexplored research territory of exploring the relationships between spectra and traits beyond finding global relationships between the two.
 
 ## Study Area and Data
 
@@ -69,13 +48,15 @@ plot(plot_out)
 
 We downloaded and processed all spectra and trait data from EcoSIS so that they have the same units across datasets. We took only those data which have all the reflectance spectral wavelengths available from 400 nm-2400 nm at a spectral resolution of 1 nm. Since the trait units are different across study areas, the traits are converted to common units; Carotenoid : $\mu g/cm^{2}$, Nitrogen : ($mg/g$) and LMA : $g/m^{2}$.
 
-To avoid replication of effort in acquiring ECOSIS trait datasets, the entire workflow and associated R scripts for downloading the data from the ECOSIS website and compiling/processing the data to user-defined units is given here <!--# add hyperlink to Github page --> .
+To avoid replication of effort in acquiring trait datasets from the ECOSIS website, the entire workflow and associated R scripts for downloading the data from the ECOSIS website and compiling/processing the data to user-defined units is given here <!--# add hyperlink to Github page --> .
 
 ## Methods
 
-In this section, we first describe the Bayesian regression model used in predicting traits using hyperspectral data. We elucidate models both in the actual spectral space as well as dimensionally reduced orthogonal space (similar to PLSR). Formulating appropriate priors is essential for high dimensional (where number of input spectral bands is large) problems, therefore we also define the relevant priors used in the current work. To enable computationally efficient prediction on new datasets and select wavelengths which best approximate the predictive capabilities of the above models, we transform both model to a simpler model on the original spectral space requiring only a subset of input spectra using projective inference [@juhopiironenProjectiveInferenceHighdimensional2020]. Notationally, we denote a scalar with a lower case letter and a vector with bold lower case letter. Superscript $T$ refers to transpose.
+In this section, we first describe the Bayesian regression model used in predicting traits using hyperspectral data. Formulating appropriate priors is essential for high dimensional problems (where number of input spectral bands is large) to avoid overfitting; thus we also define the relevant priors used in the current work. To enable computationally efficient prediction on new data while maintaining the predictive capabilities of the Bayesian model, we project the Bayesian model to a simpler model using projective inference [@juhopiironenProjectiveInferenceHighdimensional2020]. As opposed to the full Bayesian model, the projected model requires only a subset of input spectra thus drastically improving computational speed and facilitating interpretation.
 
-### Bayesian Regression model-Original hyperspectral space
+Notationally, we denote a scalar with a lower case letter and a vector with bold lower case letter. Superscript $T$ refers to transpose. All vectors are assumed to be column vectors.
+
+### Full Bayesian regression model {#sec-full_bayesian_model}
 
 Let the trait to be predicted be defined as a random variable $y$. For an $i^{th}$ observation, let the measured trait value be defined as $y_i$ and the corresponding input (intercept plus) hyperspectral wavelength be defined as the vector $\boldsymbol{x_i} = (1, x_{i,400}, x_{i,401}, ..., x_{i,2399}, x_{i,2400})$. We assume that $y_i$ is a linear function of $\boldsymbol{x}$ such that:
 
@@ -84,17 +65,19 @@ y_i = \boldsymbol{\beta}^T \boldsymbol{x_i} + \epsilon_i, \; \epsilon \sim N(0, 
 $$ {#eq-linear_model}
 
 where $n$ is the number of observations.\
-Here the length of $x_i$ i.e. intercept + the number of input wavelengths (400 nm - 2400 nm) is $p = 2002$. $\boldsymbol{\beta}$ denotes the corresponding regression coefficients for $\boldsymbol{x_i}$, and $\sigma^2$ is the noise variance. Let the training data for the regression model i.e. the $n$ observations of both the trait and spectra be denoted by $\mathcal{D}$.
+Here the length of $x_i$ is the number of input wavelengths (400 nm - 2400 nm), $p = 2001$ plus intercept. $\boldsymbol{\beta}$ denotes the (column) vector of corresponding regression coefficients for $\boldsymbol{x_i}$, and $\sigma^2$ is the noise variance. We can also write @eq-linear_model as a multivariate normal distribution of size $n$:
+
+$$
+p(Y|\beta, \sigma^2)  = N_n(X\beta, \sigma^2I)
+$$ {#eq-linear_model_probability}
+
+where $Y = (y_1, y_2, .., y_n)$ is a vector of n trait observations and $X$ is the corresponding $n \times (p + 1)$ matrix of input wavelengths, \$I\$ is an identity matrix of size $n$. Let the training data for the regression model i.e. $n$ paired observations of trait and spectra be denoted by $\mathcal{D}$.
 
 #### Formulating priors
 
-An important component of the Bayesian approach is to formulate appropriate priors for the parameter vector $\boldsymbol{\theta} :=(\boldsymbol{\beta}, \sigma^{2})$ used in the model.\
-Since the dimension of $\boldsymbol{\beta}$ (2002) is large and a functional trait is typically sensitive to a small subset of the wavelengths, using traditionally used priors for $\boldsymbol{\beta}$ (such as normally distributed priors) can lead to over-fitting of the Bayesian model.\
-This is especially true when the number of observations in \$\\mathcal{D}\$ is less than \$p = 2002\$.\
-Since, a given trait is sensitive to a small number of wavelengths, we need a prior distribution which shrinks the \$\\beta\$ coefficients of the non-important wavelengths to zero while letting the regression coefficients of the important wavelengths escape this shrinkage.\
-Such a prior distribution should therefore assign a high probability density at zero while also have heavy-tail (which allows the modeling of large values of \$\\beta\$) fo important wavelengths.\
-To achieve this, we use a special prior distribution for $\beta_j$ called the regularized horseshoe prior [@piironen2017].\
-The regularized horseshoe prior belongs to a class of priors called shrinkage or sparsifiying priors which shrink $\beta$ coefficients of the non-important wavelengths to zero and also have heavy-tails. For $j^{th}$ regresssion coefficient $\beta_j$, the regularized horsehoe prior is defined as:
+An important component of the Bayesian approach is to formulate appropriate priors for the parameter vector $\boldsymbol{\theta} :=(\boldsymbol{\beta}, \sigma^{2})$ used in the model. A prior distribution represents our belief about these parameters and their uncertainty prior to observing the training data $\mathcal{D}$. In this work, we start with the prior belief that a trait is sensitive only to a subset of the wavelengths. This prior belief makes sense because functional traits have been shown to be sensitive to particular wavelengths in the VSWIR region. Additionally, since the dimension of $\boldsymbol{\beta}$ (2002) is large and the available measured trait data is generally sparse, using traditionally used priors for $\boldsymbol{\beta}$ (such as normally distributed priors) can lead to over-fitting of the Bayesian model. This is especially true when the number of observations in $\mathcal{D}$ is less than or comparable to $p + 1$.\
+
+Since, a given trait is assumed to be sensitive to a subset of the wavelengths, we need a prior distribution which shrinks the $\beta$ coefficients of the non-important wavelengths (with respect to the analyzed trait) to zero while letting the regression coefficients of the important wavelengths escape this shrinkage. Such a prior distribution should therefore assign a high probability density at zero while also have heavy-tail i.e. having non-trivial probabilities for large values of $\beta$ ( which allows the modeling of large values of $\beta$) for important wavelengths. To achieve this, we use a special prior distribution called the regularized horseshoe prior [@piironen2017]. The regularized horseshoe prior belongs to a class of priors called shrinkage or sparsifiying priors which shrink $\beta$ coefficients of the non-important wavelengths to zero and also have heavy-tails. The regularized horseshoe is an extension of the horseshoe prior [@carvalho2010] which has been widely used in high-dimensional regression because of its good theoretical properties and practical applications [@datta2013; @pas2014; @piironen2017; @vanerpShrinkagePriorsBayesian2019]. For $j^{th}$ regresssion coefficient $\beta_j$, the regularized horsehoe prior is defined as:
 
 $$
 \begin{aligned}
@@ -105,17 +88,12 @@ $$
 \end{aligned}
 $$ {#eq-horseshoe}
 
-where $C^+$ is a standard half-Cauchy distribution on the positive reals, IG is the inverse-Gamma distribution and $p_0$ is our prior crude guess on how many non-zero coefficients are there for the model .\
-For our analysis, we set $\frac{p_0}{D-p_0}$ as 0.025 for all the traits, denoting our a-priori guess that around 50 wavelengths are important for predicting a particular trait.\
-We fix $\nu = 4$ and $s = 2$ following [@piironen2017].\
-The regularized horseshoe is an extension of the horseshoe prior [@carvalho2010] which has been widely used in high-dimensional regression.\
-Similar to the horseshoe prior, the $\tau$ parameter in regularized horseshoe prior drives all regression coefficients to zero.\
-The thick Cauchy-tails for $\lambda_j$ allow some of the regression coefficients (of important wavelengths) to escape this shrinkage towards zero.\
-The regularized horsehoe has an extra parameter $c$ which better penalizes the non-shrinkage coefficients (i.e. the regression coefficients that are not equal to zero).\
-This helps if the regression coefficients are weakly identified and also improves the sampling robustness during posterior parameter inference using Markov Chain Monte Carlo (MCMC) methods.\
-@fig-method_horseshoe_vs_gaussian gives the comparison between the regularized horseshoe prior and the Gaussian prior by simulating 500 samples for a regression coefficient \$\\beta_j\$ following @eq-horseshoe and from a Gaussian distribution with mean 0 and standard deviation 0.05.\
-The horseshoe prior assigns a significantly higher probability at zero leading to better shrinkage of regression coefficients towards zero for non-important wavelengths.\
-It also has a heavier tail than the Gaussian distribution allowing larger values for the beta coefficients for important wavelengths.\
+where $C^+$ is a standard half-Cauchy distribution on the positive reals, IG is the inverse-Gamma distribution and $p_0$ is our prior crude guess on how many non-zero coefficients are there for the model . For our analysis, we set $\frac{p_0}{D-p_0}$ as 0.025 for all the traits, denoting our a-priori guess that around 50 wavelengths are important for predicting a particular trait. Better a-priori guesses for individual traits can be set by consulting past literature but we avoid it to maintain generality of the proposed approach. We fix $\nu = 4$ and $s = 2$ following [@piironen2017].\
+\
+The $\tau$ parameter in regularized horseshoe prior (@eq-horseshoe) drives all regression coefficients to zero while the thick Cauchy-tails for $\lambda_j$ allow some of the regression coefficients (of important wavelengths) to escape this shrinkage towards zero.\
+The regularized horsehoe has an extra parameter $c$ which better penalizes the non-shrinkage coefficients (i.e. the regression coefficients that are not equal to zero) compared to the original horseshoe prior. This helps if the regression coefficients are weakly identified (which can happen if the input wavelengths are highly correlated) and also improves the sampling robustness during posterior parameter inference using Markov Chain Monte Carlo (MCMC) methods [@piironen2017] . Note that the regularized horseshoe prior does not make the shrunk $\beta$ coefficients exactly zero, but "pulls" them towards zero.\
+
+@fig-method_horseshoe_vs_gaussian gives the comparison between the regularized horseshoe prior and the Gaussian prior by simulating 500 samples for a regression coefficient \$\\beta_j\$ following @eq-horseshoe and from a Gaussian distribution with mean 0 and standard deviation 0.05. The horseshoe prior assigns a significantly higher probability at zero leading to better shrinkage of regression coefficients towards zero for non-important wavelengths. It also has a heavier tail than the Gaussian distribution allowing larger values for the beta coefficients for important wavelengths. For the intercept term in $\beta$ and the error variance $\sigma^2$ in the model, we use an improper flat prior in the brms package denoting uniformative priors.
 
 ![Gaussian prior vs Regularized horseshoe prior](paper_draft/figures/horseshoe_vs_gaussian.png){#fig-method_horseshoe_vs_gaussian}
 
@@ -187,27 +165,50 @@ It also has a heavier tail than the Gaussian distribution allowing larger values
 #        units = "in")
 ```
 
+#### Parameter estimation
+
+Bayesian inference consists of getting posterior probability distribution of the parameters of the Bayesian model -- as opposed to point estimates given by non-Bayesian methods such as PLSR -- denoting how are belief in the parameter distribution changes (with respect to the prior distribution) after we account for the training data $\mathcal{D}$. Assuming that the prior distribution of the parameters are independent from each other, the posterior parameter distribution is denoted by:
+
+$$
+\begin{aligned}
+ p(\beta, \sigma^2|Y) & \propto p(Y|\beta, \sigma^2) p(\beta,\sigma^2) \\
+  & = p(Y|\beta, \sigma^2)p(\sigma^2)\prod_{j=1}^{p}p(\beta_j)
+\end{aligned} 
+$$ {#eq-posterior_parameter_full_model}
+
+where $p(Y|\beta, \sigma^2)$ is given by @eq-linear_model_probability. For computing the posterior probability distribution, we use the probabilistic programming language Stan [@standevelopmentteam2018] which uses Markov chain Monte Carlo (MCMC) algorithms such as the Hamiltonian Monte Carlo (HMC) [@duaneHybridMonteCarlo1987] and its extension the No-U-Turn Sampler (NUTS) [@hoffmanNoUTurnSamplerAdaptively2014]. These algorithms work well with high dimensional models and can be used with any prior distribution [@hoffmanNoUTurnSamplerAdaptively2014; @betancourtConceptualIntroductionHamiltonian2017; @burknerBrmsPackageBayesian2017]. The Stan implementation is done using the R language interface provided by the package "brms" [@burknerBrmsPackageBayesian2017].
+
 ### Model reduction in original spectral space
 
-The two models in the previous approach were designed to give good predictions even if the model has redundant wavelengths as input. While the model in Section M.1 has high computational cost, model in Section M.2 loses interpretability due to projection of spectra into orthogonal latent dimensions. We want our predictive model to be (a) computationally fast when predicting new data, (b) interpretable and (c) be able to account for uncertainties in the input wavelengths. A direct way to achieve the above three objectives is to define a model which takes a relevant subset of the hyperspectral wavelengths as input (satisfying (a) and (c)) and does not do any transformation of input wavelengths (satisfying (b)) while still predicting comparably to the full model on new datasets.
+Though the full Bayesian model in @sec-full_bayesian_model is formulated to have good predictive accuracy, it makes use of all the input wavelengths to predict new data and as a result, has a high computational cost and is less interpretable. We remedy this by defining a model which takes a relevant subset of the input hyperspectral wavelengths as input while still mimicking the predictive capability of the full model. Therefore, our aim is to find a sub-model such that
 
-Therefore, our aim is to find a reduced model such that
+$$
+y_i = \boldsymbol{\beta_{s}^T} \boldsymbol{x_{s, i}} + \epsilon_{i,s}, \; \epsilon_s \sim N(0, \sigma_s^2), \; i = 1,..., n
+$$ {#eq-linear_equation_sub_model}
 
-$y_i = \boldsymbol{\beta_{*}^T} \boldsymbol{x_{i*}} + \epsilon_i, \; \epsilon \sim N(0, \sigma^2), \; i = 1,..., n$
-
-such that $|\boldsymbol{x_i*}| = p_{*} << \boldsymbol{x_i} = p =2002$ where $|\boldsymbol{a}|$ denotes the length of a vector $\boldsymbol{a}$. Note that, in this work our aim is not to find all wavelengths that are statistically related to the trait, but instead are only focused on finding a minimal subset of wavelengths that give a good predictive model for the given trait such that adding more wavelengths to the model will not significantly improve the predictive accuracy [@juhopiironenProjectiveInferenceHighdimensional2020].
+such that $|\boldsymbol{x_{s,i}}| = (p_{s} + 1) << |\boldsymbol{x_i}| = (p + 1) =2002$ where $|\boldsymbol{a}|$ denotes the length of a vector $\boldsymbol{a}$. Note that, in this work our aim is not to find all wavelengths that are statistically related to the trait, but instead we are only focused on finding a minimal subset of wavelengths that give a good predictive model for the given trait such that adding more wavelengths to the model will not significantly improve the predictive accuracy of the model [@juhopiironenProjectiveInferenceHighdimensional2020].
 
 ![Comparison between PLSR and the proposed Bayesian approach](paper_draft/figures/Method_flowchart.png){#fig-method_flowchart}
 
 #### Posterior projection of full model
 
-To formulate the reduced model, we use posterior projection [@juhopiironenProjectiveInferenceHighdimensional2020], which consists of replacing the posterior distribution of the parameters of the full model --e.g. $\boldsymbol{\theta}$ of the Bayesian regression model in Section M.1-- with a simpler distribution $q(\theta_{*}$). The full model is also called the reference model and we denote posterior distribution of its parameters as $p(\boldsymbol{\theta}|\mathcal{D})$, where $\mathcal{D}$ is the training data. For the reference model in Section M.1, restricting the model means setting some regression coefficients in $\boldsymbol{\beta}$ in the reference model equal to zero. For supervised PC (Section M.3), since the reference model is now in the latent orthogonal space, the projection works a bit differently since the input variables in the reference model and the reduced model (original spectral scale) are not similar. Therefore, to make the method model agnostic, posterior projection is defined in terms of the loss in posterior predictive accuracy --in terms of the Kullback-Liebler or KL divergence-- when the reduced model is used in place of the reference model. Specifically,
+To formulate the reduced model, we use posterior projection [@juhopiironenProjectiveInferenceHighdimensional2020], which consists of replacing the posterior distribution of the parameters of the full model --e.g. $\boldsymbol{\theta}$ of the Bayesian regression model in Section M.1-- with a simpler distribution $q(\theta_{*}$). The full model is also called the reference model and we denote posterior distribution of its parameters as $p(\boldsymbol{\theta}|\mathcal{D})$, where $\mathcal{D}$ is the training data. For the reference model in Section M.1, restricting the model means setting some regression coefficients in $\boldsymbol{\beta}$ in the reference model equal to zero. The posterior projection is defined in terms of the loss in posterior predictive accuracy --in terms of the Kullback-Liebler or KL divergence-- when the submodel is used in place of the reference model. Specifically,
 
-$KL(p(\tilde{y}|\mathcal{D}) || q(\tilde{y}) ) = E_{\tilde{y}}(log(p(\tilde{y}|\mathcal{D})) - log(q(\tilde{y})))$
+$$
+KL(p(\tilde{y}|\mathcal{D}) || q(\tilde{y}) ) = E_{\tilde{y}}(log(p(\tilde{y}|\mathcal{D})) - log(q(\tilde{y})))
+$$ {#eq-KL-divergence}
 
 We use the 'tilde' notation to denote future measurements of the trait, hence $\tilde{y}$ denotes future measurement of the trait . Here, $p(\tilde{y}|\mathcal{D})$ is the posterior predictive distribution of future measurements of the trait given the training data $\mathcal{D}$ for the reference model, $q(\tilde{y})$ is the distribution of $\tilde{y}$ from the reduced model, $E_{\tilde{y}}$ means the expectation over all possible future measurements of the trait.The objective of the posterior projection approach is to find the reduced model $q(\theta_{*})$ that minimizes equation ().
 
-In our case, we will use the posterior projection to determine the complexity (i.e the number of input wavelengths to be used) of our linear spectral model. There are various ways to empirically find the reduced model including draw-by-draw approach [@goutisModelChoiceGeneralised1998], [@dupuisVariableSelectionQualitative2003] and the single point approach [@tranPredictiveLasso2012]. Here we use the clustered projection approach by [@juhopiironenProjectiveInferenceHighdimensional2020] which can be thought of as a unification of the above-mentioned approaches and gives a nice tradeoff between speed and accuracy.
+In our case, we will use the posterior projection to determine the complexity (i.e the number of input wavelengths to be used) of our linear spectral model. There are various ways to empirically find the reduced model including draw-by-draw approach [@goutisModelChoiceGeneralised1998], [@dupuisVariableSelectionQualitative2003] and the single point approach [@tranPredictiveLasso2012]. Here we use the clustered projection approach by [@juhopiironenProjectiveInferenceHighdimensional2020] which can be thought of as a unification of the above-mentioned approaches and give a nice tradeoff between speed and accuracy.
+
+For the reference and sub-model given in equations @eq-linear_model and @eq-linear_equation_sub_model respectively, minimizing the KL Divergence in @eq-KL-divergence can be done as follows:
+
+1\) Draw M draws of $\theta$ or draw $\{\beta_m, \sigma_m\}_{m = 1}^M$ from the reference model. For each draw, calculate the expected prediction from the reference model for all the training data $\boldsymbol{\tilde{y}}_m = X\beta_m$. Now based on the vectors $\{\boldsymbol{\tilde{y}}_m\}_{m=1}^M$, make $C$ clusters based on K-means algorithm <!--# give citation -->.
+
+2\) Start with null submodel which only includes the intercept term and sequentially add wavelength one by one, selecting the wavelength which leads to the lowest residual sum of squares at each step. This is also called "forward model selection" <!--# give citation -->. A wavelength is added at each step based on the following steps:
+
+2.a) For every sample $\{\beta_m, \sigma_m\}$,
 
 Equation () gives us the optimal model for a given complexity i.e. for a given number of input wavelengths $p_*$. To determine the minimum value of $p_*$, we compare the predictive utility of the reference model and the set of reduced models for each $p_*$ over a validation set. Since we are working in a Bayesian framework, we choose the mean log predictive density (MLPD) as our predictive utility function as it not only compares the point predictions but also the predictive uncertainties associated with the reduced model. This gives MLPD a significant advantage over commonly used utility functions such as mean squared error (MSE). For the validation set, we use K-fold cross validation, fitting and validating the reduced model K times to avoid over fitting.
 
@@ -217,13 +218,15 @@ The entire methodology is summarized in @fig-method_flowchart :
 
 ## Results and Discussion
 
+<!--# Things I can write in the discussion Section      1) Posterior parameter inference      2) How well the predictions are doing      3) Looking at the final wavelenghts which are important for the LMA, etc. and see a correspondence of that with previous work      4) Future work and how we can extend the current work. Some drawbacks of the method.  -->
+
 ### Full Bayesian model
 
 #### Posterior predictive checks
 
 Bayesian analysis provides us with a formal way to assess how the model performs via posterior predictive checks. After fitting the three Bayesian models using the training data, the Bayesian models, in essence, become data generating models. We use posterior predictive checks [@gabry2019] to simulate the posterior predictive distribution $p(\hat{y}|y) = \int p(\hat{y}|\theta) p(theta|y) d\theta$, where y is the training trait data, $\hat{y}$ is the predicted data and $\theta$ are the parameters of the model. Posterior predictive checks serve as an important visual tool to assess how well the model agrees with the training data (or even independent test data). Here we use the posterior predictive checks to see how well the fitted Bayesian models simulate the training data. This will help us to determine the fit of the model. @fig-posterior_predictive_checks presents the posterior predictive checks of the three models. The blue lines represent 1000 replications of the training data simulated from the Bayesian models while the dark black line represents the empirical distribution of the observations.
 
-We see that for all the three traits, thought the overall fit of the models to the training data is satisfactory, there are discrepancies associated with each trait. We assumed a normal model as our Bayesian model with the mean of the Bayesian model as a linear combination of the input spectra and a constant error variance. For the Carotenoid dataset, we can observe that the distribution of the data might be multimodal, which can motivate the use of a mixture of two normal models for better parameterizing the trait data. For LMA, the observations are much more skewed than a normal distribution, leading to poor fits for the left and right tail and the peak of the distribution. The fit for the Nitrogen data is much better, though there is a slight discrepancy in the lower tail of the distribution.
+We see that for all the three traits, thought the overall fit of the models to the training data is satisfactory, there are discrepancies associated with each trait. We assumed a normal model as our Bayesian model with the mean of the Bayesian model as a linear combination of the input spectra and a constant error variance. For the Carotenoid dataset, we can observe that the distribution of the data might be multimodal, which can motivate the use of a mixture of two normal models for better parameterization of trait data. For LMA, the observations are much more skewed than a normal distribution, leading to poor fits for the left and right tail and the peak of the distribution. The fit for the Nitrogen data is much better, though there is a slight discrepancy in the lower tail of the distribution.
 
 We find that overall, for all the three models, there is no overfitting to the observed data though @fig-posterior_predictive_checks points to further potential improvements in the model structure. Though improving individual trait models is beyond the scope of the current work, we provide some directions on how it can be achieved in the "Future Section" below.
 
@@ -293,7 +296,7 @@ To determine the convergence of the parameters in the MCMC chain, the most widel
 
 ### Prediction of algorithm on CABO data
 
-The comparison of the mean posterior prediction plots for the CABO dataset compared with the PLSR plots are given in @fig-plsr_vs_bayesian_full . We find that the mean posterior predictions are comparable to the PLSR algorithm predictions slightly outperforming it for Carotenoid and LMA while significantly improving upon PLSR for Nitrogen in terms of RMSE. For Nitrogen data, the bayesian approach corrects for the bias in PLSR which leads to an improvement in the RMSE values. It is also important to note that the for both Carotenoid and LMA data, the Bayesian (and the PLSR) algorithm does poorly in predicting some of the trait values. Though it might not always be the case, this is similar to our findings from the posterior predictive checks in @fig-posterior_predictive_checks where Carotenoid and LMA did poorly compared to Nitrogen dataset.
+The comparison of the mean posterior prediction plots for the CABO dataset compared with the PLSR plots are given in @fig-plsr_vs_bayesian_full . We find that the mean posterior predictions are comparable to the PLSR algorithm predictions slightly outperforming it for Carotenoid and LMA while significantly improving upon PLSR for Nitrogen in terms of RMSE. For Nitrogen data, the Bayesian approach possibly corrects for the bias in PLSR estimation which leads to an improvement in the RMSE values. It is also important to note that the for both Carotenoid and LMA data, the Bayesian (and the PLSR) algorithm does poorly in predicting some of the trait values. Though it might not always be the case, this is similar to our findings from the posterior predictive checks in @fig-posterior_predictive_checks where Carotenoid and LMA did poorly compared to Nitrogen dataset.
 
 The Bayesian algorithm comes with the added advantage of providing posterior predictive uncertainty along with the mean predictions which allows us to assess the variability of our predictions associated with new datasets. The top row of @fig-bayesian_full_vs_bayesian_reduced represents the 90% prediction intervals associated with each of the predictions. We find that the uncertainty is the highest for the Carotenoid dataset while it is the least for the LMA dataset. This is understandable as the training data for Carotenoid was the least (??? training observations) and was the highest for LMA ( ??? training observations).\
 \
