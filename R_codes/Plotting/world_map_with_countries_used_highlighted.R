@@ -20,7 +20,6 @@ plot_out <- ggplot(data = world_map, aes(x = long, y = lat, group = group, fill 
   geom_polygon(color = "dimgrey") +
   scale_fill_manual(values = country_colors, guide = "none") +
   theme_minimal() +
-  labs(title = "World Map with Selected Countries Colored") +
   theme(plot.title = element_text(hjust = 0.5))
-
-
+plot_out
+ggsave("paper_draft/figures/world_map.png")

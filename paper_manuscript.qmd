@@ -1,5 +1,5 @@
 ---
-title: "Beyond PLSR: Bayesian Brilliance in Hyperspectral Foliar Trait Estimation"
+title: "Advancing Hyperspectral Foliar Trait Analysis: A Bayesian Framework"
 format: 
   pdf:
    number-sections: true
@@ -32,21 +32,22 @@ We also discuss how the Bayesian framework can be easily extended to.... which w
 
 ## Study Area and Data
 
-To assess the feasibility of the proposed Bayesian method, we use paired observations of spectra and traits for three foliar traits: Carotenoid ( $Car_{area}$; area basis), Nitrogen ($N{mass}$; mass basis) and Leaf Mass per Area (LMA) paired with hyperspectral reflectance data from 400 nm to 2400 nm from publicly available Ecological Spectral Information System (EcoSIS) library (citation needed). LMA influences leaf longevity, light interception by leaves and effects photosynthetic productivity [@wright2004; @díaz2016; @reich2014; @wang2019; @cherif2023]. Leaf Nitrogen regulates plant photosynthetic rate -- most importantly through ribulose-1,5-bisphosphate carboxylase/oxygenase (Rubisco) -- and is useful to parameterize photosynthetic processes in ecosystem models [@evansPhotosynthesisNitrogenRelationships1989; @evansNitrogenCostPhotosynthesis2019]. Carotenoids are leaf pigments crucial for photosynthesis, photooxidative protection, pigmentation and phytohormone synthesis [@armstrongCarotenoidsGeneticsMolecular1996; @maokaCarotenoidsNaturalFunctional2020; @sunPlantCarotenoidsRecent2022] . Carotenoid derived compounds affect the flavor and aroma of crops as well as development of defense-related plant compounds [@simkinCarotenoidsApocarotenoidsPlanta2021] .
+To assess the feasibility of the proposed Bayesian method, we use paired observations of spectra and traits for three foliar traits: carotenoid ( $Car_{area}$; area basis), Nitrogen ($N{mass}$; mass basis) and Leaf Mass per Area (LMA) paired with hyperspectral reflectance data from 400 nm to 2400 nm from publicly available Ecological Spectral Information System (EcoSIS) library (citation needed). LMA influences leaf longevity, light interception by leaves and effects photosynthetic productivity [@wright2004; @díaz2016; @reich2014; @wang2019; @cherif2023]. Leaf Nitrogen regulates plant photosynthetic rate -- most importantly through ribulose-1,5-bisphosphate carboxylase/oxygenase (Rubisco) -- and is useful to parameterize photosynthetic processes in ecosystem models [@evansPhotosynthesisNitrogenRelationships1989; @evansNitrogenCostPhotosynthesis2019]. Carotenoids are leaf pigments crucial for photosynthesis, photooxidative protection, pigmentation and phytohormone synthesis [@armstrongCarotenoidsGeneticsMolecular1996; @maokaCarotenoidsNaturalFunctional2020; @sunPlantCarotenoidsRecent2022] . Carotenoid derived compounds affect the flavor and aroma of crops as well as development of defense-related plant compounds [@simkinCarotenoidsApocarotenoidsPlanta2021] .
 
-The observation span a wide range of climatic and geographic range ( @fig-studyarea ) though the majority of the observations are from North America.
+The observations span a wide range of climatic and geographic range ( @fig-studyarea) though the majority of the observations are from North America. The number of training observations for the three traits vary significantly across the three traits (carotenoid: 394, nitrogen: 541, LMA: 5934) which aid in showing the accuracy of the algorithm across different training sizes.
 
 ```{r studyarea}
 #| echo: FALSE
 #| label: fig-studyarea
 #| fig-cap: "Study Area"
-source("R_codes/Plotting/world_map_with_countries_used_highlighted.R")
-plot(plot_out)
+#source("R_codes/Plotting/world_map_with_countries_used_highlighted.R")
 ```
+
+![Posterior predictive checks for assesing model fit for the three traits](paper_draft/figures/world_map.png){#fig-studyarea}
 
 ### Data Processing
 
-We downloaded and processed all spectra and trait data from EcoSIS so that they have the same units across datasets. We took only those data which have all the reflectance spectral wavelengths available from 400 nm-2400 nm at a spectral resolution of 1 nm. Since the trait units are different across study areas, the traits are converted to common units; Carotenoid : $\mu g/cm^{2}$, Nitrogen : ($mg/g$) and LMA : $g/m^{2}$.
+We downloaded and processed all spectra and trait data from EcoSIS so that they have the same units across datasets. We took only those data which have all the reflectance spectral wavelengths available from 400 nm-2400 nm at a spectral resolution of 1 nm. Since the trait units are different across study areas, the traits are converted to common units; carotenoid : $\mu g/cm^{2}$, nitrogen : ($mg/g$) and LMA : $g/m^{2}$.
 
 To avoid replication of effort in acquiring trait datasets from the ECOSIS website, the entire workflow and associated R scripts for downloading the data from the ECOSIS website and compiling/processing the data to user-defined units is given here <!--# add hyperlink to Github page --> .
 
@@ -190,7 +191,7 @@ such that $|\boldsymbol{x_{s,i}}| = (p_{s} + 1) << |\boldsymbol{x_i}| = (p + 1) 
 
 ![Comparison between PLSR and the proposed Bayesian approach](paper_draft/figures/Method_flowchart.png){#fig-method_flowchart}
 
-#### Posterior projection of full model
+#### Posterior projection of full model {#sec-methods_posterior_projection}
 
 To formulate the reduced model, we use posterior projection [@juhopiironenProjectiveInferenceHighdimensional2020], which consists of replacing the posterior distribution of the parameters of the full model --e.g. $\boldsymbol{\theta}$ of the Bayesian regression model in Section M.1-- with a simpler distribution $q(\theta_{*}$). The full model is also called the reference model and we denote posterior distribution of its parameters as $p(\boldsymbol{\theta}|\mathcal{D})$, where $\mathcal{D}$ is the training data. For the reference model in Section M.1, restricting the model means setting some regression coefficients in $\boldsymbol{\beta}$ in the reference model equal to zero. The posterior projection is defined in terms of the loss in posterior predictive accuracy --in terms of the Kullback-Liebler or KL divergence-- when the submodel is used in place of the reference model. Specifically,
 
@@ -204,15 +205,27 @@ In our case, we will use the posterior projection to determine the complexity (i
 
 For the reference and sub-model given in equations @eq-linear_model and @eq-linear_equation_sub_model respectively, minimizing the KL Divergence in @eq-KL-divergence can be done as follows:
 
-1\) Draw M draws of $\theta$ or draw $\{\beta_m, \sigma_m\}_{m = 1}^M$ from the reference model. For each draw, calculate the expected prediction from the reference model for all the training data $\boldsymbol{\tilde{y}}_m = X\beta_m$. Now based on the vectors $\{\boldsymbol{\tilde{y}}_m\}_{m=1}^M$, make $C$ clusters based on K-means algorithm <!--# give citation -->.
+1\) Draw M draws of $\{\beta_m, \sigma_m\}_{m = 1}^M$ from the reference model. For each draw, calculate the expected prediction from the reference model for all the training data $\boldsymbol{\tilde{y}}_m = X\beta_m$. Now based on the vectors $\{\boldsymbol{\tilde{y}}_m\}_{m=1}^M$, make $C$ clusters based on k-means algorithm <!--# give citation -->.
 
-2\) Start with null submodel which only includes the intercept term and sequentially add wavelength one by one, selecting the wavelength which leads to the lowest residual sum of squares at each step. This is also called "forward model selection" <!--# give citation -->. A wavelength is added at each step based on the following steps:
+2\) Start with null submodel which only includes the intercept term and sequentially add wavelength one by one, selecting the wavelength which leads to the lowest residual sum of squares at each step. This is also called "forward model selection" <!--# give citation -->. For selecting the first wavelength, the forward model selection consists of fitting $p$ regression models (consisting of intercept and one wavelength selected from all input wavelengths) and choosing the submodel which leads to the lowest residual sum of squares. This process is repeated sequentially adding one wavelength at each step until a stopping criterion is achieved . During forward search, a wavelength is selected for a submodel of size k based on the following criterion.
 
-2.a) For every sample $\{\beta_m, \sigma_m\}$,
+2.a) For a candidate wavelength, For every cluster $I_c$ in step 1, compute $\beta_l = (X_{cand}^{T} X_{cand})^{-1}X_{cand}^T\mu_l$, where $X_{sub}^{cand}$ has the candidate wavelength added to the already selected $k-1$ wavelengths, $\mu_l$ is the averaged prediction over cluster $c_l$, $l = \{1, .., C\}$ i.e. $\mu_l = \frac{1}{|c_l|}\sum_{m \in c_l}X_{all}\beta_{all}^m$. Note that this is the maximum likelihood estimate of $\beta$ for a linear regression model with Gaussian error, but now based on the predictions arising out of the reference model ($\mu_l$) instead of the noisy observations $y$.
 
-Equation () gives us the optimal model for a given complexity i.e. for a given number of input wavelengths $p_*$. To determine the minimum value of $p_*$, we compare the predictive utility of the reference model and the set of reduced models for each $p_*$ over a validation set. Since we are working in a Bayesian framework, we choose the mean log predictive density (MLPD) as our predictive utility function as it not only compares the point predictions but also the predictive uncertainties associated with the reduced model. This gives MLPD a significant advantage over commonly used utility functions such as mean squared error (MSE). For the validation set, we use K-fold cross validation, fitting and validating the reduced model K times to avoid over fitting.
+2.b) The variance can then be shown to be equal to $\sigma^2_c = \frac{1}{n} \sum_{i = 1}^{n} (\sigma_i^c)^2 + \frac{1}{n} ||X_{sub}\beta_c - \mu_c||^2$, where $\frac{1}{n} \sum_{i = 1}^{n} (\sigma_i^c)^2$ is the predictive variance of the $i^{th}$ prediction $\tilde{y}_i$ within the $c^{th}$ cluster and the second term denotes the variance added due to using the reduced model as opposed to the full model. This is shows that under the above formulation, the predictive variance of the reduced model can never be less than the full model which is helpful to avoid overfitting of the submodels. The choice of number of clusters $C$ can vary between 1 (where all the samples are clustered into 1 cluster) to $M$ (where each sample is assigned its own cluster) with the computational cost increasing as the number of clusters are increased. Choosing a small number of clusters (10-20) has been shown to give good accuracy while being computationally fast. The
 
-The entire methodology is summarized in @fig-method_flowchart :
+2.c) The posterior predictive distribution of a candidate model is then calculated as a weighted sum of the posterior predictive distributions of each cluster$q(\tilde{y}) = \sum_{l = 1}^{C} w_l N(X_{cand}\beta_l, \sigma_l^2)$, where $w_l$ is fixed the fraction of total samples $M$ in cluster $c_l$ or $w_l = \frac{|c_l|}{M}$. We then add the wavelength for which the mean posterior predictive error compared with the observations is the lowest.
+
+3\) For selecting the size (number of wavelengths) of the submodels, we use the validation data (or use cross-validation) to prevent overfitting. We draw posterior predictive samples from both the reference model and the sub models for each model size, and calculate the point estimates and standard errors of the mean squared errors with the validation data. A
+
+of the difference in the squared residuals between the two predictions. We select the final model size if the predictions from submodel is within one standard
+
+<!--# there is a confusion between the terms of \mu for full model and reduced model. I need to work on this. I think \tilde{y}_m and \mu are the same. It will be helpful to have the same notation for the two. -->
+
+Equation () gives us the optimal model for a given complexity i.e. for a given number of input wavelengths $p_*$. To determine the minimum value of $p_*$, we compare the predictive utility of the reference model and the set of reduced models for each $p_*$ over a validation set. For the validation set, we use K-fold cross validation, fitting and validating the reduced model K times to avoid over fitting. The entire methodology is summarized in @fig-method_flowchart.
+
+::: content-hidden
+Since we are working in a Bayesian framework, we choose the mean log predictive density (MLPD) as our predictive utility function as it not only compares the point predictions but also the predictive uncertainties associated with the reduced model. This gives MLPD a significant advantage over commonly used utility functions such as mean squared error (MSE).
+:::
 
 <!--# In @fig-method_flowchart, add the prior and add projection predictive variable as another figure at top. Maybe add the horsehoe prior as an image and add all spectra image first and then during the posterior projection, add it as a few spectra -->
 
@@ -224,11 +237,9 @@ The entire methodology is summarized in @fig-method_flowchart :
 
 #### Posterior predictive checks
 
-Bayesian analysis provides us with a formal way to assess how the model performs via posterior predictive checks. After fitting the three Bayesian models using the training data, the Bayesian models, in essence, become data generating models. We use posterior predictive checks [@gabry2019] to simulate the posterior predictive distribution $p(\hat{y}|y) = \int p(\hat{y}|\theta) p(theta|y) d\theta$, where y is the training trait data, $\hat{y}$ is the predicted data and $\theta$ are the parameters of the model. Posterior predictive checks serve as an important visual tool to assess how well the model agrees with the training data (or even independent test data). Here we use the posterior predictive checks to see how well the fitted Bayesian models simulate the training data. This will help us to determine the fit of the model. @fig-posterior_predictive_checks presents the posterior predictive checks of the three models. The blue lines represent 1000 replications of the training data simulated from the Bayesian models while the dark black line represents the empirical distribution of the observations.
+A distinct advantage of Bayesian paradigm is that it provides us with a formal way to assess how the model performs via posterior predictive checks. After fitting the Bayesian model using training data, they, in essence, become data generating models. We use posterior predictive checks [@gabry2019] to simulate the posterior predictive distribution $p(\hat{y}|y) = \int p(\hat{y}|\theta) p(theta|y) d\theta$, where y is the training trait data, $\hat{y}$ is the predicted data and $\theta$ are the parameters of the model. Posterior predictive checks serve as an important visual tool to assess how well the model agrees with the training data (or even independent test data). Here we use the posterior predictive checks to see how well the fitted Bayesian models simulate the training data. This will help us to determine the fit of the model. @fig-posterior_predictive_checks presents the posterior predictive checks of the three models. The blue lines represent 1000 replications of the training data simulated from the Bayesian models while the dark black line represents the empirical distribution of the observations.
 
-We see that for all the three traits, thought the overall fit of the models to the training data is satisfactory, there are discrepancies associated with each trait. We assumed a normal model as our Bayesian model with the mean of the Bayesian model as a linear combination of the input spectra and a constant error variance. For the Carotenoid dataset, we can observe that the distribution of the data might be multimodal, which can motivate the use of a mixture of two normal models for better parameterization of trait data. For LMA, the observations are much more skewed than a normal distribution, leading to poor fits for the left and right tail and the peak of the distribution. The fit for the Nitrogen data is much better, though there is a slight discrepancy in the lower tail of the distribution.
-
-We find that overall, for all the three models, there is no overfitting to the observed data though @fig-posterior_predictive_checks points to further potential improvements in the model structure. Though improving individual trait models is beyond the scope of the current work, we provide some directions on how it can be achieved in the "Future Section" below.
+We see that for all the three traits, though the overall fit of the models to the training data is satisfactory, there are certain discrepancies associated with each trait fit. We assumed a normal model as our Bayesian model with the mean of the Bayesian model as a linear combination of the input spectra and a constant error variance. For the carotenoid dataset, we can observe that the distribution of the data might be multimodal; for LMA, the observations are much more skewed than a normal distribution, leading to poor fits for the left and right tail and the peak of the distribution; for nitrogen data the fit is much better, though there is a slight discrepancy in the left tail of the distribution. @fig-posterior_predictive_checks, thus points to further potential improvements in the model structure. In order to do a fair comparison with the PLSR approach, we do not fine tune the Bayesian model, but provide some suggestions for the same in @sec-future_direction . Posterior predictive checks, hence serve as a good visual tool for Bayesian model building.
 
 ![Posterior predictive checks for assesing model fit for the three traits](paper_draft/figures/posterior%20predictive%20checks.png){#fig-posterior_predictive_checks}
 
@@ -296,13 +307,19 @@ To determine the convergence of the parameters in the MCMC chain, the most widel
 
 ### Prediction of algorithm on CABO data
 
-The comparison of the mean posterior prediction plots for the CABO dataset compared with the PLSR plots are given in @fig-plsr_vs_bayesian_full . We find that the mean posterior predictions are comparable to the PLSR algorithm predictions slightly outperforming it for Carotenoid and LMA while significantly improving upon PLSR for Nitrogen in terms of RMSE. For Nitrogen data, the Bayesian approach possibly corrects for the bias in PLSR estimation which leads to an improvement in the RMSE values. It is also important to note that the for both Carotenoid and LMA data, the Bayesian (and the PLSR) algorithm does poorly in predicting some of the trait values. Though it might not always be the case, this is similar to our findings from the posterior predictive checks in @fig-posterior_predictive_checks where Carotenoid and LMA did poorly compared to Nitrogen dataset.
+The comparison of the mean posterior prediction plots for the CABO dataset compared with the PLSR plots are given in @fig-plsr_vs_bayesian_full. We find that the mean posterior predictions are comparable to the PLSR algorithm predictions slightly outperforming it for carotenoid and LMA while significantly improving upon PLSR for Nitrogen in terms of RMSE. For nitrogen data, the Bayesian approach possibly corrects for the bias in PLSR estimation which leads to an improvement in the RMSE values. It is also important to note that the for both carotenoid and LMA data, the Bayesian (and the PLSR) algorithm does poorly in predicting some of the trait values. Though it might not always be the case, this is similar to our findings from the posterior predictive checks in @fig-posterior_predictive_checks where carotenoid and LMA did poorly compared to nitrogen dataset.
 
-The Bayesian algorithm comes with the added advantage of providing posterior predictive uncertainty along with the mean predictions which allows us to assess the variability of our predictions associated with new datasets. The top row of @fig-bayesian_full_vs_bayesian_reduced represents the 90% prediction intervals associated with each of the predictions. We find that the uncertainty is the highest for the Carotenoid dataset while it is the least for the LMA dataset. This is understandable as the training data for Carotenoid was the least (??? training observations) and was the highest for LMA ( ??? training observations).\
+![Comparison of PLSR predictions vs mean of posterior predictions using the full Bayesian model on CABO dataset.](paper_draft/figures/prediction_bayesian_plsr_comparison.png){#fig-plsr_vs_bayesian_full}
+
+The Bayesian algorithm comes with the added advantage of providing posterior predictive uncertainty along with the mean predictions which allows us to assess the variability of our predictions associated with new datasets. The top row of @fig-bayesian_full_vs_bayesian_reduced represents the 90% prediction intervals associated with each of the predictions. We find that the predictive uncertainty is the highest for carotenoid dataset (due to less training data) and least for LMA (due to more training data).\
 \
-The above results showcase the advantage of the Bayesian approach over the traditional PLSR algorithm. First, the Bayesian methods works in the original spectral space as opposed to any transformed latent scale. Combined with the projective inference algorithm, as will be shown in the next section, this helps in understanding which spectra are relevant for a particular trait and also allow a natural way for input spectral uncertainty. Input spectral uncertainty becomes especially important when statistical algorithms are applied for remote sensing data such as airborne and satellite data which are subject to errors due to various atmospheric and topographical effects on remote sensing retrievals. Second, the Bayesian method provides uncertainty in predictions in the form of posterior prediction intervals. Though PLSR methods can also account for predictive uncertainties using bootstrap (give Singh paper citation), it does not take into account the prior information we might have about the relationship of the spectra with trait.\
+The above results showcase the advantage of the Bayesian approach over the traditional PLSR algorithm. First, the Bayesian methods works in the original spectral space as opposed to any transformed latent scale. Combined with the projective inference algorithm, as will be shown in the next section, this helps in understanding which spectra are relevant for a particular trait and also allow a natural way for incorporating input spectral uncertainty. Input spectral uncertainty becomes especially important when statistical algorithms are applied for remote sensing data such as airborne and satellite data which are subject to errors due to the effects of various atmospheric and topographical factors on remote sensing retrievals. This is also discussed in @sec-future_direction. Second, the Bayesian method provides rigorous uncertainty quantification in the form of posterior predictive credible intervals which are more easy to interpret than confidence intervals. Though PLSR methods can also account for predictive uncertainties using bootstrap (give Singh paper citation), bootstrap uncertainty tries to approximate a non-informative posterior distribution by generally assuming that the training sample well approximates the true population. This have been shown to give inaccurate confidence intervals for small to practical sample sizes [@chernick2009; @hesterberg2015]. Additionally, it does not take into account any prior information we might have about the relationship between spectra and traits.
 
-![Comparison of PLSR predictions vs mean of posterior preductions using the full Bayesian model on CABO dataset.](paper_draft/figures/bayesian_full_vs_PLSR.png){#fig-plsr_vs_bayesian_full}
+```{r}
+#| echo: FALSE
+#source("/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Plotting/posterior_predictions.R")
+```
+
 
 <!--# Included comparison with the PLSR approach -->
 
@@ -312,32 +329,49 @@ The above results showcase the advantage of the Bayesian approach over the tradi
 
 ## Reduced Bayesian model
 
-Though the full Bayesian model has good predictive capabilities, it is neverthless slow in predicting new data as it requires 2001 spectral bands as input. A commonly mentioned advantage of latent transformation approaches such as the PLSR is their enhanced computational speed due to a few latent input variables. To allow for fast computational speeds for the Bayesian method, we use the projective inference technique mentioned in Section ?? to each of the three fitted Bayesian models while preserving the predictive accuracy of the full Bayesian models. The projective inference also helps us to identify the relevant spectra important for a particular trait.
+Though the full Bayesian model has good predictive capabilities, it is nevertheless slow in predicting new data as it requires all 2001 spectral bands as input. A commonly mentioned advantage of latent transformation approaches such as the PLSR is their enhanced computational speed due to a few latent (orthogonally projected) input variables. To allow for fast computational speeds for the Bayesian method, we use the projective inference technique (@sec-methods_posterior_projection) to each of the three full Bayesian models. In addition to faster computation, the projective inference also gives us an indication about the spectral wavelengths that are important for predicting a particular trait. Using k-fold (5-fold for carotenoid and nitrogen; 3-fold for LMA) cross validation following (@sec-methods_posterior_projection), we find the minimal subset of wavelengths ( @fig-carotenoid_variable_selection) , such that adding more wavelengths to the model does not increase predictive accuracy when compared with the full Bayesian model.
 
-![Selection of relevant spectral bands for maintaining the same predictive accuracy as the full model](paper_draft/figures/Carotenoid_variable_selection.png){#fig-carotenoid_variable_selection width="544"}
+```{r}
+#| echo: FALSE
+#source("R_codes/Plotting/posterior_predictions.R")
+```
 
-To account for possible overfitting, we take the first 40 important spectra as found by the projective inference technique ( @fig-carotenoid_variable_selection ). Fig @fig-bayesian_full_vs_bayesian_reduced presents the comparison of the posterior predictive uncertainty between the full Bayesian model and the reduced model. We find that in terms of comparing the uncertainty between the two models, the reduced model reduces the posterior predictive uncertainty on the CABO dataset.
+![K-fold cross validation results for selection of relevant spectra to form the submodel](paper_draft/figures/carotenoid_cv_results.png){#fig-carotenoid_variable_selection}
 
-![Comparison of full Bayesian model with the reduced Bayesian model](paper_draft/figures/bayesian_full_vs_bayesian_reduced.png){#fig-bayesian_full_vs_bayesian_reduced}
+This results in 14 wavelengths for carotenoid, 28 for nitrogen, and 30 for LMA ( @fig-spectra_importance) . @fig-bayesian_full_vs_bayesian_reduced presents the comparison of the posterior predictive distribution between the full Bayesian model and the reduced model for the CABO dataset. The RMSE and R metrics are given for the means of the respective predictive distributions when compared with the observations. We find that the reduced model predictions are comparable to the full model predictions but at a fraction of the computational cost. Additionally, the reduced model decreases the posterior predictive uncertainty due to significantly less number of input wavelengths as compared to the full model.
+
+```{r}
+#| echo: FALSE
+#source("/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Plotting/posterior_predictions.R")
+```
+
+![Most important spectra for each of the traits](paper_draft/figures/spectra_importance.png){#fig-spectra_importance}
+
+As mentioned in @sec-methods_posterior_projection, the reduced model finds a minimal subset of wavelengths (which are not necessarily unique) such that adding more wavelengths to the model will not lead to a significant increase in the predictive accuracy when compared with the full model. We can still use @fig-spectra_importance, to identify the VSWIR regions that are important for predicting a particular trait. For carotenoid, the red-edge (add citation) region comprises the most important wavelength, along with a cluster of sensitive wavelength from 1150 nm - 1300 nm. Carotenoid also has some important wavelengths in the visible spectrum (500 nm - 650 nm) and in the SWIR region (1300 nm - 2500 nm). For nitrogen, the red-edge again comprises the most important wavelength with the rest of the important wavelengths clustered around the region 1400 nm - 1900 nm and some wavelengths in the NIR and 2000-2500 nm region.
+
+![Comparison of full Bayesian model with the reduced Bayesian model](paper_draft/figures/prediction_bayesian_full_model_reduced_model.png){#fig-bayesian_full_vs_bayesian_reduced}
 
 @fig-spectra_importance shows the important spectra for each of the given traits.
 
-![Most important spectra for each of the traits](paper_draft/figures/spectra_importance.png){#fig-spectra_importance}
+```{r}
+#| echo: FALSE
+#source("R_codes/Plotting/spectra_importance_rank.R")
+```
 
 <!--# includes the plots for parameter uncertainty -->
 
 <!--# includes the speed comaparison -->
 
-### Future Direction
+### Future Direction {#sec-future_direction}
 
-In this work, we have restricted ourselves to using linear gaussian model with a fixed measurement error. But as @fig-posterior_predictive_checks shows us, a simple linear model might not be enough to characterize the effects of spectra on traits. A distinct advantage of Bayesian methods is their ability to easily add complexity to an existing model structure. There are various ways in which we can extend the current linear model. First, we can relax the assumption of a Gaussian model for the traits and experiment with other probability density functions such as Gamma distributions, Student-t distributions and mixture models. The posterior predictive checks or other formal measures of model comparison such as the Deviance Information Criterion (DIC) can be a way to select the appropriate model. Second, we can extend the global Gaussian model to a hierarchical model by recognizing the inherent groups that exist in plants ( @fig-hierarchical_model) such as broadleaf/needleleaf, deciduous/evergreen, etc. Bayesian hierarchical methods explicitly accommodate variability in the relationship between traits and spectra across different groups , effectively sharing information and improving parameter estimation (which is especially important for undersampled groups). Lastly, the linear relationship between spectra and traits is another assumption that can be challenged. Bayesian methods are easily amenable to include non-linear effects of spectra on traits.
+![Extension of the Bayesian linear approach to model hierarchical relationships between spectra and trait](paper_draft/figures/future_work_hierarchical.png){#fig-hierarchical_model}
+
+In this work, we have restricted ourselves to using linear gaussian model with a fixed measurement error. But as @fig-posterior_predictive_checks shows us, a simple linear model might not be enough to characterize the effects of spectra on traits. A distinct advantage of Bayesian methods is their ability to easily add complexity to an existing model structure. There are various ways in which we can extend the current linear model. First, we can relax the assumption of a Gaussian model for the traits and experiment with other probability density functions such as Gamma distributions, Student-t distributions and mixture models. The posterior predictive checks or other formal measures of model comparison such as the Deviance Information Criterion (DIC) can be a way to select the appropriate model. Second, we can extend the model to a hierarchical setup by recognizing the inherent groups that exist in plants ( @fig-hierarchical_model) such as broadleaf/needleleaf, deciduous/evergreen, etc. Bayesian hierarchical methods explicitly accommodate variability in the relationship between traits and spectra across different groups, effectively sharing information and improving parameter estimation (which is especially important for undersampled groups). Lastly, the linear relationship between spectra and traits is another assumption that can be challenged. Bayesian methods are easily amenable to include non-linear effects of spectra on traits.
 
 ## Conclusion
 
 <!--# Includes work on how to extend the work to non-linearity -->
 
 <!--# Includes the discussion of hierarchical modeling -->
-
-![Extension of the Bayesian linear approach to model hierarchical relationships between spectra and trait](paper_draft/figures/future_work_hierarchical.png){#fig-hierarchical_model}
 
 ## References

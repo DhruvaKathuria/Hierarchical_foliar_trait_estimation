@@ -7,7 +7,11 @@ library(projpred)
 source("R_codes/input_parameter_file.R")
 source("R_codes/Regression_algorithms/data_preprocessing_for_algorithms.R")
 
-date_for_brms_file <- "2023-08-14" #this is the date the brms file was saved
+date_vector = c("LMA" = "2023-12-26",
+                "Nitrogen" = "2023-12-21",
+                "Carotenoid_Area" = "2024-02-12")
+
+date_for_brms_file <- date_vector[trait_name1] #this is the date the brms file was saved
 # in folder code data/code_output_data. brms
 # files are saved using supervised_pc_and....R
 
@@ -15,7 +19,8 @@ date_for_brms_file <- "2023-08-14" #this is the date the brms file was saved
 data_folder <- "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/Github_data/Hierarchical_foliar_trait_estimation"
 
 # Analysis for full model -------------------------------------------------
-brms_normal <- readRDS(paste0(data_folder,  "/data/code_output_data/brms_object_",
+brms_normal <- readRDS(paste0(data_folder,  
+                              "/data/code_output_data/brms_full_model_files/brms_object_",
                               trait_name1, 
                               "_",
                               prediction_algorithm,
@@ -26,7 +31,7 @@ brms_normal <- readRDS(paste0(data_folder,  "/data/code_output_data/brms_object_
 
 # Bayesian predictions full model -----------------------------------------
 
-prediction_bayesian <- predict(brms_normal, data_test_for_analysis, probs = c(0.1, 0.9), ndraws = 2000)
+prediction_bayesian <- predict(brms_normal, data_test_for_analysis, probs = c(0.1, 0.9))
 prediction_bayesian_df <- prediction_bayesian[, -2] * sd(data_train_for_hierarchical_analysis$trait) + 
   mean(data_train_for_hierarchical_analysis$trait) 
 
@@ -45,7 +50,13 @@ data_test_for_analysis_Bayesian <- data_test_for_analysis_Bayesian |>
 data_test_for_analysis_Bayesian <- data_test_for_analysis_Bayesian |> 
   select(!(starts_with("x")))
 
-data_frame_with_PLSR_predictions <- readRDS(str_glue("{data_folder}/data/code_output_data/PLSR_object_LOO_{trait_name1}.rds"))
+#CHANGE THIS LATER, DONT FORGET
+if(trait_name1 == "LMA")
+{
+  data_frame_with_PLSR_predictions <- readRDS(str_glue("{data_folder}/data/code_output_data/PLSR_object_{trait_name1}.rds"))
+}else{
+  data_frame_with_PLSR_predictions <- readRDS(str_glue("{data_folder}/data/code_output_data/PLSR_object_LOO_{trait_name1}.rds"))
+}
 data_frame_with_PLSR_predictions <- janitor::clean_names(data_frame_with_PLSR_predictions)
 data_test_predictions <- dplyr :: left_join(data_test_for_analysis_Bayesian, 
                                            data_frame_with_PLSR_predictions, 
@@ -80,17 +91,23 @@ readr :: write_csv(data_test_predictions_long,
 # reduced model -----------------------------------------------------------
 
 # Reduced model predictions -----------------------------------------------
-cv_out <- readRDS(paste0(data_folder, "/data/code_output_data/proj_pred_object_",
-                         trait_name1, 
-                         "_",
-                         prediction_algorithm,
-                         "_",
-                         date_for_brms_file,
-                         ".rds"))
+# cv_out <- readRDS(paste0(data_folder, "/data/code_output_data/proj_pred_object_",
+#                          trait_name1, 
+#                          "_",
+#                          prediction_algorithm,
+#                          "_",
+#                          date_for_brms_file,
+#                          ".rds"))
 
-vsel <- solution_terms(cv_out)[1:38]
+nsel_vector <- c("LMA" = "30",
+                 "Nitrogen" = "28" ,
+                 "Carotenoid_Area" = "14")
 
-prj <- project(brms_normal, solution_terms = vsel)
+nsel <- nsel_vector[trait_name1]
+#vsel <- ranking(cv_out)[["fulldata"]][1:30]
+vsel <- readRDS(str_glue("{data_folder}/data/code_output_data/projpred_files/vsel_{trait_name1}_nsel_{nsel}_{date_for_brms_file}.rds"))
+
+prj <- project(brms_normal, predictor_terms = vsel, ndraws = 5000)
 prj_linpred <- proj_linpred(prj, newdata = data_test_for_analysis, integrated = FALSE)
 prj_linpred_pred <- prj_linpred$pred
 

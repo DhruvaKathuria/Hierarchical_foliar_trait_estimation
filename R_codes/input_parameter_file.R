@@ -1,4 +1,4 @@
-trait_name1 = "LMA"
+trait_name1 = "Carotenoid_Area"
 site_name1 = c("cabo-2018-2019-leaf-level-spectra")
 group_variable = "leaf_classification"
 hierarchical = F

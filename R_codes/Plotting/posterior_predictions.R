@@ -37,32 +37,44 @@ prediction_files_reduced_edit <- prediction_files_reduced[-ind_remove, ] |>
 prediction_files_edit <- prediction_files_full_edit |> bind_rows(prediction_files_reduced_edit)
 
 
-prediction_files_edit |> 
-  dplyr:: filter(model == "full model",
-         prediction %in% c("bayesian (mean)", "PLSR")) |> 
-  ggplot(aes(x = value, y = trait)) +
-  geom_point(aes(col = trait_name), shape = 21, fill = "white") +
-  geom_abline() +
-  facet_wrap(prediction ~ trait_name,
-             scales = "free")
-
-ggsave(filename = "prediction_bayesian_plsr_comparison.png",
-       width  = 8,
-       height = 6,
-       units = "in")
-
-prediction_files_edit |> 
+summary_tibble_full <- prediction_files_edit |> 
   filter(model == "full model",
          prediction %in% c("bayesian (mean)", "PLSR")) |> 
   group_by(trait_name, prediction) |> 
   summarize(RMSE  = sqrt(mean((trait - value)^2)),
             R = cor(trait, value))
 
-prediction_files_edit |> 
+summary_tibble_full_unique <- summary_tibble_full  |> 
+  distinct(trait_name, prediction, .keep_all = TRUE) |> 
+  mutate (RMSE = round(RMSE, 2),
+          R = round(R, 2))
+
+ggplot(prediction_files_edit %>%
+         filter(model == "full model", prediction %in% c("bayesian (mean)", "PLSR")), aes(x = value, y = trait, col = trait_name)) +
+  geom_point(shape = 21, fill = "white") +
+  geom_abline() +
+  geom_text(data = summary_tibble_unique, aes(x = -Inf, y = Inf, label = paste("RMSE:", RMSE, "\nR:", R)), 
+            hjust = 0, vjust = 1, check_overlap = TRUE) +
+  facet_wrap(prediction ~ trait_name, scales = "free")
+
+ggsave(filename = "paper_draft/figures/prediction_bayesian_plsr_comparison.png"
+       #width  = 8,
+       #height = 6,
+       #units = "in"
+       )
+
+
+
+summary_tibble_reduced <- prediction_files_edit |> 
          filter(prediction %in% "bayesian (mean)") |> 
   group_by(trait_name, model) |> 
   summarize(RMSE  = sqrt(mean((trait - value)^2)),
             R = cor(trait, value))
+
+summary_tibble_reduced_unique <- summary_tibble_reduced  |> 
+  distinct(trait_name, model, .keep_all = TRUE) |> 
+  mutate (RMSE = round(RMSE, 2),
+          R = round(R, 2))
 
 prediction_files_edit |> 
   filter(prediction %in% c("bayesian (mean)",
@@ -77,14 +89,17 @@ prediction_files_edit |>
   geom_errorbar(aes(xmin = `bayesian 10th %tile`, 
                     xmax = `bayesian 90th %tile`)) +
   geom_point(shape = 21, fill = "white", alpha = 0.6) +
+  geom_text(data = summary_tibble_reduced_unique, aes(x = -Inf, y = Inf, label = paste("RMSE:", RMSE, "\nR:", R)), 
+            hjust = 0, vjust = 1, check_overlap = TRUE) +
   geom_abline() +
   facet_wrap(model ~ trait_name,
              scales = "free")
 
-ggsave(filename = "prediction_uncertainty_comparison.png",
-       width  = 8,
-       height = 6,
-       units = "in")
+ggsave(filename = "paper_draft/figures/prediction_bayesian_full_model_reduced_model.png",
+       #width  = 8,
+       #height = 6,
+       #units = "in"
+       )
 
 prediction_files_edit |> 
   filter(trait_name == "LMA",
