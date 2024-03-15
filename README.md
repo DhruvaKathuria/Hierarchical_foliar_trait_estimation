@@ -3,6 +3,9 @@
 ---
 # Hierarchical_foliar_trait_estimation
 Estimating  foliar plant function traits using hyperspectral data.
+
+## Paper
+The working manuscript file is **paper_manuscript.qmd**
  
 ## Getting and Cleaning ECOSIS data
 All codes in R_codes/Getting_and_cleaning_ECOSIS_data
