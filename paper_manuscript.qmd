@@ -58,6 +58,7 @@ The observations span a wide range of climatic and geographic range ( @fig-study
 
 We downloaded and processed all spectra and trait data from EcoSIS so that they have the same units across datasets. We took only those data which have all the reflectance spectral wavelengths available from 400 nm-2400 nm at a spectral resolution of 1 nm. Since the trait units are different across study areas, the traits are converted to common units; carotenoid : $\mu g/cm^{2}$, nitrogen : ($mg/g$) and LMA : $g/m^{2}$.
 
+<!-- [Alexey] Depending on journal, this paragraph may need to go in a separate "Data availability statement" or similar. -->
 To avoid replication of effort in acquiring trait datasets from the ECOSIS website, the entire workflow and associated R scripts for downloading the data from the ECOSIS website and compiling/processing the data to user-defined units is given here <!--# add hyperlink to Github page --> .
 
 ## Model description
@@ -188,6 +189,8 @@ $$ {#eq-posterior_parameter_full_model}
 
 where $p(Y|\beta, \sigma^2)$ is given by @eq-linear_model_probability. For computing the posterior probability distribution, we use the probabilistic programming language Stan [@standevelopmentteam2018] which uses Markov chain Monte Carlo (MCMC) algorithms such as the Hamiltonian Monte Carlo (HMC) [@duaneHybridMonteCarlo1987] and its extension the No-U-Turn Sampler (NUTS) [@hoffmanNoUTurnSamplerAdaptively2014]. These algorithms work well with high dimensional models and can be used with any prior distribution [@hoffmanNoUTurnSamplerAdaptively2014; @betancourtConceptualIntroductionHamiltonian2017; @burknerBrmsPackageBayesian2017]. The Stan implementation is done using the R language interface provided by the package "brms" [@burknerBrmsPackageBayesian2017].
 
+**TODO**: A bit more on MCMC implementation --- number of chains, convergence diagnostics, etc.
+
 ### Model reduction in original spectral space
 
 Though the full Bayesian model in @sec-full_bayesian_model is formulated to have good predictive accuracy, it makes use of all the input wavelengths to predict new data and as a result, has a high computational cost and is less interpretable. We remedy this by defining a model which takes a relevant subset of the input hyperspectral wavelengths as input while still mimicking the predictive capability of the full model. Therefore, our aim is to find a sub-model such that
@@ -201,6 +204,8 @@ such that $|\boldsymbol{x_{s,i}}| = (p_{s} + 1) << |\boldsymbol{x_i}| = (p + 1) 
 ![Comparison between PLSR and the proposed Bayesian approach](paper_draft/figures/Method_flowchart.png){#fig-method_flowchart}
 
 #### Posterior projection of full model {#sec-methods_posterior_projection}
+
+<!-- [Alexey] Consider moving this detailed description to the supplement and inserting here a simple and succinct description of the algorithm. -->
 
 To formulate the reduced model, we use posterior projection [@juhopiironenProjectiveInferenceHighdimensional2020], which consists of replacing the posterior distribution of the parameters of the full model --e.g. $\boldsymbol{\theta}$ of the Bayesian regression model in @sec-full_bayesian_model -- with a simpler distribution $q(\theta_{*}$). The full model is also called the reference model and we denote posterior distribution of its parameters as $p(\boldsymbol{\theta}|\mathcal{D})$, where $\mathcal{D}$ is the training data. For the reference model in Section M.1, restricting the model means setting some regression coefficients in $\boldsymbol{\beta}$ in the reference model equal to zero. The posterior projection is defined in terms of the loss in posterior predictive accuracy --in terms of the Kullback-Liebler or KL divergence-- when the submodel is used in place of the reference model. Specifically,
 
@@ -237,6 +242,17 @@ Since we are working in a Bayesian framework, we choose the mean log predictive 
 :::
 
 <!--# In @fig-method_flowchart, add the prior and add projection predictive variable as another figure at top. Maybe add the horsehoe prior as an image and add all spectra image first and then during the posterior projection, add it as a few spectra -->
+
+## PLSR modeling
+
+**TODO**: How we did the PLSR predictions for Figure 6.
+
+## Analysis of results
+
+**TODO**:
+- Posterior predictive checks
+- Cross validation
+- Any other analyses we did
 
 # Results and Discussion
 
