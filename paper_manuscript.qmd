@@ -9,7 +9,9 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+<!-- TODO: Abstract -->
+
+# Introduction
 
 ```{r}
 #| echo: FALSE
@@ -35,6 +37,8 @@ The objective of this paper is to present a computationally efficient Bayesian f
 
 We also discuss how the Bayesian framework can be easily extended to.... which will potentially open a previously unexplored research territory of exploring the relationships between spectra and traits beyond finding global relationships between the two.
 
+# Methods
+
 ## Study Area and Data
 
 To assess the feasibility of the proposed Bayesian method, we use paired observations of spectra and traits for three foliar traits: carotenoid ( $Car_{area}$; area basis), Nitrogen ($N{mass}$; mass basis) and Leaf Mass per Area (LMA) paired with hyperspectral reflectance data from 400 nm to 2400 nm from publicly available Ecological Spectral Information System (EcoSIS) library (citation needed). LMA influences leaf longevity, light interception by leaves and effects photosynthetic productivity [@wright2004; @díaz2016; @reich2014; @wang2019; @cherif2023]. Leaf Nitrogen regulates plant photosynthetic rate -- most importantly through ribulose-1,5-bisphosphate carboxylase/oxygenase (Rubisco) -- and is useful to parameterize photosynthetic processes in ecosystem models [@evansPhotosynthesisNitrogenRelationships1989; @evansNitrogenCostPhotosynthesis2019]. Carotenoids are leaf pigments crucial for photosynthesis, photooxidative protection, pigmentation and phytohormone synthesis [@armstrongCarotenoidsGeneticsMolecular1996; @maokaCarotenoidsNaturalFunctional2020; @sunPlantCarotenoidsRecent2022] . Carotenoid derived compounds affect the flavor and aroma of crops as well as development of defense-related plant compounds [@simkinCarotenoidsApocarotenoidsPlanta2021] .
@@ -50,13 +54,13 @@ The observations span a wide range of climatic and geographic range ( @fig-study
 
 ![Posterior predictive checks for assesing model fit for the three traits](paper_draft/figures/world_map.png){#fig-studyarea}
 
-### Data Processing
+## Data Processing
 
 We downloaded and processed all spectra and trait data from EcoSIS so that they have the same units across datasets. We took only those data which have all the reflectance spectral wavelengths available from 400 nm-2400 nm at a spectral resolution of 1 nm. Since the trait units are different across study areas, the traits are converted to common units; carotenoid : $\mu g/cm^{2}$, nitrogen : ($mg/g$) and LMA : $g/m^{2}$.
 
 To avoid replication of effort in acquiring trait datasets from the ECOSIS website, the entire workflow and associated R scripts for downloading the data from the ECOSIS website and compiling/processing the data to user-defined units is given here <!--# add hyperlink to Github page --> .
 
-## Methods
+## Model description
 
 In this section, we first describe the Bayesian regression model used in predicting traits using hyperspectral data. Formulating appropriate priors is essential for high dimensional problems (where number of input spectral bands is large) to avoid overfitting; thus we also define the relevant priors used in the current work. To enable computationally efficient prediction on new data while maintaining the predictive capabilities of the Bayesian model, we project the Bayesian model to a simpler model using projective inference [@juhopiironenProjectiveInferenceHighdimensional2020]. As opposed to the full Bayesian model, the projected model requires only a subset of input spectra thus drastically improving computational speed and facilitating interpretation.
 
@@ -234,13 +238,13 @@ Since we are working in a Bayesian framework, we choose the mean log predictive 
 
 <!--# In @fig-method_flowchart, add the prior and add projection predictive variable as another figure at top. Maybe add the horsehoe prior as an image and add all spectra image first and then during the posterior projection, add it as a few spectra -->
 
-## Results and Discussion
+# Results and Discussion
 
 <!--# Things I can write in the discussion Section      1) Posterior parameter inference      2) How well the predictions are doing      3) Looking at the final wavelenghts which are important for the LMA, etc. and see a correspondence of that with previous work      4) Future work and how we can extend the current work. Some drawbacks of the method.  -->
 
-### Full Bayesian model
+## Full Bayesian model
 
-#### Posterior predictive checks
+### Posterior predictive checks
 
 A distinct advantage of Bayesian paradigm is that it provides us with a formal way to assess how the model performs via posterior predictive checks. After fitting the Bayesian model using training data, they, in essence, become data generating models. We use posterior predictive checks [@gabry2019] to simulate the posterior predictive distribution $p(\hat{y}|y) = \int p(\hat{y}|\theta) p(theta|y) d\theta$, where y is the training trait data, $\hat{y}$ is the predicted data and $\theta$ are the parameters of the model. Posterior predictive checks serve as an important visual tool to assess how well the model agrees with the training data (or even independent test data). Here we use the posterior predictive checks to see how well the fitted Bayesian models simulate the training data. This will help us to determine the fit of the model. @fig-posterior_predictive_checks presents the posterior predictive checks of the three models. The blue lines represent 1000 replications of the training data simulated from the Bayesian models while the dark black line represents the empirical distribution of the observations.
 
@@ -248,7 +252,7 @@ We see that for all the three traits, though the overall fit of the models to th
 
 ![Posterior predictive checks for assesing model fit for the three traits](paper_draft/figures/posterior%20predictive%20checks.png){#fig-posterior_predictive_checks}
 
-### Parameter inference
+## Parameter inference
 
 To determine the convergence of the parameters in the MCMC chain, the most widely used metric is the potential scale reduction factor $\hat{r}$ [@gelman1992]. The $\hat{r}$ values determine whether the independent parametesr of a model have converged or not. A value of $\hat{r}$ equal to 1 implies that the parameter has converged. In our analysis, we find that for many variables, the $\hat{r}$ values vary from <!--#  --> to <!--#  -->. This is a well known issue with the HMC sampler using horseshoe priors when dealing with highly correlated inputs with a low number of observations and has been shown to not cause any loss in predictive accuracy of the model [@piironen2017].
 
@@ -310,7 +314,7 @@ To determine the convergence of the parameters in the MCMC chain, the most widel
 #        units = "in")
 ```
 
-### External validation of the algorithms
+## External validation of the algorithms
 
 The comparison of the mean posterior prediction plots for the CABO dataset compared with the PLSR plots are given in @fig-plsr_vs_bayesian_full. We find that the mean posterior predictions are comparable to the PLSR algorithm predictions slightly outperforming it for carotenoid and LMA while significantly improving upon PLSR for Nitrogen in terms of RMSE. For nitrogen data, the Bayesian approach possibly corrects for the bias in PLSR estimation which leads to an improvement in the RMSE values. It is also important to note that the for both carotenoid and LMA data, the Bayesian (and the PLSR) algorithm does poorly in predicting some of the trait values. Though it might not always be the case, this is similar to our findings from the posterior predictive checks in @fig-posterior_predictive_checks where carotenoid and LMA did poorly compared to nitrogen dataset.
 
@@ -331,7 +335,7 @@ The above results showcase the advantage of the Bayesian approach over the tradi
 
 <!--# includes the prediction uncertainty quantification plots -->
 
-### Reduced Bayesian model
+## Reduced Bayesian model
 
 Though the full Bayesian model has good predictive capabilities, it is nevertheless slow in predicting new data as it requires all 2001 spectral bands as input. A commonly mentioned advantage of latent transformation approaches such as the PLSR is their enhanced computational speed due to a few latent (orthogonally projected) input variables. To allow for fast computational speeds for the Bayesian method, we use the projective inference technique (@sec-methods_posterior_projection) to each of the three full Bayesian models. In addition to faster computation, the projective inference also gives us an indication about the spectral wavelengths that are important for predicting a particular trait. Using k-fold (5-fold for carotenoid and nitrogen; 3-fold for LMA) cross validation following (@sec-methods_posterior_projection), we find the minimal subset of wavelengths ( @fig-carotenoid_variable_selection) , such that adding more wavelengths to the model does not increase predictive accuracy when compared with the full Bayesian model.
 
@@ -351,7 +355,7 @@ This results in 14 wavelengths for carotenoid, 28 for nitrogen, and 30 for LMA (
 
 ![Most important spectra for each of the traits](paper_draft/figures/spectra_importance.png){#fig-spectra_importance}
 
-#### Important spectral regions for traits
+### Important spectral regions for traits
 
 As mentioned in @sec-methods_posterior_projection, the reduced model finds a minimal subset of wavelengths (which are not necessarily unique) such that adding more wavelengths to the model will not lead to a significant increase in the predictive accuracy when compared with the full model. We can, however, still use @fig-spectra_importance, to identify the VSWIR regions that are important for predicting a particular trait.
 
@@ -376,13 +380,13 @@ For LMA, the SWIR region is the most important region for predicting LMA. The tw
 
 <!--# includes the speed comaparison -->
 
-### Future Direction {#sec-future_direction}
+## Future Direction {#sec-future_direction}
 
 ![Extension of the Bayesian linear approach to model hierarchical relationships between spectra and trait](paper_draft/figures/future_work_hierarchical.png){#fig-hierarchical_model}
 
 In this work, we have restricted ourselves to using linear gaussian model with a fixed measurement error. But as @fig-posterior_predictive_checks shows us, a simple linear model might not be enough to characterize the effects of spectra on traits. A distinct advantage of Bayesian methods is their ability to easily add complexity to an existing model structure. There are various ways in which we can extend the current linear model. First, we can relax the assumption of a Gaussian model for the traits and experiment with other probability density functions such as Gamma distributions, Student-t distributions and mixture models. The posterior predictive checks or other formal measures of model comparison such as the Deviance Information Criterion (DIC) can be a way to select the appropriate model. Second, we can extend the model to a hierarchical setup by recognizing the inherent groups that exist in plants ( @fig-hierarchical_model) such as broadleaf/needleleaf, deciduous/evergreen, etc. Bayesian hierarchical methods explicitly accommodate variability in the relationship between traits and spectra across different groups, effectively sharing information and improving parameter estimation (which is especially important for undersampled groups). Lastly, the linear relationship between spectra and traits is another assumption that can be challenged. Bayesian methods are easily amenable to include non-linear effects of spectra on traits.
 
-## Conclusion
+# Conclusion
 
 In this paper, we present a computationally efficient Bayesian framework that estimates traits directly from reflectance spectra without latent transformation, while rigorously propagating uncertainties. The results show that the Bayesian model performs comparably or slightly better than the PLSR approach in terms of Root Mean Square Error (RMSE) for the three traits examined while providing the advantage of working in the original spectral space and offering posterior predictive uncertainties, which aids in assessing the variability of predictions on new datasets. The Bayesian framework is demonstrated to be extendable to more complex models, such as hierarchical Bayesian models, which can account for site-specific and group-specific effects, integrate with physical models, and account for measurement errors of different instruments.
 
@@ -390,4 +394,4 @@ In this paper, we present a computationally efficient Bayesian framework that es
 
 <!--# Includes the discussion of hierarchical modeling -->
 
-## References
+# References
