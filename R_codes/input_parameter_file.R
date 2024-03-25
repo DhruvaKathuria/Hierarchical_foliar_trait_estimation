@@ -10,3 +10,11 @@ prediction_algorithm <- "raw_spectra" # options are "raw_spectra" which applies 
 PLSR_implementation <- F # Set to True if you want to compare the results with PLSR
 scale_x = T
 scale_y = T
+
+date_vector = c("LMA" = "2023-12-26",
+                "Nitrogen" = "2023-12-21",
+                "Carotenoid_Area" = "2024-02-12")
+
+nsel_vector <- c("LMA" = "30",
+                 "Nitrogen" = "28" ,
+                 "Carotenoid_Area" = "14")

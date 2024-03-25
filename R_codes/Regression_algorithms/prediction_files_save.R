@@ -7,9 +7,6 @@ library(projpred)
 source("R_codes/input_parameter_file.R")
 source("R_codes/Regression_algorithms/data_preprocessing_for_algorithms.R")
 
-date_vector = c("LMA" = "2023-12-26",
-                "Nitrogen" = "2023-12-21",
-                "Carotenoid_Area" = "2024-02-12")
 
 date_for_brms_file <- date_vector[trait_name1] #this is the date the brms file was saved
 # in folder code data/code_output_data. brms
@@ -99,15 +96,14 @@ readr :: write_csv(data_test_predictions_long,
 #                          date_for_brms_file,
 #                          ".rds"))
 
-nsel_vector <- c("LMA" = "30",
-                 "Nitrogen" = "28" ,
-                 "Carotenoid_Area" = "14")
-
 nsel <- nsel_vector[trait_name1]
 #vsel <- ranking(cv_out)[["fulldata"]][1:30]
-vsel <- readRDS(str_glue("{data_folder}/data/code_output_data/projpred_files/vsel_{trait_name1}_nsel_{nsel}_{date_for_brms_file}.rds"))
+vsel <- readRDS(stringr :: str_glue("{data_folder}/data/code_output_data/projpred_files/vsel_{trait_name1}_nsel_{nsel}_{date_for_brms_file}.rds"))
 
-prj <- project(brms_normal, predictor_terms = vsel, ndraws = 5000)
+prj <- projpred :: project(brms_normal, predictor_terms = vsel, ndraws = 5000)
+prj_mat <- as.matrix(prj)
+saveRDS(prj_mat, stringr :: str_glue("{data_folder}/data/code_output_data/projpred_files/{trait_name1}_posterior_parameter_matrix.rds"))
+
 prj_linpred <- proj_linpred(prj, newdata = data_test_for_analysis, integrated = FALSE)
 prj_linpred_pred <- prj_linpred$pred
 
