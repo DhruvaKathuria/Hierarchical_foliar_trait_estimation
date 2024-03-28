@@ -48,10 +48,8 @@ ppd1  %>%
                 prob = 0.90)
 
 
-# how many observations lie inside intervals ------------------------------
 
-ninety_percent_quantiles <- t(apply(ppd, 2, function(x)quantile(x, c(0.1, 0.9))))
-actual
-ninety_percent_quantiles <- mclapply(
-                          
+# reduced model -----------------------------------------------------------
+
+
 

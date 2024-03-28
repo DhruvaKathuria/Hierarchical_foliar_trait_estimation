@@ -2,6 +2,8 @@
 
 library(bayesplot)
 library(ggplot2)
+library(readr)
+library(scales)
 library(brms)
 library(projpred)
 library(viridis)  # for the viridis color scale
@@ -74,3 +76,44 @@ ggplot(data = out2, aes(x = V1, y = spectra_means)) +
 
 ggsave(filename = "paper_draft/figures/spectra_importance.png")
 
+
+
+
+# Ensure 'spectra_rank' and 'spectra_means' are numeric and handle NA values
+data$spectra_rank <- as.numeric(as.character(data$spectra_rank))
+data$spectra_means <- as.numeric(as.character(data$spectra_means))
+
+# Handle NA values in 'spectra_means' if necessary, for example, by replacing them with the mean
+data$spectra_means[is.na(data$spectra_means)] <- mean(data$spectra_means, na.rm = TRUE)
+
+# Check if 'spectra_means' has a valid range for scaling
+if(min(data$spectra_means) != max(data$spectra_means)) {
+  # Scale 'spectra_means' to the range of 'spectra_rank'
+  data$scaled_spectra_means <- rescale(data$spectra_means, to = range(data$spectra_rank, na.rm = TRUE))
+} else {
+  # Handle the case where 'spectra_means' cannot be scaled normally
+  # For example, set all scaled values to the midpoint of 'spectra_rank'
+  data$scaled_spectra_means <- mean(range(data$spectra_rank, na.rm = TRUE))
+}
+
+# Create the plot
+p <- ggplot(data, aes(x = V1)) + 
+  geom_line(aes(y = scaled_spectra_means), color = "green", alpha = 0.5, linewidth = 1) +  # Plotting the scaled means in the background
+  geom_point(aes(y = spectra_rank)) +  # Plotting the individual data points
+  facet_wrap(~ trait_name, scales = "free", ncol = 2) +  # Faceting by 'trait_name'
+  scale_y_reverse(breaks = seq(1, 30, by = 1), name = "Spectra Rank") +  # Inverting y-axis for 'spectra_rank'
+  scale_color_gradient(low = "blue", high = "red") +  # Continuous color scale for 'spectra_rank'
+  #theme_minimal() +  # Minimal theme for a cleaner look
+  labs(x = "Wavelength (nm)", y = "Spectra Rank")  # Adding labels
+
+# Add secondary axis for 'spectra_means' (if needed for clarity)
+p <- p + scale_y_continuous(sec.axis = sec_axis(~., name = "")) +
+  geom_text_repel(aes(y = spectra_rank, label = spectra_rank), 
+                  size = 2,  # Adjust text size as needed
+                  box.padding = 0.35,  # Adjust padding around text
+                  point.padding = 0.5,  # Adjust distance from points
+                  max.overlaps = Inf)  # Allow more overlaps if needed
+
+print(p)
+
+ggsave("paper_draft/figures/spectra_importance_2.png")

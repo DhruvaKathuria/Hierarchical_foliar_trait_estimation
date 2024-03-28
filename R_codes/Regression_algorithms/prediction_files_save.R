@@ -101,11 +101,11 @@ nsel <- nsel_vector[trait_name1]
 vsel <- readRDS(stringr :: str_glue("{data_folder}/data/code_output_data/projpred_files/vsel_{trait_name1}_nsel_{nsel}_{date_for_brms_file}.rds"))
 
 prj <- projpred :: project(brms_normal, predictor_terms = vsel, ndraws = 5000)
-prj_mat <- as.matrix(prj)
-saveRDS(prj_mat, stringr :: str_glue("{data_folder}/data/code_output_data/projpred_files/{trait_name1}_posterior_parameter_matrix.rds"))
+#prj_mat <- as.matrix(prj)
+#saveRDS(prj_mat, stringr :: str_glue("{data_folder}/data/code_output_data/projpred_files/{trait_name1}_posterior_parameter_matrix.rds"))
 
-prj_linpred <- proj_linpred(prj, newdata = data_test_for_analysis, integrated = FALSE)
-prj_linpred_pred <- prj_linpred$pred
+prj_linpred_pred <- proj_predict(prj, newdata = data_test_for_analysis, integrated = FALSE)
+#prj_linpred_pred <- prj_linpred$pred
 
 for(i in 1:ncol(prj_linpred_pred))
 {

@@ -1,4 +1,4 @@
-trait_name1 = "Carotenoid_Area"
+trait_name1 = "LMA"
 site_name1 = c("cabo-2018-2019-leaf-level-spectra")
 group_variable = "leaf_classification"
 hierarchical = F
@@ -18,3 +18,4 @@ date_vector = c("LMA" = "2023-12-26",
 nsel_vector <- c("LMA" = "30",
                  "Nitrogen" = "28" ,
                  "Carotenoid_Area" = "14")
+

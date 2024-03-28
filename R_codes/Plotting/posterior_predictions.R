@@ -53,7 +53,7 @@ ggplot(prediction_files_edit %>%
          filter(model == "full model", prediction %in% c("bayesian (mean)", "PLSR")), aes(x = value, y = trait, col = trait_name)) +
   geom_point(shape = 21, fill = "white") +
   geom_abline() +
-  geom_text(data = summary_tibble_unique, aes(x = -Inf, y = Inf, label = paste("RMSE:", RMSE, "\nR:", R)), 
+  geom_text(data = summary_tibble_full_unique, aes(x = -Inf, y = Inf, label = paste("RMSE:", RMSE, "\nR:", R)), 
             hjust = 0, vjust = 1, check_overlap = TRUE) +
   facet_wrap(prediction ~ trait_name, scales = "free")
 
