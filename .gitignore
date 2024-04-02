@@ -10,8 +10,13 @@ data_lma_train_complete.csv
 data_lma_test.csv
 prediction_files.csv
 supplementary_files
+paper_draft/figures/
 
 # Rendered final files --- typically not version controlled
 paper_manuscript.pdf
 paper_manuscript.docx
 paper_manuscript.html
+
+supplementary_file.pdf
+supplementary_file.docx
+supplementary_file.html

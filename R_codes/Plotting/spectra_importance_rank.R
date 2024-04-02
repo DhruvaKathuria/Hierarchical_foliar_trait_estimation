@@ -59,6 +59,12 @@ for(trait_name1 in c("LMA",  "Nitrogen", "Carotenoid_Area"))
   out1_list[[k]] = out1
 }
 
+for(k in 1:length(out1_list))
+{
+  max_rank <- max(out1_list[[k]]$spectra_rank, na.rm = T)
+  out1_list[[k]]$spectra_rank[is.na(out1_list[[k]]$spectra_rank)] = max_rank + 1
+}
+
 out2 <- data.table ::  rbindlist(out1_list)
 options(ggrepel.max.overlaps = Inf)
 ggplot(data = out2, aes(x = V1, y = spectra_means)) +
@@ -117,3 +123,67 @@ p <- p + scale_y_continuous(sec.axis = sec_axis(~., name = "")) +
 print(p)
 
 ggsave("paper_draft/figures/spectra_importance_2.png")
+
+data = out2
+na_rank_value <- ifelse(all(is.na(data$spectra_rank)), 0, max(data$spectra_rank, na.rm = TRUE) + 1)
+data$spectra_rank[is.na(data$spectra_rank)] <- na_rank_value
+
+# Ensure spectra_rank is numeric
+data$spectra_rank <- as.numeric(data$spectra_rank)
+
+# Create the plot
+na_rank_placeholder <- min(data$spectra_rank, na.rm = TRUE) - 1
+data$spectra_rank[is.na(data$spectra_rank)] <- na_rank_placeholder
+
+# Ensure spectra_rank is numeric for geom_line to work
+data$spectra_rank <- as.numeric(data$spectra_rank)
+
+# Create the plot with a line through points
+rank_range <- range(data$spectra_rank, na.rm = TRUE)
+breaks_at_5 <- seq(from = rank_range[1], to = rank_range[2], by = 5)
+
+p <- ggplot(data, aes(x = V1, y = spectra_rank, group = trait_name, color = trait_name)) +
+  geom_line() +
+  scale_y_continuous(trans = 'reverse',
+                     breaks = breaks_at_5, 
+                     labels = function(x) ifelse(x == na_rank_placeholder, "NA", x)) +
+  facet_wrap(~ trait_name, scales = "free_y", ncol = 1) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1),
+        axis.title.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        strip.text = element_blank(),
+        legend.position = "none")
+
+ggsave(p, filename = "paper_draft/figures/spectra_importance_3.png")
+
+p2 <- data |> 
+  ggplot(aes(x = V1, y = spectra_means)) +
+  geom_line() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1),
+        axis.title.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        strip.text = element_blank(),
+        legend.position = "none",
+        panel.background = element_rect(fill = "white")
+  )
+
+print(p2)
+
+ggsave(p2, filename = "paper_draft/figures/average_spectra_vegetation.png",
+       height = 9.67/3,
+       width = 8.46,
+       units = "in")
+
+
+layout <- "
+##BBBB
+AACCDD
+##CCDD
+"
+p1 + p2 + p3 + p4 + 
+  plot_layout(design = layout)
+
+
+
+p2/p
+

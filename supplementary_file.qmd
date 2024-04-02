@@ -1,0 +1,23 @@
+---
+title: "supplementary_file"
+format: pdf
+editor: visual
+---
+
+## Figures
+
+```{r}
+#| echo: FALSE
+#source("R_codes/Plotting/posterior_parameter_full_model.R")
+```
+
+![Posterior samples for the four regression coefficients with the largest absolute mean values](paper_draft/figures/parameter_posterior_histogram.png){#suppfig-posterior_parameters_full_model}
+
+```{r}
+#| echo: FALSE
+#source("R_codes/Plotting/bivariate_and_marginal_posterior_plots.R")
+```
+
+![Posterior distribution for the projected pameters of the reduced model for carotenoid](paper_draft/figures/bivariate_plots_for_Carotenoid_Area.png){#fig-bivariate_posterior_parameter}
+
+## 

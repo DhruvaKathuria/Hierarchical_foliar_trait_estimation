@@ -1,6 +1,7 @@
 library(ggplot2)
 library(dplyr)
 library(tidyr)
+library(patchwork)
 prediction_files <- readr::read_csv(list.files(pattern = "full_model_plus_reduced_model",
                                                path = "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/Github_data/Hierarchical_foliar_trait_estimation/data/code_output_data/predictions",
                                                full.names = T))
@@ -49,13 +50,21 @@ summary_tibble_full_unique <- summary_tibble_full  |>
   mutate (RMSE = round(RMSE, 2),
           R = round(R, 2))
 
-ggplot(prediction_files_edit %>%
+full_model_predictions <- ggplot(prediction_files_edit %>%
          filter(model == "full model", prediction %in% c("bayesian (mean)", "PLSR")), aes(x = value, y = trait, col = trait_name)) +
   geom_point(shape = 21, fill = "white") +
   geom_abline() +
   geom_text(data = summary_tibble_full_unique, aes(x = -Inf, y = Inf, label = paste("RMSE:", RMSE, "\nR:", R)), 
             hjust = 0, vjust = 1, check_overlap = TRUE) +
-  facet_wrap(prediction ~ trait_name, scales = "free")
+  facet_wrap(prediction ~ trait_name, 
+             labeller = labeller(category = as_labeller(function(x) NULL)), 
+             scales = "free") +
+  theme(strip.text.x = element_blank(), 
+        axis.title.x = element_blank(),  
+        axis.title.y = element_blank(),
+        legend.position = "bottom") 
+
+print(full_model_predictions)
 
 ggsave(filename = "paper_draft/figures/prediction_bayesian_plsr_comparison.png"
        #width  = 8,
@@ -76,7 +85,7 @@ summary_tibble_reduced_unique <- summary_tibble_reduced  |>
   mutate (RMSE = round(RMSE, 2),
           R = round(R, 2))
 
-prediction_files_edit |> 
+reduced_model_predictions <- prediction_files_edit |> 
   filter(prediction %in% c("bayesian (mean)",
                            "bayesian 10th %tile",
                            "bayesian 90th %tile"
@@ -92,8 +101,15 @@ prediction_files_edit |>
   geom_text(data = summary_tibble_reduced_unique, aes(x = -Inf, y = Inf, label = paste("RMSE:", RMSE, "\nR:", R)), 
             hjust = 0, vjust = 1, check_overlap = TRUE) +
   geom_abline() +
-  facet_wrap(model ~ trait_name,
-             scales = "free")
+  facet_wrap(model ~ trait_name, 
+             labeller = labeller(category = as_labeller(function(x) NULL)), 
+             scales = "free") +
+  theme(strip.text.x = element_blank(), 
+        axis.title.x = element_blank(),  
+        axis.title.y = element_blank(),
+        legend.position = "bottom") 
+
+print(reduced_model_predictions)
 
 ggsave(filename = "paper_draft/figures/prediction_bayesian_full_model_reduced_model.png",
        #width  = 8,
@@ -101,15 +117,4 @@ ggsave(filename = "paper_draft/figures/prediction_bayesian_full_model_reduced_mo
        #units = "in"
        )
 
-prediction_files_edit |> 
-  filter(trait_name == "LMA",
-         model == "reduced model") |> 
-  pivot_wider(names_from = prediction,
-              values_from = value) |> 
-  ggplot(aes(x = `bayesian (mean)`, 
-             y = trait)) +
-  geom_errorbar(aes(xmin = `bayesian 10th %tile`, 
-                    xmax = `bayesian 90th %tile`)) +
-  geom_point( shape = 21, fill = "white") +
-  geom_abline()
   

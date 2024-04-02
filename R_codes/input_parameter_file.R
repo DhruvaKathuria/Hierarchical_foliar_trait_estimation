@@ -1,4 +1,5 @@
-trait_name1 = "LMA"
+data_folder <- "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/Github_data/Hierarchical_foliar_trait_estimation"
+trait_name1 = "Carotenoid_Area"
 site_name1 = c("cabo-2018-2019-leaf-level-spectra")
 group_variable = "leaf_classification"
 hierarchical = F
@@ -18,4 +19,8 @@ date_vector = c("LMA" = "2023-12-26",
 nsel_vector <- c("LMA" = "30",
                  "Nitrogen" = "28" ,
                  "Carotenoid_Area" = "14")
+
+date_for_brms_file <- date_vector[trait_name1] #this is the date the brms file was saved
+# in folder code data/code_output_data. brms
+# files are saved using supervised_pc_and....R
 

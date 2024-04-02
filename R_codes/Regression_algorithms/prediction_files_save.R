@@ -8,10 +8,6 @@ source("R_codes/input_parameter_file.R")
 source("R_codes/Regression_algorithms/data_preprocessing_for_algorithms.R")
 
 
-date_for_brms_file <- date_vector[trait_name1] #this is the date the brms file was saved
-# in folder code data/code_output_data. brms
-# files are saved using supervised_pc_and....R
-
 # for personal macbooks
 data_folder <- "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/Github_data/Hierarchical_foliar_trait_estimation"
 

@@ -1,0 +1,6004 @@
+V1,spectra_means,spectra_names,spectra_rank,trait_name
+400,0.054,x400,31,Leaf Mass per Area
+401,0.054,x401,31,Leaf Mass per Area
+402,0.053,x402,31,Leaf Mass per Area
+403,0.052,x403,31,Leaf Mass per Area
+404,0.051,x404,31,Leaf Mass per Area
+405,0.05,x405,31,Leaf Mass per Area
+406,0.049,x406,31,Leaf Mass per Area
+407,0.048,x407,31,Leaf Mass per Area
+408,0.048,x408,31,Leaf Mass per Area
+409,0.048,x409,31,Leaf Mass per Area
+410,0.048,x410,31,Leaf Mass per Area
+411,0.048,x411,31,Leaf Mass per Area
+412,0.049,x412,31,Leaf Mass per Area
+413,0.049,x413,31,Leaf Mass per Area
+414,0.049,x414,31,Leaf Mass per Area
+415,0.05,x415,31,Leaf Mass per Area
+416,0.05,x416,31,Leaf Mass per Area
+417,0.05,x417,31,Leaf Mass per Area
+418,0.051,x418,31,Leaf Mass per Area
+419,0.051,x419,31,Leaf Mass per Area
+420,0.051,x420,31,Leaf Mass per Area
+421,0.051,x421,31,Leaf Mass per Area
+422,0.051,x422,31,Leaf Mass per Area
+423,0.052,x423,31,Leaf Mass per Area
+424,0.052,x424,31,Leaf Mass per Area
+425,0.052,x425,31,Leaf Mass per Area
+426,0.052,x426,31,Leaf Mass per Area
+427,0.051,x427,31,Leaf Mass per Area
+428,0.051,x428,31,Leaf Mass per Area
+429,0.051,x429,31,Leaf Mass per Area
+430,0.051,x430,31,Leaf Mass per Area
+431,0.051,x431,31,Leaf Mass per Area
+432,0.052,x432,31,Leaf Mass per Area
+433,0.052,x433,31,Leaf Mass per Area
+434,0.052,x434,31,Leaf Mass per Area
+435,0.052,x435,31,Leaf Mass per Area
+436,0.052,x436,31,Leaf Mass per Area
+437,0.053,x437,31,Leaf Mass per Area
+438,0.053,x438,31,Leaf Mass per Area
+439,0.053,x439,31,Leaf Mass per Area
+440,0.053,x440,31,Leaf Mass per Area
+441,0.053,x441,31,Leaf Mass per Area
+442,0.053,x442,31,Leaf Mass per Area
+443,0.053,x443,31,Leaf Mass per Area
+444,0.053,x444,31,Leaf Mass per Area
+445,0.053,x445,31,Leaf Mass per Area
+446,0.053,x446,31,Leaf Mass per Area
+447,0.053,x447,31,Leaf Mass per Area
+448,0.053,x448,31,Leaf Mass per Area
+449,0.054,x449,31,Leaf Mass per Area
+450,0.054,x450,31,Leaf Mass per Area
+451,0.054,x451,31,Leaf Mass per Area
+452,0.054,x452,31,Leaf Mass per Area
+453,0.054,x453,31,Leaf Mass per Area
+454,0.054,x454,31,Leaf Mass per Area
+455,0.055,x455,31,Leaf Mass per Area
+456,0.055,x456,31,Leaf Mass per Area
+457,0.055,x457,31,Leaf Mass per Area
+458,0.055,x458,31,Leaf Mass per Area
+459,0.055,x459,31,Leaf Mass per Area
+460,0.055,x460,31,Leaf Mass per Area
+461,0.055,x461,31,Leaf Mass per Area
+462,0.055,x462,31,Leaf Mass per Area
+463,0.055,x463,31,Leaf Mass per Area
+464,0.055,x464,31,Leaf Mass per Area
+465,0.056,x465,31,Leaf Mass per Area
+466,0.056,x466,31,Leaf Mass per Area
+467,0.056,x467,31,Leaf Mass per Area
+468,0.056,x468,31,Leaf Mass per Area
+469,0.056,x469,31,Leaf Mass per Area
+470,0.056,x470,31,Leaf Mass per Area
+471,0.056,x471,31,Leaf Mass per Area
+472,0.056,x472,31,Leaf Mass per Area
+473,0.056,x473,31,Leaf Mass per Area
+474,0.056,x474,31,Leaf Mass per Area
+475,0.056,x475,31,Leaf Mass per Area
+476,0.056,x476,31,Leaf Mass per Area
+477,0.056,x477,31,Leaf Mass per Area
+478,0.056,x478,14,Leaf Mass per Area
+479,0.056,x479,31,Leaf Mass per Area
+480,0.056,x480,31,Leaf Mass per Area
+481,0.056,x481,31,Leaf Mass per Area
+482,0.056,x482,31,Leaf Mass per Area
+483,0.056,x483,31,Leaf Mass per Area
+484,0.056,x484,31,Leaf Mass per Area
+485,0.056,x485,21,Leaf Mass per Area
+486,0.056,x486,31,Leaf Mass per Area
+487,0.057,x487,31,Leaf Mass per Area
+488,0.057,x488,31,Leaf Mass per Area
+489,0.057,x489,31,Leaf Mass per Area
+490,0.057,x490,31,Leaf Mass per Area
+491,0.058,x491,31,Leaf Mass per Area
+492,0.058,x492,31,Leaf Mass per Area
+493,0.059,x493,31,Leaf Mass per Area
+494,0.059,x494,31,Leaf Mass per Area
+495,0.059,x495,31,Leaf Mass per Area
+496,0.06,x496,31,Leaf Mass per Area
+497,0.061,x497,31,Leaf Mass per Area
+498,0.061,x498,31,Leaf Mass per Area
+499,0.062,x499,31,Leaf Mass per Area
+500,0.063,x500,31,Leaf Mass per Area
+501,0.064,x501,31,Leaf Mass per Area
+502,0.065,x502,31,Leaf Mass per Area
+503,0.066,x503,31,Leaf Mass per Area
+504,0.067,x504,31,Leaf Mass per Area
+505,0.068,x505,31,Leaf Mass per Area
+506,0.07,x506,31,Leaf Mass per Area
+507,0.071,x507,31,Leaf Mass per Area
+508,0.073,x508,31,Leaf Mass per Area
+509,0.075,x509,31,Leaf Mass per Area
+510,0.077,x510,31,Leaf Mass per Area
+511,0.079,x511,31,Leaf Mass per Area
+512,0.081,x512,31,Leaf Mass per Area
+513,0.084,x513,31,Leaf Mass per Area
+514,0.086,x514,31,Leaf Mass per Area
+515,0.089,x515,31,Leaf Mass per Area
+516,0.092,x516,31,Leaf Mass per Area
+517,0.095,x517,31,Leaf Mass per Area
+518,0.098,x518,31,Leaf Mass per Area
+519,0.101,x519,31,Leaf Mass per Area
+520,0.104,x520,31,Leaf Mass per Area
+521,0.108,x521,31,Leaf Mass per Area
+522,0.111,x522,31,Leaf Mass per Area
+523,0.114,x523,31,Leaf Mass per Area
+524,0.117,x524,31,Leaf Mass per Area
+525,0.12,x525,31,Leaf Mass per Area
+526,0.123,x526,31,Leaf Mass per Area
+527,0.126,x527,31,Leaf Mass per Area
+528,0.129,x528,31,Leaf Mass per Area
+529,0.131,x529,31,Leaf Mass per Area
+530,0.133,x530,31,Leaf Mass per Area
+531,0.135,x531,31,Leaf Mass per Area
+532,0.137,x532,31,Leaf Mass per Area
+533,0.138,x533,31,Leaf Mass per Area
+534,0.14,x534,31,Leaf Mass per Area
+535,0.141,x535,31,Leaf Mass per Area
+536,0.142,x536,31,Leaf Mass per Area
+537,0.143,x537,31,Leaf Mass per Area
+538,0.144,x538,31,Leaf Mass per Area
+539,0.145,x539,31,Leaf Mass per Area
+540,0.146,x540,31,Leaf Mass per Area
+541,0.146,x541,31,Leaf Mass per Area
+542,0.147,x542,31,Leaf Mass per Area
+543,0.148,x543,31,Leaf Mass per Area
+544,0.148,x544,31,Leaf Mass per Area
+545,0.149,x545,31,Leaf Mass per Area
+546,0.149,x546,31,Leaf Mass per Area
+547,0.15,x547,31,Leaf Mass per Area
+548,0.15,x548,31,Leaf Mass per Area
+549,0.151,x549,31,Leaf Mass per Area
+550,0.151,x550,31,Leaf Mass per Area
+551,0.152,x551,31,Leaf Mass per Area
+552,0.152,x552,31,Leaf Mass per Area
+553,0.152,x553,31,Leaf Mass per Area
+554,0.152,x554,31,Leaf Mass per Area
+555,0.152,x555,31,Leaf Mass per Area
+556,0.151,x556,31,Leaf Mass per Area
+557,0.15,x557,31,Leaf Mass per Area
+558,0.15,x558,31,Leaf Mass per Area
+559,0.149,x559,31,Leaf Mass per Area
+560,0.148,x560,31,Leaf Mass per Area
+561,0.147,x561,31,Leaf Mass per Area
+562,0.146,x562,31,Leaf Mass per Area
+563,0.144,x563,31,Leaf Mass per Area
+564,0.143,x564,31,Leaf Mass per Area
+565,0.141,x565,31,Leaf Mass per Area
+566,0.14,x566,31,Leaf Mass per Area
+567,0.138,x567,31,Leaf Mass per Area
+568,0.136,x568,31,Leaf Mass per Area
+569,0.134,x569,31,Leaf Mass per Area
+570,0.132,x570,31,Leaf Mass per Area
+571,0.13,x571,31,Leaf Mass per Area
+572,0.128,x572,31,Leaf Mass per Area
+573,0.126,x573,31,Leaf Mass per Area
+574,0.125,x574,31,Leaf Mass per Area
+575,0.123,x575,31,Leaf Mass per Area
+576,0.121,x576,31,Leaf Mass per Area
+577,0.12,x577,31,Leaf Mass per Area
+578,0.119,x578,31,Leaf Mass per Area
+579,0.117,x579,31,Leaf Mass per Area
+580,0.116,x580,31,Leaf Mass per Area
+581,0.115,x581,31,Leaf Mass per Area
+582,0.114,x582,31,Leaf Mass per Area
+583,0.113,x583,31,Leaf Mass per Area
+584,0.112,x584,31,Leaf Mass per Area
+585,0.111,x585,31,Leaf Mass per Area
+586,0.11,x586,31,Leaf Mass per Area
+587,0.109,x587,31,Leaf Mass per Area
+588,0.109,x588,31,Leaf Mass per Area
+589,0.108,x589,31,Leaf Mass per Area
+590,0.107,x590,31,Leaf Mass per Area
+591,0.107,x591,31,Leaf Mass per Area
+592,0.106,x592,31,Leaf Mass per Area
+593,0.106,x593,31,Leaf Mass per Area
+594,0.106,x594,31,Leaf Mass per Area
+595,0.105,x595,31,Leaf Mass per Area
+596,0.105,x596,31,Leaf Mass per Area
+597,0.105,x597,31,Leaf Mass per Area
+598,0.104,x598,31,Leaf Mass per Area
+599,0.104,x599,31,Leaf Mass per Area
+600,0.103,x600,31,Leaf Mass per Area
+601,0.103,x601,31,Leaf Mass per Area
+602,0.103,x602,31,Leaf Mass per Area
+603,0.102,x603,31,Leaf Mass per Area
+604,0.101,x604,31,Leaf Mass per Area
+605,0.101,x605,31,Leaf Mass per Area
+606,0.1,x606,31,Leaf Mass per Area
+607,0.099,x607,31,Leaf Mass per Area
+608,0.098,x608,31,Leaf Mass per Area
+609,0.098,x609,31,Leaf Mass per Area
+610,0.097,x610,31,Leaf Mass per Area
+611,0.096,x611,31,Leaf Mass per Area
+612,0.095,x612,31,Leaf Mass per Area
+613,0.094,x613,31,Leaf Mass per Area
+614,0.093,x614,31,Leaf Mass per Area
+615,0.092,x615,31,Leaf Mass per Area
+616,0.091,x616,31,Leaf Mass per Area
+617,0.09,x617,31,Leaf Mass per Area
+618,0.09,x618,31,Leaf Mass per Area
+619,0.089,x619,31,Leaf Mass per Area
+620,0.088,x620,31,Leaf Mass per Area
+621,0.088,x621,31,Leaf Mass per Area
+622,0.087,x622,31,Leaf Mass per Area
+623,0.087,x623,31,Leaf Mass per Area
+624,0.087,x624,31,Leaf Mass per Area
+625,0.087,x625,31,Leaf Mass per Area
+626,0.086,x626,31,Leaf Mass per Area
+627,0.086,x627,31,Leaf Mass per Area
+628,0.086,x628,31,Leaf Mass per Area
+629,0.086,x629,31,Leaf Mass per Area
+630,0.086,x630,31,Leaf Mass per Area
+631,0.086,x631,31,Leaf Mass per Area
+632,0.086,x632,31,Leaf Mass per Area
+633,0.085,x633,31,Leaf Mass per Area
+634,0.085,x634,31,Leaf Mass per Area
+635,0.085,x635,31,Leaf Mass per Area
+636,0.084,x636,31,Leaf Mass per Area
+637,0.083,x637,31,Leaf Mass per Area
+638,0.083,x638,31,Leaf Mass per Area
+639,0.082,x639,31,Leaf Mass per Area
+640,0.081,x640,31,Leaf Mass per Area
+641,0.08,x641,31,Leaf Mass per Area
+642,0.079,x642,31,Leaf Mass per Area
+643,0.078,x643,31,Leaf Mass per Area
+644,0.077,x644,31,Leaf Mass per Area
+645,0.076,x645,31,Leaf Mass per Area
+646,0.075,x646,31,Leaf Mass per Area
+647,0.074,x647,31,Leaf Mass per Area
+648,0.073,x648,31,Leaf Mass per Area
+649,0.073,x649,31,Leaf Mass per Area
+650,0.072,x650,31,Leaf Mass per Area
+651,0.072,x651,31,Leaf Mass per Area
+652,0.071,x652,31,Leaf Mass per Area
+653,0.071,x653,31,Leaf Mass per Area
+654,0.07,x654,31,Leaf Mass per Area
+655,0.07,x655,31,Leaf Mass per Area
+656,0.069,x656,31,Leaf Mass per Area
+657,0.069,x657,31,Leaf Mass per Area
+658,0.068,x658,31,Leaf Mass per Area
+659,0.067,x659,31,Leaf Mass per Area
+660,0.066,x660,31,Leaf Mass per Area
+661,0.066,x661,31,Leaf Mass per Area
+662,0.065,x662,31,Leaf Mass per Area
+663,0.064,x663,31,Leaf Mass per Area
+664,0.064,x664,31,Leaf Mass per Area
+665,0.063,x665,31,Leaf Mass per Area
+666,0.063,x666,31,Leaf Mass per Area
+667,0.062,x667,31,Leaf Mass per Area
+668,0.062,x668,31,Leaf Mass per Area
+669,0.062,x669,31,Leaf Mass per Area
+670,0.062,x670,31,Leaf Mass per Area
+671,0.062,x671,31,Leaf Mass per Area
+672,0.062,x672,31,Leaf Mass per Area
+673,0.062,x673,31,Leaf Mass per Area
+674,0.063,x674,31,Leaf Mass per Area
+675,0.063,x675,31,Leaf Mass per Area
+676,0.063,x676,31,Leaf Mass per Area
+677,0.064,x677,31,Leaf Mass per Area
+678,0.064,x678,31,Leaf Mass per Area
+679,0.065,x679,31,Leaf Mass per Area
+680,0.066,x680,31,Leaf Mass per Area
+681,0.067,x681,31,Leaf Mass per Area
+682,0.068,x682,31,Leaf Mass per Area
+683,0.069,x683,31,Leaf Mass per Area
+684,0.07,x684,31,Leaf Mass per Area
+685,0.072,x685,31,Leaf Mass per Area
+686,0.073,x686,31,Leaf Mass per Area
+687,0.075,x687,31,Leaf Mass per Area
+688,0.078,x688,31,Leaf Mass per Area
+689,0.081,x689,31,Leaf Mass per Area
+690,0.085,x690,31,Leaf Mass per Area
+691,0.089,x691,31,Leaf Mass per Area
+692,0.094,x692,31,Leaf Mass per Area
+693,0.1,x693,31,Leaf Mass per Area
+694,0.106,x694,31,Leaf Mass per Area
+695,0.113,x695,31,Leaf Mass per Area
+696,0.121,x696,31,Leaf Mass per Area
+697,0.129,x697,31,Leaf Mass per Area
+698,0.138,x698,31,Leaf Mass per Area
+699,0.147,x699,31,Leaf Mass per Area
+700,0.157,x700,31,Leaf Mass per Area
+701,0.167,x701,31,Leaf Mass per Area
+702,0.176,x702,31,Leaf Mass per Area
+703,0.186,x703,31,Leaf Mass per Area
+704,0.195,x704,31,Leaf Mass per Area
+705,0.205,x705,31,Leaf Mass per Area
+706,0.214,x706,31,Leaf Mass per Area
+707,0.224,x707,31,Leaf Mass per Area
+708,0.233,x708,31,Leaf Mass per Area
+709,0.242,x709,31,Leaf Mass per Area
+710,0.251,x710,31,Leaf Mass per Area
+711,0.26,x711,31,Leaf Mass per Area
+712,0.269,x712,31,Leaf Mass per Area
+713,0.278,x713,31,Leaf Mass per Area
+714,0.287,x714,31,Leaf Mass per Area
+715,0.296,x715,31,Leaf Mass per Area
+716,0.304,x716,31,Leaf Mass per Area
+717,0.313,x717,31,Leaf Mass per Area
+718,0.321,x718,31,Leaf Mass per Area
+719,0.329,x719,31,Leaf Mass per Area
+720,0.338,x720,31,Leaf Mass per Area
+721,0.346,x721,31,Leaf Mass per Area
+722,0.354,x722,31,Leaf Mass per Area
+723,0.361,x723,31,Leaf Mass per Area
+724,0.369,x724,31,Leaf Mass per Area
+725,0.376,x725,31,Leaf Mass per Area
+726,0.383,x726,31,Leaf Mass per Area
+727,0.389,x727,31,Leaf Mass per Area
+728,0.396,x728,31,Leaf Mass per Area
+729,0.402,x729,31,Leaf Mass per Area
+730,0.408,x730,31,Leaf Mass per Area
+731,0.414,x731,31,Leaf Mass per Area
+732,0.419,x732,31,Leaf Mass per Area
+733,0.424,x733,31,Leaf Mass per Area
+734,0.429,x734,31,Leaf Mass per Area
+735,0.433,x735,31,Leaf Mass per Area
+736,0.438,x736,31,Leaf Mass per Area
+737,0.442,x737,31,Leaf Mass per Area
+738,0.445,x738,31,Leaf Mass per Area
+739,0.449,x739,31,Leaf Mass per Area
+740,0.452,x740,31,Leaf Mass per Area
+741,0.455,x741,31,Leaf Mass per Area
+742,0.458,x742,31,Leaf Mass per Area
+743,0.46,x743,31,Leaf Mass per Area
+744,0.462,x744,31,Leaf Mass per Area
+745,0.465,x745,31,Leaf Mass per Area
+746,0.467,x746,31,Leaf Mass per Area
+747,0.468,x747,31,Leaf Mass per Area
+748,0.47,x748,31,Leaf Mass per Area
+749,0.471,x749,31,Leaf Mass per Area
+750,0.472,x750,31,Leaf Mass per Area
+751,0.474,x751,31,Leaf Mass per Area
+752,0.475,x752,31,Leaf Mass per Area
+753,0.476,x753,31,Leaf Mass per Area
+754,0.476,x754,31,Leaf Mass per Area
+755,0.477,x755,31,Leaf Mass per Area
+756,0.478,x756,31,Leaf Mass per Area
+757,0.478,x757,31,Leaf Mass per Area
+758,0.479,x758,31,Leaf Mass per Area
+759,0.479,x759,31,Leaf Mass per Area
+760,0.48,x760,31,Leaf Mass per Area
+761,0.48,x761,31,Leaf Mass per Area
+762,0.48,x762,31,Leaf Mass per Area
+763,0.481,x763,31,Leaf Mass per Area
+764,0.481,x764,31,Leaf Mass per Area
+765,0.481,x765,31,Leaf Mass per Area
+766,0.481,x766,31,Leaf Mass per Area
+767,0.481,x767,31,Leaf Mass per Area
+768,0.481,x768,31,Leaf Mass per Area
+769,0.481,x769,31,Leaf Mass per Area
+770,0.481,x770,31,Leaf Mass per Area
+771,0.481,x771,31,Leaf Mass per Area
+772,0.481,x772,31,Leaf Mass per Area
+773,0.481,x773,31,Leaf Mass per Area
+774,0.481,x774,31,Leaf Mass per Area
+775,0.481,x775,31,Leaf Mass per Area
+776,0.481,x776,31,Leaf Mass per Area
+777,0.481,x777,31,Leaf Mass per Area
+778,0.481,x778,31,Leaf Mass per Area
+779,0.481,x779,31,Leaf Mass per Area
+780,0.481,x780,31,Leaf Mass per Area
+781,0.481,x781,31,Leaf Mass per Area
+782,0.481,x782,31,Leaf Mass per Area
+783,0.481,x783,31,Leaf Mass per Area
+784,0.481,x784,31,Leaf Mass per Area
+785,0.481,x785,31,Leaf Mass per Area
+786,0.481,x786,31,Leaf Mass per Area
+787,0.481,x787,31,Leaf Mass per Area
+788,0.481,x788,31,Leaf Mass per Area
+789,0.481,x789,31,Leaf Mass per Area
+790,0.481,x790,31,Leaf Mass per Area
+791,0.481,x791,31,Leaf Mass per Area
+792,0.481,x792,31,Leaf Mass per Area
+793,0.481,x793,31,Leaf Mass per Area
+794,0.481,x794,31,Leaf Mass per Area
+795,0.481,x795,31,Leaf Mass per Area
+796,0.481,x796,31,Leaf Mass per Area
+797,0.481,x797,31,Leaf Mass per Area
+798,0.481,x798,31,Leaf Mass per Area
+799,0.481,x799,31,Leaf Mass per Area
+800,0.481,x800,31,Leaf Mass per Area
+801,0.481,x801,31,Leaf Mass per Area
+802,0.481,x802,31,Leaf Mass per Area
+803,0.481,x803,31,Leaf Mass per Area
+804,0.481,x804,31,Leaf Mass per Area
+805,0.481,x805,31,Leaf Mass per Area
+806,0.481,x806,31,Leaf Mass per Area
+807,0.481,x807,31,Leaf Mass per Area
+808,0.481,x808,31,Leaf Mass per Area
+809,0.481,x809,31,Leaf Mass per Area
+810,0.481,x810,31,Leaf Mass per Area
+811,0.481,x811,31,Leaf Mass per Area
+812,0.481,x812,31,Leaf Mass per Area
+813,0.481,x813,31,Leaf Mass per Area
+814,0.481,x814,31,Leaf Mass per Area
+815,0.481,x815,31,Leaf Mass per Area
+816,0.481,x816,31,Leaf Mass per Area
+817,0.481,x817,31,Leaf Mass per Area
+818,0.481,x818,31,Leaf Mass per Area
+819,0.481,x819,31,Leaf Mass per Area
+820,0.481,x820,31,Leaf Mass per Area
+821,0.481,x821,31,Leaf Mass per Area
+822,0.481,x822,31,Leaf Mass per Area
+823,0.481,x823,31,Leaf Mass per Area
+824,0.481,x824,31,Leaf Mass per Area
+825,0.481,x825,31,Leaf Mass per Area
+826,0.481,x826,31,Leaf Mass per Area
+827,0.481,x827,31,Leaf Mass per Area
+828,0.481,x828,31,Leaf Mass per Area
+829,0.481,x829,31,Leaf Mass per Area
+830,0.481,x830,31,Leaf Mass per Area
+831,0.481,x831,31,Leaf Mass per Area
+832,0.481,x832,31,Leaf Mass per Area
+833,0.481,x833,31,Leaf Mass per Area
+834,0.481,x834,31,Leaf Mass per Area
+835,0.481,x835,31,Leaf Mass per Area
+836,0.481,x836,31,Leaf Mass per Area
+837,0.481,x837,31,Leaf Mass per Area
+838,0.481,x838,31,Leaf Mass per Area
+839,0.481,x839,31,Leaf Mass per Area
+840,0.481,x840,31,Leaf Mass per Area
+841,0.481,x841,31,Leaf Mass per Area
+842,0.481,x842,31,Leaf Mass per Area
+843,0.481,x843,31,Leaf Mass per Area
+844,0.481,x844,31,Leaf Mass per Area
+845,0.481,x845,31,Leaf Mass per Area
+846,0.481,x846,31,Leaf Mass per Area
+847,0.481,x847,31,Leaf Mass per Area
+848,0.481,x848,31,Leaf Mass per Area
+849,0.481,x849,31,Leaf Mass per Area
+850,0.481,x850,31,Leaf Mass per Area
+851,0.481,x851,31,Leaf Mass per Area
+852,0.481,x852,31,Leaf Mass per Area
+853,0.481,x853,31,Leaf Mass per Area
+854,0.481,x854,31,Leaf Mass per Area
+855,0.481,x855,31,Leaf Mass per Area
+856,0.481,x856,31,Leaf Mass per Area
+857,0.481,x857,31,Leaf Mass per Area
+858,0.481,x858,31,Leaf Mass per Area
+859,0.481,x859,31,Leaf Mass per Area
+860,0.48,x860,31,Leaf Mass per Area
+861,0.481,x861,31,Leaf Mass per Area
+862,0.481,x862,31,Leaf Mass per Area
+863,0.481,x863,31,Leaf Mass per Area
+864,0.481,x864,31,Leaf Mass per Area
+865,0.48,x865,31,Leaf Mass per Area
+866,0.48,x866,31,Leaf Mass per Area
+867,0.48,x867,31,Leaf Mass per Area
+868,0.48,x868,31,Leaf Mass per Area
+869,0.48,x869,31,Leaf Mass per Area
+870,0.48,x870,31,Leaf Mass per Area
+871,0.48,x871,31,Leaf Mass per Area
+872,0.48,x872,31,Leaf Mass per Area
+873,0.48,x873,31,Leaf Mass per Area
+874,0.48,x874,31,Leaf Mass per Area
+875,0.48,x875,31,Leaf Mass per Area
+876,0.48,x876,31,Leaf Mass per Area
+877,0.48,x877,31,Leaf Mass per Area
+878,0.48,x878,31,Leaf Mass per Area
+879,0.48,x879,31,Leaf Mass per Area
+880,0.48,x880,31,Leaf Mass per Area
+881,0.48,x881,31,Leaf Mass per Area
+882,0.48,x882,31,Leaf Mass per Area
+883,0.48,x883,31,Leaf Mass per Area
+884,0.48,x884,31,Leaf Mass per Area
+885,0.48,x885,31,Leaf Mass per Area
+886,0.48,x886,31,Leaf Mass per Area
+887,0.48,x887,31,Leaf Mass per Area
+888,0.48,x888,31,Leaf Mass per Area
+889,0.48,x889,31,Leaf Mass per Area
+890,0.48,x890,31,Leaf Mass per Area
+891,0.48,x891,31,Leaf Mass per Area
+892,0.48,x892,31,Leaf Mass per Area
+893,0.48,x893,31,Leaf Mass per Area
+894,0.48,x894,31,Leaf Mass per Area
+895,0.48,x895,31,Leaf Mass per Area
+896,0.48,x896,31,Leaf Mass per Area
+897,0.48,x897,31,Leaf Mass per Area
+898,0.48,x898,31,Leaf Mass per Area
+899,0.48,x899,31,Leaf Mass per Area
+900,0.48,x900,31,Leaf Mass per Area
+901,0.48,x901,31,Leaf Mass per Area
+902,0.48,x902,31,Leaf Mass per Area
+903,0.48,x903,31,Leaf Mass per Area
+904,0.48,x904,31,Leaf Mass per Area
+905,0.479,x905,31,Leaf Mass per Area
+906,0.479,x906,31,Leaf Mass per Area
+907,0.479,x907,31,Leaf Mass per Area
+908,0.479,x908,31,Leaf Mass per Area
+909,0.479,x909,31,Leaf Mass per Area
+910,0.479,x910,31,Leaf Mass per Area
+911,0.479,x911,31,Leaf Mass per Area
+912,0.479,x912,31,Leaf Mass per Area
+913,0.479,x913,31,Leaf Mass per Area
+914,0.479,x914,31,Leaf Mass per Area
+915,0.479,x915,31,Leaf Mass per Area
+916,0.479,x916,31,Leaf Mass per Area
+917,0.479,x917,31,Leaf Mass per Area
+918,0.479,x918,31,Leaf Mass per Area
+919,0.479,x919,31,Leaf Mass per Area
+920,0.479,x920,31,Leaf Mass per Area
+921,0.479,x921,31,Leaf Mass per Area
+922,0.479,x922,31,Leaf Mass per Area
+923,0.479,x923,31,Leaf Mass per Area
+924,0.479,x924,31,Leaf Mass per Area
+925,0.479,x925,31,Leaf Mass per Area
+926,0.478,x926,31,Leaf Mass per Area
+927,0.478,x927,31,Leaf Mass per Area
+928,0.478,x928,31,Leaf Mass per Area
+929,0.478,x929,31,Leaf Mass per Area
+930,0.478,x930,31,Leaf Mass per Area
+931,0.478,x931,31,Leaf Mass per Area
+932,0.477,x932,31,Leaf Mass per Area
+933,0.477,x933,31,Leaf Mass per Area
+934,0.477,x934,31,Leaf Mass per Area
+935,0.477,x935,31,Leaf Mass per Area
+936,0.477,x936,31,Leaf Mass per Area
+937,0.477,x937,31,Leaf Mass per Area
+938,0.476,x938,31,Leaf Mass per Area
+939,0.476,x939,31,Leaf Mass per Area
+940,0.476,x940,31,Leaf Mass per Area
+941,0.476,x941,31,Leaf Mass per Area
+942,0.476,x942,31,Leaf Mass per Area
+943,0.476,x943,31,Leaf Mass per Area
+944,0.475,x944,31,Leaf Mass per Area
+945,0.475,x945,31,Leaf Mass per Area
+946,0.475,x946,31,Leaf Mass per Area
+947,0.474,x947,31,Leaf Mass per Area
+948,0.473,x948,31,Leaf Mass per Area
+949,0.473,x949,31,Leaf Mass per Area
+950,0.472,x950,31,Leaf Mass per Area
+951,0.472,x951,31,Leaf Mass per Area
+952,0.472,x952,31,Leaf Mass per Area
+953,0.471,x953,31,Leaf Mass per Area
+954,0.47,x954,31,Leaf Mass per Area
+955,0.47,x955,31,Leaf Mass per Area
+956,0.469,x956,31,Leaf Mass per Area
+957,0.469,x957,31,Leaf Mass per Area
+958,0.468,x958,31,Leaf Mass per Area
+959,0.468,x959,31,Leaf Mass per Area
+960,0.467,x960,31,Leaf Mass per Area
+961,0.467,x961,31,Leaf Mass per Area
+962,0.467,x962,31,Leaf Mass per Area
+963,0.467,x963,31,Leaf Mass per Area
+964,0.466,x964,31,Leaf Mass per Area
+965,0.466,x965,31,Leaf Mass per Area
+966,0.465,x966,31,Leaf Mass per Area
+967,0.465,x967,31,Leaf Mass per Area
+968,0.464,x968,31,Leaf Mass per Area
+969,0.464,x969,31,Leaf Mass per Area
+970,0.464,x970,31,Leaf Mass per Area
+971,0.464,x971,31,Leaf Mass per Area
+972,0.464,x972,31,Leaf Mass per Area
+973,0.464,x973,31,Leaf Mass per Area
+974,0.464,x974,31,Leaf Mass per Area
+975,0.463,x975,31,Leaf Mass per Area
+976,0.463,x976,31,Leaf Mass per Area
+977,0.463,x977,31,Leaf Mass per Area
+978,0.463,x978,31,Leaf Mass per Area
+979,0.463,x979,31,Leaf Mass per Area
+980,0.463,x980,31,Leaf Mass per Area
+981,0.464,x981,31,Leaf Mass per Area
+982,0.464,x982,31,Leaf Mass per Area
+983,0.464,x983,31,Leaf Mass per Area
+984,0.464,x984,31,Leaf Mass per Area
+985,0.463,x985,31,Leaf Mass per Area
+986,0.463,x986,31,Leaf Mass per Area
+987,0.463,x987,31,Leaf Mass per Area
+988,0.463,x988,31,Leaf Mass per Area
+989,0.463,x989,31,Leaf Mass per Area
+990,0.463,x990,31,Leaf Mass per Area
+991,0.463,x991,31,Leaf Mass per Area
+992,0.463,x992,31,Leaf Mass per Area
+993,0.463,x993,31,Leaf Mass per Area
+994,0.464,x994,31,Leaf Mass per Area
+995,0.464,x995,31,Leaf Mass per Area
+996,0.464,x996,31,Leaf Mass per Area
+997,0.465,x997,31,Leaf Mass per Area
+998,0.465,x998,31,Leaf Mass per Area
+999,0.465,x999,31,Leaf Mass per Area
+1000,0.465,x1000,31,Leaf Mass per Area
+1001,0.465,x1001,31,Leaf Mass per Area
+1002,0.466,x1002,31,Leaf Mass per Area
+1003,0.466,x1003,31,Leaf Mass per Area
+1004,0.466,x1004,31,Leaf Mass per Area
+1005,0.466,x1005,31,Leaf Mass per Area
+1006,0.466,x1006,31,Leaf Mass per Area
+1007,0.466,x1007,31,Leaf Mass per Area
+1008,0.466,x1008,31,Leaf Mass per Area
+1009,0.467,x1009,31,Leaf Mass per Area
+1010,0.467,x1010,31,Leaf Mass per Area
+1011,0.467,x1011,31,Leaf Mass per Area
+1012,0.467,x1012,31,Leaf Mass per Area
+1013,0.467,x1013,31,Leaf Mass per Area
+1014,0.468,x1014,31,Leaf Mass per Area
+1015,0.468,x1015,31,Leaf Mass per Area
+1016,0.468,x1016,31,Leaf Mass per Area
+1017,0.468,x1017,31,Leaf Mass per Area
+1018,0.468,x1018,31,Leaf Mass per Area
+1019,0.469,x1019,31,Leaf Mass per Area
+1020,0.469,x1020,31,Leaf Mass per Area
+1021,0.469,x1021,22,Leaf Mass per Area
+1022,0.47,x1022,31,Leaf Mass per Area
+1023,0.47,x1023,31,Leaf Mass per Area
+1024,0.47,x1024,31,Leaf Mass per Area
+1025,0.47,x1025,31,Leaf Mass per Area
+1026,0.47,x1026,31,Leaf Mass per Area
+1027,0.47,x1027,31,Leaf Mass per Area
+1028,0.47,x1028,31,Leaf Mass per Area
+1029,0.47,x1029,31,Leaf Mass per Area
+1030,0.471,x1030,31,Leaf Mass per Area
+1031,0.471,x1031,31,Leaf Mass per Area
+1032,0.471,x1032,31,Leaf Mass per Area
+1033,0.471,x1033,31,Leaf Mass per Area
+1034,0.471,x1034,31,Leaf Mass per Area
+1035,0.471,x1035,31,Leaf Mass per Area
+1036,0.471,x1036,31,Leaf Mass per Area
+1037,0.471,x1037,31,Leaf Mass per Area
+1038,0.471,x1038,31,Leaf Mass per Area
+1039,0.471,x1039,31,Leaf Mass per Area
+1040,0.471,x1040,31,Leaf Mass per Area
+1041,0.471,x1041,31,Leaf Mass per Area
+1042,0.471,x1042,31,Leaf Mass per Area
+1043,0.472,x1043,31,Leaf Mass per Area
+1044,0.472,x1044,31,Leaf Mass per Area
+1045,0.472,x1045,31,Leaf Mass per Area
+1046,0.472,x1046,31,Leaf Mass per Area
+1047,0.472,x1047,31,Leaf Mass per Area
+1048,0.472,x1048,31,Leaf Mass per Area
+1049,0.472,x1049,31,Leaf Mass per Area
+1050,0.472,x1050,31,Leaf Mass per Area
+1051,0.472,x1051,31,Leaf Mass per Area
+1052,0.472,x1052,31,Leaf Mass per Area
+1053,0.473,x1053,31,Leaf Mass per Area
+1054,0.473,x1054,31,Leaf Mass per Area
+1055,0.473,x1055,31,Leaf Mass per Area
+1056,0.473,x1056,31,Leaf Mass per Area
+1057,0.473,x1057,31,Leaf Mass per Area
+1058,0.473,x1058,31,Leaf Mass per Area
+1059,0.473,x1059,31,Leaf Mass per Area
+1060,0.473,x1060,31,Leaf Mass per Area
+1061,0.473,x1061,31,Leaf Mass per Area
+1062,0.473,x1062,31,Leaf Mass per Area
+1063,0.473,x1063,31,Leaf Mass per Area
+1064,0.473,x1064,31,Leaf Mass per Area
+1065,0.473,x1065,31,Leaf Mass per Area
+1066,0.472,x1066,31,Leaf Mass per Area
+1067,0.472,x1067,31,Leaf Mass per Area
+1068,0.472,x1068,31,Leaf Mass per Area
+1069,0.472,x1069,31,Leaf Mass per Area
+1070,0.472,x1070,31,Leaf Mass per Area
+1071,0.472,x1071,31,Leaf Mass per Area
+1072,0.472,x1072,7,Leaf Mass per Area
+1073,0.472,x1073,31,Leaf Mass per Area
+1074,0.472,x1074,31,Leaf Mass per Area
+1075,0.472,x1075,31,Leaf Mass per Area
+1076,0.472,x1076,31,Leaf Mass per Area
+1077,0.472,x1077,31,Leaf Mass per Area
+1078,0.472,x1078,31,Leaf Mass per Area
+1079,0.472,x1079,31,Leaf Mass per Area
+1080,0.472,x1080,31,Leaf Mass per Area
+1081,0.472,x1081,31,Leaf Mass per Area
+1082,0.472,x1082,31,Leaf Mass per Area
+1083,0.472,x1083,31,Leaf Mass per Area
+1084,0.472,x1084,31,Leaf Mass per Area
+1085,0.472,x1085,31,Leaf Mass per Area
+1086,0.472,x1086,31,Leaf Mass per Area
+1087,0.471,x1087,31,Leaf Mass per Area
+1088,0.471,x1088,31,Leaf Mass per Area
+1089,0.471,x1089,31,Leaf Mass per Area
+1090,0.471,x1090,31,Leaf Mass per Area
+1091,0.471,x1091,31,Leaf Mass per Area
+1092,0.471,x1092,31,Leaf Mass per Area
+1093,0.471,x1093,31,Leaf Mass per Area
+1094,0.471,x1094,31,Leaf Mass per Area
+1095,0.471,x1095,31,Leaf Mass per Area
+1096,0.471,x1096,3,Leaf Mass per Area
+1097,0.471,x1097,31,Leaf Mass per Area
+1098,0.471,x1098,31,Leaf Mass per Area
+1099,0.471,x1099,31,Leaf Mass per Area
+1100,0.471,x1100,31,Leaf Mass per Area
+1101,0.47,x1101,31,Leaf Mass per Area
+1102,0.47,x1102,31,Leaf Mass per Area
+1103,0.47,x1103,31,Leaf Mass per Area
+1104,0.47,x1104,31,Leaf Mass per Area
+1105,0.47,x1105,31,Leaf Mass per Area
+1106,0.47,x1106,31,Leaf Mass per Area
+1107,0.47,x1107,31,Leaf Mass per Area
+1108,0.47,x1108,31,Leaf Mass per Area
+1109,0.469,x1109,31,Leaf Mass per Area
+1110,0.469,x1110,31,Leaf Mass per Area
+1111,0.469,x1111,31,Leaf Mass per Area
+1112,0.468,x1112,31,Leaf Mass per Area
+1113,0.468,x1113,31,Leaf Mass per Area
+1114,0.468,x1114,31,Leaf Mass per Area
+1115,0.467,x1115,31,Leaf Mass per Area
+1116,0.467,x1116,31,Leaf Mass per Area
+1117,0.467,x1117,31,Leaf Mass per Area
+1118,0.467,x1118,31,Leaf Mass per Area
+1119,0.467,x1119,31,Leaf Mass per Area
+1120,0.467,x1120,31,Leaf Mass per Area
+1121,0.466,x1121,31,Leaf Mass per Area
+1122,0.466,x1122,31,Leaf Mass per Area
+1123,0.466,x1123,31,Leaf Mass per Area
+1124,0.466,x1124,31,Leaf Mass per Area
+1125,0.465,x1125,31,Leaf Mass per Area
+1126,0.465,x1126,31,Leaf Mass per Area
+1127,0.464,x1127,31,Leaf Mass per Area
+1128,0.464,x1128,31,Leaf Mass per Area
+1129,0.463,x1129,31,Leaf Mass per Area
+1130,0.462,x1130,31,Leaf Mass per Area
+1131,0.462,x1131,31,Leaf Mass per Area
+1132,0.461,x1132,31,Leaf Mass per Area
+1133,0.46,x1133,31,Leaf Mass per Area
+1134,0.459,x1134,31,Leaf Mass per Area
+1135,0.458,x1135,31,Leaf Mass per Area
+1136,0.457,x1136,31,Leaf Mass per Area
+1137,0.456,x1137,31,Leaf Mass per Area
+1138,0.455,x1138,31,Leaf Mass per Area
+1139,0.454,x1139,31,Leaf Mass per Area
+1140,0.453,x1140,31,Leaf Mass per Area
+1141,0.452,x1141,31,Leaf Mass per Area
+1142,0.45,x1142,31,Leaf Mass per Area
+1143,0.449,x1143,31,Leaf Mass per Area
+1144,0.448,x1144,31,Leaf Mass per Area
+1145,0.447,x1145,31,Leaf Mass per Area
+1146,0.446,x1146,31,Leaf Mass per Area
+1147,0.445,x1147,31,Leaf Mass per Area
+1148,0.444,x1148,31,Leaf Mass per Area
+1149,0.443,x1149,31,Leaf Mass per Area
+1150,0.443,x1150,31,Leaf Mass per Area
+1151,0.442,x1151,31,Leaf Mass per Area
+1152,0.441,x1152,31,Leaf Mass per Area
+1153,0.44,x1153,31,Leaf Mass per Area
+1154,0.439,x1154,31,Leaf Mass per Area
+1155,0.439,x1155,31,Leaf Mass per Area
+1156,0.438,x1156,31,Leaf Mass per Area
+1157,0.438,x1157,31,Leaf Mass per Area
+1158,0.437,x1158,31,Leaf Mass per Area
+1159,0.437,x1159,31,Leaf Mass per Area
+1160,0.436,x1160,31,Leaf Mass per Area
+1161,0.436,x1161,31,Leaf Mass per Area
+1162,0.435,x1162,31,Leaf Mass per Area
+1163,0.435,x1163,31,Leaf Mass per Area
+1164,0.435,x1164,31,Leaf Mass per Area
+1165,0.435,x1165,31,Leaf Mass per Area
+1166,0.434,x1166,31,Leaf Mass per Area
+1167,0.434,x1167,31,Leaf Mass per Area
+1168,0.434,x1168,31,Leaf Mass per Area
+1169,0.434,x1169,31,Leaf Mass per Area
+1170,0.434,x1170,31,Leaf Mass per Area
+1171,0.434,x1171,31,Leaf Mass per Area
+1172,0.434,x1172,31,Leaf Mass per Area
+1173,0.433,x1173,31,Leaf Mass per Area
+1174,0.433,x1174,31,Leaf Mass per Area
+1175,0.433,x1175,31,Leaf Mass per Area
+1176,0.433,x1176,31,Leaf Mass per Area
+1177,0.433,x1177,31,Leaf Mass per Area
+1178,0.432,x1178,31,Leaf Mass per Area
+1179,0.432,x1179,31,Leaf Mass per Area
+1180,0.432,x1180,31,Leaf Mass per Area
+1181,0.432,x1181,31,Leaf Mass per Area
+1182,0.432,x1182,31,Leaf Mass per Area
+1183,0.432,x1183,26,Leaf Mass per Area
+1184,0.432,x1184,31,Leaf Mass per Area
+1185,0.431,x1185,31,Leaf Mass per Area
+1186,0.431,x1186,31,Leaf Mass per Area
+1187,0.43,x1187,31,Leaf Mass per Area
+1188,0.43,x1188,31,Leaf Mass per Area
+1189,0.43,x1189,31,Leaf Mass per Area
+1190,0.43,x1190,31,Leaf Mass per Area
+1191,0.43,x1191,31,Leaf Mass per Area
+1192,0.43,x1192,31,Leaf Mass per Area
+1193,0.43,x1193,31,Leaf Mass per Area
+1194,0.43,x1194,31,Leaf Mass per Area
+1195,0.43,x1195,31,Leaf Mass per Area
+1196,0.43,x1196,31,Leaf Mass per Area
+1197,0.43,x1197,31,Leaf Mass per Area
+1198,0.43,x1198,31,Leaf Mass per Area
+1199,0.43,x1199,31,Leaf Mass per Area
+1200,0.43,x1200,31,Leaf Mass per Area
+1201,0.43,x1201,31,Leaf Mass per Area
+1202,0.43,x1202,31,Leaf Mass per Area
+1203,0.43,x1203,31,Leaf Mass per Area
+1204,0.43,x1204,31,Leaf Mass per Area
+1205,0.43,x1205,18,Leaf Mass per Area
+1206,0.43,x1206,31,Leaf Mass per Area
+1207,0.431,x1207,31,Leaf Mass per Area
+1208,0.431,x1208,31,Leaf Mass per Area
+1209,0.431,x1209,31,Leaf Mass per Area
+1210,0.431,x1210,31,Leaf Mass per Area
+1211,0.431,x1211,31,Leaf Mass per Area
+1212,0.431,x1212,31,Leaf Mass per Area
+1213,0.431,x1213,31,Leaf Mass per Area
+1214,0.431,x1214,31,Leaf Mass per Area
+1215,0.431,x1215,31,Leaf Mass per Area
+1216,0.432,x1216,31,Leaf Mass per Area
+1217,0.432,x1217,31,Leaf Mass per Area
+1218,0.432,x1218,31,Leaf Mass per Area
+1219,0.432,x1219,31,Leaf Mass per Area
+1220,0.433,x1220,31,Leaf Mass per Area
+1221,0.433,x1221,31,Leaf Mass per Area
+1222,0.433,x1222,31,Leaf Mass per Area
+1223,0.433,x1223,31,Leaf Mass per Area
+1224,0.433,x1224,31,Leaf Mass per Area
+1225,0.434,x1225,31,Leaf Mass per Area
+1226,0.434,x1226,31,Leaf Mass per Area
+1227,0.434,x1227,31,Leaf Mass per Area
+1228,0.434,x1228,31,Leaf Mass per Area
+1229,0.434,x1229,31,Leaf Mass per Area
+1230,0.434,x1230,27,Leaf Mass per Area
+1231,0.434,x1231,31,Leaf Mass per Area
+1232,0.434,x1232,31,Leaf Mass per Area
+1233,0.434,x1233,31,Leaf Mass per Area
+1234,0.435,x1234,31,Leaf Mass per Area
+1235,0.435,x1235,31,Leaf Mass per Area
+1236,0.435,x1236,31,Leaf Mass per Area
+1237,0.435,x1237,31,Leaf Mass per Area
+1238,0.435,x1238,31,Leaf Mass per Area
+1239,0.436,x1239,31,Leaf Mass per Area
+1240,0.436,x1240,31,Leaf Mass per Area
+1241,0.436,x1241,31,Leaf Mass per Area
+1242,0.436,x1242,31,Leaf Mass per Area
+1243,0.436,x1243,31,Leaf Mass per Area
+1244,0.436,x1244,31,Leaf Mass per Area
+1245,0.436,x1245,31,Leaf Mass per Area
+1246,0.436,x1246,31,Leaf Mass per Area
+1247,0.437,x1247,31,Leaf Mass per Area
+1248,0.437,x1248,31,Leaf Mass per Area
+1249,0.437,x1249,31,Leaf Mass per Area
+1250,0.437,x1250,31,Leaf Mass per Area
+1251,0.437,x1251,31,Leaf Mass per Area
+1252,0.437,x1252,31,Leaf Mass per Area
+1253,0.437,x1253,31,Leaf Mass per Area
+1254,0.437,x1254,31,Leaf Mass per Area
+1255,0.437,x1255,31,Leaf Mass per Area
+1256,0.437,x1256,31,Leaf Mass per Area
+1257,0.437,x1257,31,Leaf Mass per Area
+1258,0.437,x1258,31,Leaf Mass per Area
+1259,0.437,x1259,31,Leaf Mass per Area
+1260,0.437,x1260,31,Leaf Mass per Area
+1261,0.437,x1261,31,Leaf Mass per Area
+1262,0.437,x1262,31,Leaf Mass per Area
+1263,0.437,x1263,31,Leaf Mass per Area
+1264,0.437,x1264,31,Leaf Mass per Area
+1265,0.437,x1265,31,Leaf Mass per Area
+1266,0.437,x1266,31,Leaf Mass per Area
+1267,0.437,x1267,31,Leaf Mass per Area
+1268,0.437,x1268,31,Leaf Mass per Area
+1269,0.437,x1269,31,Leaf Mass per Area
+1270,0.437,x1270,31,Leaf Mass per Area
+1271,0.437,x1271,31,Leaf Mass per Area
+1272,0.437,x1272,31,Leaf Mass per Area
+1273,0.436,x1273,31,Leaf Mass per Area
+1274,0.436,x1274,31,Leaf Mass per Area
+1275,0.436,x1275,31,Leaf Mass per Area
+1276,0.436,x1276,31,Leaf Mass per Area
+1277,0.436,x1277,31,Leaf Mass per Area
+1278,0.436,x1278,31,Leaf Mass per Area
+1279,0.436,x1279,31,Leaf Mass per Area
+1280,0.436,x1280,31,Leaf Mass per Area
+1281,0.435,x1281,31,Leaf Mass per Area
+1282,0.435,x1282,31,Leaf Mass per Area
+1283,0.435,x1283,31,Leaf Mass per Area
+1284,0.435,x1284,31,Leaf Mass per Area
+1285,0.435,x1285,31,Leaf Mass per Area
+1286,0.435,x1286,31,Leaf Mass per Area
+1287,0.434,x1287,31,Leaf Mass per Area
+1288,0.434,x1288,31,Leaf Mass per Area
+1289,0.434,x1289,31,Leaf Mass per Area
+1290,0.433,x1290,31,Leaf Mass per Area
+1291,0.433,x1291,17,Leaf Mass per Area
+1292,0.433,x1292,31,Leaf Mass per Area
+1293,0.432,x1293,31,Leaf Mass per Area
+1294,0.432,x1294,31,Leaf Mass per Area
+1295,0.432,x1295,31,Leaf Mass per Area
+1296,0.431,x1296,31,Leaf Mass per Area
+1297,0.431,x1297,31,Leaf Mass per Area
+1298,0.431,x1298,31,Leaf Mass per Area
+1299,0.43,x1299,31,Leaf Mass per Area
+1300,0.43,x1300,31,Leaf Mass per Area
+1301,0.43,x1301,31,Leaf Mass per Area
+1302,0.429,x1302,31,Leaf Mass per Area
+1303,0.429,x1303,31,Leaf Mass per Area
+1304,0.428,x1304,31,Leaf Mass per Area
+1305,0.428,x1305,31,Leaf Mass per Area
+1306,0.427,x1306,31,Leaf Mass per Area
+1307,0.427,x1307,31,Leaf Mass per Area
+1308,0.426,x1308,31,Leaf Mass per Area
+1309,0.425,x1309,28,Leaf Mass per Area
+1310,0.424,x1310,31,Leaf Mass per Area
+1311,0.423,x1311,31,Leaf Mass per Area
+1312,0.423,x1312,31,Leaf Mass per Area
+1313,0.422,x1313,31,Leaf Mass per Area
+1314,0.421,x1314,31,Leaf Mass per Area
+1315,0.42,x1315,31,Leaf Mass per Area
+1316,0.42,x1316,31,Leaf Mass per Area
+1317,0.419,x1317,31,Leaf Mass per Area
+1318,0.418,x1318,31,Leaf Mass per Area
+1319,0.417,x1319,31,Leaf Mass per Area
+1320,0.416,x1320,31,Leaf Mass per Area
+1321,0.415,x1321,31,Leaf Mass per Area
+1322,0.414,x1322,31,Leaf Mass per Area
+1323,0.413,x1323,31,Leaf Mass per Area
+1324,0.412,x1324,31,Leaf Mass per Area
+1325,0.411,x1325,31,Leaf Mass per Area
+1326,0.41,x1326,31,Leaf Mass per Area
+1327,0.409,x1327,31,Leaf Mass per Area
+1328,0.408,x1328,31,Leaf Mass per Area
+1329,0.407,x1329,31,Leaf Mass per Area
+1330,0.406,x1330,31,Leaf Mass per Area
+1331,0.405,x1331,31,Leaf Mass per Area
+1332,0.404,x1332,31,Leaf Mass per Area
+1333,0.403,x1333,31,Leaf Mass per Area
+1334,0.401,x1334,31,Leaf Mass per Area
+1335,0.4,x1335,31,Leaf Mass per Area
+1336,0.399,x1336,31,Leaf Mass per Area
+1337,0.398,x1337,31,Leaf Mass per Area
+1338,0.397,x1338,31,Leaf Mass per Area
+1339,0.396,x1339,31,Leaf Mass per Area
+1340,0.394,x1340,31,Leaf Mass per Area
+1341,0.393,x1341,31,Leaf Mass per Area
+1342,0.392,x1342,31,Leaf Mass per Area
+1343,0.391,x1343,31,Leaf Mass per Area
+1344,0.39,x1344,31,Leaf Mass per Area
+1345,0.389,x1345,31,Leaf Mass per Area
+1346,0.388,x1346,31,Leaf Mass per Area
+1347,0.387,x1347,31,Leaf Mass per Area
+1348,0.386,x1348,31,Leaf Mass per Area
+1349,0.385,x1349,31,Leaf Mass per Area
+1350,0.384,x1350,31,Leaf Mass per Area
+1351,0.383,x1351,31,Leaf Mass per Area
+1352,0.382,x1352,31,Leaf Mass per Area
+1353,0.381,x1353,25,Leaf Mass per Area
+1354,0.38,x1354,31,Leaf Mass per Area
+1355,0.379,x1355,31,Leaf Mass per Area
+1356,0.378,x1356,31,Leaf Mass per Area
+1357,0.377,x1357,31,Leaf Mass per Area
+1358,0.375,x1358,31,Leaf Mass per Area
+1359,0.374,x1359,31,Leaf Mass per Area
+1360,0.373,x1360,31,Leaf Mass per Area
+1361,0.372,x1361,31,Leaf Mass per Area
+1362,0.372,x1362,31,Leaf Mass per Area
+1363,0.371,x1363,31,Leaf Mass per Area
+1364,0.37,x1364,31,Leaf Mass per Area
+1365,0.369,x1365,31,Leaf Mass per Area
+1366,0.367,x1366,31,Leaf Mass per Area
+1367,0.366,x1367,31,Leaf Mass per Area
+1368,0.364,x1368,31,Leaf Mass per Area
+1369,0.362,x1369,31,Leaf Mass per Area
+1370,0.36,x1370,31,Leaf Mass per Area
+1371,0.358,x1371,31,Leaf Mass per Area
+1372,0.356,x1372,31,Leaf Mass per Area
+1373,0.353,x1373,31,Leaf Mass per Area
+1374,0.351,x1374,31,Leaf Mass per Area
+1375,0.348,x1375,31,Leaf Mass per Area
+1376,0.345,x1376,31,Leaf Mass per Area
+1377,0.342,x1377,31,Leaf Mass per Area
+1378,0.338,x1378,31,Leaf Mass per Area
+1379,0.335,x1379,31,Leaf Mass per Area
+1380,0.331,x1380,31,Leaf Mass per Area
+1381,0.327,x1381,31,Leaf Mass per Area
+1382,0.323,x1382,31,Leaf Mass per Area
+1383,0.319,x1383,31,Leaf Mass per Area
+1384,0.315,x1384,31,Leaf Mass per Area
+1385,0.31,x1385,31,Leaf Mass per Area
+1386,0.305,x1386,31,Leaf Mass per Area
+1387,0.3,x1387,31,Leaf Mass per Area
+1388,0.295,x1388,31,Leaf Mass per Area
+1389,0.289,x1389,31,Leaf Mass per Area
+1390,0.284,x1390,31,Leaf Mass per Area
+1391,0.279,x1391,31,Leaf Mass per Area
+1392,0.273,x1392,31,Leaf Mass per Area
+1393,0.267,x1393,31,Leaf Mass per Area
+1394,0.262,x1394,31,Leaf Mass per Area
+1395,0.256,x1395,31,Leaf Mass per Area
+1396,0.251,x1396,31,Leaf Mass per Area
+1397,0.245,x1397,31,Leaf Mass per Area
+1398,0.24,x1398,31,Leaf Mass per Area
+1399,0.235,x1399,31,Leaf Mass per Area
+1400,0.23,x1400,31,Leaf Mass per Area
+1401,0.226,x1401,31,Leaf Mass per Area
+1402,0.221,x1402,31,Leaf Mass per Area
+1403,0.217,x1403,31,Leaf Mass per Area
+1404,0.213,x1404,31,Leaf Mass per Area
+1405,0.209,x1405,31,Leaf Mass per Area
+1406,0.205,x1406,31,Leaf Mass per Area
+1407,0.201,x1407,31,Leaf Mass per Area
+1408,0.198,x1408,31,Leaf Mass per Area
+1409,0.195,x1409,31,Leaf Mass per Area
+1410,0.192,x1410,31,Leaf Mass per Area
+1411,0.189,x1411,31,Leaf Mass per Area
+1412,0.186,x1412,31,Leaf Mass per Area
+1413,0.184,x1413,31,Leaf Mass per Area
+1414,0.182,x1414,31,Leaf Mass per Area
+1415,0.18,x1415,31,Leaf Mass per Area
+1416,0.178,x1416,31,Leaf Mass per Area
+1417,0.176,x1417,31,Leaf Mass per Area
+1418,0.174,x1418,31,Leaf Mass per Area
+1419,0.173,x1419,31,Leaf Mass per Area
+1420,0.171,x1420,31,Leaf Mass per Area
+1421,0.17,x1421,31,Leaf Mass per Area
+1422,0.169,x1422,31,Leaf Mass per Area
+1423,0.167,x1423,31,Leaf Mass per Area
+1424,0.166,x1424,31,Leaf Mass per Area
+1425,0.165,x1425,31,Leaf Mass per Area
+1426,0.165,x1426,31,Leaf Mass per Area
+1427,0.164,x1427,6,Leaf Mass per Area
+1428,0.163,x1428,31,Leaf Mass per Area
+1429,0.162,x1429,31,Leaf Mass per Area
+1430,0.162,x1430,31,Leaf Mass per Area
+1431,0.161,x1431,31,Leaf Mass per Area
+1432,0.161,x1432,31,Leaf Mass per Area
+1433,0.16,x1433,31,Leaf Mass per Area
+1434,0.16,x1434,31,Leaf Mass per Area
+1435,0.16,x1435,31,Leaf Mass per Area
+1436,0.159,x1436,31,Leaf Mass per Area
+1437,0.159,x1437,31,Leaf Mass per Area
+1438,0.159,x1438,31,Leaf Mass per Area
+1439,0.159,x1439,31,Leaf Mass per Area
+1440,0.158,x1440,31,Leaf Mass per Area
+1441,0.158,x1441,31,Leaf Mass per Area
+1442,0.158,x1442,31,Leaf Mass per Area
+1443,0.158,x1443,31,Leaf Mass per Area
+1444,0.158,x1444,31,Leaf Mass per Area
+1445,0.158,x1445,31,Leaf Mass per Area
+1446,0.158,x1446,31,Leaf Mass per Area
+1447,0.158,x1447,31,Leaf Mass per Area
+1448,0.158,x1448,31,Leaf Mass per Area
+1449,0.159,x1449,31,Leaf Mass per Area
+1450,0.159,x1450,31,Leaf Mass per Area
+1451,0.159,x1451,31,Leaf Mass per Area
+1452,0.159,x1452,31,Leaf Mass per Area
+1453,0.159,x1453,31,Leaf Mass per Area
+1454,0.159,x1454,31,Leaf Mass per Area
+1455,0.159,x1455,31,Leaf Mass per Area
+1456,0.16,x1456,31,Leaf Mass per Area
+1457,0.16,x1457,31,Leaf Mass per Area
+1458,0.16,x1458,31,Leaf Mass per Area
+1459,0.161,x1459,31,Leaf Mass per Area
+1460,0.161,x1460,31,Leaf Mass per Area
+1461,0.161,x1461,31,Leaf Mass per Area
+1462,0.162,x1462,31,Leaf Mass per Area
+1463,0.162,x1463,31,Leaf Mass per Area
+1464,0.163,x1464,31,Leaf Mass per Area
+1465,0.164,x1465,31,Leaf Mass per Area
+1466,0.164,x1466,31,Leaf Mass per Area
+1467,0.165,x1467,31,Leaf Mass per Area
+1468,0.166,x1468,31,Leaf Mass per Area
+1469,0.167,x1469,31,Leaf Mass per Area
+1470,0.168,x1470,31,Leaf Mass per Area
+1471,0.169,x1471,31,Leaf Mass per Area
+1472,0.17,x1472,31,Leaf Mass per Area
+1473,0.171,x1473,31,Leaf Mass per Area
+1474,0.172,x1474,31,Leaf Mass per Area
+1475,0.173,x1475,31,Leaf Mass per Area
+1476,0.174,x1476,31,Leaf Mass per Area
+1477,0.175,x1477,31,Leaf Mass per Area
+1478,0.176,x1478,31,Leaf Mass per Area
+1479,0.177,x1479,31,Leaf Mass per Area
+1480,0.178,x1480,31,Leaf Mass per Area
+1481,0.18,x1481,31,Leaf Mass per Area
+1482,0.181,x1482,31,Leaf Mass per Area
+1483,0.182,x1483,31,Leaf Mass per Area
+1484,0.184,x1484,31,Leaf Mass per Area
+1485,0.185,x1485,31,Leaf Mass per Area
+1486,0.186,x1486,31,Leaf Mass per Area
+1487,0.187,x1487,31,Leaf Mass per Area
+1488,0.189,x1488,30,Leaf Mass per Area
+1489,0.19,x1489,31,Leaf Mass per Area
+1490,0.191,x1490,31,Leaf Mass per Area
+1491,0.192,x1491,31,Leaf Mass per Area
+1492,0.194,x1492,31,Leaf Mass per Area
+1493,0.195,x1493,31,Leaf Mass per Area
+1494,0.196,x1494,31,Leaf Mass per Area
+1495,0.198,x1495,31,Leaf Mass per Area
+1496,0.199,x1496,31,Leaf Mass per Area
+1497,0.201,x1497,31,Leaf Mass per Area
+1498,0.202,x1498,31,Leaf Mass per Area
+1499,0.203,x1499,31,Leaf Mass per Area
+1500,0.204,x1500,31,Leaf Mass per Area
+1501,0.206,x1501,31,Leaf Mass per Area
+1502,0.207,x1502,9,Leaf Mass per Area
+1503,0.208,x1503,31,Leaf Mass per Area
+1504,0.21,x1504,31,Leaf Mass per Area
+1505,0.211,x1505,31,Leaf Mass per Area
+1506,0.212,x1506,31,Leaf Mass per Area
+1507,0.214,x1507,31,Leaf Mass per Area
+1508,0.215,x1508,31,Leaf Mass per Area
+1509,0.216,x1509,31,Leaf Mass per Area
+1510,0.217,x1510,31,Leaf Mass per Area
+1511,0.219,x1511,31,Leaf Mass per Area
+1512,0.22,x1512,31,Leaf Mass per Area
+1513,0.221,x1513,31,Leaf Mass per Area
+1514,0.223,x1514,31,Leaf Mass per Area
+1515,0.224,x1515,31,Leaf Mass per Area
+1516,0.225,x1516,31,Leaf Mass per Area
+1517,0.226,x1517,31,Leaf Mass per Area
+1518,0.227,x1518,31,Leaf Mass per Area
+1519,0.229,x1519,31,Leaf Mass per Area
+1520,0.23,x1520,31,Leaf Mass per Area
+1521,0.231,x1521,31,Leaf Mass per Area
+1522,0.232,x1522,31,Leaf Mass per Area
+1523,0.233,x1523,31,Leaf Mass per Area
+1524,0.235,x1524,31,Leaf Mass per Area
+1525,0.236,x1525,31,Leaf Mass per Area
+1526,0.237,x1526,31,Leaf Mass per Area
+1527,0.238,x1527,31,Leaf Mass per Area
+1528,0.239,x1528,31,Leaf Mass per Area
+1529,0.241,x1529,31,Leaf Mass per Area
+1530,0.242,x1530,11,Leaf Mass per Area
+1531,0.243,x1531,31,Leaf Mass per Area
+1532,0.244,x1532,31,Leaf Mass per Area
+1533,0.245,x1533,31,Leaf Mass per Area
+1534,0.246,x1534,31,Leaf Mass per Area
+1535,0.247,x1535,31,Leaf Mass per Area
+1536,0.248,x1536,31,Leaf Mass per Area
+1537,0.249,x1537,31,Leaf Mass per Area
+1538,0.25,x1538,31,Leaf Mass per Area
+1539,0.251,x1539,31,Leaf Mass per Area
+1540,0.252,x1540,31,Leaf Mass per Area
+1541,0.253,x1541,31,Leaf Mass per Area
+1542,0.254,x1542,31,Leaf Mass per Area
+1543,0.256,x1543,31,Leaf Mass per Area
+1544,0.257,x1544,31,Leaf Mass per Area
+1545,0.258,x1545,31,Leaf Mass per Area
+1546,0.259,x1546,31,Leaf Mass per Area
+1547,0.26,x1547,31,Leaf Mass per Area
+1548,0.261,x1548,31,Leaf Mass per Area
+1549,0.262,x1549,31,Leaf Mass per Area
+1550,0.263,x1550,31,Leaf Mass per Area
+1551,0.263,x1551,31,Leaf Mass per Area
+1552,0.264,x1552,31,Leaf Mass per Area
+1553,0.265,x1553,31,Leaf Mass per Area
+1554,0.266,x1554,31,Leaf Mass per Area
+1555,0.267,x1555,31,Leaf Mass per Area
+1556,0.268,x1556,31,Leaf Mass per Area
+1557,0.269,x1557,31,Leaf Mass per Area
+1558,0.27,x1558,31,Leaf Mass per Area
+1559,0.27,x1559,31,Leaf Mass per Area
+1560,0.271,x1560,31,Leaf Mass per Area
+1561,0.272,x1561,31,Leaf Mass per Area
+1562,0.273,x1562,31,Leaf Mass per Area
+1563,0.274,x1563,31,Leaf Mass per Area
+1564,0.274,x1564,31,Leaf Mass per Area
+1565,0.275,x1565,31,Leaf Mass per Area
+1566,0.276,x1566,31,Leaf Mass per Area
+1567,0.277,x1567,31,Leaf Mass per Area
+1568,0.277,x1568,31,Leaf Mass per Area
+1569,0.278,x1569,31,Leaf Mass per Area
+1570,0.279,x1570,31,Leaf Mass per Area
+1571,0.28,x1571,31,Leaf Mass per Area
+1572,0.281,x1572,31,Leaf Mass per Area
+1573,0.281,x1573,31,Leaf Mass per Area
+1574,0.282,x1574,31,Leaf Mass per Area
+1575,0.283,x1575,31,Leaf Mass per Area
+1576,0.284,x1576,31,Leaf Mass per Area
+1577,0.284,x1577,31,Leaf Mass per Area
+1578,0.285,x1578,31,Leaf Mass per Area
+1579,0.285,x1579,31,Leaf Mass per Area
+1580,0.286,x1580,31,Leaf Mass per Area
+1581,0.287,x1581,31,Leaf Mass per Area
+1582,0.287,x1582,31,Leaf Mass per Area
+1583,0.288,x1583,31,Leaf Mass per Area
+1584,0.289,x1584,31,Leaf Mass per Area
+1585,0.289,x1585,10,Leaf Mass per Area
+1586,0.29,x1586,31,Leaf Mass per Area
+1587,0.291,x1587,31,Leaf Mass per Area
+1588,0.291,x1588,31,Leaf Mass per Area
+1589,0.292,x1589,31,Leaf Mass per Area
+1590,0.292,x1590,31,Leaf Mass per Area
+1591,0.293,x1591,31,Leaf Mass per Area
+1592,0.293,x1592,31,Leaf Mass per Area
+1593,0.294,x1593,31,Leaf Mass per Area
+1594,0.295,x1594,31,Leaf Mass per Area
+1595,0.295,x1595,31,Leaf Mass per Area
+1596,0.296,x1596,31,Leaf Mass per Area
+1597,0.296,x1597,31,Leaf Mass per Area
+1598,0.297,x1598,31,Leaf Mass per Area
+1599,0.297,x1599,31,Leaf Mass per Area
+1600,0.298,x1600,24,Leaf Mass per Area
+1601,0.299,x1601,31,Leaf Mass per Area
+1602,0.299,x1602,31,Leaf Mass per Area
+1603,0.3,x1603,31,Leaf Mass per Area
+1604,0.3,x1604,31,Leaf Mass per Area
+1605,0.301,x1605,31,Leaf Mass per Area
+1606,0.301,x1606,31,Leaf Mass per Area
+1607,0.302,x1607,31,Leaf Mass per Area
+1608,0.302,x1608,31,Leaf Mass per Area
+1609,0.302,x1609,31,Leaf Mass per Area
+1610,0.303,x1610,31,Leaf Mass per Area
+1611,0.303,x1611,31,Leaf Mass per Area
+1612,0.304,x1612,31,Leaf Mass per Area
+1613,0.304,x1613,31,Leaf Mass per Area
+1614,0.305,x1614,31,Leaf Mass per Area
+1615,0.305,x1615,31,Leaf Mass per Area
+1616,0.306,x1616,31,Leaf Mass per Area
+1617,0.306,x1617,31,Leaf Mass per Area
+1618,0.306,x1618,31,Leaf Mass per Area
+1619,0.307,x1619,31,Leaf Mass per Area
+1620,0.307,x1620,31,Leaf Mass per Area
+1621,0.307,x1621,31,Leaf Mass per Area
+1622,0.308,x1622,31,Leaf Mass per Area
+1623,0.308,x1623,31,Leaf Mass per Area
+1624,0.309,x1624,31,Leaf Mass per Area
+1625,0.309,x1625,31,Leaf Mass per Area
+1626,0.309,x1626,31,Leaf Mass per Area
+1627,0.31,x1627,31,Leaf Mass per Area
+1628,0.31,x1628,31,Leaf Mass per Area
+1629,0.31,x1629,31,Leaf Mass per Area
+1630,0.311,x1630,12,Leaf Mass per Area
+1631,0.311,x1631,31,Leaf Mass per Area
+1632,0.311,x1632,31,Leaf Mass per Area
+1633,0.312,x1633,31,Leaf Mass per Area
+1634,0.312,x1634,31,Leaf Mass per Area
+1635,0.312,x1635,31,Leaf Mass per Area
+1636,0.313,x1636,31,Leaf Mass per Area
+1637,0.313,x1637,31,Leaf Mass per Area
+1638,0.313,x1638,31,Leaf Mass per Area
+1639,0.313,x1639,31,Leaf Mass per Area
+1640,0.314,x1640,31,Leaf Mass per Area
+1641,0.314,x1641,31,Leaf Mass per Area
+1642,0.314,x1642,31,Leaf Mass per Area
+1643,0.314,x1643,31,Leaf Mass per Area
+1644,0.314,x1644,31,Leaf Mass per Area
+1645,0.314,x1645,31,Leaf Mass per Area
+1646,0.314,x1646,31,Leaf Mass per Area
+1647,0.315,x1647,31,Leaf Mass per Area
+1648,0.315,x1648,31,Leaf Mass per Area
+1649,0.315,x1649,31,Leaf Mass per Area
+1650,0.315,x1650,31,Leaf Mass per Area
+1651,0.315,x1651,31,Leaf Mass per Area
+1652,0.315,x1652,31,Leaf Mass per Area
+1653,0.315,x1653,31,Leaf Mass per Area
+1654,0.315,x1654,31,Leaf Mass per Area
+1655,0.315,x1655,31,Leaf Mass per Area
+1656,0.315,x1656,31,Leaf Mass per Area
+1657,0.315,x1657,31,Leaf Mass per Area
+1658,0.315,x1658,31,Leaf Mass per Area
+1659,0.315,x1659,31,Leaf Mass per Area
+1660,0.315,x1660,31,Leaf Mass per Area
+1661,0.315,x1661,31,Leaf Mass per Area
+1662,0.315,x1662,31,Leaf Mass per Area
+1663,0.315,x1663,31,Leaf Mass per Area
+1664,0.315,x1664,31,Leaf Mass per Area
+1665,0.315,x1665,31,Leaf Mass per Area
+1666,0.315,x1666,31,Leaf Mass per Area
+1667,0.315,x1667,31,Leaf Mass per Area
+1668,0.315,x1668,31,Leaf Mass per Area
+1669,0.315,x1669,31,Leaf Mass per Area
+1670,0.315,x1670,13,Leaf Mass per Area
+1671,0.315,x1671,31,Leaf Mass per Area
+1672,0.315,x1672,31,Leaf Mass per Area
+1673,0.315,x1673,31,Leaf Mass per Area
+1674,0.315,x1674,31,Leaf Mass per Area
+1675,0.315,x1675,31,Leaf Mass per Area
+1676,0.315,x1676,31,Leaf Mass per Area
+1677,0.315,x1677,31,Leaf Mass per Area
+1678,0.314,x1678,31,Leaf Mass per Area
+1679,0.314,x1679,31,Leaf Mass per Area
+1680,0.314,x1680,31,Leaf Mass per Area
+1681,0.314,x1681,31,Leaf Mass per Area
+1682,0.313,x1682,31,Leaf Mass per Area
+1683,0.313,x1683,31,Leaf Mass per Area
+1684,0.313,x1684,31,Leaf Mass per Area
+1685,0.313,x1685,31,Leaf Mass per Area
+1686,0.312,x1686,31,Leaf Mass per Area
+1687,0.312,x1687,31,Leaf Mass per Area
+1688,0.312,x1688,31,Leaf Mass per Area
+1689,0.311,x1689,31,Leaf Mass per Area
+1690,0.311,x1690,31,Leaf Mass per Area
+1691,0.311,x1691,31,Leaf Mass per Area
+1692,0.31,x1692,15,Leaf Mass per Area
+1693,0.31,x1693,31,Leaf Mass per Area
+1694,0.31,x1694,31,Leaf Mass per Area
+1695,0.309,x1695,31,Leaf Mass per Area
+1696,0.309,x1696,31,Leaf Mass per Area
+1697,0.308,x1697,31,Leaf Mass per Area
+1698,0.308,x1698,31,Leaf Mass per Area
+1699,0.308,x1699,31,Leaf Mass per Area
+1700,0.307,x1700,31,Leaf Mass per Area
+1701,0.307,x1701,8,Leaf Mass per Area
+1702,0.307,x1702,31,Leaf Mass per Area
+1703,0.306,x1703,31,Leaf Mass per Area
+1704,0.306,x1704,31,Leaf Mass per Area
+1705,0.306,x1705,31,Leaf Mass per Area
+1706,0.305,x1706,31,Leaf Mass per Area
+1707,0.305,x1707,31,Leaf Mass per Area
+1708,0.305,x1708,31,Leaf Mass per Area
+1709,0.304,x1709,31,Leaf Mass per Area
+1710,0.304,x1710,31,Leaf Mass per Area
+1711,0.303,x1711,31,Leaf Mass per Area
+1712,0.303,x1712,31,Leaf Mass per Area
+1713,0.302,x1713,31,Leaf Mass per Area
+1714,0.302,x1714,31,Leaf Mass per Area
+1715,0.302,x1715,31,Leaf Mass per Area
+1716,0.301,x1716,31,Leaf Mass per Area
+1717,0.301,x1717,4,Leaf Mass per Area
+1718,0.3,x1718,31,Leaf Mass per Area
+1719,0.3,x1719,31,Leaf Mass per Area
+1720,0.3,x1720,31,Leaf Mass per Area
+1721,0.299,x1721,31,Leaf Mass per Area
+1722,0.299,x1722,31,Leaf Mass per Area
+1723,0.299,x1723,31,Leaf Mass per Area
+1724,0.298,x1724,31,Leaf Mass per Area
+1725,0.298,x1725,31,Leaf Mass per Area
+1726,0.297,x1726,31,Leaf Mass per Area
+1727,0.297,x1727,31,Leaf Mass per Area
+1728,0.296,x1728,31,Leaf Mass per Area
+1729,0.296,x1729,31,Leaf Mass per Area
+1730,0.296,x1730,31,Leaf Mass per Area
+1731,0.295,x1731,31,Leaf Mass per Area
+1732,0.295,x1732,31,Leaf Mass per Area
+1733,0.295,x1733,31,Leaf Mass per Area
+1734,0.294,x1734,31,Leaf Mass per Area
+1735,0.294,x1735,31,Leaf Mass per Area
+1736,0.293,x1736,31,Leaf Mass per Area
+1737,0.293,x1737,31,Leaf Mass per Area
+1738,0.293,x1738,31,Leaf Mass per Area
+1739,0.292,x1739,31,Leaf Mass per Area
+1740,0.292,x1740,31,Leaf Mass per Area
+1741,0.292,x1741,31,Leaf Mass per Area
+1742,0.291,x1742,31,Leaf Mass per Area
+1743,0.29,x1743,31,Leaf Mass per Area
+1744,0.29,x1744,31,Leaf Mass per Area
+1745,0.289,x1745,31,Leaf Mass per Area
+1746,0.288,x1746,31,Leaf Mass per Area
+1747,0.287,x1747,31,Leaf Mass per Area
+1748,0.287,x1748,31,Leaf Mass per Area
+1749,0.286,x1749,31,Leaf Mass per Area
+1750,0.285,x1750,31,Leaf Mass per Area
+1751,0.285,x1751,31,Leaf Mass per Area
+1752,0.284,x1752,31,Leaf Mass per Area
+1753,0.284,x1753,31,Leaf Mass per Area
+1754,0.283,x1754,31,Leaf Mass per Area
+1755,0.282,x1755,31,Leaf Mass per Area
+1756,0.281,x1756,31,Leaf Mass per Area
+1757,0.281,x1757,31,Leaf Mass per Area
+1758,0.28,x1758,31,Leaf Mass per Area
+1759,0.28,x1759,31,Leaf Mass per Area
+1760,0.279,x1760,31,Leaf Mass per Area
+1761,0.278,x1761,31,Leaf Mass per Area
+1762,0.278,x1762,31,Leaf Mass per Area
+1763,0.277,x1763,31,Leaf Mass per Area
+1764,0.276,x1764,31,Leaf Mass per Area
+1765,0.276,x1765,31,Leaf Mass per Area
+1766,0.275,x1766,31,Leaf Mass per Area
+1767,0.275,x1767,31,Leaf Mass per Area
+1768,0.274,x1768,31,Leaf Mass per Area
+1769,0.274,x1769,31,Leaf Mass per Area
+1770,0.274,x1770,5,Leaf Mass per Area
+1771,0.274,x1771,31,Leaf Mass per Area
+1772,0.274,x1772,31,Leaf Mass per Area
+1773,0.274,x1773,31,Leaf Mass per Area
+1774,0.274,x1774,31,Leaf Mass per Area
+1775,0.273,x1775,31,Leaf Mass per Area
+1776,0.273,x1776,31,Leaf Mass per Area
+1777,0.272,x1777,31,Leaf Mass per Area
+1778,0.271,x1778,31,Leaf Mass per Area
+1779,0.271,x1779,31,Leaf Mass per Area
+1780,0.27,x1780,31,Leaf Mass per Area
+1781,0.27,x1781,31,Leaf Mass per Area
+1782,0.27,x1782,31,Leaf Mass per Area
+1783,0.271,x1783,31,Leaf Mass per Area
+1784,0.271,x1784,31,Leaf Mass per Area
+1785,0.271,x1785,31,Leaf Mass per Area
+1786,0.271,x1786,31,Leaf Mass per Area
+1787,0.271,x1787,31,Leaf Mass per Area
+1788,0.271,x1788,31,Leaf Mass per Area
+1789,0.271,x1789,31,Leaf Mass per Area
+1790,0.27,x1790,31,Leaf Mass per Area
+1791,0.27,x1791,31,Leaf Mass per Area
+1792,0.27,x1792,31,Leaf Mass per Area
+1793,0.27,x1793,31,Leaf Mass per Area
+1794,0.27,x1794,31,Leaf Mass per Area
+1795,0.27,x1795,31,Leaf Mass per Area
+1796,0.27,x1796,31,Leaf Mass per Area
+1797,0.27,x1797,31,Leaf Mass per Area
+1798,0.27,x1798,31,Leaf Mass per Area
+1799,0.27,x1799,31,Leaf Mass per Area
+1800,0.27,x1800,31,Leaf Mass per Area
+1801,0.27,x1801,31,Leaf Mass per Area
+1802,0.27,x1802,31,Leaf Mass per Area
+1803,0.27,x1803,31,Leaf Mass per Area
+1804,0.27,x1804,31,Leaf Mass per Area
+1805,0.27,x1805,31,Leaf Mass per Area
+1806,0.27,x1806,31,Leaf Mass per Area
+1807,0.269,x1807,31,Leaf Mass per Area
+1808,0.269,x1808,31,Leaf Mass per Area
+1809,0.27,x1809,31,Leaf Mass per Area
+1810,0.27,x1810,31,Leaf Mass per Area
+1811,0.27,x1811,31,Leaf Mass per Area
+1812,0.27,x1812,31,Leaf Mass per Area
+1813,0.27,x1813,31,Leaf Mass per Area
+1814,0.27,x1814,31,Leaf Mass per Area
+1815,0.269,x1815,31,Leaf Mass per Area
+1816,0.269,x1816,31,Leaf Mass per Area
+1817,0.269,x1817,31,Leaf Mass per Area
+1818,0.269,x1818,31,Leaf Mass per Area
+1819,0.269,x1819,31,Leaf Mass per Area
+1820,0.269,x1820,31,Leaf Mass per Area
+1821,0.269,x1821,31,Leaf Mass per Area
+1822,0.269,x1822,31,Leaf Mass per Area
+1823,0.269,x1823,31,Leaf Mass per Area
+1824,0.269,x1824,31,Leaf Mass per Area
+1825,0.269,x1825,31,Leaf Mass per Area
+1826,0.268,x1826,31,Leaf Mass per Area
+1827,0.268,x1827,31,Leaf Mass per Area
+1828,0.268,x1828,31,Leaf Mass per Area
+1829,0.268,x1829,31,Leaf Mass per Area
+1830,0.267,x1830,29,Leaf Mass per Area
+1831,0.267,x1831,31,Leaf Mass per Area
+1832,0.267,x1832,31,Leaf Mass per Area
+1833,0.267,x1833,31,Leaf Mass per Area
+1834,0.266,x1834,31,Leaf Mass per Area
+1835,0.266,x1835,31,Leaf Mass per Area
+1836,0.265,x1836,31,Leaf Mass per Area
+1837,0.265,x1837,31,Leaf Mass per Area
+1838,0.264,x1838,31,Leaf Mass per Area
+1839,0.263,x1839,31,Leaf Mass per Area
+1840,0.263,x1840,31,Leaf Mass per Area
+1841,0.262,x1841,31,Leaf Mass per Area
+1842,0.262,x1842,31,Leaf Mass per Area
+1843,0.261,x1843,31,Leaf Mass per Area
+1844,0.26,x1844,31,Leaf Mass per Area
+1845,0.259,x1845,31,Leaf Mass per Area
+1846,0.258,x1846,31,Leaf Mass per Area
+1847,0.257,x1847,31,Leaf Mass per Area
+1848,0.256,x1848,31,Leaf Mass per Area
+1849,0.254,x1849,31,Leaf Mass per Area
+1850,0.253,x1850,31,Leaf Mass per Area
+1851,0.251,x1851,31,Leaf Mass per Area
+1852,0.25,x1852,31,Leaf Mass per Area
+1853,0.248,x1853,31,Leaf Mass per Area
+1854,0.246,x1854,31,Leaf Mass per Area
+1855,0.243,x1855,31,Leaf Mass per Area
+1856,0.241,x1856,31,Leaf Mass per Area
+1857,0.238,x1857,31,Leaf Mass per Area
+1858,0.235,x1858,31,Leaf Mass per Area
+1859,0.233,x1859,31,Leaf Mass per Area
+1860,0.23,x1860,31,Leaf Mass per Area
+1861,0.227,x1861,31,Leaf Mass per Area
+1862,0.224,x1862,31,Leaf Mass per Area
+1863,0.22,x1863,31,Leaf Mass per Area
+1864,0.217,x1864,31,Leaf Mass per Area
+1865,0.213,x1865,31,Leaf Mass per Area
+1866,0.209,x1866,31,Leaf Mass per Area
+1867,0.205,x1867,31,Leaf Mass per Area
+1868,0.2,x1868,31,Leaf Mass per Area
+1869,0.196,x1869,31,Leaf Mass per Area
+1870,0.192,x1870,31,Leaf Mass per Area
+1871,0.187,x1871,31,Leaf Mass per Area
+1872,0.182,x1872,31,Leaf Mass per Area
+1873,0.177,x1873,31,Leaf Mass per Area
+1874,0.172,x1874,31,Leaf Mass per Area
+1875,0.167,x1875,31,Leaf Mass per Area
+1876,0.162,x1876,31,Leaf Mass per Area
+1877,0.156,x1877,31,Leaf Mass per Area
+1878,0.151,x1878,31,Leaf Mass per Area
+1879,0.146,x1879,31,Leaf Mass per Area
+1880,0.141,x1880,31,Leaf Mass per Area
+1881,0.135,x1881,31,Leaf Mass per Area
+1882,0.13,x1882,31,Leaf Mass per Area
+1883,0.124,x1883,31,Leaf Mass per Area
+1884,0.118,x1884,31,Leaf Mass per Area
+1885,0.113,x1885,31,Leaf Mass per Area
+1886,0.107,x1886,31,Leaf Mass per Area
+1887,0.102,x1887,31,Leaf Mass per Area
+1888,0.096,x1888,31,Leaf Mass per Area
+1889,0.092,x1889,31,Leaf Mass per Area
+1890,0.087,x1890,31,Leaf Mass per Area
+1891,0.082,x1891,31,Leaf Mass per Area
+1892,0.078,x1892,31,Leaf Mass per Area
+1893,0.074,x1893,31,Leaf Mass per Area
+1894,0.071,x1894,31,Leaf Mass per Area
+1895,0.068,x1895,31,Leaf Mass per Area
+1896,0.065,x1896,31,Leaf Mass per Area
+1897,0.063,x1897,31,Leaf Mass per Area
+1898,0.06,x1898,31,Leaf Mass per Area
+1899,0.058,x1899,31,Leaf Mass per Area
+1900,0.056,x1900,31,Leaf Mass per Area
+1901,0.054,x1901,31,Leaf Mass per Area
+1902,0.053,x1902,31,Leaf Mass per Area
+1903,0.051,x1903,31,Leaf Mass per Area
+1904,0.05,x1904,31,Leaf Mass per Area
+1905,0.049,x1905,31,Leaf Mass per Area
+1906,0.048,x1906,31,Leaf Mass per Area
+1907,0.047,x1907,31,Leaf Mass per Area
+1908,0.046,x1908,31,Leaf Mass per Area
+1909,0.046,x1909,31,Leaf Mass per Area
+1910,0.045,x1910,31,Leaf Mass per Area
+1911,0.044,x1911,31,Leaf Mass per Area
+1912,0.044,x1912,31,Leaf Mass per Area
+1913,0.043,x1913,31,Leaf Mass per Area
+1914,0.043,x1914,31,Leaf Mass per Area
+1915,0.043,x1915,31,Leaf Mass per Area
+1916,0.042,x1916,31,Leaf Mass per Area
+1917,0.042,x1917,31,Leaf Mass per Area
+1918,0.042,x1918,31,Leaf Mass per Area
+1919,0.042,x1919,31,Leaf Mass per Area
+1920,0.042,x1920,31,Leaf Mass per Area
+1921,0.042,x1921,31,Leaf Mass per Area
+1922,0.042,x1922,31,Leaf Mass per Area
+1923,0.042,x1923,31,Leaf Mass per Area
+1924,0.042,x1924,20,Leaf Mass per Area
+1925,0.042,x1925,31,Leaf Mass per Area
+1926,0.042,x1926,31,Leaf Mass per Area
+1927,0.042,x1927,31,Leaf Mass per Area
+1928,0.042,x1928,31,Leaf Mass per Area
+1929,0.042,x1929,31,Leaf Mass per Area
+1930,0.042,x1930,31,Leaf Mass per Area
+1931,0.042,x1931,31,Leaf Mass per Area
+1932,0.042,x1932,31,Leaf Mass per Area
+1933,0.042,x1933,31,Leaf Mass per Area
+1934,0.042,x1934,31,Leaf Mass per Area
+1935,0.042,x1935,31,Leaf Mass per Area
+1936,0.043,x1936,31,Leaf Mass per Area
+1937,0.043,x1937,31,Leaf Mass per Area
+1938,0.043,x1938,31,Leaf Mass per Area
+1939,0.043,x1939,31,Leaf Mass per Area
+1940,0.044,x1940,31,Leaf Mass per Area
+1941,0.044,x1941,31,Leaf Mass per Area
+1942,0.044,x1942,31,Leaf Mass per Area
+1943,0.045,x1943,31,Leaf Mass per Area
+1944,0.045,x1944,31,Leaf Mass per Area
+1945,0.046,x1945,31,Leaf Mass per Area
+1946,0.046,x1946,31,Leaf Mass per Area
+1947,0.046,x1947,31,Leaf Mass per Area
+1948,0.047,x1948,31,Leaf Mass per Area
+1949,0.047,x1949,31,Leaf Mass per Area
+1950,0.047,x1950,31,Leaf Mass per Area
+1951,0.047,x1951,31,Leaf Mass per Area
+1952,0.048,x1952,31,Leaf Mass per Area
+1953,0.048,x1953,31,Leaf Mass per Area
+1954,0.048,x1954,31,Leaf Mass per Area
+1955,0.049,x1955,31,Leaf Mass per Area
+1956,0.049,x1956,31,Leaf Mass per Area
+1957,0.05,x1957,31,Leaf Mass per Area
+1958,0.05,x1958,31,Leaf Mass per Area
+1959,0.051,x1959,31,Leaf Mass per Area
+1960,0.051,x1960,31,Leaf Mass per Area
+1961,0.052,x1961,31,Leaf Mass per Area
+1962,0.052,x1962,31,Leaf Mass per Area
+1963,0.053,x1963,31,Leaf Mass per Area
+1964,0.053,x1964,31,Leaf Mass per Area
+1965,0.054,x1965,31,Leaf Mass per Area
+1966,0.055,x1966,31,Leaf Mass per Area
+1967,0.055,x1967,31,Leaf Mass per Area
+1968,0.056,x1968,31,Leaf Mass per Area
+1969,0.056,x1969,31,Leaf Mass per Area
+1970,0.057,x1970,31,Leaf Mass per Area
+1971,0.057,x1971,31,Leaf Mass per Area
+1972,0.058,x1972,31,Leaf Mass per Area
+1973,0.058,x1973,31,Leaf Mass per Area
+1974,0.059,x1974,31,Leaf Mass per Area
+1975,0.059,x1975,31,Leaf Mass per Area
+1976,0.06,x1976,31,Leaf Mass per Area
+1977,0.061,x1977,31,Leaf Mass per Area
+1978,0.061,x1978,31,Leaf Mass per Area
+1979,0.062,x1979,31,Leaf Mass per Area
+1980,0.063,x1980,31,Leaf Mass per Area
+1981,0.064,x1981,31,Leaf Mass per Area
+1982,0.064,x1982,31,Leaf Mass per Area
+1983,0.065,x1983,31,Leaf Mass per Area
+1984,0.066,x1984,31,Leaf Mass per Area
+1985,0.066,x1985,31,Leaf Mass per Area
+1986,0.067,x1986,31,Leaf Mass per Area
+1987,0.068,x1987,23,Leaf Mass per Area
+1988,0.068,x1988,31,Leaf Mass per Area
+1989,0.069,x1989,31,Leaf Mass per Area
+1990,0.07,x1990,31,Leaf Mass per Area
+1991,0.07,x1991,31,Leaf Mass per Area
+1992,0.071,x1992,31,Leaf Mass per Area
+1993,0.071,x1993,31,Leaf Mass per Area
+1994,0.072,x1994,31,Leaf Mass per Area
+1995,0.073,x1995,31,Leaf Mass per Area
+1996,0.074,x1996,31,Leaf Mass per Area
+1997,0.074,x1997,31,Leaf Mass per Area
+1998,0.075,x1998,31,Leaf Mass per Area
+1999,0.076,x1999,31,Leaf Mass per Area
+2000,0.077,x2000,31,Leaf Mass per Area
+2001,0.078,x2001,31,Leaf Mass per Area
+2002,0.078,x2002,31,Leaf Mass per Area
+2003,0.079,x2003,31,Leaf Mass per Area
+2004,0.08,x2004,31,Leaf Mass per Area
+2005,0.081,x2005,31,Leaf Mass per Area
+2006,0.082,x2006,31,Leaf Mass per Area
+2007,0.083,x2007,31,Leaf Mass per Area
+2008,0.083,x2008,31,Leaf Mass per Area
+2009,0.084,x2009,31,Leaf Mass per Area
+2010,0.085,x2010,31,Leaf Mass per Area
+2011,0.085,x2011,31,Leaf Mass per Area
+2012,0.086,x2012,31,Leaf Mass per Area
+2013,0.087,x2013,31,Leaf Mass per Area
+2014,0.087,x2014,31,Leaf Mass per Area
+2015,0.088,x2015,31,Leaf Mass per Area
+2016,0.089,x2016,31,Leaf Mass per Area
+2017,0.09,x2017,31,Leaf Mass per Area
+2018,0.09,x2018,31,Leaf Mass per Area
+2019,0.091,x2019,31,Leaf Mass per Area
+2020,0.092,x2020,31,Leaf Mass per Area
+2021,0.093,x2021,31,Leaf Mass per Area
+2022,0.093,x2022,31,Leaf Mass per Area
+2023,0.094,x2023,31,Leaf Mass per Area
+2024,0.095,x2024,31,Leaf Mass per Area
+2025,0.095,x2025,31,Leaf Mass per Area
+2026,0.096,x2026,31,Leaf Mass per Area
+2027,0.097,x2027,31,Leaf Mass per Area
+2028,0.097,x2028,31,Leaf Mass per Area
+2029,0.098,x2029,31,Leaf Mass per Area
+2030,0.098,x2030,31,Leaf Mass per Area
+2031,0.099,x2031,31,Leaf Mass per Area
+2032,0.1,x2032,31,Leaf Mass per Area
+2033,0.1,x2033,31,Leaf Mass per Area
+2034,0.101,x2034,31,Leaf Mass per Area
+2035,0.102,x2035,31,Leaf Mass per Area
+2036,0.102,x2036,31,Leaf Mass per Area
+2037,0.103,x2037,31,Leaf Mass per Area
+2038,0.103,x2038,31,Leaf Mass per Area
+2039,0.104,x2039,2,Leaf Mass per Area
+2040,0.105,x2040,31,Leaf Mass per Area
+2041,0.105,x2041,31,Leaf Mass per Area
+2042,0.106,x2042,31,Leaf Mass per Area
+2043,0.107,x2043,31,Leaf Mass per Area
+2044,0.107,x2044,31,Leaf Mass per Area
+2045,0.108,x2045,31,Leaf Mass per Area
+2046,0.108,x2046,31,Leaf Mass per Area
+2047,0.109,x2047,31,Leaf Mass per Area
+2048,0.109,x2048,31,Leaf Mass per Area
+2049,0.11,x2049,31,Leaf Mass per Area
+2050,0.11,x2050,31,Leaf Mass per Area
+2051,0.111,x2051,31,Leaf Mass per Area
+2052,0.111,x2052,31,Leaf Mass per Area
+2053,0.112,x2053,31,Leaf Mass per Area
+2054,0.113,x2054,31,Leaf Mass per Area
+2055,0.114,x2055,31,Leaf Mass per Area
+2056,0.114,x2056,31,Leaf Mass per Area
+2057,0.115,x2057,31,Leaf Mass per Area
+2058,0.115,x2058,31,Leaf Mass per Area
+2059,0.116,x2059,31,Leaf Mass per Area
+2060,0.117,x2060,31,Leaf Mass per Area
+2061,0.117,x2061,31,Leaf Mass per Area
+2062,0.118,x2062,31,Leaf Mass per Area
+2063,0.118,x2063,31,Leaf Mass per Area
+2064,0.119,x2064,31,Leaf Mass per Area
+2065,0.119,x2065,31,Leaf Mass per Area
+2066,0.12,x2066,31,Leaf Mass per Area
+2067,0.121,x2067,31,Leaf Mass per Area
+2068,0.121,x2068,31,Leaf Mass per Area
+2069,0.122,x2069,31,Leaf Mass per Area
+2070,0.123,x2070,31,Leaf Mass per Area
+2071,0.123,x2071,31,Leaf Mass per Area
+2072,0.124,x2072,31,Leaf Mass per Area
+2073,0.124,x2073,31,Leaf Mass per Area
+2074,0.125,x2074,31,Leaf Mass per Area
+2075,0.125,x2075,31,Leaf Mass per Area
+2076,0.126,x2076,31,Leaf Mass per Area
+2077,0.126,x2077,31,Leaf Mass per Area
+2078,0.127,x2078,31,Leaf Mass per Area
+2079,0.128,x2079,31,Leaf Mass per Area
+2080,0.129,x2080,31,Leaf Mass per Area
+2081,0.129,x2081,31,Leaf Mass per Area
+2082,0.13,x2082,31,Leaf Mass per Area
+2083,0.13,x2083,31,Leaf Mass per Area
+2084,0.131,x2084,31,Leaf Mass per Area
+2085,0.131,x2085,31,Leaf Mass per Area
+2086,0.131,x2086,31,Leaf Mass per Area
+2087,0.132,x2087,31,Leaf Mass per Area
+2088,0.132,x2088,31,Leaf Mass per Area
+2089,0.133,x2089,31,Leaf Mass per Area
+2090,0.134,x2090,31,Leaf Mass per Area
+2091,0.135,x2091,31,Leaf Mass per Area
+2092,0.135,x2092,31,Leaf Mass per Area
+2093,0.136,x2093,31,Leaf Mass per Area
+2094,0.136,x2094,31,Leaf Mass per Area
+2095,0.137,x2095,31,Leaf Mass per Area
+2096,0.137,x2096,31,Leaf Mass per Area
+2097,0.138,x2097,31,Leaf Mass per Area
+2098,0.138,x2098,31,Leaf Mass per Area
+2099,0.139,x2099,31,Leaf Mass per Area
+2100,0.14,x2100,31,Leaf Mass per Area
+2101,0.14,x2101,31,Leaf Mass per Area
+2102,0.141,x2102,31,Leaf Mass per Area
+2103,0.141,x2103,31,Leaf Mass per Area
+2104,0.141,x2104,31,Leaf Mass per Area
+2105,0.142,x2105,31,Leaf Mass per Area
+2106,0.142,x2106,31,Leaf Mass per Area
+2107,0.142,x2107,31,Leaf Mass per Area
+2108,0.142,x2108,31,Leaf Mass per Area
+2109,0.143,x2109,31,Leaf Mass per Area
+2110,0.143,x2110,31,Leaf Mass per Area
+2111,0.144,x2111,31,Leaf Mass per Area
+2112,0.145,x2112,31,Leaf Mass per Area
+2113,0.146,x2113,31,Leaf Mass per Area
+2114,0.147,x2114,31,Leaf Mass per Area
+2115,0.148,x2115,31,Leaf Mass per Area
+2116,0.148,x2116,31,Leaf Mass per Area
+2117,0.149,x2117,31,Leaf Mass per Area
+2118,0.149,x2118,31,Leaf Mass per Area
+2119,0.149,x2119,31,Leaf Mass per Area
+2120,0.15,x2120,31,Leaf Mass per Area
+2121,0.15,x2121,31,Leaf Mass per Area
+2122,0.15,x2122,31,Leaf Mass per Area
+2123,0.15,x2123,31,Leaf Mass per Area
+2124,0.151,x2124,31,Leaf Mass per Area
+2125,0.151,x2125,31,Leaf Mass per Area
+2126,0.151,x2126,31,Leaf Mass per Area
+2127,0.152,x2127,31,Leaf Mass per Area
+2128,0.152,x2128,31,Leaf Mass per Area
+2129,0.153,x2129,31,Leaf Mass per Area
+2130,0.154,x2130,31,Leaf Mass per Area
+2131,0.154,x2131,31,Leaf Mass per Area
+2132,0.154,x2132,31,Leaf Mass per Area
+2133,0.155,x2133,31,Leaf Mass per Area
+2134,0.155,x2134,31,Leaf Mass per Area
+2135,0.155,x2135,31,Leaf Mass per Area
+2136,0.156,x2136,31,Leaf Mass per Area
+2137,0.156,x2137,31,Leaf Mass per Area
+2138,0.157,x2138,31,Leaf Mass per Area
+2139,0.158,x2139,31,Leaf Mass per Area
+2140,0.158,x2140,31,Leaf Mass per Area
+2141,0.159,x2141,31,Leaf Mass per Area
+2142,0.159,x2142,31,Leaf Mass per Area
+2143,0.159,x2143,31,Leaf Mass per Area
+2144,0.159,x2144,31,Leaf Mass per Area
+2145,0.16,x2145,31,Leaf Mass per Area
+2146,0.16,x2146,31,Leaf Mass per Area
+2147,0.16,x2147,31,Leaf Mass per Area
+2148,0.16,x2148,31,Leaf Mass per Area
+2149,0.16,x2149,31,Leaf Mass per Area
+2150,0.16,x2150,31,Leaf Mass per Area
+2151,0.16,x2151,31,Leaf Mass per Area
+2152,0.16,x2152,31,Leaf Mass per Area
+2153,0.16,x2153,31,Leaf Mass per Area
+2154,0.161,x2154,16,Leaf Mass per Area
+2155,0.161,x2155,31,Leaf Mass per Area
+2156,0.162,x2156,31,Leaf Mass per Area
+2157,0.162,x2157,31,Leaf Mass per Area
+2158,0.163,x2158,31,Leaf Mass per Area
+2159,0.163,x2159,31,Leaf Mass per Area
+2160,0.163,x2160,31,Leaf Mass per Area
+2161,0.163,x2161,31,Leaf Mass per Area
+2162,0.163,x2162,31,Leaf Mass per Area
+2163,0.163,x2163,31,Leaf Mass per Area
+2164,0.164,x2164,31,Leaf Mass per Area
+2165,0.164,x2165,31,Leaf Mass per Area
+2166,0.164,x2166,31,Leaf Mass per Area
+2167,0.165,x2167,31,Leaf Mass per Area
+2168,0.165,x2168,31,Leaf Mass per Area
+2169,0.165,x2169,31,Leaf Mass per Area
+2170,0.165,x2170,31,Leaf Mass per Area
+2171,0.165,x2171,31,Leaf Mass per Area
+2172,0.165,x2172,31,Leaf Mass per Area
+2173,0.166,x2173,31,Leaf Mass per Area
+2174,0.166,x2174,31,Leaf Mass per Area
+2175,0.166,x2175,31,Leaf Mass per Area
+2176,0.167,x2176,31,Leaf Mass per Area
+2177,0.167,x2177,31,Leaf Mass per Area
+2178,0.167,x2178,31,Leaf Mass per Area
+2179,0.167,x2179,31,Leaf Mass per Area
+2180,0.167,x2180,31,Leaf Mass per Area
+2181,0.167,x2181,31,Leaf Mass per Area
+2182,0.167,x2182,31,Leaf Mass per Area
+2183,0.167,x2183,31,Leaf Mass per Area
+2184,0.168,x2184,31,Leaf Mass per Area
+2185,0.168,x2185,31,Leaf Mass per Area
+2186,0.169,x2186,31,Leaf Mass per Area
+2187,0.169,x2187,31,Leaf Mass per Area
+2188,0.169,x2188,31,Leaf Mass per Area
+2189,0.17,x2189,31,Leaf Mass per Area
+2190,0.17,x2190,31,Leaf Mass per Area
+2191,0.17,x2191,31,Leaf Mass per Area
+2192,0.17,x2192,31,Leaf Mass per Area
+2193,0.17,x2193,31,Leaf Mass per Area
+2194,0.17,x2194,31,Leaf Mass per Area
+2195,0.17,x2195,31,Leaf Mass per Area
+2196,0.171,x2196,31,Leaf Mass per Area
+2197,0.171,x2197,31,Leaf Mass per Area
+2198,0.171,x2198,31,Leaf Mass per Area
+2199,0.171,x2199,31,Leaf Mass per Area
+2200,0.171,x2200,31,Leaf Mass per Area
+2201,0.171,x2201,31,Leaf Mass per Area
+2202,0.171,x2202,31,Leaf Mass per Area
+2203,0.171,x2203,31,Leaf Mass per Area
+2204,0.171,x2204,31,Leaf Mass per Area
+2205,0.171,x2205,31,Leaf Mass per Area
+2206,0.171,x2206,31,Leaf Mass per Area
+2207,0.171,x2207,31,Leaf Mass per Area
+2208,0.171,x2208,31,Leaf Mass per Area
+2209,0.171,x2209,31,Leaf Mass per Area
+2210,0.171,x2210,31,Leaf Mass per Area
+2211,0.171,x2211,31,Leaf Mass per Area
+2212,0.171,x2212,31,Leaf Mass per Area
+2213,0.171,x2213,31,Leaf Mass per Area
+2214,0.171,x2214,31,Leaf Mass per Area
+2215,0.171,x2215,31,Leaf Mass per Area
+2216,0.171,x2216,31,Leaf Mass per Area
+2217,0.171,x2217,31,Leaf Mass per Area
+2218,0.171,x2218,31,Leaf Mass per Area
+2219,0.172,x2219,31,Leaf Mass per Area
+2220,0.172,x2220,31,Leaf Mass per Area
+2221,0.172,x2221,31,Leaf Mass per Area
+2222,0.171,x2222,31,Leaf Mass per Area
+2223,0.171,x2223,31,Leaf Mass per Area
+2224,0.171,x2224,31,Leaf Mass per Area
+2225,0.171,x2225,31,Leaf Mass per Area
+2226,0.171,x2226,31,Leaf Mass per Area
+2227,0.171,x2227,31,Leaf Mass per Area
+2228,0.171,x2228,31,Leaf Mass per Area
+2229,0.17,x2229,31,Leaf Mass per Area
+2230,0.17,x2230,31,Leaf Mass per Area
+2231,0.17,x2231,31,Leaf Mass per Area
+2232,0.17,x2232,31,Leaf Mass per Area
+2233,0.169,x2233,31,Leaf Mass per Area
+2234,0.169,x2234,31,Leaf Mass per Area
+2235,0.169,x2235,31,Leaf Mass per Area
+2236,0.169,x2236,31,Leaf Mass per Area
+2237,0.168,x2237,31,Leaf Mass per Area
+2238,0.167,x2238,31,Leaf Mass per Area
+2239,0.167,x2239,31,Leaf Mass per Area
+2240,0.166,x2240,31,Leaf Mass per Area
+2241,0.165,x2241,31,Leaf Mass per Area
+2242,0.165,x2242,31,Leaf Mass per Area
+2243,0.165,x2243,31,Leaf Mass per Area
+2244,0.164,x2244,31,Leaf Mass per Area
+2245,0.164,x2245,31,Leaf Mass per Area
+2246,0.164,x2246,31,Leaf Mass per Area
+2247,0.164,x2247,19,Leaf Mass per Area
+2248,0.163,x2248,31,Leaf Mass per Area
+2249,0.162,x2249,31,Leaf Mass per Area
+2250,0.162,x2250,31,Leaf Mass per Area
+2251,0.161,x2251,31,Leaf Mass per Area
+2252,0.16,x2252,31,Leaf Mass per Area
+2253,0.159,x2253,31,Leaf Mass per Area
+2254,0.159,x2254,31,Leaf Mass per Area
+2255,0.158,x2255,31,Leaf Mass per Area
+2256,0.158,x2256,31,Leaf Mass per Area
+2257,0.157,x2257,31,Leaf Mass per Area
+2258,0.157,x2258,31,Leaf Mass per Area
+2259,0.156,x2259,31,Leaf Mass per Area
+2260,0.156,x2260,31,Leaf Mass per Area
+2261,0.155,x2261,31,Leaf Mass per Area
+2262,0.155,x2262,31,Leaf Mass per Area
+2263,0.154,x2263,31,Leaf Mass per Area
+2264,0.154,x2264,31,Leaf Mass per Area
+2265,0.153,x2265,31,Leaf Mass per Area
+2266,0.152,x2266,31,Leaf Mass per Area
+2267,0.152,x2267,31,Leaf Mass per Area
+2268,0.151,x2268,31,Leaf Mass per Area
+2269,0.15,x2269,31,Leaf Mass per Area
+2270,0.15,x2270,31,Leaf Mass per Area
+2271,0.149,x2271,1,Leaf Mass per Area
+2272,0.148,x2272,31,Leaf Mass per Area
+2273,0.148,x2273,31,Leaf Mass per Area
+2274,0.147,x2274,31,Leaf Mass per Area
+2275,0.147,x2275,31,Leaf Mass per Area
+2276,0.146,x2276,31,Leaf Mass per Area
+2277,0.145,x2277,31,Leaf Mass per Area
+2278,0.145,x2278,31,Leaf Mass per Area
+2279,0.145,x2279,31,Leaf Mass per Area
+2280,0.144,x2280,31,Leaf Mass per Area
+2281,0.144,x2281,31,Leaf Mass per Area
+2282,0.144,x2282,31,Leaf Mass per Area
+2283,0.143,x2283,31,Leaf Mass per Area
+2284,0.143,x2284,31,Leaf Mass per Area
+2285,0.142,x2285,31,Leaf Mass per Area
+2286,0.142,x2286,31,Leaf Mass per Area
+2287,0.141,x2287,31,Leaf Mass per Area
+2288,0.14,x2288,31,Leaf Mass per Area
+2289,0.139,x2289,31,Leaf Mass per Area
+2290,0.138,x2290,31,Leaf Mass per Area
+2291,0.138,x2291,31,Leaf Mass per Area
+2292,0.137,x2292,31,Leaf Mass per Area
+2293,0.137,x2293,31,Leaf Mass per Area
+2294,0.136,x2294,31,Leaf Mass per Area
+2295,0.136,x2295,31,Leaf Mass per Area
+2296,0.136,x2296,31,Leaf Mass per Area
+2297,0.135,x2297,31,Leaf Mass per Area
+2298,0.135,x2298,31,Leaf Mass per Area
+2299,0.135,x2299,31,Leaf Mass per Area
+2300,0.135,x2300,31,Leaf Mass per Area
+2301,0.135,x2301,31,Leaf Mass per Area
+2302,0.134,x2302,31,Leaf Mass per Area
+2303,0.134,x2303,31,Leaf Mass per Area
+2304,0.133,x2304,31,Leaf Mass per Area
+2305,0.132,x2305,31,Leaf Mass per Area
+2306,0.13,x2306,31,Leaf Mass per Area
+2307,0.129,x2307,31,Leaf Mass per Area
+2308,0.129,x2308,31,Leaf Mass per Area
+2309,0.128,x2309,31,Leaf Mass per Area
+2310,0.128,x2310,31,Leaf Mass per Area
+2311,0.128,x2311,31,Leaf Mass per Area
+2312,0.128,x2312,31,Leaf Mass per Area
+2313,0.128,x2313,31,Leaf Mass per Area
+2314,0.127,x2314,31,Leaf Mass per Area
+2315,0.127,x2315,31,Leaf Mass per Area
+2316,0.126,x2316,31,Leaf Mass per Area
+2317,0.125,x2317,31,Leaf Mass per Area
+2318,0.125,x2318,31,Leaf Mass per Area
+2319,0.124,x2319,31,Leaf Mass per Area
+2320,0.124,x2320,31,Leaf Mass per Area
+2321,0.124,x2321,31,Leaf Mass per Area
+2322,0.124,x2322,31,Leaf Mass per Area
+2323,0.124,x2323,31,Leaf Mass per Area
+2324,0.124,x2324,31,Leaf Mass per Area
+2325,0.124,x2325,31,Leaf Mass per Area
+2326,0.124,x2326,31,Leaf Mass per Area
+2327,0.124,x2327,31,Leaf Mass per Area
+2328,0.123,x2328,31,Leaf Mass per Area
+2329,0.123,x2329,31,Leaf Mass per Area
+2330,0.123,x2330,31,Leaf Mass per Area
+2331,0.122,x2331,31,Leaf Mass per Area
+2332,0.122,x2332,31,Leaf Mass per Area
+2333,0.121,x2333,31,Leaf Mass per Area
+2334,0.121,x2334,31,Leaf Mass per Area
+2335,0.12,x2335,31,Leaf Mass per Area
+2336,0.119,x2336,31,Leaf Mass per Area
+2337,0.119,x2337,31,Leaf Mass per Area
+2338,0.119,x2338,31,Leaf Mass per Area
+2339,0.118,x2339,31,Leaf Mass per Area
+2340,0.118,x2340,31,Leaf Mass per Area
+2341,0.117,x2341,31,Leaf Mass per Area
+2342,0.116,x2342,31,Leaf Mass per Area
+2343,0.116,x2343,31,Leaf Mass per Area
+2344,0.115,x2344,31,Leaf Mass per Area
+2345,0.114,x2345,31,Leaf Mass per Area
+2346,0.113,x2346,31,Leaf Mass per Area
+2347,0.113,x2347,31,Leaf Mass per Area
+2348,0.113,x2348,31,Leaf Mass per Area
+2349,0.112,x2349,31,Leaf Mass per Area
+2350,0.111,x2350,31,Leaf Mass per Area
+2351,0.111,x2351,31,Leaf Mass per Area
+2352,0.11,x2352,31,Leaf Mass per Area
+2353,0.11,x2353,31,Leaf Mass per Area
+2354,0.109,x2354,31,Leaf Mass per Area
+2355,0.109,x2355,31,Leaf Mass per Area
+2356,0.109,x2356,31,Leaf Mass per Area
+2357,0.109,x2357,31,Leaf Mass per Area
+2358,0.109,x2358,31,Leaf Mass per Area
+2359,0.108,x2359,31,Leaf Mass per Area
+2360,0.107,x2360,31,Leaf Mass per Area
+2361,0.106,x2361,31,Leaf Mass per Area
+2362,0.105,x2362,31,Leaf Mass per Area
+2363,0.104,x2363,31,Leaf Mass per Area
+2364,0.103,x2364,31,Leaf Mass per Area
+2365,0.103,x2365,31,Leaf Mass per Area
+2366,0.102,x2366,31,Leaf Mass per Area
+2367,0.102,x2367,31,Leaf Mass per Area
+2368,0.101,x2368,31,Leaf Mass per Area
+2369,0.101,x2369,31,Leaf Mass per Area
+2370,0.101,x2370,31,Leaf Mass per Area
+2371,0.1,x2371,31,Leaf Mass per Area
+2372,0.1,x2372,31,Leaf Mass per Area
+2373,0.099,x2373,31,Leaf Mass per Area
+2374,0.099,x2374,31,Leaf Mass per Area
+2375,0.098,x2375,31,Leaf Mass per Area
+2376,0.098,x2376,31,Leaf Mass per Area
+2377,0.098,x2377,31,Leaf Mass per Area
+2378,0.098,x2378,31,Leaf Mass per Area
+2379,0.097,x2379,31,Leaf Mass per Area
+2380,0.097,x2380,31,Leaf Mass per Area
+2381,0.096,x2381,31,Leaf Mass per Area
+2382,0.096,x2382,31,Leaf Mass per Area
+2383,0.095,x2383,31,Leaf Mass per Area
+2384,0.094,x2384,31,Leaf Mass per Area
+2385,0.094,x2385,31,Leaf Mass per Area
+2386,0.094,x2386,31,Leaf Mass per Area
+2387,0.093,x2387,31,Leaf Mass per Area
+2388,0.093,x2388,31,Leaf Mass per Area
+2389,0.092,x2389,31,Leaf Mass per Area
+2390,0.091,x2390,31,Leaf Mass per Area
+2391,0.09,x2391,31,Leaf Mass per Area
+2392,0.09,x2392,31,Leaf Mass per Area
+2393,0.089,x2393,31,Leaf Mass per Area
+2394,0.088,x2394,31,Leaf Mass per Area
+2395,0.087,x2395,31,Leaf Mass per Area
+2396,0.087,x2396,31,Leaf Mass per Area
+2397,0.087,x2397,31,Leaf Mass per Area
+2398,0.086,x2398,31,Leaf Mass per Area
+2399,0.086,x2399,31,Leaf Mass per Area
+2400,0.085,x2400,31,Leaf Mass per Area
+400,0.054,x400,29,Nitrogen
+401,0.054,x401,29,Nitrogen
+402,0.053,x402,29,Nitrogen
+403,0.052,x403,29,Nitrogen
+404,0.051,x404,29,Nitrogen
+405,0.05,x405,29,Nitrogen
+406,0.049,x406,29,Nitrogen
+407,0.048,x407,29,Nitrogen
+408,0.048,x408,29,Nitrogen
+409,0.048,x409,29,Nitrogen
+410,0.048,x410,29,Nitrogen
+411,0.048,x411,29,Nitrogen
+412,0.049,x412,29,Nitrogen
+413,0.049,x413,29,Nitrogen
+414,0.049,x414,29,Nitrogen
+415,0.05,x415,29,Nitrogen
+416,0.05,x416,29,Nitrogen
+417,0.05,x417,29,Nitrogen
+418,0.051,x418,29,Nitrogen
+419,0.051,x419,29,Nitrogen
+420,0.051,x420,29,Nitrogen
+421,0.051,x421,29,Nitrogen
+422,0.051,x422,29,Nitrogen
+423,0.052,x423,29,Nitrogen
+424,0.052,x424,29,Nitrogen
+425,0.052,x425,29,Nitrogen
+426,0.052,x426,29,Nitrogen
+427,0.051,x427,29,Nitrogen
+428,0.051,x428,29,Nitrogen
+429,0.051,x429,29,Nitrogen
+430,0.051,x430,29,Nitrogen
+431,0.051,x431,29,Nitrogen
+432,0.052,x432,29,Nitrogen
+433,0.052,x433,29,Nitrogen
+434,0.052,x434,29,Nitrogen
+435,0.052,x435,29,Nitrogen
+436,0.052,x436,29,Nitrogen
+437,0.053,x437,29,Nitrogen
+438,0.053,x438,29,Nitrogen
+439,0.053,x439,29,Nitrogen
+440,0.053,x440,29,Nitrogen
+441,0.053,x441,29,Nitrogen
+442,0.053,x442,29,Nitrogen
+443,0.053,x443,29,Nitrogen
+444,0.053,x444,29,Nitrogen
+445,0.053,x445,29,Nitrogen
+446,0.053,x446,29,Nitrogen
+447,0.053,x447,29,Nitrogen
+448,0.053,x448,29,Nitrogen
+449,0.054,x449,29,Nitrogen
+450,0.054,x450,29,Nitrogen
+451,0.054,x451,29,Nitrogen
+452,0.054,x452,29,Nitrogen
+453,0.054,x453,29,Nitrogen
+454,0.054,x454,29,Nitrogen
+455,0.055,x455,29,Nitrogen
+456,0.055,x456,29,Nitrogen
+457,0.055,x457,29,Nitrogen
+458,0.055,x458,29,Nitrogen
+459,0.055,x459,29,Nitrogen
+460,0.055,x460,29,Nitrogen
+461,0.055,x461,29,Nitrogen
+462,0.055,x462,29,Nitrogen
+463,0.055,x463,29,Nitrogen
+464,0.055,x464,29,Nitrogen
+465,0.056,x465,29,Nitrogen
+466,0.056,x466,29,Nitrogen
+467,0.056,x467,29,Nitrogen
+468,0.056,x468,29,Nitrogen
+469,0.056,x469,29,Nitrogen
+470,0.056,x470,29,Nitrogen
+471,0.056,x471,29,Nitrogen
+472,0.056,x472,29,Nitrogen
+473,0.056,x473,29,Nitrogen
+474,0.056,x474,29,Nitrogen
+475,0.056,x475,29,Nitrogen
+476,0.056,x476,29,Nitrogen
+477,0.056,x477,29,Nitrogen
+478,0.056,x478,29,Nitrogen
+479,0.056,x479,29,Nitrogen
+480,0.056,x480,29,Nitrogen
+481,0.056,x481,29,Nitrogen
+482,0.056,x482,29,Nitrogen
+483,0.056,x483,29,Nitrogen
+484,0.056,x484,29,Nitrogen
+485,0.056,x485,29,Nitrogen
+486,0.056,x486,29,Nitrogen
+487,0.057,x487,29,Nitrogen
+488,0.057,x488,29,Nitrogen
+489,0.057,x489,29,Nitrogen
+490,0.057,x490,29,Nitrogen
+491,0.058,x491,29,Nitrogen
+492,0.058,x492,29,Nitrogen
+493,0.059,x493,29,Nitrogen
+494,0.059,x494,29,Nitrogen
+495,0.059,x495,29,Nitrogen
+496,0.06,x496,29,Nitrogen
+497,0.061,x497,29,Nitrogen
+498,0.061,x498,29,Nitrogen
+499,0.062,x499,29,Nitrogen
+500,0.063,x500,29,Nitrogen
+501,0.064,x501,29,Nitrogen
+502,0.065,x502,29,Nitrogen
+503,0.066,x503,29,Nitrogen
+504,0.067,x504,29,Nitrogen
+505,0.068,x505,29,Nitrogen
+506,0.07,x506,29,Nitrogen
+507,0.071,x507,29,Nitrogen
+508,0.073,x508,29,Nitrogen
+509,0.075,x509,29,Nitrogen
+510,0.077,x510,29,Nitrogen
+511,0.079,x511,29,Nitrogen
+512,0.081,x512,29,Nitrogen
+513,0.084,x513,29,Nitrogen
+514,0.086,x514,29,Nitrogen
+515,0.089,x515,29,Nitrogen
+516,0.092,x516,29,Nitrogen
+517,0.095,x517,29,Nitrogen
+518,0.098,x518,29,Nitrogen
+519,0.101,x519,29,Nitrogen
+520,0.104,x520,29,Nitrogen
+521,0.108,x521,29,Nitrogen
+522,0.111,x522,29,Nitrogen
+523,0.114,x523,29,Nitrogen
+524,0.117,x524,29,Nitrogen
+525,0.12,x525,29,Nitrogen
+526,0.123,x526,29,Nitrogen
+527,0.126,x527,29,Nitrogen
+528,0.129,x528,29,Nitrogen
+529,0.131,x529,29,Nitrogen
+530,0.133,x530,29,Nitrogen
+531,0.135,x531,29,Nitrogen
+532,0.137,x532,29,Nitrogen
+533,0.138,x533,29,Nitrogen
+534,0.14,x534,29,Nitrogen
+535,0.141,x535,29,Nitrogen
+536,0.142,x536,29,Nitrogen
+537,0.143,x537,29,Nitrogen
+538,0.144,x538,29,Nitrogen
+539,0.145,x539,29,Nitrogen
+540,0.146,x540,29,Nitrogen
+541,0.146,x541,29,Nitrogen
+542,0.147,x542,29,Nitrogen
+543,0.148,x543,29,Nitrogen
+544,0.148,x544,29,Nitrogen
+545,0.149,x545,29,Nitrogen
+546,0.149,x546,29,Nitrogen
+547,0.15,x547,29,Nitrogen
+548,0.15,x548,29,Nitrogen
+549,0.151,x549,29,Nitrogen
+550,0.151,x550,29,Nitrogen
+551,0.152,x551,29,Nitrogen
+552,0.152,x552,29,Nitrogen
+553,0.152,x553,29,Nitrogen
+554,0.152,x554,29,Nitrogen
+555,0.152,x555,29,Nitrogen
+556,0.151,x556,29,Nitrogen
+557,0.15,x557,29,Nitrogen
+558,0.15,x558,29,Nitrogen
+559,0.149,x559,29,Nitrogen
+560,0.148,x560,29,Nitrogen
+561,0.147,x561,29,Nitrogen
+562,0.146,x562,29,Nitrogen
+563,0.144,x563,29,Nitrogen
+564,0.143,x564,29,Nitrogen
+565,0.141,x565,29,Nitrogen
+566,0.14,x566,29,Nitrogen
+567,0.138,x567,29,Nitrogen
+568,0.136,x568,29,Nitrogen
+569,0.134,x569,29,Nitrogen
+570,0.132,x570,29,Nitrogen
+571,0.13,x571,29,Nitrogen
+572,0.128,x572,29,Nitrogen
+573,0.126,x573,29,Nitrogen
+574,0.125,x574,29,Nitrogen
+575,0.123,x575,29,Nitrogen
+576,0.121,x576,29,Nitrogen
+577,0.12,x577,29,Nitrogen
+578,0.119,x578,29,Nitrogen
+579,0.117,x579,29,Nitrogen
+580,0.116,x580,29,Nitrogen
+581,0.115,x581,29,Nitrogen
+582,0.114,x582,29,Nitrogen
+583,0.113,x583,29,Nitrogen
+584,0.112,x584,29,Nitrogen
+585,0.111,x585,29,Nitrogen
+586,0.11,x586,29,Nitrogen
+587,0.109,x587,29,Nitrogen
+588,0.109,x588,29,Nitrogen
+589,0.108,x589,29,Nitrogen
+590,0.107,x590,29,Nitrogen
+591,0.107,x591,29,Nitrogen
+592,0.106,x592,29,Nitrogen
+593,0.106,x593,29,Nitrogen
+594,0.106,x594,29,Nitrogen
+595,0.105,x595,29,Nitrogen
+596,0.105,x596,29,Nitrogen
+597,0.105,x597,29,Nitrogen
+598,0.104,x598,29,Nitrogen
+599,0.104,x599,29,Nitrogen
+600,0.103,x600,29,Nitrogen
+601,0.103,x601,29,Nitrogen
+602,0.103,x602,29,Nitrogen
+603,0.102,x603,29,Nitrogen
+604,0.101,x604,29,Nitrogen
+605,0.101,x605,29,Nitrogen
+606,0.1,x606,29,Nitrogen
+607,0.099,x607,29,Nitrogen
+608,0.098,x608,29,Nitrogen
+609,0.098,x609,29,Nitrogen
+610,0.097,x610,29,Nitrogen
+611,0.096,x611,29,Nitrogen
+612,0.095,x612,29,Nitrogen
+613,0.094,x613,29,Nitrogen
+614,0.093,x614,29,Nitrogen
+615,0.092,x615,29,Nitrogen
+616,0.091,x616,29,Nitrogen
+617,0.09,x617,29,Nitrogen
+618,0.09,x618,29,Nitrogen
+619,0.089,x619,29,Nitrogen
+620,0.088,x620,29,Nitrogen
+621,0.088,x621,29,Nitrogen
+622,0.087,x622,29,Nitrogen
+623,0.087,x623,29,Nitrogen
+624,0.087,x624,29,Nitrogen
+625,0.087,x625,29,Nitrogen
+626,0.086,x626,29,Nitrogen
+627,0.086,x627,29,Nitrogen
+628,0.086,x628,29,Nitrogen
+629,0.086,x629,29,Nitrogen
+630,0.086,x630,29,Nitrogen
+631,0.086,x631,29,Nitrogen
+632,0.086,x632,29,Nitrogen
+633,0.085,x633,29,Nitrogen
+634,0.085,x634,29,Nitrogen
+635,0.085,x635,29,Nitrogen
+636,0.084,x636,29,Nitrogen
+637,0.083,x637,29,Nitrogen
+638,0.083,x638,29,Nitrogen
+639,0.082,x639,29,Nitrogen
+640,0.081,x640,29,Nitrogen
+641,0.08,x641,29,Nitrogen
+642,0.079,x642,29,Nitrogen
+643,0.078,x643,29,Nitrogen
+644,0.077,x644,29,Nitrogen
+645,0.076,x645,29,Nitrogen
+646,0.075,x646,29,Nitrogen
+647,0.074,x647,29,Nitrogen
+648,0.073,x648,29,Nitrogen
+649,0.073,x649,29,Nitrogen
+650,0.072,x650,29,Nitrogen
+651,0.072,x651,29,Nitrogen
+652,0.071,x652,29,Nitrogen
+653,0.071,x653,29,Nitrogen
+654,0.07,x654,29,Nitrogen
+655,0.07,x655,29,Nitrogen
+656,0.069,x656,29,Nitrogen
+657,0.069,x657,29,Nitrogen
+658,0.068,x658,29,Nitrogen
+659,0.067,x659,29,Nitrogen
+660,0.066,x660,29,Nitrogen
+661,0.066,x661,29,Nitrogen
+662,0.065,x662,29,Nitrogen
+663,0.064,x663,29,Nitrogen
+664,0.064,x664,29,Nitrogen
+665,0.063,x665,29,Nitrogen
+666,0.063,x666,29,Nitrogen
+667,0.062,x667,29,Nitrogen
+668,0.062,x668,29,Nitrogen
+669,0.062,x669,29,Nitrogen
+670,0.062,x670,29,Nitrogen
+671,0.062,x671,29,Nitrogen
+672,0.062,x672,29,Nitrogen
+673,0.062,x673,29,Nitrogen
+674,0.063,x674,29,Nitrogen
+675,0.063,x675,29,Nitrogen
+676,0.063,x676,29,Nitrogen
+677,0.064,x677,29,Nitrogen
+678,0.064,x678,29,Nitrogen
+679,0.065,x679,29,Nitrogen
+680,0.066,x680,29,Nitrogen
+681,0.067,x681,29,Nitrogen
+682,0.068,x682,29,Nitrogen
+683,0.069,x683,29,Nitrogen
+684,0.07,x684,29,Nitrogen
+685,0.072,x685,29,Nitrogen
+686,0.073,x686,29,Nitrogen
+687,0.075,x687,29,Nitrogen
+688,0.078,x688,29,Nitrogen
+689,0.081,x689,29,Nitrogen
+690,0.085,x690,29,Nitrogen
+691,0.089,x691,29,Nitrogen
+692,0.094,x692,29,Nitrogen
+693,0.1,x693,29,Nitrogen
+694,0.106,x694,29,Nitrogen
+695,0.113,x695,29,Nitrogen
+696,0.121,x696,29,Nitrogen
+697,0.129,x697,29,Nitrogen
+698,0.138,x698,29,Nitrogen
+699,0.147,x699,29,Nitrogen
+700,0.157,x700,29,Nitrogen
+701,0.167,x701,29,Nitrogen
+702,0.176,x702,29,Nitrogen
+703,0.186,x703,29,Nitrogen
+704,0.195,x704,29,Nitrogen
+705,0.205,x705,13,Nitrogen
+706,0.214,x706,29,Nitrogen
+707,0.224,x707,29,Nitrogen
+708,0.233,x708,29,Nitrogen
+709,0.242,x709,29,Nitrogen
+710,0.251,x710,29,Nitrogen
+711,0.26,x711,29,Nitrogen
+712,0.269,x712,29,Nitrogen
+713,0.278,x713,29,Nitrogen
+714,0.287,x714,29,Nitrogen
+715,0.296,x715,29,Nitrogen
+716,0.304,x716,29,Nitrogen
+717,0.313,x717,29,Nitrogen
+718,0.321,x718,1,Nitrogen
+719,0.329,x719,29,Nitrogen
+720,0.338,x720,29,Nitrogen
+721,0.346,x721,29,Nitrogen
+722,0.354,x722,29,Nitrogen
+723,0.361,x723,29,Nitrogen
+724,0.369,x724,29,Nitrogen
+725,0.376,x725,29,Nitrogen
+726,0.383,x726,29,Nitrogen
+727,0.389,x727,29,Nitrogen
+728,0.396,x728,29,Nitrogen
+729,0.402,x729,29,Nitrogen
+730,0.408,x730,29,Nitrogen
+731,0.414,x731,29,Nitrogen
+732,0.419,x732,29,Nitrogen
+733,0.424,x733,29,Nitrogen
+734,0.429,x734,29,Nitrogen
+735,0.433,x735,29,Nitrogen
+736,0.438,x736,29,Nitrogen
+737,0.442,x737,29,Nitrogen
+738,0.445,x738,29,Nitrogen
+739,0.449,x739,29,Nitrogen
+740,0.452,x740,29,Nitrogen
+741,0.455,x741,29,Nitrogen
+742,0.458,x742,29,Nitrogen
+743,0.46,x743,29,Nitrogen
+744,0.462,x744,29,Nitrogen
+745,0.465,x745,29,Nitrogen
+746,0.467,x746,29,Nitrogen
+747,0.468,x747,29,Nitrogen
+748,0.47,x748,29,Nitrogen
+749,0.471,x749,29,Nitrogen
+750,0.472,x750,29,Nitrogen
+751,0.474,x751,29,Nitrogen
+752,0.475,x752,29,Nitrogen
+753,0.476,x753,29,Nitrogen
+754,0.476,x754,29,Nitrogen
+755,0.477,x755,29,Nitrogen
+756,0.478,x756,29,Nitrogen
+757,0.478,x757,29,Nitrogen
+758,0.479,x758,29,Nitrogen
+759,0.479,x759,29,Nitrogen
+760,0.48,x760,29,Nitrogen
+761,0.48,x761,29,Nitrogen
+762,0.48,x762,29,Nitrogen
+763,0.481,x763,29,Nitrogen
+764,0.481,x764,29,Nitrogen
+765,0.481,x765,29,Nitrogen
+766,0.481,x766,29,Nitrogen
+767,0.481,x767,29,Nitrogen
+768,0.481,x768,29,Nitrogen
+769,0.481,x769,29,Nitrogen
+770,0.481,x770,29,Nitrogen
+771,0.481,x771,29,Nitrogen
+772,0.481,x772,29,Nitrogen
+773,0.481,x773,29,Nitrogen
+774,0.481,x774,29,Nitrogen
+775,0.481,x775,29,Nitrogen
+776,0.481,x776,29,Nitrogen
+777,0.481,x777,29,Nitrogen
+778,0.481,x778,29,Nitrogen
+779,0.481,x779,29,Nitrogen
+780,0.481,x780,29,Nitrogen
+781,0.481,x781,29,Nitrogen
+782,0.481,x782,29,Nitrogen
+783,0.481,x783,29,Nitrogen
+784,0.481,x784,29,Nitrogen
+785,0.481,x785,29,Nitrogen
+786,0.481,x786,29,Nitrogen
+787,0.481,x787,29,Nitrogen
+788,0.481,x788,29,Nitrogen
+789,0.481,x789,29,Nitrogen
+790,0.481,x790,29,Nitrogen
+791,0.481,x791,29,Nitrogen
+792,0.481,x792,29,Nitrogen
+793,0.481,x793,29,Nitrogen
+794,0.481,x794,29,Nitrogen
+795,0.481,x795,29,Nitrogen
+796,0.481,x796,29,Nitrogen
+797,0.481,x797,29,Nitrogen
+798,0.481,x798,29,Nitrogen
+799,0.481,x799,29,Nitrogen
+800,0.481,x800,29,Nitrogen
+801,0.481,x801,29,Nitrogen
+802,0.481,x802,29,Nitrogen
+803,0.481,x803,29,Nitrogen
+804,0.481,x804,29,Nitrogen
+805,0.481,x805,29,Nitrogen
+806,0.481,x806,29,Nitrogen
+807,0.481,x807,29,Nitrogen
+808,0.481,x808,29,Nitrogen
+809,0.481,x809,29,Nitrogen
+810,0.481,x810,29,Nitrogen
+811,0.481,x811,29,Nitrogen
+812,0.481,x812,29,Nitrogen
+813,0.481,x813,29,Nitrogen
+814,0.481,x814,29,Nitrogen
+815,0.481,x815,29,Nitrogen
+816,0.481,x816,29,Nitrogen
+817,0.481,x817,29,Nitrogen
+818,0.481,x818,29,Nitrogen
+819,0.481,x819,29,Nitrogen
+820,0.481,x820,29,Nitrogen
+821,0.481,x821,29,Nitrogen
+822,0.481,x822,29,Nitrogen
+823,0.481,x823,29,Nitrogen
+824,0.481,x824,29,Nitrogen
+825,0.481,x825,29,Nitrogen
+826,0.481,x826,29,Nitrogen
+827,0.481,x827,29,Nitrogen
+828,0.481,x828,29,Nitrogen
+829,0.481,x829,29,Nitrogen
+830,0.481,x830,20,Nitrogen
+831,0.481,x831,29,Nitrogen
+832,0.481,x832,29,Nitrogen
+833,0.481,x833,29,Nitrogen
+834,0.481,x834,29,Nitrogen
+835,0.481,x835,29,Nitrogen
+836,0.481,x836,29,Nitrogen
+837,0.481,x837,29,Nitrogen
+838,0.481,x838,29,Nitrogen
+839,0.481,x839,29,Nitrogen
+840,0.481,x840,29,Nitrogen
+841,0.481,x841,29,Nitrogen
+842,0.481,x842,29,Nitrogen
+843,0.481,x843,29,Nitrogen
+844,0.481,x844,29,Nitrogen
+845,0.481,x845,29,Nitrogen
+846,0.481,x846,29,Nitrogen
+847,0.481,x847,29,Nitrogen
+848,0.481,x848,29,Nitrogen
+849,0.481,x849,29,Nitrogen
+850,0.481,x850,29,Nitrogen
+851,0.481,x851,29,Nitrogen
+852,0.481,x852,29,Nitrogen
+853,0.481,x853,29,Nitrogen
+854,0.481,x854,29,Nitrogen
+855,0.481,x855,29,Nitrogen
+856,0.481,x856,29,Nitrogen
+857,0.481,x857,29,Nitrogen
+858,0.481,x858,29,Nitrogen
+859,0.481,x859,29,Nitrogen
+860,0.48,x860,29,Nitrogen
+861,0.481,x861,29,Nitrogen
+862,0.481,x862,29,Nitrogen
+863,0.481,x863,29,Nitrogen
+864,0.481,x864,29,Nitrogen
+865,0.48,x865,29,Nitrogen
+866,0.48,x866,29,Nitrogen
+867,0.48,x867,29,Nitrogen
+868,0.48,x868,29,Nitrogen
+869,0.48,x869,29,Nitrogen
+870,0.48,x870,29,Nitrogen
+871,0.48,x871,29,Nitrogen
+872,0.48,x872,29,Nitrogen
+873,0.48,x873,29,Nitrogen
+874,0.48,x874,29,Nitrogen
+875,0.48,x875,29,Nitrogen
+876,0.48,x876,29,Nitrogen
+877,0.48,x877,29,Nitrogen
+878,0.48,x878,29,Nitrogen
+879,0.48,x879,29,Nitrogen
+880,0.48,x880,29,Nitrogen
+881,0.48,x881,29,Nitrogen
+882,0.48,x882,29,Nitrogen
+883,0.48,x883,29,Nitrogen
+884,0.48,x884,29,Nitrogen
+885,0.48,x885,29,Nitrogen
+886,0.48,x886,29,Nitrogen
+887,0.48,x887,29,Nitrogen
+888,0.48,x888,29,Nitrogen
+889,0.48,x889,29,Nitrogen
+890,0.48,x890,29,Nitrogen
+891,0.48,x891,29,Nitrogen
+892,0.48,x892,29,Nitrogen
+893,0.48,x893,29,Nitrogen
+894,0.48,x894,29,Nitrogen
+895,0.48,x895,29,Nitrogen
+896,0.48,x896,29,Nitrogen
+897,0.48,x897,29,Nitrogen
+898,0.48,x898,29,Nitrogen
+899,0.48,x899,29,Nitrogen
+900,0.48,x900,29,Nitrogen
+901,0.48,x901,29,Nitrogen
+902,0.48,x902,29,Nitrogen
+903,0.48,x903,29,Nitrogen
+904,0.48,x904,29,Nitrogen
+905,0.479,x905,29,Nitrogen
+906,0.479,x906,29,Nitrogen
+907,0.479,x907,29,Nitrogen
+908,0.479,x908,29,Nitrogen
+909,0.479,x909,29,Nitrogen
+910,0.479,x910,29,Nitrogen
+911,0.479,x911,29,Nitrogen
+912,0.479,x912,29,Nitrogen
+913,0.479,x913,29,Nitrogen
+914,0.479,x914,29,Nitrogen
+915,0.479,x915,29,Nitrogen
+916,0.479,x916,29,Nitrogen
+917,0.479,x917,29,Nitrogen
+918,0.479,x918,29,Nitrogen
+919,0.479,x919,29,Nitrogen
+920,0.479,x920,29,Nitrogen
+921,0.479,x921,29,Nitrogen
+922,0.479,x922,29,Nitrogen
+923,0.479,x923,29,Nitrogen
+924,0.479,x924,29,Nitrogen
+925,0.479,x925,29,Nitrogen
+926,0.478,x926,29,Nitrogen
+927,0.478,x927,29,Nitrogen
+928,0.478,x928,29,Nitrogen
+929,0.478,x929,29,Nitrogen
+930,0.478,x930,29,Nitrogen
+931,0.478,x931,29,Nitrogen
+932,0.477,x932,29,Nitrogen
+933,0.477,x933,29,Nitrogen
+934,0.477,x934,29,Nitrogen
+935,0.477,x935,29,Nitrogen
+936,0.477,x936,29,Nitrogen
+937,0.477,x937,29,Nitrogen
+938,0.476,x938,29,Nitrogen
+939,0.476,x939,29,Nitrogen
+940,0.476,x940,29,Nitrogen
+941,0.476,x941,29,Nitrogen
+942,0.476,x942,29,Nitrogen
+943,0.476,x943,29,Nitrogen
+944,0.475,x944,29,Nitrogen
+945,0.475,x945,29,Nitrogen
+946,0.475,x946,29,Nitrogen
+947,0.474,x947,29,Nitrogen
+948,0.473,x948,29,Nitrogen
+949,0.473,x949,29,Nitrogen
+950,0.472,x950,29,Nitrogen
+951,0.472,x951,29,Nitrogen
+952,0.472,x952,29,Nitrogen
+953,0.471,x953,29,Nitrogen
+954,0.47,x954,29,Nitrogen
+955,0.47,x955,29,Nitrogen
+956,0.469,x956,29,Nitrogen
+957,0.469,x957,29,Nitrogen
+958,0.468,x958,29,Nitrogen
+959,0.468,x959,29,Nitrogen
+960,0.467,x960,29,Nitrogen
+961,0.467,x961,29,Nitrogen
+962,0.467,x962,29,Nitrogen
+963,0.467,x963,29,Nitrogen
+964,0.466,x964,29,Nitrogen
+965,0.466,x965,29,Nitrogen
+966,0.465,x966,29,Nitrogen
+967,0.465,x967,29,Nitrogen
+968,0.464,x968,29,Nitrogen
+969,0.464,x969,29,Nitrogen
+970,0.464,x970,29,Nitrogen
+971,0.464,x971,29,Nitrogen
+972,0.464,x972,29,Nitrogen
+973,0.464,x973,29,Nitrogen
+974,0.464,x974,29,Nitrogen
+975,0.463,x975,29,Nitrogen
+976,0.463,x976,29,Nitrogen
+977,0.463,x977,29,Nitrogen
+978,0.463,x978,29,Nitrogen
+979,0.463,x979,29,Nitrogen
+980,0.463,x980,29,Nitrogen
+981,0.464,x981,29,Nitrogen
+982,0.464,x982,29,Nitrogen
+983,0.464,x983,29,Nitrogen
+984,0.464,x984,29,Nitrogen
+985,0.463,x985,29,Nitrogen
+986,0.463,x986,29,Nitrogen
+987,0.463,x987,29,Nitrogen
+988,0.463,x988,29,Nitrogen
+989,0.463,x989,29,Nitrogen
+990,0.463,x990,29,Nitrogen
+991,0.463,x991,29,Nitrogen
+992,0.463,x992,29,Nitrogen
+993,0.463,x993,29,Nitrogen
+994,0.464,x994,29,Nitrogen
+995,0.464,x995,29,Nitrogen
+996,0.464,x996,29,Nitrogen
+997,0.465,x997,29,Nitrogen
+998,0.465,x998,29,Nitrogen
+999,0.465,x999,29,Nitrogen
+1000,0.465,x1000,29,Nitrogen
+1001,0.465,x1001,29,Nitrogen
+1002,0.466,x1002,29,Nitrogen
+1003,0.466,x1003,29,Nitrogen
+1004,0.466,x1004,29,Nitrogen
+1005,0.466,x1005,29,Nitrogen
+1006,0.466,x1006,29,Nitrogen
+1007,0.466,x1007,29,Nitrogen
+1008,0.466,x1008,29,Nitrogen
+1009,0.467,x1009,29,Nitrogen
+1010,0.467,x1010,29,Nitrogen
+1011,0.467,x1011,29,Nitrogen
+1012,0.467,x1012,29,Nitrogen
+1013,0.467,x1013,29,Nitrogen
+1014,0.468,x1014,29,Nitrogen
+1015,0.468,x1015,29,Nitrogen
+1016,0.468,x1016,29,Nitrogen
+1017,0.468,x1017,29,Nitrogen
+1018,0.468,x1018,29,Nitrogen
+1019,0.469,x1019,29,Nitrogen
+1020,0.469,x1020,29,Nitrogen
+1021,0.469,x1021,29,Nitrogen
+1022,0.47,x1022,29,Nitrogen
+1023,0.47,x1023,29,Nitrogen
+1024,0.47,x1024,29,Nitrogen
+1025,0.47,x1025,29,Nitrogen
+1026,0.47,x1026,29,Nitrogen
+1027,0.47,x1027,29,Nitrogen
+1028,0.47,x1028,29,Nitrogen
+1029,0.47,x1029,29,Nitrogen
+1030,0.471,x1030,29,Nitrogen
+1031,0.471,x1031,29,Nitrogen
+1032,0.471,x1032,29,Nitrogen
+1033,0.471,x1033,29,Nitrogen
+1034,0.471,x1034,29,Nitrogen
+1035,0.471,x1035,29,Nitrogen
+1036,0.471,x1036,29,Nitrogen
+1037,0.471,x1037,29,Nitrogen
+1038,0.471,x1038,29,Nitrogen
+1039,0.471,x1039,29,Nitrogen
+1040,0.471,x1040,29,Nitrogen
+1041,0.471,x1041,29,Nitrogen
+1042,0.471,x1042,29,Nitrogen
+1043,0.472,x1043,29,Nitrogen
+1044,0.472,x1044,29,Nitrogen
+1045,0.472,x1045,29,Nitrogen
+1046,0.472,x1046,29,Nitrogen
+1047,0.472,x1047,29,Nitrogen
+1048,0.472,x1048,29,Nitrogen
+1049,0.472,x1049,29,Nitrogen
+1050,0.472,x1050,29,Nitrogen
+1051,0.472,x1051,29,Nitrogen
+1052,0.472,x1052,29,Nitrogen
+1053,0.473,x1053,29,Nitrogen
+1054,0.473,x1054,29,Nitrogen
+1055,0.473,x1055,29,Nitrogen
+1056,0.473,x1056,29,Nitrogen
+1057,0.473,x1057,29,Nitrogen
+1058,0.473,x1058,29,Nitrogen
+1059,0.473,x1059,29,Nitrogen
+1060,0.473,x1060,29,Nitrogen
+1061,0.473,x1061,29,Nitrogen
+1062,0.473,x1062,29,Nitrogen
+1063,0.473,x1063,29,Nitrogen
+1064,0.473,x1064,29,Nitrogen
+1065,0.473,x1065,29,Nitrogen
+1066,0.472,x1066,29,Nitrogen
+1067,0.472,x1067,29,Nitrogen
+1068,0.472,x1068,29,Nitrogen
+1069,0.472,x1069,29,Nitrogen
+1070,0.472,x1070,29,Nitrogen
+1071,0.472,x1071,29,Nitrogen
+1072,0.472,x1072,29,Nitrogen
+1073,0.472,x1073,29,Nitrogen
+1074,0.472,x1074,29,Nitrogen
+1075,0.472,x1075,29,Nitrogen
+1076,0.472,x1076,29,Nitrogen
+1077,0.472,x1077,29,Nitrogen
+1078,0.472,x1078,29,Nitrogen
+1079,0.472,x1079,29,Nitrogen
+1080,0.472,x1080,29,Nitrogen
+1081,0.472,x1081,29,Nitrogen
+1082,0.472,x1082,29,Nitrogen
+1083,0.472,x1083,29,Nitrogen
+1084,0.472,x1084,29,Nitrogen
+1085,0.472,x1085,29,Nitrogen
+1086,0.472,x1086,29,Nitrogen
+1087,0.471,x1087,29,Nitrogen
+1088,0.471,x1088,29,Nitrogen
+1089,0.471,x1089,29,Nitrogen
+1090,0.471,x1090,29,Nitrogen
+1091,0.471,x1091,29,Nitrogen
+1092,0.471,x1092,29,Nitrogen
+1093,0.471,x1093,29,Nitrogen
+1094,0.471,x1094,29,Nitrogen
+1095,0.471,x1095,29,Nitrogen
+1096,0.471,x1096,29,Nitrogen
+1097,0.471,x1097,29,Nitrogen
+1098,0.471,x1098,29,Nitrogen
+1099,0.471,x1099,29,Nitrogen
+1100,0.471,x1100,29,Nitrogen
+1101,0.47,x1101,29,Nitrogen
+1102,0.47,x1102,29,Nitrogen
+1103,0.47,x1103,29,Nitrogen
+1104,0.47,x1104,29,Nitrogen
+1105,0.47,x1105,29,Nitrogen
+1106,0.47,x1106,29,Nitrogen
+1107,0.47,x1107,29,Nitrogen
+1108,0.47,x1108,29,Nitrogen
+1109,0.469,x1109,29,Nitrogen
+1110,0.469,x1110,29,Nitrogen
+1111,0.469,x1111,29,Nitrogen
+1112,0.468,x1112,29,Nitrogen
+1113,0.468,x1113,29,Nitrogen
+1114,0.468,x1114,29,Nitrogen
+1115,0.467,x1115,29,Nitrogen
+1116,0.467,x1116,29,Nitrogen
+1117,0.467,x1117,29,Nitrogen
+1118,0.467,x1118,29,Nitrogen
+1119,0.467,x1119,29,Nitrogen
+1120,0.467,x1120,29,Nitrogen
+1121,0.466,x1121,29,Nitrogen
+1122,0.466,x1122,29,Nitrogen
+1123,0.466,x1123,29,Nitrogen
+1124,0.466,x1124,29,Nitrogen
+1125,0.465,x1125,29,Nitrogen
+1126,0.465,x1126,29,Nitrogen
+1127,0.464,x1127,29,Nitrogen
+1128,0.464,x1128,29,Nitrogen
+1129,0.463,x1129,29,Nitrogen
+1130,0.462,x1130,29,Nitrogen
+1131,0.462,x1131,29,Nitrogen
+1132,0.461,x1132,29,Nitrogen
+1133,0.46,x1133,29,Nitrogen
+1134,0.459,x1134,29,Nitrogen
+1135,0.458,x1135,29,Nitrogen
+1136,0.457,x1136,29,Nitrogen
+1137,0.456,x1137,29,Nitrogen
+1138,0.455,x1138,29,Nitrogen
+1139,0.454,x1139,29,Nitrogen
+1140,0.453,x1140,29,Nitrogen
+1141,0.452,x1141,29,Nitrogen
+1142,0.45,x1142,29,Nitrogen
+1143,0.449,x1143,29,Nitrogen
+1144,0.448,x1144,29,Nitrogen
+1145,0.447,x1145,29,Nitrogen
+1146,0.446,x1146,29,Nitrogen
+1147,0.445,x1147,29,Nitrogen
+1148,0.444,x1148,29,Nitrogen
+1149,0.443,x1149,29,Nitrogen
+1150,0.443,x1150,29,Nitrogen
+1151,0.442,x1151,29,Nitrogen
+1152,0.441,x1152,29,Nitrogen
+1153,0.44,x1153,8,Nitrogen
+1154,0.439,x1154,29,Nitrogen
+1155,0.439,x1155,29,Nitrogen
+1156,0.438,x1156,29,Nitrogen
+1157,0.438,x1157,29,Nitrogen
+1158,0.437,x1158,29,Nitrogen
+1159,0.437,x1159,29,Nitrogen
+1160,0.436,x1160,29,Nitrogen
+1161,0.436,x1161,29,Nitrogen
+1162,0.435,x1162,29,Nitrogen
+1163,0.435,x1163,29,Nitrogen
+1164,0.435,x1164,29,Nitrogen
+1165,0.435,x1165,29,Nitrogen
+1166,0.434,x1166,29,Nitrogen
+1167,0.434,x1167,29,Nitrogen
+1168,0.434,x1168,29,Nitrogen
+1169,0.434,x1169,29,Nitrogen
+1170,0.434,x1170,29,Nitrogen
+1171,0.434,x1171,29,Nitrogen
+1172,0.434,x1172,29,Nitrogen
+1173,0.433,x1173,29,Nitrogen
+1174,0.433,x1174,29,Nitrogen
+1175,0.433,x1175,29,Nitrogen
+1176,0.433,x1176,29,Nitrogen
+1177,0.433,x1177,29,Nitrogen
+1178,0.432,x1178,29,Nitrogen
+1179,0.432,x1179,29,Nitrogen
+1180,0.432,x1180,29,Nitrogen
+1181,0.432,x1181,29,Nitrogen
+1182,0.432,x1182,29,Nitrogen
+1183,0.432,x1183,29,Nitrogen
+1184,0.432,x1184,29,Nitrogen
+1185,0.431,x1185,29,Nitrogen
+1186,0.431,x1186,29,Nitrogen
+1187,0.43,x1187,29,Nitrogen
+1188,0.43,x1188,29,Nitrogen
+1189,0.43,x1189,29,Nitrogen
+1190,0.43,x1190,29,Nitrogen
+1191,0.43,x1191,29,Nitrogen
+1192,0.43,x1192,29,Nitrogen
+1193,0.43,x1193,29,Nitrogen
+1194,0.43,x1194,29,Nitrogen
+1195,0.43,x1195,29,Nitrogen
+1196,0.43,x1196,29,Nitrogen
+1197,0.43,x1197,29,Nitrogen
+1198,0.43,x1198,29,Nitrogen
+1199,0.43,x1199,29,Nitrogen
+1200,0.43,x1200,29,Nitrogen
+1201,0.43,x1201,29,Nitrogen
+1202,0.43,x1202,29,Nitrogen
+1203,0.43,x1203,29,Nitrogen
+1204,0.43,x1204,29,Nitrogen
+1205,0.43,x1205,29,Nitrogen
+1206,0.43,x1206,29,Nitrogen
+1207,0.431,x1207,29,Nitrogen
+1208,0.431,x1208,29,Nitrogen
+1209,0.431,x1209,29,Nitrogen
+1210,0.431,x1210,29,Nitrogen
+1211,0.431,x1211,29,Nitrogen
+1212,0.431,x1212,29,Nitrogen
+1213,0.431,x1213,14,Nitrogen
+1214,0.431,x1214,29,Nitrogen
+1215,0.431,x1215,29,Nitrogen
+1216,0.432,x1216,29,Nitrogen
+1217,0.432,x1217,29,Nitrogen
+1218,0.432,x1218,29,Nitrogen
+1219,0.432,x1219,29,Nitrogen
+1220,0.433,x1220,29,Nitrogen
+1221,0.433,x1221,29,Nitrogen
+1222,0.433,x1222,29,Nitrogen
+1223,0.433,x1223,29,Nitrogen
+1224,0.433,x1224,29,Nitrogen
+1225,0.434,x1225,29,Nitrogen
+1226,0.434,x1226,29,Nitrogen
+1227,0.434,x1227,29,Nitrogen
+1228,0.434,x1228,29,Nitrogen
+1229,0.434,x1229,29,Nitrogen
+1230,0.434,x1230,29,Nitrogen
+1231,0.434,x1231,29,Nitrogen
+1232,0.434,x1232,29,Nitrogen
+1233,0.434,x1233,29,Nitrogen
+1234,0.435,x1234,29,Nitrogen
+1235,0.435,x1235,29,Nitrogen
+1236,0.435,x1236,29,Nitrogen
+1237,0.435,x1237,29,Nitrogen
+1238,0.435,x1238,29,Nitrogen
+1239,0.436,x1239,29,Nitrogen
+1240,0.436,x1240,29,Nitrogen
+1241,0.436,x1241,29,Nitrogen
+1242,0.436,x1242,29,Nitrogen
+1243,0.436,x1243,29,Nitrogen
+1244,0.436,x1244,29,Nitrogen
+1245,0.436,x1245,29,Nitrogen
+1246,0.436,x1246,29,Nitrogen
+1247,0.437,x1247,29,Nitrogen
+1248,0.437,x1248,29,Nitrogen
+1249,0.437,x1249,29,Nitrogen
+1250,0.437,x1250,29,Nitrogen
+1251,0.437,x1251,29,Nitrogen
+1252,0.437,x1252,29,Nitrogen
+1253,0.437,x1253,29,Nitrogen
+1254,0.437,x1254,29,Nitrogen
+1255,0.437,x1255,29,Nitrogen
+1256,0.437,x1256,29,Nitrogen
+1257,0.437,x1257,29,Nitrogen
+1258,0.437,x1258,29,Nitrogen
+1259,0.437,x1259,29,Nitrogen
+1260,0.437,x1260,29,Nitrogen
+1261,0.437,x1261,29,Nitrogen
+1262,0.437,x1262,29,Nitrogen
+1263,0.437,x1263,29,Nitrogen
+1264,0.437,x1264,29,Nitrogen
+1265,0.437,x1265,29,Nitrogen
+1266,0.437,x1266,29,Nitrogen
+1267,0.437,x1267,29,Nitrogen
+1268,0.437,x1268,29,Nitrogen
+1269,0.437,x1269,29,Nitrogen
+1270,0.437,x1270,29,Nitrogen
+1271,0.437,x1271,29,Nitrogen
+1272,0.437,x1272,29,Nitrogen
+1273,0.436,x1273,29,Nitrogen
+1274,0.436,x1274,29,Nitrogen
+1275,0.436,x1275,29,Nitrogen
+1276,0.436,x1276,29,Nitrogen
+1277,0.436,x1277,29,Nitrogen
+1278,0.436,x1278,29,Nitrogen
+1279,0.436,x1279,29,Nitrogen
+1280,0.436,x1280,29,Nitrogen
+1281,0.435,x1281,29,Nitrogen
+1282,0.435,x1282,29,Nitrogen
+1283,0.435,x1283,29,Nitrogen
+1284,0.435,x1284,29,Nitrogen
+1285,0.435,x1285,29,Nitrogen
+1286,0.435,x1286,29,Nitrogen
+1287,0.434,x1287,29,Nitrogen
+1288,0.434,x1288,29,Nitrogen
+1289,0.434,x1289,29,Nitrogen
+1290,0.433,x1290,7,Nitrogen
+1291,0.433,x1291,29,Nitrogen
+1292,0.433,x1292,29,Nitrogen
+1293,0.432,x1293,29,Nitrogen
+1294,0.432,x1294,29,Nitrogen
+1295,0.432,x1295,29,Nitrogen
+1296,0.431,x1296,29,Nitrogen
+1297,0.431,x1297,29,Nitrogen
+1298,0.431,x1298,29,Nitrogen
+1299,0.43,x1299,29,Nitrogen
+1300,0.43,x1300,29,Nitrogen
+1301,0.43,x1301,29,Nitrogen
+1302,0.429,x1302,29,Nitrogen
+1303,0.429,x1303,29,Nitrogen
+1304,0.428,x1304,29,Nitrogen
+1305,0.428,x1305,29,Nitrogen
+1306,0.427,x1306,29,Nitrogen
+1307,0.427,x1307,29,Nitrogen
+1308,0.426,x1308,29,Nitrogen
+1309,0.425,x1309,29,Nitrogen
+1310,0.424,x1310,29,Nitrogen
+1311,0.423,x1311,29,Nitrogen
+1312,0.423,x1312,29,Nitrogen
+1313,0.422,x1313,29,Nitrogen
+1314,0.421,x1314,29,Nitrogen
+1315,0.42,x1315,29,Nitrogen
+1316,0.42,x1316,29,Nitrogen
+1317,0.419,x1317,29,Nitrogen
+1318,0.418,x1318,29,Nitrogen
+1319,0.417,x1319,29,Nitrogen
+1320,0.416,x1320,29,Nitrogen
+1321,0.415,x1321,29,Nitrogen
+1322,0.414,x1322,29,Nitrogen
+1323,0.413,x1323,29,Nitrogen
+1324,0.412,x1324,29,Nitrogen
+1325,0.411,x1325,29,Nitrogen
+1326,0.41,x1326,29,Nitrogen
+1327,0.409,x1327,29,Nitrogen
+1328,0.408,x1328,29,Nitrogen
+1329,0.407,x1329,29,Nitrogen
+1330,0.406,x1330,29,Nitrogen
+1331,0.405,x1331,29,Nitrogen
+1332,0.404,x1332,29,Nitrogen
+1333,0.403,x1333,29,Nitrogen
+1334,0.401,x1334,29,Nitrogen
+1335,0.4,x1335,29,Nitrogen
+1336,0.399,x1336,29,Nitrogen
+1337,0.398,x1337,29,Nitrogen
+1338,0.397,x1338,29,Nitrogen
+1339,0.396,x1339,29,Nitrogen
+1340,0.394,x1340,29,Nitrogen
+1341,0.393,x1341,29,Nitrogen
+1342,0.392,x1342,29,Nitrogen
+1343,0.391,x1343,29,Nitrogen
+1344,0.39,x1344,29,Nitrogen
+1345,0.389,x1345,29,Nitrogen
+1346,0.388,x1346,29,Nitrogen
+1347,0.387,x1347,29,Nitrogen
+1348,0.386,x1348,29,Nitrogen
+1349,0.385,x1349,29,Nitrogen
+1350,0.384,x1350,29,Nitrogen
+1351,0.383,x1351,29,Nitrogen
+1352,0.382,x1352,29,Nitrogen
+1353,0.381,x1353,29,Nitrogen
+1354,0.38,x1354,29,Nitrogen
+1355,0.379,x1355,29,Nitrogen
+1356,0.378,x1356,29,Nitrogen
+1357,0.377,x1357,29,Nitrogen
+1358,0.375,x1358,29,Nitrogen
+1359,0.374,x1359,29,Nitrogen
+1360,0.373,x1360,29,Nitrogen
+1361,0.372,x1361,29,Nitrogen
+1362,0.372,x1362,29,Nitrogen
+1363,0.371,x1363,29,Nitrogen
+1364,0.37,x1364,29,Nitrogen
+1365,0.369,x1365,29,Nitrogen
+1366,0.367,x1366,29,Nitrogen
+1367,0.366,x1367,29,Nitrogen
+1368,0.364,x1368,29,Nitrogen
+1369,0.362,x1369,29,Nitrogen
+1370,0.36,x1370,29,Nitrogen
+1371,0.358,x1371,29,Nitrogen
+1372,0.356,x1372,29,Nitrogen
+1373,0.353,x1373,29,Nitrogen
+1374,0.351,x1374,29,Nitrogen
+1375,0.348,x1375,29,Nitrogen
+1376,0.345,x1376,29,Nitrogen
+1377,0.342,x1377,29,Nitrogen
+1378,0.338,x1378,29,Nitrogen
+1379,0.335,x1379,29,Nitrogen
+1380,0.331,x1380,29,Nitrogen
+1381,0.327,x1381,29,Nitrogen
+1382,0.323,x1382,29,Nitrogen
+1383,0.319,x1383,29,Nitrogen
+1384,0.315,x1384,29,Nitrogen
+1385,0.31,x1385,29,Nitrogen
+1386,0.305,x1386,29,Nitrogen
+1387,0.3,x1387,29,Nitrogen
+1388,0.295,x1388,29,Nitrogen
+1389,0.289,x1389,29,Nitrogen
+1390,0.284,x1390,29,Nitrogen
+1391,0.279,x1391,29,Nitrogen
+1392,0.273,x1392,29,Nitrogen
+1393,0.267,x1393,29,Nitrogen
+1394,0.262,x1394,29,Nitrogen
+1395,0.256,x1395,29,Nitrogen
+1396,0.251,x1396,29,Nitrogen
+1397,0.245,x1397,29,Nitrogen
+1398,0.24,x1398,29,Nitrogen
+1399,0.235,x1399,29,Nitrogen
+1400,0.23,x1400,29,Nitrogen
+1401,0.226,x1401,22,Nitrogen
+1402,0.221,x1402,29,Nitrogen
+1403,0.217,x1403,29,Nitrogen
+1404,0.213,x1404,29,Nitrogen
+1405,0.209,x1405,29,Nitrogen
+1406,0.205,x1406,29,Nitrogen
+1407,0.201,x1407,29,Nitrogen
+1408,0.198,x1408,29,Nitrogen
+1409,0.195,x1409,29,Nitrogen
+1410,0.192,x1410,29,Nitrogen
+1411,0.189,x1411,29,Nitrogen
+1412,0.186,x1412,29,Nitrogen
+1413,0.184,x1413,29,Nitrogen
+1414,0.182,x1414,29,Nitrogen
+1415,0.18,x1415,29,Nitrogen
+1416,0.178,x1416,29,Nitrogen
+1417,0.176,x1417,29,Nitrogen
+1418,0.174,x1418,29,Nitrogen
+1419,0.173,x1419,29,Nitrogen
+1420,0.171,x1420,29,Nitrogen
+1421,0.17,x1421,29,Nitrogen
+1422,0.169,x1422,29,Nitrogen
+1423,0.167,x1423,29,Nitrogen
+1424,0.166,x1424,29,Nitrogen
+1425,0.165,x1425,29,Nitrogen
+1426,0.165,x1426,29,Nitrogen
+1427,0.164,x1427,29,Nitrogen
+1428,0.163,x1428,29,Nitrogen
+1429,0.162,x1429,29,Nitrogen
+1430,0.162,x1430,29,Nitrogen
+1431,0.161,x1431,29,Nitrogen
+1432,0.161,x1432,6,Nitrogen
+1433,0.16,x1433,29,Nitrogen
+1434,0.16,x1434,29,Nitrogen
+1435,0.16,x1435,29,Nitrogen
+1436,0.159,x1436,29,Nitrogen
+1437,0.159,x1437,29,Nitrogen
+1438,0.159,x1438,29,Nitrogen
+1439,0.159,x1439,29,Nitrogen
+1440,0.158,x1440,29,Nitrogen
+1441,0.158,x1441,29,Nitrogen
+1442,0.158,x1442,29,Nitrogen
+1443,0.158,x1443,29,Nitrogen
+1444,0.158,x1444,29,Nitrogen
+1445,0.158,x1445,29,Nitrogen
+1446,0.158,x1446,29,Nitrogen
+1447,0.158,x1447,29,Nitrogen
+1448,0.158,x1448,29,Nitrogen
+1449,0.159,x1449,29,Nitrogen
+1450,0.159,x1450,29,Nitrogen
+1451,0.159,x1451,29,Nitrogen
+1452,0.159,x1452,29,Nitrogen
+1453,0.159,x1453,29,Nitrogen
+1454,0.159,x1454,29,Nitrogen
+1455,0.159,x1455,29,Nitrogen
+1456,0.16,x1456,29,Nitrogen
+1457,0.16,x1457,29,Nitrogen
+1458,0.16,x1458,29,Nitrogen
+1459,0.161,x1459,29,Nitrogen
+1460,0.161,x1460,29,Nitrogen
+1461,0.161,x1461,29,Nitrogen
+1462,0.162,x1462,29,Nitrogen
+1463,0.162,x1463,29,Nitrogen
+1464,0.163,x1464,29,Nitrogen
+1465,0.164,x1465,29,Nitrogen
+1466,0.164,x1466,29,Nitrogen
+1467,0.165,x1467,29,Nitrogen
+1468,0.166,x1468,29,Nitrogen
+1469,0.167,x1469,29,Nitrogen
+1470,0.168,x1470,29,Nitrogen
+1471,0.169,x1471,29,Nitrogen
+1472,0.17,x1472,29,Nitrogen
+1473,0.171,x1473,29,Nitrogen
+1474,0.172,x1474,29,Nitrogen
+1475,0.173,x1475,29,Nitrogen
+1476,0.174,x1476,29,Nitrogen
+1477,0.175,x1477,29,Nitrogen
+1478,0.176,x1478,29,Nitrogen
+1479,0.177,x1479,29,Nitrogen
+1480,0.178,x1480,29,Nitrogen
+1481,0.18,x1481,29,Nitrogen
+1482,0.181,x1482,29,Nitrogen
+1483,0.182,x1483,23,Nitrogen
+1484,0.184,x1484,29,Nitrogen
+1485,0.185,x1485,29,Nitrogen
+1486,0.186,x1486,29,Nitrogen
+1487,0.187,x1487,29,Nitrogen
+1488,0.189,x1488,29,Nitrogen
+1489,0.19,x1489,29,Nitrogen
+1490,0.191,x1490,29,Nitrogen
+1491,0.192,x1491,29,Nitrogen
+1492,0.194,x1492,29,Nitrogen
+1493,0.195,x1493,29,Nitrogen
+1494,0.196,x1494,29,Nitrogen
+1495,0.198,x1495,29,Nitrogen
+1496,0.199,x1496,29,Nitrogen
+1497,0.201,x1497,29,Nitrogen
+1498,0.202,x1498,29,Nitrogen
+1499,0.203,x1499,29,Nitrogen
+1500,0.204,x1500,29,Nitrogen
+1501,0.206,x1501,29,Nitrogen
+1502,0.207,x1502,21,Nitrogen
+1503,0.208,x1503,29,Nitrogen
+1504,0.21,x1504,29,Nitrogen
+1505,0.211,x1505,29,Nitrogen
+1506,0.212,x1506,29,Nitrogen
+1507,0.214,x1507,29,Nitrogen
+1508,0.215,x1508,29,Nitrogen
+1509,0.216,x1509,29,Nitrogen
+1510,0.217,x1510,29,Nitrogen
+1511,0.219,x1511,29,Nitrogen
+1512,0.22,x1512,29,Nitrogen
+1513,0.221,x1513,29,Nitrogen
+1514,0.223,x1514,29,Nitrogen
+1515,0.224,x1515,3,Nitrogen
+1516,0.225,x1516,29,Nitrogen
+1517,0.226,x1517,29,Nitrogen
+1518,0.227,x1518,24,Nitrogen
+1519,0.229,x1519,29,Nitrogen
+1520,0.23,x1520,29,Nitrogen
+1521,0.231,x1521,29,Nitrogen
+1522,0.232,x1522,29,Nitrogen
+1523,0.233,x1523,29,Nitrogen
+1524,0.235,x1524,29,Nitrogen
+1525,0.236,x1525,29,Nitrogen
+1526,0.237,x1526,29,Nitrogen
+1527,0.238,x1527,29,Nitrogen
+1528,0.239,x1528,29,Nitrogen
+1529,0.241,x1529,29,Nitrogen
+1530,0.242,x1530,29,Nitrogen
+1531,0.243,x1531,29,Nitrogen
+1532,0.244,x1532,29,Nitrogen
+1533,0.245,x1533,29,Nitrogen
+1534,0.246,x1534,29,Nitrogen
+1535,0.247,x1535,29,Nitrogen
+1536,0.248,x1536,29,Nitrogen
+1537,0.249,x1537,29,Nitrogen
+1538,0.25,x1538,29,Nitrogen
+1539,0.251,x1539,29,Nitrogen
+1540,0.252,x1540,29,Nitrogen
+1541,0.253,x1541,29,Nitrogen
+1542,0.254,x1542,29,Nitrogen
+1543,0.256,x1543,29,Nitrogen
+1544,0.257,x1544,29,Nitrogen
+1545,0.258,x1545,29,Nitrogen
+1546,0.259,x1546,29,Nitrogen
+1547,0.26,x1547,29,Nitrogen
+1548,0.261,x1548,12,Nitrogen
+1549,0.262,x1549,25,Nitrogen
+1550,0.263,x1550,29,Nitrogen
+1551,0.263,x1551,29,Nitrogen
+1552,0.264,x1552,29,Nitrogen
+1553,0.265,x1553,29,Nitrogen
+1554,0.266,x1554,29,Nitrogen
+1555,0.267,x1555,29,Nitrogen
+1556,0.268,x1556,5,Nitrogen
+1557,0.269,x1557,29,Nitrogen
+1558,0.27,x1558,29,Nitrogen
+1559,0.27,x1559,29,Nitrogen
+1560,0.271,x1560,29,Nitrogen
+1561,0.272,x1561,29,Nitrogen
+1562,0.273,x1562,29,Nitrogen
+1563,0.274,x1563,29,Nitrogen
+1564,0.274,x1564,10,Nitrogen
+1565,0.275,x1565,29,Nitrogen
+1566,0.276,x1566,29,Nitrogen
+1567,0.277,x1567,29,Nitrogen
+1568,0.277,x1568,29,Nitrogen
+1569,0.278,x1569,29,Nitrogen
+1570,0.279,x1570,29,Nitrogen
+1571,0.28,x1571,17,Nitrogen
+1572,0.281,x1572,29,Nitrogen
+1573,0.281,x1573,29,Nitrogen
+1574,0.282,x1574,29,Nitrogen
+1575,0.283,x1575,29,Nitrogen
+1576,0.284,x1576,29,Nitrogen
+1577,0.284,x1577,29,Nitrogen
+1578,0.285,x1578,29,Nitrogen
+1579,0.285,x1579,29,Nitrogen
+1580,0.286,x1580,29,Nitrogen
+1581,0.287,x1581,29,Nitrogen
+1582,0.287,x1582,29,Nitrogen
+1583,0.288,x1583,29,Nitrogen
+1584,0.289,x1584,29,Nitrogen
+1585,0.289,x1585,29,Nitrogen
+1586,0.29,x1586,29,Nitrogen
+1587,0.291,x1587,16,Nitrogen
+1588,0.291,x1588,29,Nitrogen
+1589,0.292,x1589,29,Nitrogen
+1590,0.292,x1590,29,Nitrogen
+1591,0.293,x1591,29,Nitrogen
+1592,0.293,x1592,29,Nitrogen
+1593,0.294,x1593,29,Nitrogen
+1594,0.295,x1594,29,Nitrogen
+1595,0.295,x1595,29,Nitrogen
+1596,0.296,x1596,29,Nitrogen
+1597,0.296,x1597,29,Nitrogen
+1598,0.297,x1598,29,Nitrogen
+1599,0.297,x1599,29,Nitrogen
+1600,0.298,x1600,29,Nitrogen
+1601,0.299,x1601,29,Nitrogen
+1602,0.299,x1602,29,Nitrogen
+1603,0.3,x1603,29,Nitrogen
+1604,0.3,x1604,29,Nitrogen
+1605,0.301,x1605,29,Nitrogen
+1606,0.301,x1606,29,Nitrogen
+1607,0.302,x1607,29,Nitrogen
+1608,0.302,x1608,29,Nitrogen
+1609,0.302,x1609,29,Nitrogen
+1610,0.303,x1610,29,Nitrogen
+1611,0.303,x1611,29,Nitrogen
+1612,0.304,x1612,29,Nitrogen
+1613,0.304,x1613,29,Nitrogen
+1614,0.305,x1614,29,Nitrogen
+1615,0.305,x1615,29,Nitrogen
+1616,0.306,x1616,29,Nitrogen
+1617,0.306,x1617,29,Nitrogen
+1618,0.306,x1618,29,Nitrogen
+1619,0.307,x1619,29,Nitrogen
+1620,0.307,x1620,29,Nitrogen
+1621,0.307,x1621,29,Nitrogen
+1622,0.308,x1622,29,Nitrogen
+1623,0.308,x1623,29,Nitrogen
+1624,0.309,x1624,29,Nitrogen
+1625,0.309,x1625,29,Nitrogen
+1626,0.309,x1626,29,Nitrogen
+1627,0.31,x1627,29,Nitrogen
+1628,0.31,x1628,29,Nitrogen
+1629,0.31,x1629,29,Nitrogen
+1630,0.311,x1630,29,Nitrogen
+1631,0.311,x1631,29,Nitrogen
+1632,0.311,x1632,29,Nitrogen
+1633,0.312,x1633,29,Nitrogen
+1634,0.312,x1634,29,Nitrogen
+1635,0.312,x1635,29,Nitrogen
+1636,0.313,x1636,29,Nitrogen
+1637,0.313,x1637,29,Nitrogen
+1638,0.313,x1638,29,Nitrogen
+1639,0.313,x1639,29,Nitrogen
+1640,0.314,x1640,29,Nitrogen
+1641,0.314,x1641,29,Nitrogen
+1642,0.314,x1642,29,Nitrogen
+1643,0.314,x1643,29,Nitrogen
+1644,0.314,x1644,29,Nitrogen
+1645,0.314,x1645,29,Nitrogen
+1646,0.314,x1646,29,Nitrogen
+1647,0.315,x1647,29,Nitrogen
+1648,0.315,x1648,29,Nitrogen
+1649,0.315,x1649,29,Nitrogen
+1650,0.315,x1650,29,Nitrogen
+1651,0.315,x1651,29,Nitrogen
+1652,0.315,x1652,29,Nitrogen
+1653,0.315,x1653,29,Nitrogen
+1654,0.315,x1654,29,Nitrogen
+1655,0.315,x1655,29,Nitrogen
+1656,0.315,x1656,29,Nitrogen
+1657,0.315,x1657,29,Nitrogen
+1658,0.315,x1658,29,Nitrogen
+1659,0.315,x1659,29,Nitrogen
+1660,0.315,x1660,29,Nitrogen
+1661,0.315,x1661,29,Nitrogen
+1662,0.315,x1662,29,Nitrogen
+1663,0.315,x1663,29,Nitrogen
+1664,0.315,x1664,29,Nitrogen
+1665,0.315,x1665,29,Nitrogen
+1666,0.315,x1666,29,Nitrogen
+1667,0.315,x1667,29,Nitrogen
+1668,0.315,x1668,29,Nitrogen
+1669,0.315,x1669,29,Nitrogen
+1670,0.315,x1670,29,Nitrogen
+1671,0.315,x1671,29,Nitrogen
+1672,0.315,x1672,29,Nitrogen
+1673,0.315,x1673,29,Nitrogen
+1674,0.315,x1674,29,Nitrogen
+1675,0.315,x1675,29,Nitrogen
+1676,0.315,x1676,29,Nitrogen
+1677,0.315,x1677,29,Nitrogen
+1678,0.314,x1678,29,Nitrogen
+1679,0.314,x1679,29,Nitrogen
+1680,0.314,x1680,29,Nitrogen
+1681,0.314,x1681,29,Nitrogen
+1682,0.313,x1682,29,Nitrogen
+1683,0.313,x1683,29,Nitrogen
+1684,0.313,x1684,29,Nitrogen
+1685,0.313,x1685,29,Nitrogen
+1686,0.312,x1686,29,Nitrogen
+1687,0.312,x1687,29,Nitrogen
+1688,0.312,x1688,29,Nitrogen
+1689,0.311,x1689,29,Nitrogen
+1690,0.311,x1690,29,Nitrogen
+1691,0.311,x1691,29,Nitrogen
+1692,0.31,x1692,29,Nitrogen
+1693,0.31,x1693,29,Nitrogen
+1694,0.31,x1694,11,Nitrogen
+1695,0.309,x1695,29,Nitrogen
+1696,0.309,x1696,29,Nitrogen
+1697,0.308,x1697,29,Nitrogen
+1698,0.308,x1698,29,Nitrogen
+1699,0.308,x1699,29,Nitrogen
+1700,0.307,x1700,29,Nitrogen
+1701,0.307,x1701,29,Nitrogen
+1702,0.307,x1702,4,Nitrogen
+1703,0.306,x1703,29,Nitrogen
+1704,0.306,x1704,29,Nitrogen
+1705,0.306,x1705,29,Nitrogen
+1706,0.305,x1706,29,Nitrogen
+1707,0.305,x1707,29,Nitrogen
+1708,0.305,x1708,29,Nitrogen
+1709,0.304,x1709,29,Nitrogen
+1710,0.304,x1710,29,Nitrogen
+1711,0.303,x1711,29,Nitrogen
+1712,0.303,x1712,29,Nitrogen
+1713,0.302,x1713,29,Nitrogen
+1714,0.302,x1714,29,Nitrogen
+1715,0.302,x1715,29,Nitrogen
+1716,0.301,x1716,29,Nitrogen
+1717,0.301,x1717,29,Nitrogen
+1718,0.3,x1718,29,Nitrogen
+1719,0.3,x1719,29,Nitrogen
+1720,0.3,x1720,29,Nitrogen
+1721,0.299,x1721,29,Nitrogen
+1722,0.299,x1722,29,Nitrogen
+1723,0.299,x1723,2,Nitrogen
+1724,0.298,x1724,29,Nitrogen
+1725,0.298,x1725,29,Nitrogen
+1726,0.297,x1726,29,Nitrogen
+1727,0.297,x1727,29,Nitrogen
+1728,0.296,x1728,29,Nitrogen
+1729,0.296,x1729,29,Nitrogen
+1730,0.296,x1730,29,Nitrogen
+1731,0.295,x1731,29,Nitrogen
+1732,0.295,x1732,29,Nitrogen
+1733,0.295,x1733,29,Nitrogen
+1734,0.294,x1734,29,Nitrogen
+1735,0.294,x1735,29,Nitrogen
+1736,0.293,x1736,29,Nitrogen
+1737,0.293,x1737,29,Nitrogen
+1738,0.293,x1738,29,Nitrogen
+1739,0.292,x1739,29,Nitrogen
+1740,0.292,x1740,29,Nitrogen
+1741,0.292,x1741,29,Nitrogen
+1742,0.291,x1742,29,Nitrogen
+1743,0.29,x1743,29,Nitrogen
+1744,0.29,x1744,29,Nitrogen
+1745,0.289,x1745,29,Nitrogen
+1746,0.288,x1746,29,Nitrogen
+1747,0.287,x1747,9,Nitrogen
+1748,0.287,x1748,29,Nitrogen
+1749,0.286,x1749,29,Nitrogen
+1750,0.285,x1750,29,Nitrogen
+1751,0.285,x1751,29,Nitrogen
+1752,0.284,x1752,29,Nitrogen
+1753,0.284,x1753,29,Nitrogen
+1754,0.283,x1754,29,Nitrogen
+1755,0.282,x1755,29,Nitrogen
+1756,0.281,x1756,29,Nitrogen
+1757,0.281,x1757,29,Nitrogen
+1758,0.28,x1758,29,Nitrogen
+1759,0.28,x1759,29,Nitrogen
+1760,0.279,x1760,29,Nitrogen
+1761,0.278,x1761,29,Nitrogen
+1762,0.278,x1762,29,Nitrogen
+1763,0.277,x1763,29,Nitrogen
+1764,0.276,x1764,29,Nitrogen
+1765,0.276,x1765,29,Nitrogen
+1766,0.275,x1766,29,Nitrogen
+1767,0.275,x1767,29,Nitrogen
+1768,0.274,x1768,29,Nitrogen
+1769,0.274,x1769,29,Nitrogen
+1770,0.274,x1770,29,Nitrogen
+1771,0.274,x1771,29,Nitrogen
+1772,0.274,x1772,29,Nitrogen
+1773,0.274,x1773,29,Nitrogen
+1774,0.274,x1774,29,Nitrogen
+1775,0.273,x1775,29,Nitrogen
+1776,0.273,x1776,29,Nitrogen
+1777,0.272,x1777,29,Nitrogen
+1778,0.271,x1778,29,Nitrogen
+1779,0.271,x1779,29,Nitrogen
+1780,0.27,x1780,29,Nitrogen
+1781,0.27,x1781,29,Nitrogen
+1782,0.27,x1782,29,Nitrogen
+1783,0.271,x1783,29,Nitrogen
+1784,0.271,x1784,29,Nitrogen
+1785,0.271,x1785,29,Nitrogen
+1786,0.271,x1786,29,Nitrogen
+1787,0.271,x1787,29,Nitrogen
+1788,0.271,x1788,29,Nitrogen
+1789,0.271,x1789,29,Nitrogen
+1790,0.27,x1790,29,Nitrogen
+1791,0.27,x1791,29,Nitrogen
+1792,0.27,x1792,29,Nitrogen
+1793,0.27,x1793,29,Nitrogen
+1794,0.27,x1794,29,Nitrogen
+1795,0.27,x1795,29,Nitrogen
+1796,0.27,x1796,29,Nitrogen
+1797,0.27,x1797,29,Nitrogen
+1798,0.27,x1798,29,Nitrogen
+1799,0.27,x1799,29,Nitrogen
+1800,0.27,x1800,29,Nitrogen
+1801,0.27,x1801,29,Nitrogen
+1802,0.27,x1802,29,Nitrogen
+1803,0.27,x1803,29,Nitrogen
+1804,0.27,x1804,29,Nitrogen
+1805,0.27,x1805,29,Nitrogen
+1806,0.27,x1806,29,Nitrogen
+1807,0.269,x1807,29,Nitrogen
+1808,0.269,x1808,29,Nitrogen
+1809,0.27,x1809,29,Nitrogen
+1810,0.27,x1810,29,Nitrogen
+1811,0.27,x1811,29,Nitrogen
+1812,0.27,x1812,29,Nitrogen
+1813,0.27,x1813,29,Nitrogen
+1814,0.27,x1814,29,Nitrogen
+1815,0.269,x1815,29,Nitrogen
+1816,0.269,x1816,29,Nitrogen
+1817,0.269,x1817,29,Nitrogen
+1818,0.269,x1818,29,Nitrogen
+1819,0.269,x1819,29,Nitrogen
+1820,0.269,x1820,29,Nitrogen
+1821,0.269,x1821,29,Nitrogen
+1822,0.269,x1822,29,Nitrogen
+1823,0.269,x1823,29,Nitrogen
+1824,0.269,x1824,29,Nitrogen
+1825,0.269,x1825,29,Nitrogen
+1826,0.268,x1826,29,Nitrogen
+1827,0.268,x1827,29,Nitrogen
+1828,0.268,x1828,29,Nitrogen
+1829,0.268,x1829,29,Nitrogen
+1830,0.267,x1830,29,Nitrogen
+1831,0.267,x1831,29,Nitrogen
+1832,0.267,x1832,18,Nitrogen
+1833,0.267,x1833,29,Nitrogen
+1834,0.266,x1834,29,Nitrogen
+1835,0.266,x1835,29,Nitrogen
+1836,0.265,x1836,29,Nitrogen
+1837,0.265,x1837,29,Nitrogen
+1838,0.264,x1838,29,Nitrogen
+1839,0.263,x1839,29,Nitrogen
+1840,0.263,x1840,29,Nitrogen
+1841,0.262,x1841,29,Nitrogen
+1842,0.262,x1842,29,Nitrogen
+1843,0.261,x1843,29,Nitrogen
+1844,0.26,x1844,29,Nitrogen
+1845,0.259,x1845,29,Nitrogen
+1846,0.258,x1846,29,Nitrogen
+1847,0.257,x1847,29,Nitrogen
+1848,0.256,x1848,29,Nitrogen
+1849,0.254,x1849,29,Nitrogen
+1850,0.253,x1850,29,Nitrogen
+1851,0.251,x1851,29,Nitrogen
+1852,0.25,x1852,29,Nitrogen
+1853,0.248,x1853,29,Nitrogen
+1854,0.246,x1854,29,Nitrogen
+1855,0.243,x1855,29,Nitrogen
+1856,0.241,x1856,29,Nitrogen
+1857,0.238,x1857,29,Nitrogen
+1858,0.235,x1858,29,Nitrogen
+1859,0.233,x1859,29,Nitrogen
+1860,0.23,x1860,29,Nitrogen
+1861,0.227,x1861,29,Nitrogen
+1862,0.224,x1862,29,Nitrogen
+1863,0.22,x1863,29,Nitrogen
+1864,0.217,x1864,29,Nitrogen
+1865,0.213,x1865,15,Nitrogen
+1866,0.209,x1866,29,Nitrogen
+1867,0.205,x1867,29,Nitrogen
+1868,0.2,x1868,29,Nitrogen
+1869,0.196,x1869,29,Nitrogen
+1870,0.192,x1870,29,Nitrogen
+1871,0.187,x1871,29,Nitrogen
+1872,0.182,x1872,29,Nitrogen
+1873,0.177,x1873,29,Nitrogen
+1874,0.172,x1874,29,Nitrogen
+1875,0.167,x1875,29,Nitrogen
+1876,0.162,x1876,29,Nitrogen
+1877,0.156,x1877,29,Nitrogen
+1878,0.151,x1878,29,Nitrogen
+1879,0.146,x1879,29,Nitrogen
+1880,0.141,x1880,29,Nitrogen
+1881,0.135,x1881,29,Nitrogen
+1882,0.13,x1882,29,Nitrogen
+1883,0.124,x1883,29,Nitrogen
+1884,0.118,x1884,29,Nitrogen
+1885,0.113,x1885,29,Nitrogen
+1886,0.107,x1886,29,Nitrogen
+1887,0.102,x1887,29,Nitrogen
+1888,0.096,x1888,29,Nitrogen
+1889,0.092,x1889,29,Nitrogen
+1890,0.087,x1890,29,Nitrogen
+1891,0.082,x1891,29,Nitrogen
+1892,0.078,x1892,29,Nitrogen
+1893,0.074,x1893,19,Nitrogen
+1894,0.071,x1894,29,Nitrogen
+1895,0.068,x1895,29,Nitrogen
+1896,0.065,x1896,29,Nitrogen
+1897,0.063,x1897,29,Nitrogen
+1898,0.06,x1898,29,Nitrogen
+1899,0.058,x1899,29,Nitrogen
+1900,0.056,x1900,29,Nitrogen
+1901,0.054,x1901,29,Nitrogen
+1902,0.053,x1902,29,Nitrogen
+1903,0.051,x1903,29,Nitrogen
+1904,0.05,x1904,29,Nitrogen
+1905,0.049,x1905,29,Nitrogen
+1906,0.048,x1906,29,Nitrogen
+1907,0.047,x1907,29,Nitrogen
+1908,0.046,x1908,29,Nitrogen
+1909,0.046,x1909,29,Nitrogen
+1910,0.045,x1910,29,Nitrogen
+1911,0.044,x1911,29,Nitrogen
+1912,0.044,x1912,29,Nitrogen
+1913,0.043,x1913,29,Nitrogen
+1914,0.043,x1914,29,Nitrogen
+1915,0.043,x1915,29,Nitrogen
+1916,0.042,x1916,29,Nitrogen
+1917,0.042,x1917,29,Nitrogen
+1918,0.042,x1918,29,Nitrogen
+1919,0.042,x1919,29,Nitrogen
+1920,0.042,x1920,29,Nitrogen
+1921,0.042,x1921,29,Nitrogen
+1922,0.042,x1922,29,Nitrogen
+1923,0.042,x1923,29,Nitrogen
+1924,0.042,x1924,29,Nitrogen
+1925,0.042,x1925,29,Nitrogen
+1926,0.042,x1926,29,Nitrogen
+1927,0.042,x1927,29,Nitrogen
+1928,0.042,x1928,29,Nitrogen
+1929,0.042,x1929,29,Nitrogen
+1930,0.042,x1930,29,Nitrogen
+1931,0.042,x1931,29,Nitrogen
+1932,0.042,x1932,29,Nitrogen
+1933,0.042,x1933,29,Nitrogen
+1934,0.042,x1934,29,Nitrogen
+1935,0.042,x1935,29,Nitrogen
+1936,0.043,x1936,29,Nitrogen
+1937,0.043,x1937,29,Nitrogen
+1938,0.043,x1938,29,Nitrogen
+1939,0.043,x1939,29,Nitrogen
+1940,0.044,x1940,29,Nitrogen
+1941,0.044,x1941,29,Nitrogen
+1942,0.044,x1942,29,Nitrogen
+1943,0.045,x1943,29,Nitrogen
+1944,0.045,x1944,29,Nitrogen
+1945,0.046,x1945,29,Nitrogen
+1946,0.046,x1946,29,Nitrogen
+1947,0.046,x1947,29,Nitrogen
+1948,0.047,x1948,29,Nitrogen
+1949,0.047,x1949,29,Nitrogen
+1950,0.047,x1950,29,Nitrogen
+1951,0.047,x1951,29,Nitrogen
+1952,0.048,x1952,29,Nitrogen
+1953,0.048,x1953,29,Nitrogen
+1954,0.048,x1954,29,Nitrogen
+1955,0.049,x1955,29,Nitrogen
+1956,0.049,x1956,29,Nitrogen
+1957,0.05,x1957,29,Nitrogen
+1958,0.05,x1958,29,Nitrogen
+1959,0.051,x1959,29,Nitrogen
+1960,0.051,x1960,29,Nitrogen
+1961,0.052,x1961,29,Nitrogen
+1962,0.052,x1962,29,Nitrogen
+1963,0.053,x1963,29,Nitrogen
+1964,0.053,x1964,29,Nitrogen
+1965,0.054,x1965,29,Nitrogen
+1966,0.055,x1966,29,Nitrogen
+1967,0.055,x1967,29,Nitrogen
+1968,0.056,x1968,29,Nitrogen
+1969,0.056,x1969,29,Nitrogen
+1970,0.057,x1970,29,Nitrogen
+1971,0.057,x1971,29,Nitrogen
+1972,0.058,x1972,29,Nitrogen
+1973,0.058,x1973,29,Nitrogen
+1974,0.059,x1974,29,Nitrogen
+1975,0.059,x1975,29,Nitrogen
+1976,0.06,x1976,29,Nitrogen
+1977,0.061,x1977,29,Nitrogen
+1978,0.061,x1978,29,Nitrogen
+1979,0.062,x1979,29,Nitrogen
+1980,0.063,x1980,29,Nitrogen
+1981,0.064,x1981,29,Nitrogen
+1982,0.064,x1982,29,Nitrogen
+1983,0.065,x1983,29,Nitrogen
+1984,0.066,x1984,29,Nitrogen
+1985,0.066,x1985,29,Nitrogen
+1986,0.067,x1986,29,Nitrogen
+1987,0.068,x1987,29,Nitrogen
+1988,0.068,x1988,29,Nitrogen
+1989,0.069,x1989,29,Nitrogen
+1990,0.07,x1990,29,Nitrogen
+1991,0.07,x1991,29,Nitrogen
+1992,0.071,x1992,29,Nitrogen
+1993,0.071,x1993,29,Nitrogen
+1994,0.072,x1994,29,Nitrogen
+1995,0.073,x1995,29,Nitrogen
+1996,0.074,x1996,29,Nitrogen
+1997,0.074,x1997,29,Nitrogen
+1998,0.075,x1998,29,Nitrogen
+1999,0.076,x1999,29,Nitrogen
+2000,0.077,x2000,29,Nitrogen
+2001,0.078,x2001,29,Nitrogen
+2002,0.078,x2002,29,Nitrogen
+2003,0.079,x2003,29,Nitrogen
+2004,0.08,x2004,29,Nitrogen
+2005,0.081,x2005,29,Nitrogen
+2006,0.082,x2006,29,Nitrogen
+2007,0.083,x2007,29,Nitrogen
+2008,0.083,x2008,29,Nitrogen
+2009,0.084,x2009,29,Nitrogen
+2010,0.085,x2010,29,Nitrogen
+2011,0.085,x2011,29,Nitrogen
+2012,0.086,x2012,29,Nitrogen
+2013,0.087,x2013,29,Nitrogen
+2014,0.087,x2014,29,Nitrogen
+2015,0.088,x2015,29,Nitrogen
+2016,0.089,x2016,29,Nitrogen
+2017,0.09,x2017,29,Nitrogen
+2018,0.09,x2018,29,Nitrogen
+2019,0.091,x2019,29,Nitrogen
+2020,0.092,x2020,29,Nitrogen
+2021,0.093,x2021,29,Nitrogen
+2022,0.093,x2022,29,Nitrogen
+2023,0.094,x2023,29,Nitrogen
+2024,0.095,x2024,29,Nitrogen
+2025,0.095,x2025,29,Nitrogen
+2026,0.096,x2026,29,Nitrogen
+2027,0.097,x2027,29,Nitrogen
+2028,0.097,x2028,29,Nitrogen
+2029,0.098,x2029,29,Nitrogen
+2030,0.098,x2030,29,Nitrogen
+2031,0.099,x2031,29,Nitrogen
+2032,0.1,x2032,29,Nitrogen
+2033,0.1,x2033,29,Nitrogen
+2034,0.101,x2034,29,Nitrogen
+2035,0.102,x2035,29,Nitrogen
+2036,0.102,x2036,29,Nitrogen
+2037,0.103,x2037,29,Nitrogen
+2038,0.103,x2038,29,Nitrogen
+2039,0.104,x2039,29,Nitrogen
+2040,0.105,x2040,29,Nitrogen
+2041,0.105,x2041,29,Nitrogen
+2042,0.106,x2042,29,Nitrogen
+2043,0.107,x2043,29,Nitrogen
+2044,0.107,x2044,29,Nitrogen
+2045,0.108,x2045,29,Nitrogen
+2046,0.108,x2046,29,Nitrogen
+2047,0.109,x2047,29,Nitrogen
+2048,0.109,x2048,29,Nitrogen
+2049,0.11,x2049,29,Nitrogen
+2050,0.11,x2050,29,Nitrogen
+2051,0.111,x2051,29,Nitrogen
+2052,0.111,x2052,29,Nitrogen
+2053,0.112,x2053,29,Nitrogen
+2054,0.113,x2054,29,Nitrogen
+2055,0.114,x2055,28,Nitrogen
+2056,0.114,x2056,29,Nitrogen
+2057,0.115,x2057,29,Nitrogen
+2058,0.115,x2058,29,Nitrogen
+2059,0.116,x2059,29,Nitrogen
+2060,0.117,x2060,29,Nitrogen
+2061,0.117,x2061,29,Nitrogen
+2062,0.118,x2062,29,Nitrogen
+2063,0.118,x2063,29,Nitrogen
+2064,0.119,x2064,29,Nitrogen
+2065,0.119,x2065,29,Nitrogen
+2066,0.12,x2066,29,Nitrogen
+2067,0.121,x2067,29,Nitrogen
+2068,0.121,x2068,29,Nitrogen
+2069,0.122,x2069,29,Nitrogen
+2070,0.123,x2070,29,Nitrogen
+2071,0.123,x2071,29,Nitrogen
+2072,0.124,x2072,29,Nitrogen
+2073,0.124,x2073,29,Nitrogen
+2074,0.125,x2074,29,Nitrogen
+2075,0.125,x2075,29,Nitrogen
+2076,0.126,x2076,29,Nitrogen
+2077,0.126,x2077,29,Nitrogen
+2078,0.127,x2078,29,Nitrogen
+2079,0.128,x2079,29,Nitrogen
+2080,0.129,x2080,29,Nitrogen
+2081,0.129,x2081,29,Nitrogen
+2082,0.13,x2082,29,Nitrogen
+2083,0.13,x2083,29,Nitrogen
+2084,0.131,x2084,29,Nitrogen
+2085,0.131,x2085,29,Nitrogen
+2086,0.131,x2086,29,Nitrogen
+2087,0.132,x2087,29,Nitrogen
+2088,0.132,x2088,29,Nitrogen
+2089,0.133,x2089,29,Nitrogen
+2090,0.134,x2090,29,Nitrogen
+2091,0.135,x2091,29,Nitrogen
+2092,0.135,x2092,29,Nitrogen
+2093,0.136,x2093,29,Nitrogen
+2094,0.136,x2094,29,Nitrogen
+2095,0.137,x2095,29,Nitrogen
+2096,0.137,x2096,29,Nitrogen
+2097,0.138,x2097,29,Nitrogen
+2098,0.138,x2098,29,Nitrogen
+2099,0.139,x2099,29,Nitrogen
+2100,0.14,x2100,29,Nitrogen
+2101,0.14,x2101,29,Nitrogen
+2102,0.141,x2102,29,Nitrogen
+2103,0.141,x2103,29,Nitrogen
+2104,0.141,x2104,29,Nitrogen
+2105,0.142,x2105,29,Nitrogen
+2106,0.142,x2106,29,Nitrogen
+2107,0.142,x2107,29,Nitrogen
+2108,0.142,x2108,29,Nitrogen
+2109,0.143,x2109,29,Nitrogen
+2110,0.143,x2110,29,Nitrogen
+2111,0.144,x2111,29,Nitrogen
+2112,0.145,x2112,29,Nitrogen
+2113,0.146,x2113,29,Nitrogen
+2114,0.147,x2114,29,Nitrogen
+2115,0.148,x2115,29,Nitrogen
+2116,0.148,x2116,29,Nitrogen
+2117,0.149,x2117,29,Nitrogen
+2118,0.149,x2118,29,Nitrogen
+2119,0.149,x2119,29,Nitrogen
+2120,0.15,x2120,29,Nitrogen
+2121,0.15,x2121,29,Nitrogen
+2122,0.15,x2122,29,Nitrogen
+2123,0.15,x2123,29,Nitrogen
+2124,0.151,x2124,29,Nitrogen
+2125,0.151,x2125,29,Nitrogen
+2126,0.151,x2126,29,Nitrogen
+2127,0.152,x2127,29,Nitrogen
+2128,0.152,x2128,26,Nitrogen
+2129,0.153,x2129,29,Nitrogen
+2130,0.154,x2130,29,Nitrogen
+2131,0.154,x2131,29,Nitrogen
+2132,0.154,x2132,29,Nitrogen
+2133,0.155,x2133,29,Nitrogen
+2134,0.155,x2134,29,Nitrogen
+2135,0.155,x2135,29,Nitrogen
+2136,0.156,x2136,29,Nitrogen
+2137,0.156,x2137,29,Nitrogen
+2138,0.157,x2138,29,Nitrogen
+2139,0.158,x2139,29,Nitrogen
+2140,0.158,x2140,29,Nitrogen
+2141,0.159,x2141,29,Nitrogen
+2142,0.159,x2142,29,Nitrogen
+2143,0.159,x2143,29,Nitrogen
+2144,0.159,x2144,29,Nitrogen
+2145,0.16,x2145,29,Nitrogen
+2146,0.16,x2146,29,Nitrogen
+2147,0.16,x2147,29,Nitrogen
+2148,0.16,x2148,29,Nitrogen
+2149,0.16,x2149,29,Nitrogen
+2150,0.16,x2150,29,Nitrogen
+2151,0.16,x2151,29,Nitrogen
+2152,0.16,x2152,29,Nitrogen
+2153,0.16,x2153,29,Nitrogen
+2154,0.161,x2154,29,Nitrogen
+2155,0.161,x2155,29,Nitrogen
+2156,0.162,x2156,29,Nitrogen
+2157,0.162,x2157,29,Nitrogen
+2158,0.163,x2158,29,Nitrogen
+2159,0.163,x2159,29,Nitrogen
+2160,0.163,x2160,29,Nitrogen
+2161,0.163,x2161,29,Nitrogen
+2162,0.163,x2162,29,Nitrogen
+2163,0.163,x2163,29,Nitrogen
+2164,0.164,x2164,29,Nitrogen
+2165,0.164,x2165,29,Nitrogen
+2166,0.164,x2166,29,Nitrogen
+2167,0.165,x2167,29,Nitrogen
+2168,0.165,x2168,29,Nitrogen
+2169,0.165,x2169,29,Nitrogen
+2170,0.165,x2170,29,Nitrogen
+2171,0.165,x2171,29,Nitrogen
+2172,0.165,x2172,29,Nitrogen
+2173,0.166,x2173,29,Nitrogen
+2174,0.166,x2174,29,Nitrogen
+2175,0.166,x2175,29,Nitrogen
+2176,0.167,x2176,29,Nitrogen
+2177,0.167,x2177,29,Nitrogen
+2178,0.167,x2178,29,Nitrogen
+2179,0.167,x2179,29,Nitrogen
+2180,0.167,x2180,29,Nitrogen
+2181,0.167,x2181,29,Nitrogen
+2182,0.167,x2182,29,Nitrogen
+2183,0.167,x2183,29,Nitrogen
+2184,0.168,x2184,29,Nitrogen
+2185,0.168,x2185,29,Nitrogen
+2186,0.169,x2186,29,Nitrogen
+2187,0.169,x2187,29,Nitrogen
+2188,0.169,x2188,29,Nitrogen
+2189,0.17,x2189,29,Nitrogen
+2190,0.17,x2190,29,Nitrogen
+2191,0.17,x2191,29,Nitrogen
+2192,0.17,x2192,29,Nitrogen
+2193,0.17,x2193,29,Nitrogen
+2194,0.17,x2194,29,Nitrogen
+2195,0.17,x2195,29,Nitrogen
+2196,0.171,x2196,29,Nitrogen
+2197,0.171,x2197,29,Nitrogen
+2198,0.171,x2198,29,Nitrogen
+2199,0.171,x2199,29,Nitrogen
+2200,0.171,x2200,27,Nitrogen
+2201,0.171,x2201,29,Nitrogen
+2202,0.171,x2202,29,Nitrogen
+2203,0.171,x2203,29,Nitrogen
+2204,0.171,x2204,29,Nitrogen
+2205,0.171,x2205,29,Nitrogen
+2206,0.171,x2206,29,Nitrogen
+2207,0.171,x2207,29,Nitrogen
+2208,0.171,x2208,29,Nitrogen
+2209,0.171,x2209,29,Nitrogen
+2210,0.171,x2210,29,Nitrogen
+2211,0.171,x2211,29,Nitrogen
+2212,0.171,x2212,29,Nitrogen
+2213,0.171,x2213,29,Nitrogen
+2214,0.171,x2214,29,Nitrogen
+2215,0.171,x2215,29,Nitrogen
+2216,0.171,x2216,29,Nitrogen
+2217,0.171,x2217,29,Nitrogen
+2218,0.171,x2218,29,Nitrogen
+2219,0.172,x2219,29,Nitrogen
+2220,0.172,x2220,29,Nitrogen
+2221,0.172,x2221,29,Nitrogen
+2222,0.171,x2222,29,Nitrogen
+2223,0.171,x2223,29,Nitrogen
+2224,0.171,x2224,29,Nitrogen
+2225,0.171,x2225,29,Nitrogen
+2226,0.171,x2226,29,Nitrogen
+2227,0.171,x2227,29,Nitrogen
+2228,0.171,x2228,29,Nitrogen
+2229,0.17,x2229,29,Nitrogen
+2230,0.17,x2230,29,Nitrogen
+2231,0.17,x2231,29,Nitrogen
+2232,0.17,x2232,29,Nitrogen
+2233,0.169,x2233,29,Nitrogen
+2234,0.169,x2234,29,Nitrogen
+2235,0.169,x2235,29,Nitrogen
+2236,0.169,x2236,29,Nitrogen
+2237,0.168,x2237,29,Nitrogen
+2238,0.167,x2238,29,Nitrogen
+2239,0.167,x2239,29,Nitrogen
+2240,0.166,x2240,29,Nitrogen
+2241,0.165,x2241,29,Nitrogen
+2242,0.165,x2242,29,Nitrogen
+2243,0.165,x2243,29,Nitrogen
+2244,0.164,x2244,29,Nitrogen
+2245,0.164,x2245,29,Nitrogen
+2246,0.164,x2246,29,Nitrogen
+2247,0.164,x2247,29,Nitrogen
+2248,0.163,x2248,29,Nitrogen
+2249,0.162,x2249,29,Nitrogen
+2250,0.162,x2250,29,Nitrogen
+2251,0.161,x2251,29,Nitrogen
+2252,0.16,x2252,29,Nitrogen
+2253,0.159,x2253,29,Nitrogen
+2254,0.159,x2254,29,Nitrogen
+2255,0.158,x2255,29,Nitrogen
+2256,0.158,x2256,29,Nitrogen
+2257,0.157,x2257,29,Nitrogen
+2258,0.157,x2258,29,Nitrogen
+2259,0.156,x2259,29,Nitrogen
+2260,0.156,x2260,29,Nitrogen
+2261,0.155,x2261,29,Nitrogen
+2262,0.155,x2262,29,Nitrogen
+2263,0.154,x2263,29,Nitrogen
+2264,0.154,x2264,29,Nitrogen
+2265,0.153,x2265,29,Nitrogen
+2266,0.152,x2266,29,Nitrogen
+2267,0.152,x2267,29,Nitrogen
+2268,0.151,x2268,29,Nitrogen
+2269,0.15,x2269,29,Nitrogen
+2270,0.15,x2270,29,Nitrogen
+2271,0.149,x2271,29,Nitrogen
+2272,0.148,x2272,29,Nitrogen
+2273,0.148,x2273,29,Nitrogen
+2274,0.147,x2274,29,Nitrogen
+2275,0.147,x2275,29,Nitrogen
+2276,0.146,x2276,29,Nitrogen
+2277,0.145,x2277,29,Nitrogen
+2278,0.145,x2278,29,Nitrogen
+2279,0.145,x2279,29,Nitrogen
+2280,0.144,x2280,29,Nitrogen
+2281,0.144,x2281,29,Nitrogen
+2282,0.144,x2282,29,Nitrogen
+2283,0.143,x2283,29,Nitrogen
+2284,0.143,x2284,29,Nitrogen
+2285,0.142,x2285,29,Nitrogen
+2286,0.142,x2286,29,Nitrogen
+2287,0.141,x2287,29,Nitrogen
+2288,0.14,x2288,29,Nitrogen
+2289,0.139,x2289,29,Nitrogen
+2290,0.138,x2290,29,Nitrogen
+2291,0.138,x2291,29,Nitrogen
+2292,0.137,x2292,29,Nitrogen
+2293,0.137,x2293,29,Nitrogen
+2294,0.136,x2294,29,Nitrogen
+2295,0.136,x2295,29,Nitrogen
+2296,0.136,x2296,29,Nitrogen
+2297,0.135,x2297,29,Nitrogen
+2298,0.135,x2298,29,Nitrogen
+2299,0.135,x2299,29,Nitrogen
+2300,0.135,x2300,29,Nitrogen
+2301,0.135,x2301,29,Nitrogen
+2302,0.134,x2302,29,Nitrogen
+2303,0.134,x2303,29,Nitrogen
+2304,0.133,x2304,29,Nitrogen
+2305,0.132,x2305,29,Nitrogen
+2306,0.13,x2306,29,Nitrogen
+2307,0.129,x2307,29,Nitrogen
+2308,0.129,x2308,29,Nitrogen
+2309,0.128,x2309,29,Nitrogen
+2310,0.128,x2310,29,Nitrogen
+2311,0.128,x2311,29,Nitrogen
+2312,0.128,x2312,29,Nitrogen
+2313,0.128,x2313,29,Nitrogen
+2314,0.127,x2314,29,Nitrogen
+2315,0.127,x2315,29,Nitrogen
+2316,0.126,x2316,29,Nitrogen
+2317,0.125,x2317,29,Nitrogen
+2318,0.125,x2318,29,Nitrogen
+2319,0.124,x2319,29,Nitrogen
+2320,0.124,x2320,29,Nitrogen
+2321,0.124,x2321,29,Nitrogen
+2322,0.124,x2322,29,Nitrogen
+2323,0.124,x2323,29,Nitrogen
+2324,0.124,x2324,29,Nitrogen
+2325,0.124,x2325,29,Nitrogen
+2326,0.124,x2326,29,Nitrogen
+2327,0.124,x2327,29,Nitrogen
+2328,0.123,x2328,29,Nitrogen
+2329,0.123,x2329,29,Nitrogen
+2330,0.123,x2330,29,Nitrogen
+2331,0.122,x2331,29,Nitrogen
+2332,0.122,x2332,29,Nitrogen
+2333,0.121,x2333,29,Nitrogen
+2334,0.121,x2334,29,Nitrogen
+2335,0.12,x2335,29,Nitrogen
+2336,0.119,x2336,29,Nitrogen
+2337,0.119,x2337,29,Nitrogen
+2338,0.119,x2338,29,Nitrogen
+2339,0.118,x2339,29,Nitrogen
+2340,0.118,x2340,29,Nitrogen
+2341,0.117,x2341,29,Nitrogen
+2342,0.116,x2342,29,Nitrogen
+2343,0.116,x2343,29,Nitrogen
+2344,0.115,x2344,29,Nitrogen
+2345,0.114,x2345,29,Nitrogen
+2346,0.113,x2346,29,Nitrogen
+2347,0.113,x2347,29,Nitrogen
+2348,0.113,x2348,29,Nitrogen
+2349,0.112,x2349,29,Nitrogen
+2350,0.111,x2350,29,Nitrogen
+2351,0.111,x2351,29,Nitrogen
+2352,0.11,x2352,29,Nitrogen
+2353,0.11,x2353,29,Nitrogen
+2354,0.109,x2354,29,Nitrogen
+2355,0.109,x2355,29,Nitrogen
+2356,0.109,x2356,29,Nitrogen
+2357,0.109,x2357,29,Nitrogen
+2358,0.109,x2358,29,Nitrogen
+2359,0.108,x2359,29,Nitrogen
+2360,0.107,x2360,29,Nitrogen
+2361,0.106,x2361,29,Nitrogen
+2362,0.105,x2362,29,Nitrogen
+2363,0.104,x2363,29,Nitrogen
+2364,0.103,x2364,29,Nitrogen
+2365,0.103,x2365,29,Nitrogen
+2366,0.102,x2366,29,Nitrogen
+2367,0.102,x2367,29,Nitrogen
+2368,0.101,x2368,29,Nitrogen
+2369,0.101,x2369,29,Nitrogen
+2370,0.101,x2370,29,Nitrogen
+2371,0.1,x2371,29,Nitrogen
+2372,0.1,x2372,29,Nitrogen
+2373,0.099,x2373,29,Nitrogen
+2374,0.099,x2374,29,Nitrogen
+2375,0.098,x2375,29,Nitrogen
+2376,0.098,x2376,29,Nitrogen
+2377,0.098,x2377,29,Nitrogen
+2378,0.098,x2378,29,Nitrogen
+2379,0.097,x2379,29,Nitrogen
+2380,0.097,x2380,29,Nitrogen
+2381,0.096,x2381,29,Nitrogen
+2382,0.096,x2382,29,Nitrogen
+2383,0.095,x2383,29,Nitrogen
+2384,0.094,x2384,29,Nitrogen
+2385,0.094,x2385,29,Nitrogen
+2386,0.094,x2386,29,Nitrogen
+2387,0.093,x2387,29,Nitrogen
+2388,0.093,x2388,29,Nitrogen
+2389,0.092,x2389,29,Nitrogen
+2390,0.091,x2390,29,Nitrogen
+2391,0.09,x2391,29,Nitrogen
+2392,0.09,x2392,29,Nitrogen
+2393,0.089,x2393,29,Nitrogen
+2394,0.088,x2394,29,Nitrogen
+2395,0.087,x2395,29,Nitrogen
+2396,0.087,x2396,29,Nitrogen
+2397,0.087,x2397,29,Nitrogen
+2398,0.086,x2398,29,Nitrogen
+2399,0.086,x2399,29,Nitrogen
+2400,0.085,x2400,29,Nitrogen
+400,0.054,x400,15,Carotenoid
+401,0.054,x401,15,Carotenoid
+402,0.053,x402,15,Carotenoid
+403,0.052,x403,15,Carotenoid
+404,0.051,x404,15,Carotenoid
+405,0.05,x405,15,Carotenoid
+406,0.049,x406,15,Carotenoid
+407,0.048,x407,15,Carotenoid
+408,0.048,x408,15,Carotenoid
+409,0.048,x409,15,Carotenoid
+410,0.048,x410,15,Carotenoid
+411,0.048,x411,15,Carotenoid
+412,0.049,x412,15,Carotenoid
+413,0.049,x413,15,Carotenoid
+414,0.049,x414,15,Carotenoid
+415,0.05,x415,15,Carotenoid
+416,0.05,x416,15,Carotenoid
+417,0.05,x417,15,Carotenoid
+418,0.051,x418,15,Carotenoid
+419,0.051,x419,15,Carotenoid
+420,0.051,x420,15,Carotenoid
+421,0.051,x421,15,Carotenoid
+422,0.051,x422,15,Carotenoid
+423,0.052,x423,15,Carotenoid
+424,0.052,x424,15,Carotenoid
+425,0.052,x425,15,Carotenoid
+426,0.052,x426,15,Carotenoid
+427,0.051,x427,15,Carotenoid
+428,0.051,x428,15,Carotenoid
+429,0.051,x429,15,Carotenoid
+430,0.051,x430,15,Carotenoid
+431,0.051,x431,15,Carotenoid
+432,0.052,x432,15,Carotenoid
+433,0.052,x433,15,Carotenoid
+434,0.052,x434,15,Carotenoid
+435,0.052,x435,15,Carotenoid
+436,0.052,x436,15,Carotenoid
+437,0.053,x437,15,Carotenoid
+438,0.053,x438,15,Carotenoid
+439,0.053,x439,15,Carotenoid
+440,0.053,x440,15,Carotenoid
+441,0.053,x441,15,Carotenoid
+442,0.053,x442,15,Carotenoid
+443,0.053,x443,15,Carotenoid
+444,0.053,x444,15,Carotenoid
+445,0.053,x445,15,Carotenoid
+446,0.053,x446,15,Carotenoid
+447,0.053,x447,15,Carotenoid
+448,0.053,x448,15,Carotenoid
+449,0.054,x449,15,Carotenoid
+450,0.054,x450,15,Carotenoid
+451,0.054,x451,15,Carotenoid
+452,0.054,x452,15,Carotenoid
+453,0.054,x453,15,Carotenoid
+454,0.054,x454,15,Carotenoid
+455,0.055,x455,15,Carotenoid
+456,0.055,x456,15,Carotenoid
+457,0.055,x457,15,Carotenoid
+458,0.055,x458,15,Carotenoid
+459,0.055,x459,15,Carotenoid
+460,0.055,x460,15,Carotenoid
+461,0.055,x461,15,Carotenoid
+462,0.055,x462,15,Carotenoid
+463,0.055,x463,15,Carotenoid
+464,0.055,x464,15,Carotenoid
+465,0.056,x465,15,Carotenoid
+466,0.056,x466,15,Carotenoid
+467,0.056,x467,15,Carotenoid
+468,0.056,x468,15,Carotenoid
+469,0.056,x469,15,Carotenoid
+470,0.056,x470,15,Carotenoid
+471,0.056,x471,15,Carotenoid
+472,0.056,x472,15,Carotenoid
+473,0.056,x473,15,Carotenoid
+474,0.056,x474,15,Carotenoid
+475,0.056,x475,15,Carotenoid
+476,0.056,x476,15,Carotenoid
+477,0.056,x477,15,Carotenoid
+478,0.056,x478,15,Carotenoid
+479,0.056,x479,15,Carotenoid
+480,0.056,x480,15,Carotenoid
+481,0.056,x481,15,Carotenoid
+482,0.056,x482,15,Carotenoid
+483,0.056,x483,15,Carotenoid
+484,0.056,x484,15,Carotenoid
+485,0.056,x485,15,Carotenoid
+486,0.056,x486,15,Carotenoid
+487,0.057,x487,15,Carotenoid
+488,0.057,x488,15,Carotenoid
+489,0.057,x489,15,Carotenoid
+490,0.057,x490,15,Carotenoid
+491,0.058,x491,15,Carotenoid
+492,0.058,x492,15,Carotenoid
+493,0.059,x493,15,Carotenoid
+494,0.059,x494,15,Carotenoid
+495,0.059,x495,15,Carotenoid
+496,0.06,x496,15,Carotenoid
+497,0.061,x497,15,Carotenoid
+498,0.061,x498,15,Carotenoid
+499,0.062,x499,15,Carotenoid
+500,0.063,x500,15,Carotenoid
+501,0.064,x501,15,Carotenoid
+502,0.065,x502,15,Carotenoid
+503,0.066,x503,15,Carotenoid
+504,0.067,x504,15,Carotenoid
+505,0.068,x505,15,Carotenoid
+506,0.07,x506,15,Carotenoid
+507,0.071,x507,15,Carotenoid
+508,0.073,x508,15,Carotenoid
+509,0.075,x509,15,Carotenoid
+510,0.077,x510,15,Carotenoid
+511,0.079,x511,15,Carotenoid
+512,0.081,x512,15,Carotenoid
+513,0.084,x513,15,Carotenoid
+514,0.086,x514,15,Carotenoid
+515,0.089,x515,15,Carotenoid
+516,0.092,x516,15,Carotenoid
+517,0.095,x517,15,Carotenoid
+518,0.098,x518,15,Carotenoid
+519,0.101,x519,15,Carotenoid
+520,0.104,x520,15,Carotenoid
+521,0.108,x521,15,Carotenoid
+522,0.111,x522,15,Carotenoid
+523,0.114,x523,7,Carotenoid
+524,0.117,x524,15,Carotenoid
+525,0.12,x525,15,Carotenoid
+526,0.123,x526,15,Carotenoid
+527,0.126,x527,15,Carotenoid
+528,0.129,x528,15,Carotenoid
+529,0.131,x529,15,Carotenoid
+530,0.133,x530,15,Carotenoid
+531,0.135,x531,15,Carotenoid
+532,0.137,x532,15,Carotenoid
+533,0.138,x533,15,Carotenoid
+534,0.14,x534,15,Carotenoid
+535,0.141,x535,15,Carotenoid
+536,0.142,x536,15,Carotenoid
+537,0.143,x537,15,Carotenoid
+538,0.144,x538,15,Carotenoid
+539,0.145,x539,15,Carotenoid
+540,0.146,x540,15,Carotenoid
+541,0.146,x541,15,Carotenoid
+542,0.147,x542,15,Carotenoid
+543,0.148,x543,15,Carotenoid
+544,0.148,x544,15,Carotenoid
+545,0.149,x545,15,Carotenoid
+546,0.149,x546,15,Carotenoid
+547,0.15,x547,15,Carotenoid
+548,0.15,x548,15,Carotenoid
+549,0.151,x549,15,Carotenoid
+550,0.151,x550,15,Carotenoid
+551,0.152,x551,15,Carotenoid
+552,0.152,x552,15,Carotenoid
+553,0.152,x553,15,Carotenoid
+554,0.152,x554,15,Carotenoid
+555,0.152,x555,15,Carotenoid
+556,0.151,x556,15,Carotenoid
+557,0.15,x557,15,Carotenoid
+558,0.15,x558,15,Carotenoid
+559,0.149,x559,15,Carotenoid
+560,0.148,x560,15,Carotenoid
+561,0.147,x561,15,Carotenoid
+562,0.146,x562,15,Carotenoid
+563,0.144,x563,15,Carotenoid
+564,0.143,x564,15,Carotenoid
+565,0.141,x565,15,Carotenoid
+566,0.14,x566,15,Carotenoid
+567,0.138,x567,15,Carotenoid
+568,0.136,x568,15,Carotenoid
+569,0.134,x569,15,Carotenoid
+570,0.132,x570,15,Carotenoid
+571,0.13,x571,15,Carotenoid
+572,0.128,x572,15,Carotenoid
+573,0.126,x573,15,Carotenoid
+574,0.125,x574,15,Carotenoid
+575,0.123,x575,15,Carotenoid
+576,0.121,x576,15,Carotenoid
+577,0.12,x577,15,Carotenoid
+578,0.119,x578,15,Carotenoid
+579,0.117,x579,15,Carotenoid
+580,0.116,x580,15,Carotenoid
+581,0.115,x581,15,Carotenoid
+582,0.114,x582,15,Carotenoid
+583,0.113,x583,15,Carotenoid
+584,0.112,x584,15,Carotenoid
+585,0.111,x585,15,Carotenoid
+586,0.11,x586,15,Carotenoid
+587,0.109,x587,15,Carotenoid
+588,0.109,x588,15,Carotenoid
+589,0.108,x589,15,Carotenoid
+590,0.107,x590,15,Carotenoid
+591,0.107,x591,15,Carotenoid
+592,0.106,x592,15,Carotenoid
+593,0.106,x593,15,Carotenoid
+594,0.106,x594,15,Carotenoid
+595,0.105,x595,15,Carotenoid
+596,0.105,x596,15,Carotenoid
+597,0.105,x597,15,Carotenoid
+598,0.104,x598,15,Carotenoid
+599,0.104,x599,15,Carotenoid
+600,0.103,x600,15,Carotenoid
+601,0.103,x601,15,Carotenoid
+602,0.103,x602,15,Carotenoid
+603,0.102,x603,15,Carotenoid
+604,0.101,x604,15,Carotenoid
+605,0.101,x605,15,Carotenoid
+606,0.1,x606,15,Carotenoid
+607,0.099,x607,15,Carotenoid
+608,0.098,x608,15,Carotenoid
+609,0.098,x609,15,Carotenoid
+610,0.097,x610,4,Carotenoid
+611,0.096,x611,15,Carotenoid
+612,0.095,x612,15,Carotenoid
+613,0.094,x613,15,Carotenoid
+614,0.093,x614,15,Carotenoid
+615,0.092,x615,15,Carotenoid
+616,0.091,x616,15,Carotenoid
+617,0.09,x617,15,Carotenoid
+618,0.09,x618,15,Carotenoid
+619,0.089,x619,15,Carotenoid
+620,0.088,x620,15,Carotenoid
+621,0.088,x621,15,Carotenoid
+622,0.087,x622,15,Carotenoid
+623,0.087,x623,15,Carotenoid
+624,0.087,x624,15,Carotenoid
+625,0.087,x625,15,Carotenoid
+626,0.086,x626,15,Carotenoid
+627,0.086,x627,15,Carotenoid
+628,0.086,x628,15,Carotenoid
+629,0.086,x629,15,Carotenoid
+630,0.086,x630,15,Carotenoid
+631,0.086,x631,15,Carotenoid
+632,0.086,x632,15,Carotenoid
+633,0.085,x633,15,Carotenoid
+634,0.085,x634,15,Carotenoid
+635,0.085,x635,15,Carotenoid
+636,0.084,x636,15,Carotenoid
+637,0.083,x637,15,Carotenoid
+638,0.083,x638,11,Carotenoid
+639,0.082,x639,15,Carotenoid
+640,0.081,x640,15,Carotenoid
+641,0.08,x641,15,Carotenoid
+642,0.079,x642,15,Carotenoid
+643,0.078,x643,15,Carotenoid
+644,0.077,x644,15,Carotenoid
+645,0.076,x645,15,Carotenoid
+646,0.075,x646,15,Carotenoid
+647,0.074,x647,15,Carotenoid
+648,0.073,x648,15,Carotenoid
+649,0.073,x649,15,Carotenoid
+650,0.072,x650,15,Carotenoid
+651,0.072,x651,15,Carotenoid
+652,0.071,x652,15,Carotenoid
+653,0.071,x653,15,Carotenoid
+654,0.07,x654,15,Carotenoid
+655,0.07,x655,15,Carotenoid
+656,0.069,x656,15,Carotenoid
+657,0.069,x657,15,Carotenoid
+658,0.068,x658,15,Carotenoid
+659,0.067,x659,15,Carotenoid
+660,0.066,x660,15,Carotenoid
+661,0.066,x661,15,Carotenoid
+662,0.065,x662,15,Carotenoid
+663,0.064,x663,15,Carotenoid
+664,0.064,x664,15,Carotenoid
+665,0.063,x665,15,Carotenoid
+666,0.063,x666,15,Carotenoid
+667,0.062,x667,15,Carotenoid
+668,0.062,x668,15,Carotenoid
+669,0.062,x669,15,Carotenoid
+670,0.062,x670,15,Carotenoid
+671,0.062,x671,15,Carotenoid
+672,0.062,x672,15,Carotenoid
+673,0.062,x673,15,Carotenoid
+674,0.063,x674,15,Carotenoid
+675,0.063,x675,15,Carotenoid
+676,0.063,x676,15,Carotenoid
+677,0.064,x677,15,Carotenoid
+678,0.064,x678,15,Carotenoid
+679,0.065,x679,15,Carotenoid
+680,0.066,x680,15,Carotenoid
+681,0.067,x681,15,Carotenoid
+682,0.068,x682,15,Carotenoid
+683,0.069,x683,15,Carotenoid
+684,0.07,x684,15,Carotenoid
+685,0.072,x685,15,Carotenoid
+686,0.073,x686,15,Carotenoid
+687,0.075,x687,15,Carotenoid
+688,0.078,x688,15,Carotenoid
+689,0.081,x689,15,Carotenoid
+690,0.085,x690,15,Carotenoid
+691,0.089,x691,15,Carotenoid
+692,0.094,x692,15,Carotenoid
+693,0.1,x693,15,Carotenoid
+694,0.106,x694,15,Carotenoid
+695,0.113,x695,15,Carotenoid
+696,0.121,x696,15,Carotenoid
+697,0.129,x697,15,Carotenoid
+698,0.138,x698,15,Carotenoid
+699,0.147,x699,15,Carotenoid
+700,0.157,x700,15,Carotenoid
+701,0.167,x701,15,Carotenoid
+702,0.176,x702,15,Carotenoid
+703,0.186,x703,15,Carotenoid
+704,0.195,x704,15,Carotenoid
+705,0.205,x705,15,Carotenoid
+706,0.214,x706,15,Carotenoid
+707,0.224,x707,15,Carotenoid
+708,0.233,x708,15,Carotenoid
+709,0.242,x709,15,Carotenoid
+710,0.251,x710,15,Carotenoid
+711,0.26,x711,15,Carotenoid
+712,0.269,x712,15,Carotenoid
+713,0.278,x713,1,Carotenoid
+714,0.287,x714,15,Carotenoid
+715,0.296,x715,15,Carotenoid
+716,0.304,x716,15,Carotenoid
+717,0.313,x717,15,Carotenoid
+718,0.321,x718,15,Carotenoid
+719,0.329,x719,15,Carotenoid
+720,0.338,x720,15,Carotenoid
+721,0.346,x721,15,Carotenoid
+722,0.354,x722,15,Carotenoid
+723,0.361,x723,15,Carotenoid
+724,0.369,x724,15,Carotenoid
+725,0.376,x725,15,Carotenoid
+726,0.383,x726,15,Carotenoid
+727,0.389,x727,15,Carotenoid
+728,0.396,x728,15,Carotenoid
+729,0.402,x729,15,Carotenoid
+730,0.408,x730,15,Carotenoid
+731,0.414,x731,15,Carotenoid
+732,0.419,x732,15,Carotenoid
+733,0.424,x733,15,Carotenoid
+734,0.429,x734,15,Carotenoid
+735,0.433,x735,15,Carotenoid
+736,0.438,x736,15,Carotenoid
+737,0.442,x737,15,Carotenoid
+738,0.445,x738,15,Carotenoid
+739,0.449,x739,15,Carotenoid
+740,0.452,x740,15,Carotenoid
+741,0.455,x741,15,Carotenoid
+742,0.458,x742,15,Carotenoid
+743,0.46,x743,15,Carotenoid
+744,0.462,x744,15,Carotenoid
+745,0.465,x745,15,Carotenoid
+746,0.467,x746,15,Carotenoid
+747,0.468,x747,15,Carotenoid
+748,0.47,x748,15,Carotenoid
+749,0.471,x749,15,Carotenoid
+750,0.472,x750,15,Carotenoid
+751,0.474,x751,15,Carotenoid
+752,0.475,x752,15,Carotenoid
+753,0.476,x753,15,Carotenoid
+754,0.476,x754,15,Carotenoid
+755,0.477,x755,15,Carotenoid
+756,0.478,x756,15,Carotenoid
+757,0.478,x757,15,Carotenoid
+758,0.479,x758,15,Carotenoid
+759,0.479,x759,15,Carotenoid
+760,0.48,x760,15,Carotenoid
+761,0.48,x761,15,Carotenoid
+762,0.48,x762,15,Carotenoid
+763,0.481,x763,15,Carotenoid
+764,0.481,x764,14,Carotenoid
+765,0.481,x765,15,Carotenoid
+766,0.481,x766,15,Carotenoid
+767,0.481,x767,15,Carotenoid
+768,0.481,x768,15,Carotenoid
+769,0.481,x769,15,Carotenoid
+770,0.481,x770,15,Carotenoid
+771,0.481,x771,15,Carotenoid
+772,0.481,x772,15,Carotenoid
+773,0.481,x773,15,Carotenoid
+774,0.481,x774,15,Carotenoid
+775,0.481,x775,15,Carotenoid
+776,0.481,x776,15,Carotenoid
+777,0.481,x777,15,Carotenoid
+778,0.481,x778,15,Carotenoid
+779,0.481,x779,15,Carotenoid
+780,0.481,x780,15,Carotenoid
+781,0.481,x781,15,Carotenoid
+782,0.481,x782,15,Carotenoid
+783,0.481,x783,15,Carotenoid
+784,0.481,x784,15,Carotenoid
+785,0.481,x785,15,Carotenoid
+786,0.481,x786,15,Carotenoid
+787,0.481,x787,15,Carotenoid
+788,0.481,x788,15,Carotenoid
+789,0.481,x789,15,Carotenoid
+790,0.481,x790,15,Carotenoid
+791,0.481,x791,15,Carotenoid
+792,0.481,x792,15,Carotenoid
+793,0.481,x793,15,Carotenoid
+794,0.481,x794,15,Carotenoid
+795,0.481,x795,15,Carotenoid
+796,0.481,x796,15,Carotenoid
+797,0.481,x797,15,Carotenoid
+798,0.481,x798,15,Carotenoid
+799,0.481,x799,15,Carotenoid
+800,0.481,x800,15,Carotenoid
+801,0.481,x801,15,Carotenoid
+802,0.481,x802,15,Carotenoid
+803,0.481,x803,15,Carotenoid
+804,0.481,x804,15,Carotenoid
+805,0.481,x805,15,Carotenoid
+806,0.481,x806,15,Carotenoid
+807,0.481,x807,15,Carotenoid
+808,0.481,x808,15,Carotenoid
+809,0.481,x809,15,Carotenoid
+810,0.481,x810,15,Carotenoid
+811,0.481,x811,15,Carotenoid
+812,0.481,x812,15,Carotenoid
+813,0.481,x813,15,Carotenoid
+814,0.481,x814,15,Carotenoid
+815,0.481,x815,15,Carotenoid
+816,0.481,x816,15,Carotenoid
+817,0.481,x817,15,Carotenoid
+818,0.481,x818,15,Carotenoid
+819,0.481,x819,15,Carotenoid
+820,0.481,x820,15,Carotenoid
+821,0.481,x821,15,Carotenoid
+822,0.481,x822,15,Carotenoid
+823,0.481,x823,15,Carotenoid
+824,0.481,x824,15,Carotenoid
+825,0.481,x825,15,Carotenoid
+826,0.481,x826,15,Carotenoid
+827,0.481,x827,15,Carotenoid
+828,0.481,x828,15,Carotenoid
+829,0.481,x829,15,Carotenoid
+830,0.481,x830,15,Carotenoid
+831,0.481,x831,15,Carotenoid
+832,0.481,x832,15,Carotenoid
+833,0.481,x833,15,Carotenoid
+834,0.481,x834,15,Carotenoid
+835,0.481,x835,15,Carotenoid
+836,0.481,x836,15,Carotenoid
+837,0.481,x837,15,Carotenoid
+838,0.481,x838,15,Carotenoid
+839,0.481,x839,15,Carotenoid
+840,0.481,x840,15,Carotenoid
+841,0.481,x841,15,Carotenoid
+842,0.481,x842,15,Carotenoid
+843,0.481,x843,15,Carotenoid
+844,0.481,x844,15,Carotenoid
+845,0.481,x845,15,Carotenoid
+846,0.481,x846,15,Carotenoid
+847,0.481,x847,15,Carotenoid
+848,0.481,x848,15,Carotenoid
+849,0.481,x849,15,Carotenoid
+850,0.481,x850,15,Carotenoid
+851,0.481,x851,15,Carotenoid
+852,0.481,x852,15,Carotenoid
+853,0.481,x853,15,Carotenoid
+854,0.481,x854,15,Carotenoid
+855,0.481,x855,15,Carotenoid
+856,0.481,x856,15,Carotenoid
+857,0.481,x857,15,Carotenoid
+858,0.481,x858,15,Carotenoid
+859,0.481,x859,15,Carotenoid
+860,0.48,x860,15,Carotenoid
+861,0.481,x861,15,Carotenoid
+862,0.481,x862,15,Carotenoid
+863,0.481,x863,15,Carotenoid
+864,0.481,x864,15,Carotenoid
+865,0.48,x865,15,Carotenoid
+866,0.48,x866,15,Carotenoid
+867,0.48,x867,15,Carotenoid
+868,0.48,x868,15,Carotenoid
+869,0.48,x869,15,Carotenoid
+870,0.48,x870,15,Carotenoid
+871,0.48,x871,15,Carotenoid
+872,0.48,x872,15,Carotenoid
+873,0.48,x873,15,Carotenoid
+874,0.48,x874,15,Carotenoid
+875,0.48,x875,15,Carotenoid
+876,0.48,x876,15,Carotenoid
+877,0.48,x877,15,Carotenoid
+878,0.48,x878,15,Carotenoid
+879,0.48,x879,15,Carotenoid
+880,0.48,x880,15,Carotenoid
+881,0.48,x881,15,Carotenoid
+882,0.48,x882,15,Carotenoid
+883,0.48,x883,15,Carotenoid
+884,0.48,x884,15,Carotenoid
+885,0.48,x885,15,Carotenoid
+886,0.48,x886,15,Carotenoid
+887,0.48,x887,15,Carotenoid
+888,0.48,x888,15,Carotenoid
+889,0.48,x889,15,Carotenoid
+890,0.48,x890,15,Carotenoid
+891,0.48,x891,15,Carotenoid
+892,0.48,x892,15,Carotenoid
+893,0.48,x893,15,Carotenoid
+894,0.48,x894,15,Carotenoid
+895,0.48,x895,15,Carotenoid
+896,0.48,x896,15,Carotenoid
+897,0.48,x897,15,Carotenoid
+898,0.48,x898,15,Carotenoid
+899,0.48,x899,15,Carotenoid
+900,0.48,x900,15,Carotenoid
+901,0.48,x901,15,Carotenoid
+902,0.48,x902,15,Carotenoid
+903,0.48,x903,15,Carotenoid
+904,0.48,x904,15,Carotenoid
+905,0.479,x905,15,Carotenoid
+906,0.479,x906,15,Carotenoid
+907,0.479,x907,15,Carotenoid
+908,0.479,x908,15,Carotenoid
+909,0.479,x909,15,Carotenoid
+910,0.479,x910,15,Carotenoid
+911,0.479,x911,15,Carotenoid
+912,0.479,x912,15,Carotenoid
+913,0.479,x913,15,Carotenoid
+914,0.479,x914,15,Carotenoid
+915,0.479,x915,15,Carotenoid
+916,0.479,x916,15,Carotenoid
+917,0.479,x917,15,Carotenoid
+918,0.479,x918,15,Carotenoid
+919,0.479,x919,15,Carotenoid
+920,0.479,x920,15,Carotenoid
+921,0.479,x921,15,Carotenoid
+922,0.479,x922,15,Carotenoid
+923,0.479,x923,15,Carotenoid
+924,0.479,x924,15,Carotenoid
+925,0.479,x925,15,Carotenoid
+926,0.478,x926,15,Carotenoid
+927,0.478,x927,15,Carotenoid
+928,0.478,x928,15,Carotenoid
+929,0.478,x929,15,Carotenoid
+930,0.478,x930,15,Carotenoid
+931,0.478,x931,15,Carotenoid
+932,0.477,x932,15,Carotenoid
+933,0.477,x933,15,Carotenoid
+934,0.477,x934,15,Carotenoid
+935,0.477,x935,15,Carotenoid
+936,0.477,x936,15,Carotenoid
+937,0.477,x937,15,Carotenoid
+938,0.476,x938,15,Carotenoid
+939,0.476,x939,15,Carotenoid
+940,0.476,x940,15,Carotenoid
+941,0.476,x941,15,Carotenoid
+942,0.476,x942,15,Carotenoid
+943,0.476,x943,15,Carotenoid
+944,0.475,x944,15,Carotenoid
+945,0.475,x945,15,Carotenoid
+946,0.475,x946,15,Carotenoid
+947,0.474,x947,15,Carotenoid
+948,0.473,x948,15,Carotenoid
+949,0.473,x949,15,Carotenoid
+950,0.472,x950,15,Carotenoid
+951,0.472,x951,15,Carotenoid
+952,0.472,x952,15,Carotenoid
+953,0.471,x953,15,Carotenoid
+954,0.47,x954,15,Carotenoid
+955,0.47,x955,15,Carotenoid
+956,0.469,x956,15,Carotenoid
+957,0.469,x957,15,Carotenoid
+958,0.468,x958,15,Carotenoid
+959,0.468,x959,15,Carotenoid
+960,0.467,x960,15,Carotenoid
+961,0.467,x961,15,Carotenoid
+962,0.467,x962,15,Carotenoid
+963,0.467,x963,15,Carotenoid
+964,0.466,x964,15,Carotenoid
+965,0.466,x965,15,Carotenoid
+966,0.465,x966,15,Carotenoid
+967,0.465,x967,15,Carotenoid
+968,0.464,x968,15,Carotenoid
+969,0.464,x969,15,Carotenoid
+970,0.464,x970,15,Carotenoid
+971,0.464,x971,15,Carotenoid
+972,0.464,x972,15,Carotenoid
+973,0.464,x973,15,Carotenoid
+974,0.464,x974,15,Carotenoid
+975,0.463,x975,15,Carotenoid
+976,0.463,x976,15,Carotenoid
+977,0.463,x977,15,Carotenoid
+978,0.463,x978,15,Carotenoid
+979,0.463,x979,15,Carotenoid
+980,0.463,x980,15,Carotenoid
+981,0.464,x981,15,Carotenoid
+982,0.464,x982,15,Carotenoid
+983,0.464,x983,15,Carotenoid
+984,0.464,x984,15,Carotenoid
+985,0.463,x985,15,Carotenoid
+986,0.463,x986,15,Carotenoid
+987,0.463,x987,15,Carotenoid
+988,0.463,x988,15,Carotenoid
+989,0.463,x989,15,Carotenoid
+990,0.463,x990,15,Carotenoid
+991,0.463,x991,15,Carotenoid
+992,0.463,x992,15,Carotenoid
+993,0.463,x993,15,Carotenoid
+994,0.464,x994,15,Carotenoid
+995,0.464,x995,15,Carotenoid
+996,0.464,x996,15,Carotenoid
+997,0.465,x997,15,Carotenoid
+998,0.465,x998,15,Carotenoid
+999,0.465,x999,15,Carotenoid
+1000,0.465,x1000,15,Carotenoid
+1001,0.465,x1001,15,Carotenoid
+1002,0.466,x1002,15,Carotenoid
+1003,0.466,x1003,15,Carotenoid
+1004,0.466,x1004,15,Carotenoid
+1005,0.466,x1005,15,Carotenoid
+1006,0.466,x1006,15,Carotenoid
+1007,0.466,x1007,15,Carotenoid
+1008,0.466,x1008,15,Carotenoid
+1009,0.467,x1009,15,Carotenoid
+1010,0.467,x1010,15,Carotenoid
+1011,0.467,x1011,15,Carotenoid
+1012,0.467,x1012,15,Carotenoid
+1013,0.467,x1013,15,Carotenoid
+1014,0.468,x1014,15,Carotenoid
+1015,0.468,x1015,15,Carotenoid
+1016,0.468,x1016,15,Carotenoid
+1017,0.468,x1017,15,Carotenoid
+1018,0.468,x1018,15,Carotenoid
+1019,0.469,x1019,15,Carotenoid
+1020,0.469,x1020,15,Carotenoid
+1021,0.469,x1021,15,Carotenoid
+1022,0.47,x1022,15,Carotenoid
+1023,0.47,x1023,15,Carotenoid
+1024,0.47,x1024,15,Carotenoid
+1025,0.47,x1025,15,Carotenoid
+1026,0.47,x1026,15,Carotenoid
+1027,0.47,x1027,15,Carotenoid
+1028,0.47,x1028,15,Carotenoid
+1029,0.47,x1029,15,Carotenoid
+1030,0.471,x1030,15,Carotenoid
+1031,0.471,x1031,15,Carotenoid
+1032,0.471,x1032,15,Carotenoid
+1033,0.471,x1033,15,Carotenoid
+1034,0.471,x1034,15,Carotenoid
+1035,0.471,x1035,15,Carotenoid
+1036,0.471,x1036,15,Carotenoid
+1037,0.471,x1037,15,Carotenoid
+1038,0.471,x1038,15,Carotenoid
+1039,0.471,x1039,15,Carotenoid
+1040,0.471,x1040,15,Carotenoid
+1041,0.471,x1041,15,Carotenoid
+1042,0.471,x1042,15,Carotenoid
+1043,0.472,x1043,15,Carotenoid
+1044,0.472,x1044,15,Carotenoid
+1045,0.472,x1045,15,Carotenoid
+1046,0.472,x1046,15,Carotenoid
+1047,0.472,x1047,15,Carotenoid
+1048,0.472,x1048,15,Carotenoid
+1049,0.472,x1049,15,Carotenoid
+1050,0.472,x1050,15,Carotenoid
+1051,0.472,x1051,15,Carotenoid
+1052,0.472,x1052,15,Carotenoid
+1053,0.473,x1053,15,Carotenoid
+1054,0.473,x1054,15,Carotenoid
+1055,0.473,x1055,15,Carotenoid
+1056,0.473,x1056,15,Carotenoid
+1057,0.473,x1057,15,Carotenoid
+1058,0.473,x1058,15,Carotenoid
+1059,0.473,x1059,15,Carotenoid
+1060,0.473,x1060,15,Carotenoid
+1061,0.473,x1061,15,Carotenoid
+1062,0.473,x1062,15,Carotenoid
+1063,0.473,x1063,15,Carotenoid
+1064,0.473,x1064,15,Carotenoid
+1065,0.473,x1065,15,Carotenoid
+1066,0.472,x1066,15,Carotenoid
+1067,0.472,x1067,15,Carotenoid
+1068,0.472,x1068,15,Carotenoid
+1069,0.472,x1069,15,Carotenoid
+1070,0.472,x1070,15,Carotenoid
+1071,0.472,x1071,15,Carotenoid
+1072,0.472,x1072,15,Carotenoid
+1073,0.472,x1073,15,Carotenoid
+1074,0.472,x1074,15,Carotenoid
+1075,0.472,x1075,15,Carotenoid
+1076,0.472,x1076,15,Carotenoid
+1077,0.472,x1077,15,Carotenoid
+1078,0.472,x1078,15,Carotenoid
+1079,0.472,x1079,15,Carotenoid
+1080,0.472,x1080,15,Carotenoid
+1081,0.472,x1081,15,Carotenoid
+1082,0.472,x1082,15,Carotenoid
+1083,0.472,x1083,15,Carotenoid
+1084,0.472,x1084,15,Carotenoid
+1085,0.472,x1085,15,Carotenoid
+1086,0.472,x1086,15,Carotenoid
+1087,0.471,x1087,15,Carotenoid
+1088,0.471,x1088,15,Carotenoid
+1089,0.471,x1089,15,Carotenoid
+1090,0.471,x1090,15,Carotenoid
+1091,0.471,x1091,15,Carotenoid
+1092,0.471,x1092,15,Carotenoid
+1093,0.471,x1093,15,Carotenoid
+1094,0.471,x1094,15,Carotenoid
+1095,0.471,x1095,15,Carotenoid
+1096,0.471,x1096,15,Carotenoid
+1097,0.471,x1097,15,Carotenoid
+1098,0.471,x1098,15,Carotenoid
+1099,0.471,x1099,15,Carotenoid
+1100,0.471,x1100,15,Carotenoid
+1101,0.47,x1101,15,Carotenoid
+1102,0.47,x1102,15,Carotenoid
+1103,0.47,x1103,15,Carotenoid
+1104,0.47,x1104,15,Carotenoid
+1105,0.47,x1105,15,Carotenoid
+1106,0.47,x1106,15,Carotenoid
+1107,0.47,x1107,15,Carotenoid
+1108,0.47,x1108,15,Carotenoid
+1109,0.469,x1109,15,Carotenoid
+1110,0.469,x1110,15,Carotenoid
+1111,0.469,x1111,15,Carotenoid
+1112,0.468,x1112,15,Carotenoid
+1113,0.468,x1113,15,Carotenoid
+1114,0.468,x1114,15,Carotenoid
+1115,0.467,x1115,15,Carotenoid
+1116,0.467,x1116,15,Carotenoid
+1117,0.467,x1117,15,Carotenoid
+1118,0.467,x1118,15,Carotenoid
+1119,0.467,x1119,15,Carotenoid
+1120,0.467,x1120,15,Carotenoid
+1121,0.466,x1121,15,Carotenoid
+1122,0.466,x1122,15,Carotenoid
+1123,0.466,x1123,15,Carotenoid
+1124,0.466,x1124,15,Carotenoid
+1125,0.465,x1125,15,Carotenoid
+1126,0.465,x1126,15,Carotenoid
+1127,0.464,x1127,15,Carotenoid
+1128,0.464,x1128,15,Carotenoid
+1129,0.463,x1129,15,Carotenoid
+1130,0.462,x1130,15,Carotenoid
+1131,0.462,x1131,15,Carotenoid
+1132,0.461,x1132,15,Carotenoid
+1133,0.46,x1133,15,Carotenoid
+1134,0.459,x1134,15,Carotenoid
+1135,0.458,x1135,15,Carotenoid
+1136,0.457,x1136,15,Carotenoid
+1137,0.456,x1137,15,Carotenoid
+1138,0.455,x1138,15,Carotenoid
+1139,0.454,x1139,15,Carotenoid
+1140,0.453,x1140,15,Carotenoid
+1141,0.452,x1141,15,Carotenoid
+1142,0.45,x1142,15,Carotenoid
+1143,0.449,x1143,15,Carotenoid
+1144,0.448,x1144,15,Carotenoid
+1145,0.447,x1145,15,Carotenoid
+1146,0.446,x1146,15,Carotenoid
+1147,0.445,x1147,15,Carotenoid
+1148,0.444,x1148,15,Carotenoid
+1149,0.443,x1149,15,Carotenoid
+1150,0.443,x1150,15,Carotenoid
+1151,0.442,x1151,15,Carotenoid
+1152,0.441,x1152,15,Carotenoid
+1153,0.44,x1153,15,Carotenoid
+1154,0.439,x1154,15,Carotenoid
+1155,0.439,x1155,15,Carotenoid
+1156,0.438,x1156,15,Carotenoid
+1157,0.438,x1157,15,Carotenoid
+1158,0.437,x1158,15,Carotenoid
+1159,0.437,x1159,15,Carotenoid
+1160,0.436,x1160,15,Carotenoid
+1161,0.436,x1161,15,Carotenoid
+1162,0.435,x1162,15,Carotenoid
+1163,0.435,x1163,15,Carotenoid
+1164,0.435,x1164,15,Carotenoid
+1165,0.435,x1165,15,Carotenoid
+1166,0.434,x1166,15,Carotenoid
+1167,0.434,x1167,15,Carotenoid
+1168,0.434,x1168,15,Carotenoid
+1169,0.434,x1169,15,Carotenoid
+1170,0.434,x1170,15,Carotenoid
+1171,0.434,x1171,15,Carotenoid
+1172,0.434,x1172,15,Carotenoid
+1173,0.433,x1173,15,Carotenoid
+1174,0.433,x1174,15,Carotenoid
+1175,0.433,x1175,15,Carotenoid
+1176,0.433,x1176,15,Carotenoid
+1177,0.433,x1177,15,Carotenoid
+1178,0.432,x1178,15,Carotenoid
+1179,0.432,x1179,15,Carotenoid
+1180,0.432,x1180,15,Carotenoid
+1181,0.432,x1181,15,Carotenoid
+1182,0.432,x1182,15,Carotenoid
+1183,0.432,x1183,15,Carotenoid
+1184,0.432,x1184,15,Carotenoid
+1185,0.431,x1185,15,Carotenoid
+1186,0.431,x1186,15,Carotenoid
+1187,0.43,x1187,15,Carotenoid
+1188,0.43,x1188,15,Carotenoid
+1189,0.43,x1189,15,Carotenoid
+1190,0.43,x1190,15,Carotenoid
+1191,0.43,x1191,3,Carotenoid
+1192,0.43,x1192,15,Carotenoid
+1193,0.43,x1193,15,Carotenoid
+1194,0.43,x1194,5,Carotenoid
+1195,0.43,x1195,15,Carotenoid
+1196,0.43,x1196,15,Carotenoid
+1197,0.43,x1197,15,Carotenoid
+1198,0.43,x1198,15,Carotenoid
+1199,0.43,x1199,15,Carotenoid
+1200,0.43,x1200,15,Carotenoid
+1201,0.43,x1201,15,Carotenoid
+1202,0.43,x1202,15,Carotenoid
+1203,0.43,x1203,15,Carotenoid
+1204,0.43,x1204,15,Carotenoid
+1205,0.43,x1205,15,Carotenoid
+1206,0.43,x1206,2,Carotenoid
+1207,0.431,x1207,15,Carotenoid
+1208,0.431,x1208,15,Carotenoid
+1209,0.431,x1209,15,Carotenoid
+1210,0.431,x1210,15,Carotenoid
+1211,0.431,x1211,15,Carotenoid
+1212,0.431,x1212,15,Carotenoid
+1213,0.431,x1213,15,Carotenoid
+1214,0.431,x1214,15,Carotenoid
+1215,0.431,x1215,15,Carotenoid
+1216,0.432,x1216,15,Carotenoid
+1217,0.432,x1217,15,Carotenoid
+1218,0.432,x1218,15,Carotenoid
+1219,0.432,x1219,15,Carotenoid
+1220,0.433,x1220,15,Carotenoid
+1221,0.433,x1221,15,Carotenoid
+1222,0.433,x1222,15,Carotenoid
+1223,0.433,x1223,15,Carotenoid
+1224,0.433,x1224,15,Carotenoid
+1225,0.434,x1225,15,Carotenoid
+1226,0.434,x1226,15,Carotenoid
+1227,0.434,x1227,10,Carotenoid
+1228,0.434,x1228,15,Carotenoid
+1229,0.434,x1229,15,Carotenoid
+1230,0.434,x1230,15,Carotenoid
+1231,0.434,x1231,15,Carotenoid
+1232,0.434,x1232,15,Carotenoid
+1233,0.434,x1233,15,Carotenoid
+1234,0.435,x1234,15,Carotenoid
+1235,0.435,x1235,15,Carotenoid
+1236,0.435,x1236,15,Carotenoid
+1237,0.435,x1237,15,Carotenoid
+1238,0.435,x1238,15,Carotenoid
+1239,0.436,x1239,15,Carotenoid
+1240,0.436,x1240,15,Carotenoid
+1241,0.436,x1241,15,Carotenoid
+1242,0.436,x1242,15,Carotenoid
+1243,0.436,x1243,15,Carotenoid
+1244,0.436,x1244,15,Carotenoid
+1245,0.436,x1245,15,Carotenoid
+1246,0.436,x1246,15,Carotenoid
+1247,0.437,x1247,15,Carotenoid
+1248,0.437,x1248,15,Carotenoid
+1249,0.437,x1249,15,Carotenoid
+1250,0.437,x1250,15,Carotenoid
+1251,0.437,x1251,15,Carotenoid
+1252,0.437,x1252,15,Carotenoid
+1253,0.437,x1253,15,Carotenoid
+1254,0.437,x1254,15,Carotenoid
+1255,0.437,x1255,15,Carotenoid
+1256,0.437,x1256,15,Carotenoid
+1257,0.437,x1257,15,Carotenoid
+1258,0.437,x1258,15,Carotenoid
+1259,0.437,x1259,15,Carotenoid
+1260,0.437,x1260,15,Carotenoid
+1261,0.437,x1261,15,Carotenoid
+1262,0.437,x1262,15,Carotenoid
+1263,0.437,x1263,15,Carotenoid
+1264,0.437,x1264,15,Carotenoid
+1265,0.437,x1265,15,Carotenoid
+1266,0.437,x1266,15,Carotenoid
+1267,0.437,x1267,15,Carotenoid
+1268,0.437,x1268,15,Carotenoid
+1269,0.437,x1269,15,Carotenoid
+1270,0.437,x1270,15,Carotenoid
+1271,0.437,x1271,9,Carotenoid
+1272,0.437,x1272,15,Carotenoid
+1273,0.436,x1273,15,Carotenoid
+1274,0.436,x1274,15,Carotenoid
+1275,0.436,x1275,15,Carotenoid
+1276,0.436,x1276,15,Carotenoid
+1277,0.436,x1277,15,Carotenoid
+1278,0.436,x1278,15,Carotenoid
+1279,0.436,x1279,15,Carotenoid
+1280,0.436,x1280,15,Carotenoid
+1281,0.435,x1281,15,Carotenoid
+1282,0.435,x1282,15,Carotenoid
+1283,0.435,x1283,15,Carotenoid
+1284,0.435,x1284,15,Carotenoid
+1285,0.435,x1285,15,Carotenoid
+1286,0.435,x1286,15,Carotenoid
+1287,0.434,x1287,15,Carotenoid
+1288,0.434,x1288,15,Carotenoid
+1289,0.434,x1289,15,Carotenoid
+1290,0.433,x1290,15,Carotenoid
+1291,0.433,x1291,15,Carotenoid
+1292,0.433,x1292,15,Carotenoid
+1293,0.432,x1293,15,Carotenoid
+1294,0.432,x1294,15,Carotenoid
+1295,0.432,x1295,15,Carotenoid
+1296,0.431,x1296,15,Carotenoid
+1297,0.431,x1297,15,Carotenoid
+1298,0.431,x1298,15,Carotenoid
+1299,0.43,x1299,15,Carotenoid
+1300,0.43,x1300,15,Carotenoid
+1301,0.43,x1301,15,Carotenoid
+1302,0.429,x1302,15,Carotenoid
+1303,0.429,x1303,15,Carotenoid
+1304,0.428,x1304,15,Carotenoid
+1305,0.428,x1305,15,Carotenoid
+1306,0.427,x1306,15,Carotenoid
+1307,0.427,x1307,15,Carotenoid
+1308,0.426,x1308,15,Carotenoid
+1309,0.425,x1309,15,Carotenoid
+1310,0.424,x1310,15,Carotenoid
+1311,0.423,x1311,15,Carotenoid
+1312,0.423,x1312,15,Carotenoid
+1313,0.422,x1313,15,Carotenoid
+1314,0.421,x1314,15,Carotenoid
+1315,0.42,x1315,15,Carotenoid
+1316,0.42,x1316,15,Carotenoid
+1317,0.419,x1317,15,Carotenoid
+1318,0.418,x1318,15,Carotenoid
+1319,0.417,x1319,15,Carotenoid
+1320,0.416,x1320,15,Carotenoid
+1321,0.415,x1321,15,Carotenoid
+1322,0.414,x1322,15,Carotenoid
+1323,0.413,x1323,15,Carotenoid
+1324,0.412,x1324,15,Carotenoid
+1325,0.411,x1325,15,Carotenoid
+1326,0.41,x1326,15,Carotenoid
+1327,0.409,x1327,15,Carotenoid
+1328,0.408,x1328,15,Carotenoid
+1329,0.407,x1329,15,Carotenoid
+1330,0.406,x1330,15,Carotenoid
+1331,0.405,x1331,15,Carotenoid
+1332,0.404,x1332,15,Carotenoid
+1333,0.403,x1333,15,Carotenoid
+1334,0.401,x1334,15,Carotenoid
+1335,0.4,x1335,15,Carotenoid
+1336,0.399,x1336,15,Carotenoid
+1337,0.398,x1337,15,Carotenoid
+1338,0.397,x1338,15,Carotenoid
+1339,0.396,x1339,15,Carotenoid
+1340,0.394,x1340,15,Carotenoid
+1341,0.393,x1341,15,Carotenoid
+1342,0.392,x1342,15,Carotenoid
+1343,0.391,x1343,15,Carotenoid
+1344,0.39,x1344,15,Carotenoid
+1345,0.389,x1345,15,Carotenoid
+1346,0.388,x1346,15,Carotenoid
+1347,0.387,x1347,15,Carotenoid
+1348,0.386,x1348,15,Carotenoid
+1349,0.385,x1349,15,Carotenoid
+1350,0.384,x1350,15,Carotenoid
+1351,0.383,x1351,15,Carotenoid
+1352,0.382,x1352,15,Carotenoid
+1353,0.381,x1353,15,Carotenoid
+1354,0.38,x1354,15,Carotenoid
+1355,0.379,x1355,15,Carotenoid
+1356,0.378,x1356,15,Carotenoid
+1357,0.377,x1357,15,Carotenoid
+1358,0.375,x1358,15,Carotenoid
+1359,0.374,x1359,15,Carotenoid
+1360,0.373,x1360,15,Carotenoid
+1361,0.372,x1361,15,Carotenoid
+1362,0.372,x1362,15,Carotenoid
+1363,0.371,x1363,15,Carotenoid
+1364,0.37,x1364,15,Carotenoid
+1365,0.369,x1365,15,Carotenoid
+1366,0.367,x1366,15,Carotenoid
+1367,0.366,x1367,15,Carotenoid
+1368,0.364,x1368,15,Carotenoid
+1369,0.362,x1369,15,Carotenoid
+1370,0.36,x1370,15,Carotenoid
+1371,0.358,x1371,15,Carotenoid
+1372,0.356,x1372,15,Carotenoid
+1373,0.353,x1373,15,Carotenoid
+1374,0.351,x1374,15,Carotenoid
+1375,0.348,x1375,15,Carotenoid
+1376,0.345,x1376,15,Carotenoid
+1377,0.342,x1377,15,Carotenoid
+1378,0.338,x1378,15,Carotenoid
+1379,0.335,x1379,15,Carotenoid
+1380,0.331,x1380,15,Carotenoid
+1381,0.327,x1381,15,Carotenoid
+1382,0.323,x1382,15,Carotenoid
+1383,0.319,x1383,15,Carotenoid
+1384,0.315,x1384,15,Carotenoid
+1385,0.31,x1385,15,Carotenoid
+1386,0.305,x1386,15,Carotenoid
+1387,0.3,x1387,15,Carotenoid
+1388,0.295,x1388,15,Carotenoid
+1389,0.289,x1389,15,Carotenoid
+1390,0.284,x1390,15,Carotenoid
+1391,0.279,x1391,15,Carotenoid
+1392,0.273,x1392,15,Carotenoid
+1393,0.267,x1393,15,Carotenoid
+1394,0.262,x1394,15,Carotenoid
+1395,0.256,x1395,15,Carotenoid
+1396,0.251,x1396,15,Carotenoid
+1397,0.245,x1397,15,Carotenoid
+1398,0.24,x1398,15,Carotenoid
+1399,0.235,x1399,15,Carotenoid
+1400,0.23,x1400,15,Carotenoid
+1401,0.226,x1401,15,Carotenoid
+1402,0.221,x1402,15,Carotenoid
+1403,0.217,x1403,15,Carotenoid
+1404,0.213,x1404,15,Carotenoid
+1405,0.209,x1405,15,Carotenoid
+1406,0.205,x1406,15,Carotenoid
+1407,0.201,x1407,15,Carotenoid
+1408,0.198,x1408,15,Carotenoid
+1409,0.195,x1409,15,Carotenoid
+1410,0.192,x1410,15,Carotenoid
+1411,0.189,x1411,15,Carotenoid
+1412,0.186,x1412,15,Carotenoid
+1413,0.184,x1413,15,Carotenoid
+1414,0.182,x1414,15,Carotenoid
+1415,0.18,x1415,15,Carotenoid
+1416,0.178,x1416,15,Carotenoid
+1417,0.176,x1417,15,Carotenoid
+1418,0.174,x1418,15,Carotenoid
+1419,0.173,x1419,15,Carotenoid
+1420,0.171,x1420,15,Carotenoid
+1421,0.17,x1421,15,Carotenoid
+1422,0.169,x1422,15,Carotenoid
+1423,0.167,x1423,15,Carotenoid
+1424,0.166,x1424,15,Carotenoid
+1425,0.165,x1425,15,Carotenoid
+1426,0.165,x1426,15,Carotenoid
+1427,0.164,x1427,15,Carotenoid
+1428,0.163,x1428,15,Carotenoid
+1429,0.162,x1429,15,Carotenoid
+1430,0.162,x1430,15,Carotenoid
+1431,0.161,x1431,15,Carotenoid
+1432,0.161,x1432,15,Carotenoid
+1433,0.16,x1433,15,Carotenoid
+1434,0.16,x1434,15,Carotenoid
+1435,0.16,x1435,15,Carotenoid
+1436,0.159,x1436,15,Carotenoid
+1437,0.159,x1437,15,Carotenoid
+1438,0.159,x1438,15,Carotenoid
+1439,0.159,x1439,15,Carotenoid
+1440,0.158,x1440,15,Carotenoid
+1441,0.158,x1441,15,Carotenoid
+1442,0.158,x1442,15,Carotenoid
+1443,0.158,x1443,15,Carotenoid
+1444,0.158,x1444,15,Carotenoid
+1445,0.158,x1445,15,Carotenoid
+1446,0.158,x1446,15,Carotenoid
+1447,0.158,x1447,15,Carotenoid
+1448,0.158,x1448,15,Carotenoid
+1449,0.159,x1449,15,Carotenoid
+1450,0.159,x1450,15,Carotenoid
+1451,0.159,x1451,15,Carotenoid
+1452,0.159,x1452,15,Carotenoid
+1453,0.159,x1453,15,Carotenoid
+1454,0.159,x1454,15,Carotenoid
+1455,0.159,x1455,15,Carotenoid
+1456,0.16,x1456,15,Carotenoid
+1457,0.16,x1457,15,Carotenoid
+1458,0.16,x1458,15,Carotenoid
+1459,0.161,x1459,15,Carotenoid
+1460,0.161,x1460,15,Carotenoid
+1461,0.161,x1461,15,Carotenoid
+1462,0.162,x1462,15,Carotenoid
+1463,0.162,x1463,15,Carotenoid
+1464,0.163,x1464,15,Carotenoid
+1465,0.164,x1465,15,Carotenoid
+1466,0.164,x1466,15,Carotenoid
+1467,0.165,x1467,15,Carotenoid
+1468,0.166,x1468,15,Carotenoid
+1469,0.167,x1469,15,Carotenoid
+1470,0.168,x1470,15,Carotenoid
+1471,0.169,x1471,15,Carotenoid
+1472,0.17,x1472,15,Carotenoid
+1473,0.171,x1473,15,Carotenoid
+1474,0.172,x1474,15,Carotenoid
+1475,0.173,x1475,15,Carotenoid
+1476,0.174,x1476,15,Carotenoid
+1477,0.175,x1477,15,Carotenoid
+1478,0.176,x1478,15,Carotenoid
+1479,0.177,x1479,15,Carotenoid
+1480,0.178,x1480,15,Carotenoid
+1481,0.18,x1481,15,Carotenoid
+1482,0.181,x1482,15,Carotenoid
+1483,0.182,x1483,15,Carotenoid
+1484,0.184,x1484,15,Carotenoid
+1485,0.185,x1485,15,Carotenoid
+1486,0.186,x1486,15,Carotenoid
+1487,0.187,x1487,15,Carotenoid
+1488,0.189,x1488,15,Carotenoid
+1489,0.19,x1489,15,Carotenoid
+1490,0.191,x1490,15,Carotenoid
+1491,0.192,x1491,15,Carotenoid
+1492,0.194,x1492,15,Carotenoid
+1493,0.195,x1493,15,Carotenoid
+1494,0.196,x1494,15,Carotenoid
+1495,0.198,x1495,15,Carotenoid
+1496,0.199,x1496,15,Carotenoid
+1497,0.201,x1497,15,Carotenoid
+1498,0.202,x1498,15,Carotenoid
+1499,0.203,x1499,15,Carotenoid
+1500,0.204,x1500,15,Carotenoid
+1501,0.206,x1501,15,Carotenoid
+1502,0.207,x1502,15,Carotenoid
+1503,0.208,x1503,15,Carotenoid
+1504,0.21,x1504,15,Carotenoid
+1505,0.211,x1505,15,Carotenoid
+1506,0.212,x1506,15,Carotenoid
+1507,0.214,x1507,15,Carotenoid
+1508,0.215,x1508,15,Carotenoid
+1509,0.216,x1509,15,Carotenoid
+1510,0.217,x1510,15,Carotenoid
+1511,0.219,x1511,15,Carotenoid
+1512,0.22,x1512,15,Carotenoid
+1513,0.221,x1513,15,Carotenoid
+1514,0.223,x1514,15,Carotenoid
+1515,0.224,x1515,15,Carotenoid
+1516,0.225,x1516,15,Carotenoid
+1517,0.226,x1517,15,Carotenoid
+1518,0.227,x1518,15,Carotenoid
+1519,0.229,x1519,15,Carotenoid
+1520,0.23,x1520,15,Carotenoid
+1521,0.231,x1521,15,Carotenoid
+1522,0.232,x1522,15,Carotenoid
+1523,0.233,x1523,15,Carotenoid
+1524,0.235,x1524,15,Carotenoid
+1525,0.236,x1525,15,Carotenoid
+1526,0.237,x1526,15,Carotenoid
+1527,0.238,x1527,15,Carotenoid
+1528,0.239,x1528,15,Carotenoid
+1529,0.241,x1529,15,Carotenoid
+1530,0.242,x1530,15,Carotenoid
+1531,0.243,x1531,15,Carotenoid
+1532,0.244,x1532,15,Carotenoid
+1533,0.245,x1533,15,Carotenoid
+1534,0.246,x1534,15,Carotenoid
+1535,0.247,x1535,13,Carotenoid
+1536,0.248,x1536,15,Carotenoid
+1537,0.249,x1537,15,Carotenoid
+1538,0.25,x1538,15,Carotenoid
+1539,0.251,x1539,15,Carotenoid
+1540,0.252,x1540,15,Carotenoid
+1541,0.253,x1541,15,Carotenoid
+1542,0.254,x1542,15,Carotenoid
+1543,0.256,x1543,15,Carotenoid
+1544,0.257,x1544,15,Carotenoid
+1545,0.258,x1545,15,Carotenoid
+1546,0.259,x1546,15,Carotenoid
+1547,0.26,x1547,15,Carotenoid
+1548,0.261,x1548,15,Carotenoid
+1549,0.262,x1549,15,Carotenoid
+1550,0.263,x1550,15,Carotenoid
+1551,0.263,x1551,15,Carotenoid
+1552,0.264,x1552,15,Carotenoid
+1553,0.265,x1553,15,Carotenoid
+1554,0.266,x1554,15,Carotenoid
+1555,0.267,x1555,15,Carotenoid
+1556,0.268,x1556,15,Carotenoid
+1557,0.269,x1557,15,Carotenoid
+1558,0.27,x1558,15,Carotenoid
+1559,0.27,x1559,15,Carotenoid
+1560,0.271,x1560,15,Carotenoid
+1561,0.272,x1561,15,Carotenoid
+1562,0.273,x1562,15,Carotenoid
+1563,0.274,x1563,15,Carotenoid
+1564,0.274,x1564,15,Carotenoid
+1565,0.275,x1565,15,Carotenoid
+1566,0.276,x1566,15,Carotenoid
+1567,0.277,x1567,15,Carotenoid
+1568,0.277,x1568,15,Carotenoid
+1569,0.278,x1569,15,Carotenoid
+1570,0.279,x1570,15,Carotenoid
+1571,0.28,x1571,15,Carotenoid
+1572,0.281,x1572,15,Carotenoid
+1573,0.281,x1573,15,Carotenoid
+1574,0.282,x1574,15,Carotenoid
+1575,0.283,x1575,15,Carotenoid
+1576,0.284,x1576,15,Carotenoid
+1577,0.284,x1577,15,Carotenoid
+1578,0.285,x1578,15,Carotenoid
+1579,0.285,x1579,15,Carotenoid
+1580,0.286,x1580,15,Carotenoid
+1581,0.287,x1581,15,Carotenoid
+1582,0.287,x1582,15,Carotenoid
+1583,0.288,x1583,15,Carotenoid
+1584,0.289,x1584,15,Carotenoid
+1585,0.289,x1585,15,Carotenoid
+1586,0.29,x1586,15,Carotenoid
+1587,0.291,x1587,15,Carotenoid
+1588,0.291,x1588,15,Carotenoid
+1589,0.292,x1589,15,Carotenoid
+1590,0.292,x1590,15,Carotenoid
+1591,0.293,x1591,15,Carotenoid
+1592,0.293,x1592,15,Carotenoid
+1593,0.294,x1593,15,Carotenoid
+1594,0.295,x1594,15,Carotenoid
+1595,0.295,x1595,15,Carotenoid
+1596,0.296,x1596,15,Carotenoid
+1597,0.296,x1597,15,Carotenoid
+1598,0.297,x1598,15,Carotenoid
+1599,0.297,x1599,15,Carotenoid
+1600,0.298,x1600,15,Carotenoid
+1601,0.299,x1601,15,Carotenoid
+1602,0.299,x1602,15,Carotenoid
+1603,0.3,x1603,15,Carotenoid
+1604,0.3,x1604,15,Carotenoid
+1605,0.301,x1605,15,Carotenoid
+1606,0.301,x1606,15,Carotenoid
+1607,0.302,x1607,15,Carotenoid
+1608,0.302,x1608,15,Carotenoid
+1609,0.302,x1609,15,Carotenoid
+1610,0.303,x1610,15,Carotenoid
+1611,0.303,x1611,15,Carotenoid
+1612,0.304,x1612,15,Carotenoid
+1613,0.304,x1613,15,Carotenoid
+1614,0.305,x1614,15,Carotenoid
+1615,0.305,x1615,15,Carotenoid
+1616,0.306,x1616,15,Carotenoid
+1617,0.306,x1617,15,Carotenoid
+1618,0.306,x1618,15,Carotenoid
+1619,0.307,x1619,15,Carotenoid
+1620,0.307,x1620,15,Carotenoid
+1621,0.307,x1621,15,Carotenoid
+1622,0.308,x1622,15,Carotenoid
+1623,0.308,x1623,15,Carotenoid
+1624,0.309,x1624,15,Carotenoid
+1625,0.309,x1625,15,Carotenoid
+1626,0.309,x1626,15,Carotenoid
+1627,0.31,x1627,15,Carotenoid
+1628,0.31,x1628,15,Carotenoid
+1629,0.31,x1629,15,Carotenoid
+1630,0.311,x1630,15,Carotenoid
+1631,0.311,x1631,15,Carotenoid
+1632,0.311,x1632,15,Carotenoid
+1633,0.312,x1633,15,Carotenoid
+1634,0.312,x1634,15,Carotenoid
+1635,0.312,x1635,15,Carotenoid
+1636,0.313,x1636,15,Carotenoid
+1637,0.313,x1637,15,Carotenoid
+1638,0.313,x1638,15,Carotenoid
+1639,0.313,x1639,15,Carotenoid
+1640,0.314,x1640,15,Carotenoid
+1641,0.314,x1641,15,Carotenoid
+1642,0.314,x1642,15,Carotenoid
+1643,0.314,x1643,15,Carotenoid
+1644,0.314,x1644,15,Carotenoid
+1645,0.314,x1645,15,Carotenoid
+1646,0.314,x1646,15,Carotenoid
+1647,0.315,x1647,15,Carotenoid
+1648,0.315,x1648,15,Carotenoid
+1649,0.315,x1649,15,Carotenoid
+1650,0.315,x1650,15,Carotenoid
+1651,0.315,x1651,15,Carotenoid
+1652,0.315,x1652,15,Carotenoid
+1653,0.315,x1653,15,Carotenoid
+1654,0.315,x1654,15,Carotenoid
+1655,0.315,x1655,15,Carotenoid
+1656,0.315,x1656,15,Carotenoid
+1657,0.315,x1657,15,Carotenoid
+1658,0.315,x1658,15,Carotenoid
+1659,0.315,x1659,15,Carotenoid
+1660,0.315,x1660,15,Carotenoid
+1661,0.315,x1661,15,Carotenoid
+1662,0.315,x1662,15,Carotenoid
+1663,0.315,x1663,15,Carotenoid
+1664,0.315,x1664,15,Carotenoid
+1665,0.315,x1665,15,Carotenoid
+1666,0.315,x1666,15,Carotenoid
+1667,0.315,x1667,15,Carotenoid
+1668,0.315,x1668,15,Carotenoid
+1669,0.315,x1669,15,Carotenoid
+1670,0.315,x1670,15,Carotenoid
+1671,0.315,x1671,15,Carotenoid
+1672,0.315,x1672,15,Carotenoid
+1673,0.315,x1673,15,Carotenoid
+1674,0.315,x1674,15,Carotenoid
+1675,0.315,x1675,15,Carotenoid
+1676,0.315,x1676,15,Carotenoid
+1677,0.315,x1677,15,Carotenoid
+1678,0.314,x1678,15,Carotenoid
+1679,0.314,x1679,15,Carotenoid
+1680,0.314,x1680,15,Carotenoid
+1681,0.314,x1681,15,Carotenoid
+1682,0.313,x1682,15,Carotenoid
+1683,0.313,x1683,15,Carotenoid
+1684,0.313,x1684,15,Carotenoid
+1685,0.313,x1685,15,Carotenoid
+1686,0.312,x1686,15,Carotenoid
+1687,0.312,x1687,15,Carotenoid
+1688,0.312,x1688,15,Carotenoid
+1689,0.311,x1689,15,Carotenoid
+1690,0.311,x1690,15,Carotenoid
+1691,0.311,x1691,15,Carotenoid
+1692,0.31,x1692,15,Carotenoid
+1693,0.31,x1693,15,Carotenoid
+1694,0.31,x1694,15,Carotenoid
+1695,0.309,x1695,15,Carotenoid
+1696,0.309,x1696,15,Carotenoid
+1697,0.308,x1697,15,Carotenoid
+1698,0.308,x1698,15,Carotenoid
+1699,0.308,x1699,15,Carotenoid
+1700,0.307,x1700,15,Carotenoid
+1701,0.307,x1701,15,Carotenoid
+1702,0.307,x1702,15,Carotenoid
+1703,0.306,x1703,15,Carotenoid
+1704,0.306,x1704,15,Carotenoid
+1705,0.306,x1705,15,Carotenoid
+1706,0.305,x1706,15,Carotenoid
+1707,0.305,x1707,15,Carotenoid
+1708,0.305,x1708,15,Carotenoid
+1709,0.304,x1709,15,Carotenoid
+1710,0.304,x1710,15,Carotenoid
+1711,0.303,x1711,15,Carotenoid
+1712,0.303,x1712,15,Carotenoid
+1713,0.302,x1713,15,Carotenoid
+1714,0.302,x1714,15,Carotenoid
+1715,0.302,x1715,15,Carotenoid
+1716,0.301,x1716,15,Carotenoid
+1717,0.301,x1717,15,Carotenoid
+1718,0.3,x1718,15,Carotenoid
+1719,0.3,x1719,15,Carotenoid
+1720,0.3,x1720,15,Carotenoid
+1721,0.299,x1721,15,Carotenoid
+1722,0.299,x1722,15,Carotenoid
+1723,0.299,x1723,15,Carotenoid
+1724,0.298,x1724,15,Carotenoid
+1725,0.298,x1725,15,Carotenoid
+1726,0.297,x1726,15,Carotenoid
+1727,0.297,x1727,15,Carotenoid
+1728,0.296,x1728,15,Carotenoid
+1729,0.296,x1729,15,Carotenoid
+1730,0.296,x1730,15,Carotenoid
+1731,0.295,x1731,15,Carotenoid
+1732,0.295,x1732,15,Carotenoid
+1733,0.295,x1733,15,Carotenoid
+1734,0.294,x1734,15,Carotenoid
+1735,0.294,x1735,15,Carotenoid
+1736,0.293,x1736,15,Carotenoid
+1737,0.293,x1737,15,Carotenoid
+1738,0.293,x1738,15,Carotenoid
+1739,0.292,x1739,15,Carotenoid
+1740,0.292,x1740,15,Carotenoid
+1741,0.292,x1741,15,Carotenoid
+1742,0.291,x1742,15,Carotenoid
+1743,0.29,x1743,15,Carotenoid
+1744,0.29,x1744,15,Carotenoid
+1745,0.289,x1745,15,Carotenoid
+1746,0.288,x1746,15,Carotenoid
+1747,0.287,x1747,15,Carotenoid
+1748,0.287,x1748,15,Carotenoid
+1749,0.286,x1749,15,Carotenoid
+1750,0.285,x1750,15,Carotenoid
+1751,0.285,x1751,15,Carotenoid
+1752,0.284,x1752,15,Carotenoid
+1753,0.284,x1753,15,Carotenoid
+1754,0.283,x1754,15,Carotenoid
+1755,0.282,x1755,15,Carotenoid
+1756,0.281,x1756,15,Carotenoid
+1757,0.281,x1757,15,Carotenoid
+1758,0.28,x1758,15,Carotenoid
+1759,0.28,x1759,15,Carotenoid
+1760,0.279,x1760,15,Carotenoid
+1761,0.278,x1761,15,Carotenoid
+1762,0.278,x1762,15,Carotenoid
+1763,0.277,x1763,15,Carotenoid
+1764,0.276,x1764,15,Carotenoid
+1765,0.276,x1765,15,Carotenoid
+1766,0.275,x1766,15,Carotenoid
+1767,0.275,x1767,15,Carotenoid
+1768,0.274,x1768,15,Carotenoid
+1769,0.274,x1769,15,Carotenoid
+1770,0.274,x1770,15,Carotenoid
+1771,0.274,x1771,15,Carotenoid
+1772,0.274,x1772,15,Carotenoid
+1773,0.274,x1773,15,Carotenoid
+1774,0.274,x1774,15,Carotenoid
+1775,0.273,x1775,15,Carotenoid
+1776,0.273,x1776,15,Carotenoid
+1777,0.272,x1777,15,Carotenoid
+1778,0.271,x1778,15,Carotenoid
+1779,0.271,x1779,15,Carotenoid
+1780,0.27,x1780,15,Carotenoid
+1781,0.27,x1781,15,Carotenoid
+1782,0.27,x1782,15,Carotenoid
+1783,0.271,x1783,15,Carotenoid
+1784,0.271,x1784,15,Carotenoid
+1785,0.271,x1785,15,Carotenoid
+1786,0.271,x1786,15,Carotenoid
+1787,0.271,x1787,15,Carotenoid
+1788,0.271,x1788,15,Carotenoid
+1789,0.271,x1789,15,Carotenoid
+1790,0.27,x1790,15,Carotenoid
+1791,0.27,x1791,15,Carotenoid
+1792,0.27,x1792,15,Carotenoid
+1793,0.27,x1793,15,Carotenoid
+1794,0.27,x1794,15,Carotenoid
+1795,0.27,x1795,15,Carotenoid
+1796,0.27,x1796,15,Carotenoid
+1797,0.27,x1797,15,Carotenoid
+1798,0.27,x1798,15,Carotenoid
+1799,0.27,x1799,15,Carotenoid
+1800,0.27,x1800,15,Carotenoid
+1801,0.27,x1801,15,Carotenoid
+1802,0.27,x1802,15,Carotenoid
+1803,0.27,x1803,15,Carotenoid
+1804,0.27,x1804,15,Carotenoid
+1805,0.27,x1805,15,Carotenoid
+1806,0.27,x1806,15,Carotenoid
+1807,0.269,x1807,15,Carotenoid
+1808,0.269,x1808,15,Carotenoid
+1809,0.27,x1809,15,Carotenoid
+1810,0.27,x1810,15,Carotenoid
+1811,0.27,x1811,15,Carotenoid
+1812,0.27,x1812,15,Carotenoid
+1813,0.27,x1813,15,Carotenoid
+1814,0.27,x1814,15,Carotenoid
+1815,0.269,x1815,15,Carotenoid
+1816,0.269,x1816,15,Carotenoid
+1817,0.269,x1817,15,Carotenoid
+1818,0.269,x1818,15,Carotenoid
+1819,0.269,x1819,15,Carotenoid
+1820,0.269,x1820,15,Carotenoid
+1821,0.269,x1821,15,Carotenoid
+1822,0.269,x1822,15,Carotenoid
+1823,0.269,x1823,15,Carotenoid
+1824,0.269,x1824,15,Carotenoid
+1825,0.269,x1825,15,Carotenoid
+1826,0.268,x1826,15,Carotenoid
+1827,0.268,x1827,15,Carotenoid
+1828,0.268,x1828,15,Carotenoid
+1829,0.268,x1829,15,Carotenoid
+1830,0.267,x1830,15,Carotenoid
+1831,0.267,x1831,15,Carotenoid
+1832,0.267,x1832,15,Carotenoid
+1833,0.267,x1833,15,Carotenoid
+1834,0.266,x1834,15,Carotenoid
+1835,0.266,x1835,15,Carotenoid
+1836,0.265,x1836,15,Carotenoid
+1837,0.265,x1837,15,Carotenoid
+1838,0.264,x1838,15,Carotenoid
+1839,0.263,x1839,15,Carotenoid
+1840,0.263,x1840,15,Carotenoid
+1841,0.262,x1841,15,Carotenoid
+1842,0.262,x1842,15,Carotenoid
+1843,0.261,x1843,15,Carotenoid
+1844,0.26,x1844,15,Carotenoid
+1845,0.259,x1845,15,Carotenoid
+1846,0.258,x1846,15,Carotenoid
+1847,0.257,x1847,15,Carotenoid
+1848,0.256,x1848,15,Carotenoid
+1849,0.254,x1849,15,Carotenoid
+1850,0.253,x1850,15,Carotenoid
+1851,0.251,x1851,15,Carotenoid
+1852,0.25,x1852,15,Carotenoid
+1853,0.248,x1853,15,Carotenoid
+1854,0.246,x1854,15,Carotenoid
+1855,0.243,x1855,15,Carotenoid
+1856,0.241,x1856,15,Carotenoid
+1857,0.238,x1857,15,Carotenoid
+1858,0.235,x1858,15,Carotenoid
+1859,0.233,x1859,15,Carotenoid
+1860,0.23,x1860,15,Carotenoid
+1861,0.227,x1861,15,Carotenoid
+1862,0.224,x1862,15,Carotenoid
+1863,0.22,x1863,15,Carotenoid
+1864,0.217,x1864,15,Carotenoid
+1865,0.213,x1865,15,Carotenoid
+1866,0.209,x1866,15,Carotenoid
+1867,0.205,x1867,15,Carotenoid
+1868,0.2,x1868,15,Carotenoid
+1869,0.196,x1869,15,Carotenoid
+1870,0.192,x1870,15,Carotenoid
+1871,0.187,x1871,15,Carotenoid
+1872,0.182,x1872,15,Carotenoid
+1873,0.177,x1873,15,Carotenoid
+1874,0.172,x1874,15,Carotenoid
+1875,0.167,x1875,15,Carotenoid
+1876,0.162,x1876,15,Carotenoid
+1877,0.156,x1877,15,Carotenoid
+1878,0.151,x1878,15,Carotenoid
+1879,0.146,x1879,6,Carotenoid
+1880,0.141,x1880,15,Carotenoid
+1881,0.135,x1881,15,Carotenoid
+1882,0.13,x1882,15,Carotenoid
+1883,0.124,x1883,15,Carotenoid
+1884,0.118,x1884,15,Carotenoid
+1885,0.113,x1885,15,Carotenoid
+1886,0.107,x1886,15,Carotenoid
+1887,0.102,x1887,15,Carotenoid
+1888,0.096,x1888,15,Carotenoid
+1889,0.092,x1889,15,Carotenoid
+1890,0.087,x1890,15,Carotenoid
+1891,0.082,x1891,15,Carotenoid
+1892,0.078,x1892,15,Carotenoid
+1893,0.074,x1893,15,Carotenoid
+1894,0.071,x1894,15,Carotenoid
+1895,0.068,x1895,15,Carotenoid
+1896,0.065,x1896,15,Carotenoid
+1897,0.063,x1897,15,Carotenoid
+1898,0.06,x1898,15,Carotenoid
+1899,0.058,x1899,15,Carotenoid
+1900,0.056,x1900,15,Carotenoid
+1901,0.054,x1901,15,Carotenoid
+1902,0.053,x1902,15,Carotenoid
+1903,0.051,x1903,15,Carotenoid
+1904,0.05,x1904,15,Carotenoid
+1905,0.049,x1905,15,Carotenoid
+1906,0.048,x1906,15,Carotenoid
+1907,0.047,x1907,15,Carotenoid
+1908,0.046,x1908,15,Carotenoid
+1909,0.046,x1909,15,Carotenoid
+1910,0.045,x1910,15,Carotenoid
+1911,0.044,x1911,15,Carotenoid
+1912,0.044,x1912,15,Carotenoid
+1913,0.043,x1913,15,Carotenoid
+1914,0.043,x1914,15,Carotenoid
+1915,0.043,x1915,15,Carotenoid
+1916,0.042,x1916,15,Carotenoid
+1917,0.042,x1917,15,Carotenoid
+1918,0.042,x1918,15,Carotenoid
+1919,0.042,x1919,15,Carotenoid
+1920,0.042,x1920,15,Carotenoid
+1921,0.042,x1921,15,Carotenoid
+1922,0.042,x1922,15,Carotenoid
+1923,0.042,x1923,15,Carotenoid
+1924,0.042,x1924,15,Carotenoid
+1925,0.042,x1925,15,Carotenoid
+1926,0.042,x1926,15,Carotenoid
+1927,0.042,x1927,15,Carotenoid
+1928,0.042,x1928,15,Carotenoid
+1929,0.042,x1929,15,Carotenoid
+1930,0.042,x1930,15,Carotenoid
+1931,0.042,x1931,15,Carotenoid
+1932,0.042,x1932,15,Carotenoid
+1933,0.042,x1933,15,Carotenoid
+1934,0.042,x1934,15,Carotenoid
+1935,0.042,x1935,15,Carotenoid
+1936,0.043,x1936,15,Carotenoid
+1937,0.043,x1937,15,Carotenoid
+1938,0.043,x1938,15,Carotenoid
+1939,0.043,x1939,15,Carotenoid
+1940,0.044,x1940,15,Carotenoid
+1941,0.044,x1941,15,Carotenoid
+1942,0.044,x1942,15,Carotenoid
+1943,0.045,x1943,15,Carotenoid
+1944,0.045,x1944,15,Carotenoid
+1945,0.046,x1945,15,Carotenoid
+1946,0.046,x1946,15,Carotenoid
+1947,0.046,x1947,15,Carotenoid
+1948,0.047,x1948,15,Carotenoid
+1949,0.047,x1949,15,Carotenoid
+1950,0.047,x1950,15,Carotenoid
+1951,0.047,x1951,15,Carotenoid
+1952,0.048,x1952,15,Carotenoid
+1953,0.048,x1953,15,Carotenoid
+1954,0.048,x1954,15,Carotenoid
+1955,0.049,x1955,15,Carotenoid
+1956,0.049,x1956,15,Carotenoid
+1957,0.05,x1957,15,Carotenoid
+1958,0.05,x1958,15,Carotenoid
+1959,0.051,x1959,15,Carotenoid
+1960,0.051,x1960,15,Carotenoid
+1961,0.052,x1961,8,Carotenoid
+1962,0.052,x1962,15,Carotenoid
+1963,0.053,x1963,15,Carotenoid
+1964,0.053,x1964,15,Carotenoid
+1965,0.054,x1965,15,Carotenoid
+1966,0.055,x1966,15,Carotenoid
+1967,0.055,x1967,15,Carotenoid
+1968,0.056,x1968,15,Carotenoid
+1969,0.056,x1969,15,Carotenoid
+1970,0.057,x1970,15,Carotenoid
+1971,0.057,x1971,15,Carotenoid
+1972,0.058,x1972,15,Carotenoid
+1973,0.058,x1973,15,Carotenoid
+1974,0.059,x1974,15,Carotenoid
+1975,0.059,x1975,15,Carotenoid
+1976,0.06,x1976,15,Carotenoid
+1977,0.061,x1977,15,Carotenoid
+1978,0.061,x1978,15,Carotenoid
+1979,0.062,x1979,15,Carotenoid
+1980,0.063,x1980,15,Carotenoid
+1981,0.064,x1981,15,Carotenoid
+1982,0.064,x1982,15,Carotenoid
+1983,0.065,x1983,15,Carotenoid
+1984,0.066,x1984,15,Carotenoid
+1985,0.066,x1985,15,Carotenoid
+1986,0.067,x1986,15,Carotenoid
+1987,0.068,x1987,15,Carotenoid
+1988,0.068,x1988,15,Carotenoid
+1989,0.069,x1989,15,Carotenoid
+1990,0.07,x1990,15,Carotenoid
+1991,0.07,x1991,15,Carotenoid
+1992,0.071,x1992,15,Carotenoid
+1993,0.071,x1993,15,Carotenoid
+1994,0.072,x1994,15,Carotenoid
+1995,0.073,x1995,15,Carotenoid
+1996,0.074,x1996,15,Carotenoid
+1997,0.074,x1997,15,Carotenoid
+1998,0.075,x1998,15,Carotenoid
+1999,0.076,x1999,15,Carotenoid
+2000,0.077,x2000,15,Carotenoid
+2001,0.078,x2001,15,Carotenoid
+2002,0.078,x2002,15,Carotenoid
+2003,0.079,x2003,15,Carotenoid
+2004,0.08,x2004,15,Carotenoid
+2005,0.081,x2005,15,Carotenoid
+2006,0.082,x2006,15,Carotenoid
+2007,0.083,x2007,15,Carotenoid
+2008,0.083,x2008,15,Carotenoid
+2009,0.084,x2009,15,Carotenoid
+2010,0.085,x2010,15,Carotenoid
+2011,0.085,x2011,15,Carotenoid
+2012,0.086,x2012,15,Carotenoid
+2013,0.087,x2013,15,Carotenoid
+2014,0.087,x2014,15,Carotenoid
+2015,0.088,x2015,15,Carotenoid
+2016,0.089,x2016,15,Carotenoid
+2017,0.09,x2017,15,Carotenoid
+2018,0.09,x2018,15,Carotenoid
+2019,0.091,x2019,15,Carotenoid
+2020,0.092,x2020,15,Carotenoid
+2021,0.093,x2021,15,Carotenoid
+2022,0.093,x2022,15,Carotenoid
+2023,0.094,x2023,15,Carotenoid
+2024,0.095,x2024,15,Carotenoid
+2025,0.095,x2025,15,Carotenoid
+2026,0.096,x2026,15,Carotenoid
+2027,0.097,x2027,15,Carotenoid
+2028,0.097,x2028,15,Carotenoid
+2029,0.098,x2029,15,Carotenoid
+2030,0.098,x2030,15,Carotenoid
+2031,0.099,x2031,15,Carotenoid
+2032,0.1,x2032,15,Carotenoid
+2033,0.1,x2033,15,Carotenoid
+2034,0.101,x2034,15,Carotenoid
+2035,0.102,x2035,15,Carotenoid
+2036,0.102,x2036,15,Carotenoid
+2037,0.103,x2037,15,Carotenoid
+2038,0.103,x2038,15,Carotenoid
+2039,0.104,x2039,15,Carotenoid
+2040,0.105,x2040,15,Carotenoid
+2041,0.105,x2041,15,Carotenoid
+2042,0.106,x2042,15,Carotenoid
+2043,0.107,x2043,15,Carotenoid
+2044,0.107,x2044,15,Carotenoid
+2045,0.108,x2045,15,Carotenoid
+2046,0.108,x2046,15,Carotenoid
+2047,0.109,x2047,15,Carotenoid
+2048,0.109,x2048,15,Carotenoid
+2049,0.11,x2049,15,Carotenoid
+2050,0.11,x2050,15,Carotenoid
+2051,0.111,x2051,15,Carotenoid
+2052,0.111,x2052,15,Carotenoid
+2053,0.112,x2053,15,Carotenoid
+2054,0.113,x2054,15,Carotenoid
+2055,0.114,x2055,15,Carotenoid
+2056,0.114,x2056,15,Carotenoid
+2057,0.115,x2057,15,Carotenoid
+2058,0.115,x2058,15,Carotenoid
+2059,0.116,x2059,15,Carotenoid
+2060,0.117,x2060,15,Carotenoid
+2061,0.117,x2061,15,Carotenoid
+2062,0.118,x2062,15,Carotenoid
+2063,0.118,x2063,15,Carotenoid
+2064,0.119,x2064,15,Carotenoid
+2065,0.119,x2065,15,Carotenoid
+2066,0.12,x2066,15,Carotenoid
+2067,0.121,x2067,15,Carotenoid
+2068,0.121,x2068,15,Carotenoid
+2069,0.122,x2069,15,Carotenoid
+2070,0.123,x2070,15,Carotenoid
+2071,0.123,x2071,15,Carotenoid
+2072,0.124,x2072,15,Carotenoid
+2073,0.124,x2073,15,Carotenoid
+2074,0.125,x2074,15,Carotenoid
+2075,0.125,x2075,15,Carotenoid
+2076,0.126,x2076,15,Carotenoid
+2077,0.126,x2077,15,Carotenoid
+2078,0.127,x2078,15,Carotenoid
+2079,0.128,x2079,15,Carotenoid
+2080,0.129,x2080,15,Carotenoid
+2081,0.129,x2081,15,Carotenoid
+2082,0.13,x2082,15,Carotenoid
+2083,0.13,x2083,15,Carotenoid
+2084,0.131,x2084,15,Carotenoid
+2085,0.131,x2085,15,Carotenoid
+2086,0.131,x2086,15,Carotenoid
+2087,0.132,x2087,15,Carotenoid
+2088,0.132,x2088,15,Carotenoid
+2089,0.133,x2089,15,Carotenoid
+2090,0.134,x2090,15,Carotenoid
+2091,0.135,x2091,15,Carotenoid
+2092,0.135,x2092,15,Carotenoid
+2093,0.136,x2093,15,Carotenoid
+2094,0.136,x2094,15,Carotenoid
+2095,0.137,x2095,15,Carotenoid
+2096,0.137,x2096,15,Carotenoid
+2097,0.138,x2097,15,Carotenoid
+2098,0.138,x2098,15,Carotenoid
+2099,0.139,x2099,15,Carotenoid
+2100,0.14,x2100,15,Carotenoid
+2101,0.14,x2101,15,Carotenoid
+2102,0.141,x2102,15,Carotenoid
+2103,0.141,x2103,15,Carotenoid
+2104,0.141,x2104,15,Carotenoid
+2105,0.142,x2105,15,Carotenoid
+2106,0.142,x2106,15,Carotenoid
+2107,0.142,x2107,15,Carotenoid
+2108,0.142,x2108,15,Carotenoid
+2109,0.143,x2109,15,Carotenoid
+2110,0.143,x2110,15,Carotenoid
+2111,0.144,x2111,15,Carotenoid
+2112,0.145,x2112,15,Carotenoid
+2113,0.146,x2113,15,Carotenoid
+2114,0.147,x2114,15,Carotenoid
+2115,0.148,x2115,15,Carotenoid
+2116,0.148,x2116,15,Carotenoid
+2117,0.149,x2117,15,Carotenoid
+2118,0.149,x2118,15,Carotenoid
+2119,0.149,x2119,15,Carotenoid
+2120,0.15,x2120,15,Carotenoid
+2121,0.15,x2121,15,Carotenoid
+2122,0.15,x2122,15,Carotenoid
+2123,0.15,x2123,15,Carotenoid
+2124,0.151,x2124,15,Carotenoid
+2125,0.151,x2125,15,Carotenoid
+2126,0.151,x2126,15,Carotenoid
+2127,0.152,x2127,15,Carotenoid
+2128,0.152,x2128,15,Carotenoid
+2129,0.153,x2129,15,Carotenoid
+2130,0.154,x2130,15,Carotenoid
+2131,0.154,x2131,15,Carotenoid
+2132,0.154,x2132,15,Carotenoid
+2133,0.155,x2133,15,Carotenoid
+2134,0.155,x2134,15,Carotenoid
+2135,0.155,x2135,15,Carotenoid
+2136,0.156,x2136,15,Carotenoid
+2137,0.156,x2137,15,Carotenoid
+2138,0.157,x2138,15,Carotenoid
+2139,0.158,x2139,15,Carotenoid
+2140,0.158,x2140,15,Carotenoid
+2141,0.159,x2141,15,Carotenoid
+2142,0.159,x2142,15,Carotenoid
+2143,0.159,x2143,15,Carotenoid
+2144,0.159,x2144,15,Carotenoid
+2145,0.16,x2145,15,Carotenoid
+2146,0.16,x2146,15,Carotenoid
+2147,0.16,x2147,15,Carotenoid
+2148,0.16,x2148,15,Carotenoid
+2149,0.16,x2149,15,Carotenoid
+2150,0.16,x2150,15,Carotenoid
+2151,0.16,x2151,15,Carotenoid
+2152,0.16,x2152,15,Carotenoid
+2153,0.16,x2153,15,Carotenoid
+2154,0.161,x2154,15,Carotenoid
+2155,0.161,x2155,15,Carotenoid
+2156,0.162,x2156,15,Carotenoid
+2157,0.162,x2157,15,Carotenoid
+2158,0.163,x2158,15,Carotenoid
+2159,0.163,x2159,15,Carotenoid
+2160,0.163,x2160,15,Carotenoid
+2161,0.163,x2161,15,Carotenoid
+2162,0.163,x2162,15,Carotenoid
+2163,0.163,x2163,15,Carotenoid
+2164,0.164,x2164,15,Carotenoid
+2165,0.164,x2165,15,Carotenoid
+2166,0.164,x2166,15,Carotenoid
+2167,0.165,x2167,15,Carotenoid
+2168,0.165,x2168,15,Carotenoid
+2169,0.165,x2169,15,Carotenoid
+2170,0.165,x2170,15,Carotenoid
+2171,0.165,x2171,15,Carotenoid
+2172,0.165,x2172,15,Carotenoid
+2173,0.166,x2173,15,Carotenoid
+2174,0.166,x2174,15,Carotenoid
+2175,0.166,x2175,15,Carotenoid
+2176,0.167,x2176,15,Carotenoid
+2177,0.167,x2177,15,Carotenoid
+2178,0.167,x2178,15,Carotenoid
+2179,0.167,x2179,15,Carotenoid
+2180,0.167,x2180,15,Carotenoid
+2181,0.167,x2181,15,Carotenoid
+2182,0.167,x2182,15,Carotenoid
+2183,0.167,x2183,15,Carotenoid
+2184,0.168,x2184,15,Carotenoid
+2185,0.168,x2185,15,Carotenoid
+2186,0.169,x2186,15,Carotenoid
+2187,0.169,x2187,15,Carotenoid
+2188,0.169,x2188,15,Carotenoid
+2189,0.17,x2189,15,Carotenoid
+2190,0.17,x2190,15,Carotenoid
+2191,0.17,x2191,15,Carotenoid
+2192,0.17,x2192,15,Carotenoid
+2193,0.17,x2193,15,Carotenoid
+2194,0.17,x2194,15,Carotenoid
+2195,0.17,x2195,15,Carotenoid
+2196,0.171,x2196,15,Carotenoid
+2197,0.171,x2197,15,Carotenoid
+2198,0.171,x2198,15,Carotenoid
+2199,0.171,x2199,15,Carotenoid
+2200,0.171,x2200,15,Carotenoid
+2201,0.171,x2201,15,Carotenoid
+2202,0.171,x2202,15,Carotenoid
+2203,0.171,x2203,15,Carotenoid
+2204,0.171,x2204,15,Carotenoid
+2205,0.171,x2205,15,Carotenoid
+2206,0.171,x2206,15,Carotenoid
+2207,0.171,x2207,15,Carotenoid
+2208,0.171,x2208,15,Carotenoid
+2209,0.171,x2209,15,Carotenoid
+2210,0.171,x2210,15,Carotenoid
+2211,0.171,x2211,15,Carotenoid
+2212,0.171,x2212,15,Carotenoid
+2213,0.171,x2213,15,Carotenoid
+2214,0.171,x2214,15,Carotenoid
+2215,0.171,x2215,15,Carotenoid
+2216,0.171,x2216,15,Carotenoid
+2217,0.171,x2217,15,Carotenoid
+2218,0.171,x2218,15,Carotenoid
+2219,0.172,x2219,15,Carotenoid
+2220,0.172,x2220,15,Carotenoid
+2221,0.172,x2221,15,Carotenoid
+2222,0.171,x2222,15,Carotenoid
+2223,0.171,x2223,15,Carotenoid
+2224,0.171,x2224,15,Carotenoid
+2225,0.171,x2225,15,Carotenoid
+2226,0.171,x2226,15,Carotenoid
+2227,0.171,x2227,15,Carotenoid
+2228,0.171,x2228,15,Carotenoid
+2229,0.17,x2229,15,Carotenoid
+2230,0.17,x2230,15,Carotenoid
+2231,0.17,x2231,15,Carotenoid
+2232,0.17,x2232,15,Carotenoid
+2233,0.169,x2233,15,Carotenoid
+2234,0.169,x2234,15,Carotenoid
+2235,0.169,x2235,15,Carotenoid
+2236,0.169,x2236,15,Carotenoid
+2237,0.168,x2237,15,Carotenoid
+2238,0.167,x2238,15,Carotenoid
+2239,0.167,x2239,15,Carotenoid
+2240,0.166,x2240,15,Carotenoid
+2241,0.165,x2241,15,Carotenoid
+2242,0.165,x2242,15,Carotenoid
+2243,0.165,x2243,15,Carotenoid
+2244,0.164,x2244,15,Carotenoid
+2245,0.164,x2245,15,Carotenoid
+2246,0.164,x2246,15,Carotenoid
+2247,0.164,x2247,15,Carotenoid
+2248,0.163,x2248,15,Carotenoid
+2249,0.162,x2249,15,Carotenoid
+2250,0.162,x2250,15,Carotenoid
+2251,0.161,x2251,15,Carotenoid
+2252,0.16,x2252,15,Carotenoid
+2253,0.159,x2253,15,Carotenoid
+2254,0.159,x2254,15,Carotenoid
+2255,0.158,x2255,15,Carotenoid
+2256,0.158,x2256,15,Carotenoid
+2257,0.157,x2257,15,Carotenoid
+2258,0.157,x2258,15,Carotenoid
+2259,0.156,x2259,15,Carotenoid
+2260,0.156,x2260,15,Carotenoid
+2261,0.155,x2261,15,Carotenoid
+2262,0.155,x2262,15,Carotenoid
+2263,0.154,x2263,15,Carotenoid
+2264,0.154,x2264,15,Carotenoid
+2265,0.153,x2265,15,Carotenoid
+2266,0.152,x2266,15,Carotenoid
+2267,0.152,x2267,15,Carotenoid
+2268,0.151,x2268,15,Carotenoid
+2269,0.15,x2269,15,Carotenoid
+2270,0.15,x2270,15,Carotenoid
+2271,0.149,x2271,15,Carotenoid
+2272,0.148,x2272,15,Carotenoid
+2273,0.148,x2273,15,Carotenoid
+2274,0.147,x2274,15,Carotenoid
+2275,0.147,x2275,15,Carotenoid
+2276,0.146,x2276,15,Carotenoid
+2277,0.145,x2277,15,Carotenoid
+2278,0.145,x2278,15,Carotenoid
+2279,0.145,x2279,15,Carotenoid
+2280,0.144,x2280,15,Carotenoid
+2281,0.144,x2281,15,Carotenoid
+2282,0.144,x2282,15,Carotenoid
+2283,0.143,x2283,15,Carotenoid
+2284,0.143,x2284,15,Carotenoid
+2285,0.142,x2285,15,Carotenoid
+2286,0.142,x2286,15,Carotenoid
+2287,0.141,x2287,15,Carotenoid
+2288,0.14,x2288,12,Carotenoid
+2289,0.139,x2289,15,Carotenoid
+2290,0.138,x2290,15,Carotenoid
+2291,0.138,x2291,15,Carotenoid
+2292,0.137,x2292,15,Carotenoid
+2293,0.137,x2293,15,Carotenoid
+2294,0.136,x2294,15,Carotenoid
+2295,0.136,x2295,15,Carotenoid
+2296,0.136,x2296,15,Carotenoid
+2297,0.135,x2297,15,Carotenoid
+2298,0.135,x2298,15,Carotenoid
+2299,0.135,x2299,15,Carotenoid
+2300,0.135,x2300,15,Carotenoid
+2301,0.135,x2301,15,Carotenoid
+2302,0.134,x2302,15,Carotenoid
+2303,0.134,x2303,15,Carotenoid
+2304,0.133,x2304,15,Carotenoid
+2305,0.132,x2305,15,Carotenoid
+2306,0.13,x2306,15,Carotenoid
+2307,0.129,x2307,15,Carotenoid
+2308,0.129,x2308,15,Carotenoid
+2309,0.128,x2309,15,Carotenoid
+2310,0.128,x2310,15,Carotenoid
+2311,0.128,x2311,15,Carotenoid
+2312,0.128,x2312,15,Carotenoid
+2313,0.128,x2313,15,Carotenoid
+2314,0.127,x2314,15,Carotenoid
+2315,0.127,x2315,15,Carotenoid
+2316,0.126,x2316,15,Carotenoid
+2317,0.125,x2317,15,Carotenoid
+2318,0.125,x2318,15,Carotenoid
+2319,0.124,x2319,15,Carotenoid
+2320,0.124,x2320,15,Carotenoid
+2321,0.124,x2321,15,Carotenoid
+2322,0.124,x2322,15,Carotenoid
+2323,0.124,x2323,15,Carotenoid
+2324,0.124,x2324,15,Carotenoid
+2325,0.124,x2325,15,Carotenoid
+2326,0.124,x2326,15,Carotenoid
+2327,0.124,x2327,15,Carotenoid
+2328,0.123,x2328,15,Carotenoid
+2329,0.123,x2329,15,Carotenoid
+2330,0.123,x2330,15,Carotenoid
+2331,0.122,x2331,15,Carotenoid
+2332,0.122,x2332,15,Carotenoid
+2333,0.121,x2333,15,Carotenoid
+2334,0.121,x2334,15,Carotenoid
+2335,0.12,x2335,15,Carotenoid
+2336,0.119,x2336,15,Carotenoid
+2337,0.119,x2337,15,Carotenoid
+2338,0.119,x2338,15,Carotenoid
+2339,0.118,x2339,15,Carotenoid
+2340,0.118,x2340,15,Carotenoid
+2341,0.117,x2341,15,Carotenoid
+2342,0.116,x2342,15,Carotenoid
+2343,0.116,x2343,15,Carotenoid
+2344,0.115,x2344,15,Carotenoid
+2345,0.114,x2345,15,Carotenoid
+2346,0.113,x2346,15,Carotenoid
+2347,0.113,x2347,15,Carotenoid
+2348,0.113,x2348,15,Carotenoid
+2349,0.112,x2349,15,Carotenoid
+2350,0.111,x2350,15,Carotenoid
+2351,0.111,x2351,15,Carotenoid
+2352,0.11,x2352,15,Carotenoid
+2353,0.11,x2353,15,Carotenoid
+2354,0.109,x2354,15,Carotenoid
+2355,0.109,x2355,15,Carotenoid
+2356,0.109,x2356,15,Carotenoid
+2357,0.109,x2357,15,Carotenoid
+2358,0.109,x2358,15,Carotenoid
+2359,0.108,x2359,15,Carotenoid
+2360,0.107,x2360,15,Carotenoid
+2361,0.106,x2361,15,Carotenoid
+2362,0.105,x2362,15,Carotenoid
+2363,0.104,x2363,15,Carotenoid
+2364,0.103,x2364,15,Carotenoid
+2365,0.103,x2365,15,Carotenoid
+2366,0.102,x2366,15,Carotenoid
+2367,0.102,x2367,15,Carotenoid
+2368,0.101,x2368,15,Carotenoid
+2369,0.101,x2369,15,Carotenoid
+2370,0.101,x2370,15,Carotenoid
+2371,0.1,x2371,15,Carotenoid
+2372,0.1,x2372,15,Carotenoid
+2373,0.099,x2373,15,Carotenoid
+2374,0.099,x2374,15,Carotenoid
+2375,0.098,x2375,15,Carotenoid
+2376,0.098,x2376,15,Carotenoid
+2377,0.098,x2377,15,Carotenoid
+2378,0.098,x2378,15,Carotenoid
+2379,0.097,x2379,15,Carotenoid
+2380,0.097,x2380,15,Carotenoid
+2381,0.096,x2381,15,Carotenoid
+2382,0.096,x2382,15,Carotenoid
+2383,0.095,x2383,15,Carotenoid
+2384,0.094,x2384,15,Carotenoid
+2385,0.094,x2385,15,Carotenoid
+2386,0.094,x2386,15,Carotenoid
+2387,0.093,x2387,15,Carotenoid
+2388,0.093,x2388,15,Carotenoid
+2389,0.092,x2389,15,Carotenoid
+2390,0.091,x2390,15,Carotenoid
+2391,0.09,x2391,15,Carotenoid
+2392,0.09,x2392,15,Carotenoid
+2393,0.089,x2393,15,Carotenoid
+2394,0.088,x2394,15,Carotenoid
+2395,0.087,x2395,15,Carotenoid
+2396,0.087,x2396,15,Carotenoid
+2397,0.087,x2397,15,Carotenoid
+2398,0.086,x2398,15,Carotenoid
+2399,0.086,x2399,15,Carotenoid
+2400,0.085,x2400,15,Carotenoid
