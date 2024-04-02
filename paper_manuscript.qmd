@@ -260,7 +260,6 @@ This results in 14 wavelengths for carotenoid, 28 for nitrogen, and 30 for LMA (
 
 ![Posterior distribution for the projected pameters of the reduced model for carotenoid](paper_draft/figures/marginal_plots_for_Carotenoid_Area.png){#fig-univariate_posterior_parameter}
 
-![Posterior distribution for the projected pameters of the reduced model for carotenoid](paper_draft/figures/bivariate_plots_for_Carotenoid_Area.png){#fig-bivariate_posterior_parameter}
 
 ```{r}
 #| echo: FALSE
