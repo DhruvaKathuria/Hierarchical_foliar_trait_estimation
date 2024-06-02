@@ -11,17 +11,17 @@ The working manuscript file is **paper_manuscript.qmd**
 All codes in R_codes/Getting_and_cleaning_ECOSIS_data
 
 ### Getting ECOSIS data
-1) The code [[01_get_data_ecosis.R]] reads the ECOSIS website and downloads data which has not been already downloaded and separates the output into metadata and spectra folders
+1) The code _01_get_data_ecosis.R_ reads the ECOSIS website and downloads data which has not been already downloaded and separates the output into metadata and spectra folders
 
 ### Cleaning ECOSIS data
-1) [[02_create_parquet_metadata.R]]: This is the main code that writes the parquet file for the metadata. Each data folder that is analyzed has its own parquet file which contains the downloaded metadata dataframe plus the metadata parquet file that I create. The code also writes a [[trait_already_done_for_metadata.txt]] to the data folder which contains the traits that I have already added the metadata for.
+1) _02_create_parquet_metadata.R_: This is the main code that writes the parquet file for the metadata. Each data folder that is analyzed has its own parquet file which contains the downloaded metadata dataframe plus the metadata parquet file that I create. The code also writes a _trait_already_done_for_metadata.txt_ to the data folder which contains the traits that I have already added the metadata for.
 
-2) The code [[03_adding_genus_species_info.R]] crunches the metadata and adds a column for genus and species. We also add Family data using taxize package. Other data related to taxize can be added as well if the user wants.
+2) The code _03_adding_genus_species_info.R_ crunches the metadata and adds a column for genus and species. We also add Family data using taxize package. Other data related to taxize can be added as well if the user wants.
 
 ### Supporting_R_functions
 These are .R files in R_codes/supporting_R_functions used by main R files
 
-1) [[getting_traits_data.R]]: This code has functions used by [[adding_more_metadata_information_to_metadata_files.R]]. Code is mostly automatic but needs a visual inspection for new trait names and to build the database in [[trait_and_sample_id_Database_for_ECOSIS_Data.R]].
+1) _getting_traits_data.R_: This code has functions used by _adding_more_metadata_information_to_metadata_files.R_. Code is mostly automatic but needs a visual inspection for new trait names and to build the database in [[trait_and_sample_id_Database_for_ECOSIS_Data.R]].
 
 2) [[Steps_to_Add_Metadata_for_a_Trait_in_a_dataset.R]]: This is an instruction file for [[adding_more_metadata_information_to_metadata_files.R]] and  needs to be read before running beyond Line 20 of the [[adding_more_metadata_information_to_metadata_files.R]]. This file contains steps on how and where to add the metadata information which is then read by the various R-codes. 
 
