@@ -53,10 +53,10 @@ p2 +
 
 ggsave(filename = "paper_draft/figures/nitrogen_cv_results.png")
 
-# suggest_size(n_file,
-#              baseline = "ref",
-#              stat = "mse",
-#              type = "upper")
+suggest_size(n_file,
+             baseline = "ref",
+             stat = "mse",
+             type = "upper")
 
 #lma
 

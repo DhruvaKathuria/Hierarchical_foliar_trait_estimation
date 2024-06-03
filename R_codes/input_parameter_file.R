@@ -1,5 +1,5 @@
 data_folder <- "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/Github_data/Hierarchical_foliar_trait_estimation"
-trait_name1 = "Carotenoid_Area"
+trait_name1 = "LMA"
 site_name1 = c("cabo-2018-2019-leaf-level-spectra")
 group_variable = "leaf_classification"
 hierarchical = F

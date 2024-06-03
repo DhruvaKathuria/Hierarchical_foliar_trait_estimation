@@ -26,7 +26,6 @@ of the difference in the squared residuals between the two predictions. We selec
 
 <!--# there is a confusion between the terms of \mu for full model and reduced model. I need to work on this. I think \tilde{y}_m and \mu are the same. It will be helpful to have the same notation for the two. -->
 
-
 # Figures
 
 ```{r}
@@ -42,5 +41,3 @@ of the difference in the squared residuals between the two predictions. We selec
 ```
 
 ![Posterior distribution for the projected pameters of the reduced model for carotenoid](paper_draft/figures/bivariate_plots_for_Carotenoid_Area.png){#fig-bivariate_posterior_parameter}
-
-

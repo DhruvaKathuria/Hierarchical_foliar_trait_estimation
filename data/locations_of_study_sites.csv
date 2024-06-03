@@ -1,0 +1,99 @@
+location_name,latitude,longitude,trait,site_name
+"Angers, France",47.473614,-0.554167,Carotenoid_Area,angers-leaf-optical-properties-database--2003-
+"Ispra, Italy",45.8148,8.61294,Carotenoid_Area,leaf-optical-properties-experiment-database--lopex93-
+"Abby Road, WA",45.76244,-122.33032,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Blandy Experimental Farm, VA",39.0337,-78.04179,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Chase Lake National Wildlife Refuge, ND",47.1282,-99.24133,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Dead Lake, AL",32.70142,-88.03422,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Disney Wilderness Preserve, FL",28.12505,-81.43619,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Harvard Forest & Quabbin Watershed, MA",42.53691,-72.17265,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Konza Prairie Biological Station, KS",39.10077,-96.56308,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Lenoir Landing, AL",31.85386,-88.16118,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"McDiffett Creek, KS",39.08775,-96.2416,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"McRae Creek, OR",44.2596,-122.16555,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Mountain Lake Biological Station, VA",37.37831,-80.52485,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Northern Great Plains Research Laboratory, ND",46.76972,-100.91535,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Oak Ridge, TN",35.96413,-84.28259,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Ordway-Swisher Biological Station, FL",29.68928,-81.99343,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"San Joaquin Experimental Range, CA",37.10878,-119.73228,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Smithsonian Conservation Biology Institute, VA",38.89293,-78.13949,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Soaproot Saddle, CA",37.03337,-119.26219,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Steigerwaldt-Chequamegon, WI",45.50894,-89.58637,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Talladega National Forest, AL",33.30656,-87.11973,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"The Jones Center At Ichauway, GA",31.19484,-84.46862,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"University of Kansas Field Station, KS",39.04043,-95.19215,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"University of Notre Dame Environmental Research Center, MI",46.23391,-89.53725,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Wind River Experimental Forest, WA",45.82049,-121.95191,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"Yellowstone National Park, WY",44.95348,-110.53914,Carotenoid_Area,fresh-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains
+"UW-Madison, WI",43.073051,-89.40123,Nitrogen,"""2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits"""
+"Talladega National Forest, AL",33.30656,-87.11973,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+"Dead Lake, AL",32.70142,-88.03422,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+"Oak Ridge, TN",35.96413,-84.28259,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+"Lenoir Landing, AL",31.85386,-88.16118,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+"Konza Prairie Biological Station, KS",39.10077,-96.56308,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+"University of Kansas Field Station, KS",39.04043,-95.19215,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+"Northern Great Plains Research Laboratory, ND",46.76972,-100.91535,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+"Smithsonian Conservation Biology Institute, VA",38.89293,-78.13949,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+"Mountain Lake Biological Station, VA",37.37831,-80.52485,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+"Smithsonian Environmental Research Center, MD",38.890131,-76.560014,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+"Blandy Experimental Farm, VA",39.0337,-78.04179,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+Chequamegon-Nicolet National Forest,45.9150074,-89.2300158,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+Jones Ecological Research Center,31.194839,-84.468623,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+"Disney Wilderness Preserve, FL",28.12505,-81.43619,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+Woodworth,47.1282,-99.241334,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+UNDERC,46.23391,-89.537254,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+Madison,43.073051,-89.40123,Nitrogen,"""dried-leaf-spectra-to-estimate-foliar-functional-traits-over-neon-domains-in-eastern-united-states"""
+"Santa Barbara, CA",34.42083,-119.698189,Nitrogen,"""fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems"""
+"Sedgwick Reserve, CA",34.69259393,-120.0405975,Nitrogen,"""fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems"""
+"Sierra Nevada, CA",37.043,-119.3,Nitrogen,"""fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems"""
+"Ispra, Italy",45.8148,8.61294,Nitrogen,"""leaf-optical-properties-experiment-database--lopex93-"""
+"Seward Peninsula, Alaska",65.165,-164.83,Nitrogen,"""ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska"""
+Abby Road NEON,45.762439,-122.330317,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+Utqiaġvik NEON,71.28241,-156.61936,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+Delta Junction NEON,63.88112,-145.75136,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+Dead Lake NEON,32.541727,-87.803877,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+Harvard Forest & Quabbin Watershed NEON,42.53691,-72.17265,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+Healy NEON,63.875798,-149.21335,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+Konza Prairie Biological Station NEON,39.100774,-96.563075,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+Lenoir Landing NEON,31.853861,-88.161181,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+McRae Creek NEON,44.259598,-122.16555,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+Ordway-Swisher Biological Station NEON,29.689282,-81.993431,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+San Joaquin Experimental Range NEON,37.10878,-119.73228,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+Soaproot Saddle NEON,37.03337,-119.26219,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+Talladega National Forest NEON,32.95047,-87.393259,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+Lower Teakettle NEON,37.00583,-119.00602,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+University of Kansas Field Station NEON,39.040431,-95.19215,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+Wind River Experimental Forest NEON,45.82049,-121.95191,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+Yellowstone National Park NEON,44.95348,-110.53914,Nitrogen,"""dry-leaf-spectra-to-estimate-foliar-functional-traits-across-neon-domains"""
+"UW-Madison, WI",43.073051,-89.40123,LMA,"""2008-university-of-wisconsin-biotron-fresh-leaf-spectra-and-gas-exchange-leaf-traits"""
+"Angers, France",47.473614,-0.554167,LMA,angers-leaf-optical-properties-database--2003-
+"Santa Barbara, CA",34.42083,-119.698189,LMA,"""fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems"""
+"Sedgwick Reserve, CA",34.69259393,-120.0405975,LMA,"""fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems"""
+"Sierra Nevada, CA",37.043,-119.3,LMA,"""fresh-leaf-spectra-to-estimate-leaf-traits-for-california-ecosystems"""
+"Ispra, Italy",45.8148,8.61294,LMA,"""leaf-optical-properties-experiment-database--lopex93-"""
+"Brookhaven National Lab, Uptown, NY",40.873346,-72.872057,LMA,"""leaf-spectra--structural-and-biochemical-leaf-traits-of-eight-crop-species"""
+"Belgian North Sea Coast, Belgium",51.20892,3.22424,LMA,"""leaf-spectra-of-36-species-growing-in-rosa-rugosa-invaded-coastal-grassland-communities-in-belgium"""
+"Seward Peninsula, Alaska",65.165,-164.83,LMA,"""ngee-arctic-2016-leaf-spectral-reflectance-kougarok-road-watershed-seward-peninsula-alaska"""
+Japan,43.2,141.3,LMA,"""leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan"""
+Belgium,51.1,2.7,LMA,"""leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan"""
+Belgium,51.1,2.6,LMA,"""leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan"""
+Japan,43.2,141.4,LMA,"""leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan"""
+Japan,43.3,141.4,LMA,"""leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan"""
+Belgium,51.3,3.1,LMA,"""leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan"""
+Belgium,51.2,2.9,LMA,"""leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan"""
+Japan,43.2,141.2,LMA,"""leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan"""
+Belgium,51.3,3,LMA,"""leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan"""
+Belgium,51.2,2.8,LMA,"""leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan"""
+Belgium,51.4,3.3,LMA,"""leaf-spectra-of-4-plant-species-from-belgian-dune-grasslands---rosa-rugosa-from-the-northern-japan"""
+"Baraboo Hills, Wisconsin",43.4,-89.9,LMA,"""nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests"""
+"Bayfield / Pine Barrens, Wisconsin",46.8,-91,LMA,"""nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests"""
+"Blackhawk Island, Wisconsin",43.7,-89.8,LMA,"""nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests"""
+"Ely / Superior NF, Minnesota",47.8,-91.7,LMA,"""nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests"""
+"Finland SF / Superior NF, Minnesota",47.7,-91.4,LMA,"""nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests"""
+"Flambeau River SF / Cheq. NF, Wisconsin",45.6,-90.8,LMA,"""nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests"""
+"Green Ridge, Maryland",39.7,-78.5,LMA,"""nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests"""
+"IDS, Maryland",39.7,-78.4,LMA,"""nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests"""
+"Kettle Moraine State Forest, Wisconsin",43.7,-88.1,LMA,"""nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests"""
+"Madison / Dane County, Wisconsin",43.1,-89.4,LMA,"""nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests"""
+"Ottawa NF / Sylvania Wilderness, Michigan",46.2,-89.2,LMA,"""nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests"""
+"Porcupine Mountains, Michigan",46.7,-89.8,LMA,"""nasa-fft-project-leaf-reflectance-morphology-and-biochemistry-for-northern-temperate-forests"""

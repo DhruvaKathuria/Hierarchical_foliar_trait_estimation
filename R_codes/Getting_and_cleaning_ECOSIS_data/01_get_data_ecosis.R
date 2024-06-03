@@ -47,7 +47,7 @@ if(status_code(r) == 200) # 200 denotes success download
 
 ##filtering datasets using leaf measurements
 indices_leaf_measurement <-  sapply(df[['items']][['Target Type']], 
-                                    function(x)any(x == "leaf")) ## we can also do x == "canopy"
+                                    function(x)any(x == "canopy")) ## we can also do x == "canopy"
 datasets_to_take <-  df$items$ecosis.package_name[indices_leaf_measurement] # getting the name of the datasets we need to focus on, here we are only subsetting the leaf measurements
 
 
