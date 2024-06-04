@@ -7,6 +7,8 @@ editor: source
 bibliography: references.bib
 editor_options: 
   chunk_output_type: console
+  markdown:
+    canonical: true
 ---
 
 <!-- TODO: Abstract -->
@@ -40,9 +42,9 @@ We also discuss how the Bayesian framework can be easily extended to.... which w
 
 ## Study Area and Data
 
-To assess the feasibility of the proposed Bayesian method, we use paired observations of spectra and traits for three foliar traits: carotenoid content per unit area ($Car$), nitrogen mass fraction ($N_{\textrm{mass}}$), and leaf mass per area (LMA), paired with hyperspectral reflectance data from 400 nm to 2400 nm from the publicly available Ecological Spectral Information System (EcoSIS) library (citation needed). LMA influences leaf longevity, light interception by leaves, and affects photosynthetic productivity [@wright2004; @díaz2016; @reich2014; @wang2019; @cherif2023]. Leaf nitrogen is related to plant photosynthetic rate --most importantly through ribulose-1,5-bisphosphate carboxylase/oxygenase (Rubisco)-- and is useful for parameterizing photosynthetic processes in ecosystem models [@evansPhotosynthesisNitrogenRelationships1989; @evansNitrogenCostPhotosynthesis2019]. Carotenoids are leaf pigments crucial for photosynthesis, photooxidative protection, pigmentation, and phytohormone synthesis [@armstrongCarotenoidsGeneticsMolecular1996; @maokaCarotenoidsNaturalFunctional2020; @sunPlantCarotenoidsRecent2022]. Carotenoid-derived compounds affect the flavor and aroma of crops, as well as the development of defense-related plant compounds [@simkinCarotenoidsApocarotenoidsPlanta2021].
+To assess the feasibility of the proposed Bayesian method, we use paired observations of spectra and traits for three foliar traits: carotenoid content per unit area, nitrogen mass fraction, and leaf mass per area (LMA), paired with hyperspectral reflectance data from 400 nm to 2400 nm from the publicly available Ecological Spectral Information System (EcoSIS) library (citation needed). LMA influences leaf longevity, light interception by leaves, and affects photosynthetic productivity [@wright2004; @díaz2016; @reich2014; @wang2019; @cherif2023]. Leaf nitrogen is related to plant photosynthetic rate --most importantly through ribulose-1,5-bisphosphate carboxylase/oxygenase (Rubisco)-- and is useful for parameterizing photosynthetic processes in ecosystem models [@evansPhotosynthesisNitrogenRelationships1989; @evansNitrogenCostPhotosynthesis2019]. Carotenoids are leaf pigments crucial for photosynthesis, photooxidative protection, pigmentation, and phytohormone synthesis [@armstrongCarotenoidsGeneticsMolecular1996; @maokaCarotenoidsNaturalFunctional2020; @sunPlantCarotenoidsRecent2022]. Carotenoid-derived compounds affect the flavor and aroma of crops, as well as the development of defense-related plant compounds [@simkinCarotenoidsApocarotenoidsPlanta2021].
 
-The observations span a wide range of climatic zones and biomes (\@fig-studyarea). The number of training observations varies significantly across the three traits (carotenoid: 394, nitrogen: 541, LMA: 5,934), which helps demonstrate the algorithm's accuracy across different training set sizes.
+The observations span a wide range of climatic zones and biomes (@fig-studyarea). The number of training observations varies significantly across the three traits (carotenoid: 394, nitrogen: 541, LMA: 5,934), which helps demonstrate the algorithm's accuracy across different training set sizes.
 
 ```{r studyarea}
 #| echo: FALSE
@@ -51,7 +53,7 @@ The observations span a wide range of climatic zones and biomes (\@fig-studyarea
 #source("R_codes/Plotting/world_map_with_countries_used_highlighted.R")
 ```
 
-![Posterior predictive checks for assesing model fit for the three traits](paper_draft/figures/world_map.png){#fig-studyarea}
+![(a) Locations of the study sites for each of the three taits. (b) Whittaker biomes denoting the variation of biome range for the analyzed datasets.](paper_draft/figures/study_site_plus_whittaker_biome.png){#fig-studyarea}
 
 ## Data Processing
 
@@ -69,7 +71,7 @@ Notationally, we denote a scalar with a lower case letter and a vector with bold
 
 ### Full Bayesian regression model {#sec-full_bayesian_model}
 
-Let the trait to be predicted be defined as a random variable $y$. For an $i^{th}$ observation, let the measured trait value be defined as $y_i$ and the corresponding input (intercept plus) hyperspectral wavelength be defined as the vector $\boldsymbol{x_i} = (1, x_{i,400}, x_{i,401}, ..., x_{i,2399}, x_{i,2400})$. We assume that $y_i$ is a linear function of $\boldsymbol{x}$ such that:
+Let the trait to be predicted be defined as a random variable $y$. For an $i^{th}$ observation, let the measured trait value be defined as $y_i$ and the corresponding input (intercept plus) hyperspectral wavelength bands be defined as the vector $\boldsymbol{x_i} = (1, x_{i,400}, x_{i,401}, ..., x_{i,2399}, x_{i,2400})$. We assume that $y_i$ is a linear function of $\boldsymbol{x}$ with Gaussian distributed error such that:
 
 $$
 y_i = \boldsymbol{\beta}^T \boldsymbol{x_i} + \epsilon_i, \; \epsilon \sim N(0, \sigma^2), \; i = 1,..., n
@@ -99,10 +101,9 @@ $$
 \end{aligned}
 $$ {#eq-horseshoe}
 
-where $C^+$ is a standard half-Cauchy distribution on the positive reals, IG is the inverse-Gamma distribution and $p_0$ is our prior crude guess on how many non-zero coefficients are there for the model . For our analysis, we set $\frac{p_0}{D-p_0}$ as 0.025 for all the traits, denoting our a-priori guess that around 50 wavelengths are important for predicting a particular trait. Better a-priori guesses for individual traits can be set by consulting past literature but we avoid it to maintain generality of the proposed approach. We fix $\nu = 4$ and $s = 2$ following [@piironen2017].\
-\
-The $\tau$ parameter in regularized horseshoe prior (@eq-horseshoe) drives all regression coefficients to zero while the thick Cauchy-tails for $\lambda_j$ allow some of the regression coefficients (of important wavelengths) to escape this shrinkage towards zero.\
-The regularized horsehoe has an extra parameter $c$ which better penalizes the non-shrinkage coefficients (i.e. the regression coefficients that are not equal to zero) compared to the original horseshoe prior. This helps if the regression coefficients are weakly identified (which can happen if the input wavelengths are highly correlated) and also improves the sampling robustness during posterior parameter inference using Markov Chain Monte Carlo (MCMC) methods [@piironen2017] . Note that the regularized horseshoe prior does not make the shrunk $\beta$ coefficients exactly zero, but "pulls" them towards zero.\
+where $C^+$ is a standard half-Cauchy distribution on the positive reals, IG is the inverse-Gamma distribution and $p_0$ is our prior crude guess on how many non-zero coefficients are there for the model . For our analysis, we set $\frac{p_0}{D-p_0}$ as 0.025 for all the traits, denoting our a-priori guess that around 50 wavelengths are important for predicting a particular trait. Better a-priori guesses for individual traits can be set by consulting past literature but we avoid it to maintain generality of the proposed approach. We fix $\nu = 4$ and $s = 2$ following [@piironen2017].
+
+The $\tau$ parameter in regularized horseshoe prior (@eq-horseshoe) drives all regression coefficients to zero while the thick Cauchy-tails for $\lambda_j$ allow some of the regression coefficients (of important wavelengths) to escape this shrinkage towards zero.The regularized horsehoe has an extra parameter $c$ which better penalizes the non-shrinkage coefficients (i.e. the regression coefficients that are not equal to zero) compared to the original horseshoe prior. This helps if the regression coefficients are weakly identified (which can happen if the input wavelengths are highly correlated) and also improves the sampling robustness during posterior parameter inference using Markov Chain Monte Carlo (MCMC) methods [@piironen2017] . Note that the regularized horseshoe prior does not make the shrunk $\beta$ coefficients exactly zero, but "pulls" them towards zero.
 
 ```{r}
 #| echo: FALSE
@@ -137,6 +138,11 @@ y_i = \boldsymbol{\beta_{s}^T} \boldsymbol{x_{s, i}} + \epsilon_{i,s}, \; \epsil
 $$ {#eq-linear_equation_sub_model}
 
 such that $|\boldsymbol{x_{s,i}}| = (p_{s} + 1) << |\boldsymbol{x_i}| = (p + 1) =2002$ where $|\boldsymbol{a}|$ denotes the length of a vector $\boldsymbol{a}$. Note that, in this work our aim is not to find all wavelengths that are statistically related to the trait, but instead we are only focused on finding a minimal subset of wavelengths that give a good predictive model for the given trait such that adding more wavelengths to the model will not significantly improve the predictive accuracy of the model [@juhopiironenProjectiveInferenceHighdimensional2020].
+
+```{r}
+#| echo: FALSE
+#ppt_file = "paper_draft/figures/ppt_for_figures.pptx"
+```
 
 ![Comparison between PLSR and the proposed Bayesian approach](paper_draft/figures/Method_flowchart.png){#fig-method_flowchart}
 
@@ -236,7 +242,16 @@ Though the full Bayesian model has good predictive capabilities, it is neverthel
 
 <!-- [Alexey] We need to show the actual mean (+ error bar?) posterior coefficient values for the selected values. -->
 
-This results in 14 wavelengths for carotenoid, 28 for nitrogen, and 30 for LMA ( @fig-spectra_importance). For some of the wavelengths, the regression coefficients have much larger posterior intervals -- for instance, wavelengths 1191 nm and 1194 nm for carotenoid (@fig-univariate_posterior_parameter) -- overlapping zero. We might incorrectly assume that none of these two wavelengths are important, but in fact this arises because (conditional on other variables in the model), the wavelengths are strongly correlated with each other. This is not a problem for prediction, however, it means that given this model and data, we cannot separate the influence of the two wavelengths on the trait (carotenoid), but only claim that a combination of the wavelengths influence the trait @mcelreath2018. In such a case, the posterior distributions of the two regression coefficients lie along a narrow ridge (Supplementary File, Figure S?), which implies that when the regression coefficient of one wavelength is large, the other is small (since their combination is what is associated with the trait), leading to a range of combinations of the two regression coefficients resulting long univariate posterior parameter intervals.
+This results in 14 wavelengths for carotenoid, 28 for nitrogen, and 30 for LMA (@fig-spectra_importance_4). For some of the wavelengths, the regression coefficients have much larger posterior intervals -- for instance, wavelengths 1191 nm and 1194 nm for carotenoid (@fig-univariate_posterior_parameter) -- overlapping zero. We might incorrectly assume that none of these two wavelengths are important, but in fact this arises because (conditional on other variables in the model), the wavelengths are strongly correlated with each other. This is not a problem for prediction, however, it means that given this model and data, we cannot separate the influence of the two wavelengths on the trait (carotenoid), but only claim that a combination of the wavelengths influence the trait @mcelreath2018. In such a case, the posterior distributions of the two regression coefficients lie along a narrow ridge (Supplementary File, Figure S?), which implies that when the regression coefficient of one wavelength is large, the other is small (since their combination is what is associated with the trait), leading to a wide range of combinations of the two regression coefficients resulting long univariate posterior parameter intervals.
+
+```{r}
+#| echo: FALSE
+#source("R_codes/Plotting/study_sites_robinson_projection.R")
+#source("R_codes/Plotting/whittaker_biomes.R")
+#ppt_file = "paper_draft/figures/ppt_for_figures.pptx"
+```
+
+![Most important spectra for each of the traits](paper_draft/figures/spectra_importance_4.png){#fig-spectra_importance_4}
 
 ![Posterior distribution for the projected pameters of the reduced model for carotenoid](paper_draft/figures/marginal_plots_for_Carotenoid_Area.png){#fig-univariate_posterior_parameter}
 
@@ -297,8 +312,6 @@ The above results showcase the advantage of the Bayesian approach over the tradi
 <!-- [Alexey] This paragraph is Discussion. -->
 
 Before interpreting the results, an often overlooked implicit assumption is that the important wavelengths selected by any model are dependent on the model specification and assumptions. A Bayesian approach is helpful in this regard as we make explicit statements about our prior beliefs, the underlying trait distribution, and the measurement errors. This enables us to attribute significance to specific wavelengths strictly within the context of these predetermined model assumptions. For example, in this paper, we did not account for important effect of climate, different land surface conditions, leaf health, across and within trait variation within plant functional types, site-specific measurement errors etc. on traits and assumed only the marginal effects of spectra on traits and a fixed Gaussian error term. This may lead to the latent influence of these variables on the significance attributed to certain wavelengths.. A Bayesian model incorporating some or all of these variables in addition to spectra, might give different results for important spectra. It is useful to keep this distinction in mind when inferring about relevant wavelengths for any trait.
-
-![Most important spectra for each of the traits](paper_draft/figures/spectra_importance_4.png){#fig-spectra_importance_4}
 
 The leaf reflectance spectra in the SWIR region is sensitive to water absorption, leaf structure and dry matter content [@ustin2020; @serbinArcticTropicsMultibiome2019]. Carotenoid has been shown to be change with leaf growth stage and is affected by water stress [@mibei2016] potentially explaining the sensitivity of the above wavelengths to carotenoid. These findings are consistent with previous findings (see @homolovaReviewOpticalbasedRemote2013 and @bergerCropNitrogenMonitoring2020 for a comprehensive review). Nitrogen has been shown to be moderately correlated with chlorophyll (with a correlation coefficient of \$0.65 +- 0.15 across different ecosystems) which in turn has a strong absorption in the red-edge region (and the visible portion) of the spectrum. The water absorption region around 1200 nm has also been shown to be sensitive to nitrogen in past studies (@homolovaReviewOpticalbasedRemote2013). The SWIR region is also critical to predicting nitrogen partly because proteins have distinct absorption features in this region [@fourtyLeafOpticalProperties1996; @curranRemoteSensingFoliar1989; @kumarImagingSpectrometryVegetation2001] and a large amount of leaf nitrogen is bound in proteins [@xu2012]. This has led to a recent push in recognizing proteins (in addition to chlorophyll) as a proxy for estimating leaf nitrogen [@bergerCropNitrogenMonitoring2020]. LMA has been shown to be correlated to different leaf features related to structure, dry matter, carbon and leaf water content have absorption features in the SWIR region [@poorterCausesConsequencesVariation2009; @riva2016; @curranRemoteSensingFoliar1989; @kokalyCharacterizingCanopyBiochemistry2009; @ustin2020; @serbinArcticTropicsMultibiome2019]. The NIR region between 1000 - 1300 nm is also useful in predicting LMA which is consistent with the findings of [@serbinArcticTropicsMultibiome2019] who posited that this dependence is driven by the covariation of LMA with leaf water, structural carbon, leaf thickness and variations in epidermis layer of the leaf, all of which are sensitive to the NIR region.
 
