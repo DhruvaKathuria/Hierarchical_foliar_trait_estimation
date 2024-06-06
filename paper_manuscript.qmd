@@ -3,6 +3,7 @@ title: "Advancing Hyperspectral Foliar Trait Analysis: A Bayesian Framework"
 format: 
   pdf:
    number-sections: true
+   mathspec: true
 editor: source
 bibliography: references.bib
 editor_options: 
@@ -34,7 +35,7 @@ Another drawback of the PLSR approach is that it assumes a linear relationship b
 
 To account for certain shortcomings of PLSR (and other empirical approaches), Bayesian regression methods offer an attractive alternative. Bayesian methods provide robust uncertainty quantification, integrate with physical models, and accommodate measurement errors from various instruments. They are readily adaptable to more complex models, such as hierarchical Bayesian models which can account for site-specific and group-specific effects (e.g., at the PFT or species level). Bayesian statistical methods have also been successfully employed to combine multi-sensor measurements from point scale to satellite scale across different environmental domains. Furthermore, Bayesian methods can incorporate information from secondary sources, such as radiative transfer models and expert opinions, in the form of prior distributions. This capability makes them valuable tools in the recent push for hybrid physical-empirical trait estimation approaches.
 
-The objective of this paper is to present a computationally efficient Bayesian framework that estimates traits directly from reflectance spectra (without any latent transformation) while rigorously propagating uncertainties. To achieve this, we employ a special class of shrinkage priors that enable us to use Bayesian regression with high-dimensional, correlated hyperspectral data while preventing overfitting. To enhance the computational efficiency of the Bayesian algorithm, we apply a predictive projection technique [@juhopiironenProjectiveInferenceHighdimensional2020] that projects the full Bayesian model onto a reduced model with a select few input wavelengths while preserving predictive accuracy. This technique is distinctive in that the selection of relevant wavelengths is based on predictions arising from the Bayesian model (which accounts for measurement error) rather than directly using the noisy trait observations for variable selection. Past studies have demonstrated that even when the true error structure of the data is unknown, model reduction techniques such as the one described outperform variable selection methods directly applied to (noisy) observations \[<!--# add citations-->\].
+The objective of this paper is to present a computationally efficient Bayesian framework that estimates traits directly from reflectance spectra (without any latent transformation) while rigorously propagating uncertainties. To achieve this, we employ a special class of shrinkage priors that enable us to use Bayesian regression with high-dimensional, correlated hyperspectral data while preventing overfitting. To enhance the computational efficiency of the Bayesian algorithm, we apply a predictive projection technique [@juhopiironenProjectiveInferenceHighdimensional2020] that projects the full Bayesian model onto a reduced model with a select few input wavelengths while preserving predictive accuracy. This technique is distinctive in that the selection of relevant wavelengths is based on predictions arising from the Bayesian model (which accounts for measurement error) rather than directly using the noisy trait observations for variable selection. <!--# Add some more lines about how this approach is superior to variable selection techniques3 --> Past studies have demonstrated that even when the true error structure of the data is unknown, model reduction techniques such as the one described outperform variable selection methods directly applied to (noisy) observations \[<!--# add citations-->\].
 
 We also discuss how the Bayesian framework can be easily extended to.... which will potentially open a previously unexplored research territory of exploring the relationships between spectra and traits beyond finding global relationships between the two.
 
@@ -65,32 +66,34 @@ To avoid replication of effort in acquiring trait datasets from the ECOSIS websi
 
 ## Model description
 
-In this section, we first describe the Bayesian regression model used in predicting traits using hyperspectral data. Formulating appropriate priors is essential for high dimensional problems (where number of input spectral bands is large) to avoid overfitting; thus we also define the relevant priors used in the current work. To enable computationally efficient prediction on new data while maintaining the predictive capabilities of the Bayesian model, we project the Bayesian model to a simpler model using projective inference [@juhopiironenProjectiveInferenceHighdimensional2020]. As opposed to the full Bayesian model, the projected model requires only a subset of input spectra thus drastically improving computational speed and facilitating interpretation.
+In this section, we first describe the Bayesian regression model used in predicting traits using hyperspectral data. Formulating appropriate priors is essential for high dimensional problems (where number of input spectral bands is large) to avoid overfitting; thus we also define the relevant priors used in the current work. To enable computationally efficient prediction on new data while maintaining the predictive capabilities of the Bayesian model, we project the Bayesian model to a simpler model using predictive projection inference [@juhopiironenProjectiveInferenceHighdimensional2020]. As opposed to the full Bayesian model, the projected model requires only a subset of input spectra thus drastically improving computational speed and facilitating interpretation.
 
-Notationally, we denote a scalar with a lower case letter and a vector with bold lower case letter. Superscript $T$ refers to transpose. All vectors are assumed to be column vectors.
+Notationally, we denote a scalar with a lower case letter, a vector with bold lower case letter, and a matrix with an upper case letter. Superscript $T$ refers to transpose. All vectors are assumed to be column vectors.
 
 ### Full Bayesian regression model {#sec-full_bayesian_model}
 
-Let the trait to be predicted be defined as a random variable $y$. For an $i^{th}$ observation, let the measured trait value be defined as $y_i$ and the corresponding input (intercept plus) hyperspectral wavelength bands be defined as the vector $\boldsymbol{x_i} = (1, x_{i,400}, x_{i,401}, ..., x_{i,2399}, x_{i,2400})$. We assume that $y_i$ is a linear function of $\boldsymbol{x}$ with Gaussian distributed error such that:
+Let the trait to be predicted be defined as a random variable $y$. For an $i^{th}$ observation, let the measured trait value be defined as $y_i$ and the corresponding input (intercept plus) hyperspectral wavelength bands be defined as the vector $\boldsymbol{x_i} = (1, x_{i,400}, x_{i,401}, ..., x_{i,2399}, x_{i,2400})$. We assume that $y$ has a Gaussian distribution such that the mean of the distribution $\mu(x) = E(y|x)$ is a linear function of $x$ with independent and identically distributed error having constant variance $\sigma^2$:
 
 $$
-y_i = \boldsymbol{\beta}^T \boldsymbol{x_i} + \epsilon_i, \; \epsilon \sim N(0, \sigma^2), \; i = 1,..., n
+\begin{aligned} 
+y_i & = \mu(x_i) + \epsilon_i \;  \\
+    &= \boldsymbol{\beta}^T \boldsymbol{x_i} + \epsilon_i, \; \epsilon \sim N(0, \sigma^2), i = 1,..., n
+\end{aligned}
 $$ {#eq-linear_model}
 
-where $n$ is the number of observations.\
-Here the length of $x_i$ is the number of input wavelengths (400 nm - 2400 nm), $p = 2001$ plus intercept. $\boldsymbol{\beta}$ denotes the (column) vector of corresponding regression coefficients for $\boldsymbol{x_i}$, and $\sigma^2$ is the noise variance. We can also write @eq-linear_model as a multivariate normal distribution of size $n$:
+Here, $\boldsymbol{\beta}$ denotes the (column) vector of corresponding regression coefficients for $\boldsymbol{x_i}$, and $n$ is the number of observations. Here the length of $\boldsymbol{x_i}$ is the number of input wavelengths (denoted by $l = 2001$), plus intercept. We can also write @eq-linear_model as a multivariate normal distribution of size $n$:
 
 $$
-p(Y|\beta, \sigma^2)  = N_n(X\beta, \sigma^2I)
+p(\boldsymbol{y}|\beta, \sigma^2)  = N_n(\mu(X), \sigma^2I) = N_n(X\beta, \sigma^2I)
 $$ {#eq-linear_model_probability}
 
-where $Y = (y_1, y_2, .., y_n)$ is a vector of n trait observations and $X$ is the corresponding $n \times (p + 1)$ matrix of input wavelengths, $I$ is an identity matrix of size $n$. Let the training data for the regression model i.e. $n$ paired observations of trait and spectra be denoted by $\mathcal{D}$.
+where $\boldsymbol{y} = (y_1, y_2, .., y_n)$ is a vector of $n$ trait observations and $X$ is the corresponding $n \times (l + 1)$ matrix of input wavelengths, $I$ is an identity matrix of size $n$. Let the training data for the regression model i.e. $n$ paired observations of trait and spectra be denoted by $\mathcal{D}$.
 
 #### Formulating priors
 
-An important component of the Bayesian approach is to formulate appropriate priors for the parameter vector $\boldsymbol{\theta} :=(\boldsymbol{\beta}, \sigma^{2})$ used in the model. A prior distribution represents our belief about these parameters and their uncertainty prior to observing the training data $\mathcal{D}$. In this work, we start with the prior belief that a trait is sensitive only to a subset of the wavelengths. This prior belief makes sense because functional traits have been shown to be sensitive to particular wavelengths in the VSWIR region. Additionally, since the dimension of $\boldsymbol{\beta}$ (2002) is large and the available measured trait data is generally sparse, using traditionally used priors for $\boldsymbol{\beta}$ (such as normally distributed priors) can lead to over-fitting of the Bayesian model. This is especially true when the number of observations in $\mathcal{D}$ is less than or comparable to $p + 1$.\
+An important component of the Bayesian approach is to formulate appropriate priors for the parameter vector $\boldsymbol{\theta} :=(\boldsymbol{\beta}, \sigma^{2})$ used in the model. A prior distribution represents our belief about these parameters and their uncertainty prior to observing the training data $\mathcal{D}$. In this work, we start with the prior belief that a trait is sensitive only to a subset of the wavelengths. This prior belief makes sense because functional traits have been shown to be sensitive to particular wavelengths in the VSWIR region. Additionally, since the dimension of $\boldsymbol{\beta}$ (2002) is large and the available measured trait data is generally sparse, using traditionally used priors for $\boldsymbol{\beta}$ (such as normally distributed priors) can lead to over-fitting of the Bayesian model. This is especially true when the number of observations in $\mathcal{D}$ is less than or comparable to $p + 1$.
 
-Since, a given trait is assumed to be sensitive to a subset of the wavelengths, we need a prior distribution which shrinks the $\beta$ coefficients of the non-important wavelengths (with respect to the analyzed trait) to zero while letting the regression coefficients of the important wavelengths escape this shrinkage. Such a prior distribution should therefore assign a high probability density at zero while also have heavy-tail i.e. having non-trivial probabilities for large values of $\beta$ (which allows the modeling of large values of $\beta$) for important wavelengths. To achieve this, we use a special prior distribution called the regularized horseshoe prior [@piironen2017]. The regularized horseshoe prior belongs to a class of priors called shrinkage or sparsifiying priors which shrink $\beta$ coefficients of the non-important wavelengths to zero and also have heavy-tails. The regularized horseshoe is an extension of the horseshoe prior [@carvalho2010] which has been widely used in high-dimensional regression because of its good theoretical properties and practical applications [@datta2013; @pas2014; @piironen2017; @vanerpShrinkagePriorsBayesian2019]. For $j^{th}$ regresssion coefficient $\beta_j$, the regularized horsehoe prior is defined as:
+Since, a given trait is assumed to be sensitive to a subset of the wavelengths, we need a prior distribution which shrinks the $\boldsymbol{\beta}$ coefficients of the non-important wavelengths (with respect to the analyzed trait) to zero while letting the regression coefficients of the important wavelengths escape this shrinkage. Such a prior distribution should therefore assign a high probability density at zero while also have a heavy-tail i.e. have non-trivial probabilities for large values of $\boldsymbol{\beta}$ (which allows the modeling of large values of $\boldsymbol{\beta}$) for important wavelengths. To achieve this, we use a special prior distribution called the regularized horseshoe prior [@piironen2017]. The regularized horseshoe prior belongs to a class of priors called shrinkage or sparsifiying priors which shrink $\boldsymbol{\beta}$ coefficients of the non-important wavelengths to zero and also have heavy-tails. The regularized horseshoe is an extension of the horseshoe prior [@carvalho2010] which has been widely used in high-dimensional regression because of its good theoretical properties and practical applications [@datta2013; @pas2014; @piironen2017; @vanerpShrinkagePriorsBayesian2019]. For $j^{th}$ regression coefficient $\beta_j$, the regularized horseshoe prior is defined as:
 
 $$
 \begin{aligned}
@@ -103,14 +106,14 @@ $$ {#eq-horseshoe}
 
 where $C^+$ is a standard half-Cauchy distribution on the positive reals, IG is the inverse-Gamma distribution and $p_0$ is our prior crude guess on how many non-zero coefficients are there for the model . For our analysis, we set $\frac{p_0}{D-p_0}$ as 0.025 for all the traits, denoting our a-priori guess that around 50 wavelengths are important for predicting a particular trait. Better a-priori guesses for individual traits can be set by consulting past literature but we avoid it to maintain generality of the proposed approach. We fix $\nu = 4$ and $s = 2$ following [@piironen2017].
 
-The $\tau$ parameter in regularized horseshoe prior (@eq-horseshoe) drives all regression coefficients to zero while the thick Cauchy-tails for $\lambda_j$ allow some of the regression coefficients (of important wavelengths) to escape this shrinkage towards zero.The regularized horsehoe has an extra parameter $c$ which better penalizes the non-shrinkage coefficients (i.e. the regression coefficients that are not equal to zero) compared to the original horseshoe prior. This helps if the regression coefficients are weakly identified (which can happen if the input wavelengths are highly correlated) and also improves the sampling robustness during posterior parameter inference using Markov Chain Monte Carlo (MCMC) methods [@piironen2017] . Note that the regularized horseshoe prior does not make the shrunk $\beta$ coefficients exactly zero, but "pulls" them towards zero.
+The $\tau$ parameter in regularized horseshoe prior (@eq-horseshoe) drives all regression coefficients to zero while the thick Cauchy-tails for $\lambda_j$ allow some of the regression coefficients (of important wavelengths) to escape this shrinkage towards zero. The regularized horseshoe has an extra parameter $c$ which better penalizes the non-shrinkage coefficients (i.e. the regression coefficients that are not equal to zero) compared to the original horseshoe prior. This helps if the regression coefficients are weakly identified (which can happen if the input wavelengths are highly correlated) and also improves the sampling robustness during posterior parameter inference using Markov Chain Monte Carlo (MCMC) methods [@piironen2017] . Note that the regularized horseshoe prior does not make the shrunk $\beta$ coefficients exactly zero, but "pulls" them towards zero.
 
 ```{r}
 #| echo: FALSE
 #source("R_codes/Plotting/horseshoe_prior_simulations.R")
 ```
 
-@fig-method_horseshoe_vs_gaussian gives the comparison between the probability density functions of the regularized horseshoe prior and the Gaussian prior by simulating 500 samples for a regression coefficient $\beta_j$ following @eq-horseshoe and from a Gaussian distribution with mean 0 and standard deviation 0.05. The horseshoe prior assigns a significantly higher probability at zero leading to better shrinkage of regression coefficients towards zero for non-important wavelengths. It also has a heavier tail than the Gaussian distribution allowing larger values for the beta coefficients for important wavelengths. For the intercept term in $\beta$ and the error variance $\sigma^2$ in the model, we use an improper flat prior in the brms package denoting uniformative priors.
+@fig-method_horseshoe_vs_gaussian gives the comparison between the probability density functions of the regularized horseshoe prior and the Gaussian prior by simulating 500 samples for a regression coefficient $\beta_j$ following @eq-horseshoe and from a Gaussian distribution with mean 0 and standard deviation 0.05. The horseshoe prior assigns a significantly higher probability at zero leading to better shrinkage of regression coefficients towards zero for non-important wavelengths. It also has a heavier tail than the Gaussian distribution allowing larger values for the beta coefficients for important wavelengths. For the intercept term in $\beta$ and the error variance $\sigma^2$ in the model, we use an improper flat prior in the brms package <!--# give citation --> denoting non-informative priors.
 
 ![Gaussian prior vs Regularized horseshoe prior](paper_draft/figures/horseshoe_vs_gaussian.png){#fig-method_horseshoe_vs_gaussian}
 
@@ -131,13 +134,17 @@ where $p(Y|\beta, \sigma^2)$ is given by @eq-linear_model_probability. For compu
 
 ### Model reduction in original spectral space
 
-Though the full Bayesian model in @sec-full_bayesian_model is formulated to have good predictive accuracy, it makes use of all the input wavelengths to predict new data and as a result, has a high computational cost and is less interpretable. We remedy this by defining a model which takes a relevant subset of the input hyperspectral wavelengths as input while still mimicking the predictive capability of the full model. Therefore, our aim is to find a sub-model such that
+Though the full Bayesian model in @sec-full_bayesian_model is formulated to have good predictive accuracy, it makes use of all the input wavelengths to predict new data and as a result, has a high computational cost and is less interpretable. We remedy this by defining a model which takes a relevant subset of the input hyperspectral wavelengths (of length $l_s$) as input while still mimicking the predictive capability of the full model. Therefore, our aim is to find a sub-model:
 
 $$
-y_i = \boldsymbol{\beta_{s}^T} \boldsymbol{x_{s, i}} + \epsilon_{i,s}, \; \epsilon_s \sim N(0, \sigma_s^2), \; i = 1,..., n
+\begin{aligned} 
+y_i & = \mu_s(x_{s,i}) + \epsilon_{s,i}  \\
+   & = \boldsymbol{\beta_{s}^T} \boldsymbol{x_{s, i}} + \epsilon_{i,s}, \; \epsilon_s \sim N(0, \sigma_s^2), \; i = 1,..., n;  \\
+\boldsymbol{y} &= (y_1, ..., y_n) = N_n(X_s\boldsymbol{\beta_s}, \sigma_s^2I)
+\end{aligned}
 $$ {#eq-linear_equation_sub_model}
 
-such that $|\boldsymbol{x_{s,i}}| = (p_{s} + 1) << |\boldsymbol{x_i}| = (p + 1) =2002$ where $|\boldsymbol{a}|$ denotes the length of a vector $\boldsymbol{a}$. Note that, in this work our aim is not to find all wavelengths that are statistically related to the trait, but instead we are only focused on finding a minimal subset of wavelengths that give a good predictive model for the given trait such that adding more wavelengths to the model will not significantly improve the predictive accuracy of the model [@juhopiironenProjectiveInferenceHighdimensional2020].
+which has similar predictive accuracy with the full Bayesian model in @sec-full_bayesian_model with $l_{s} << l$. Note that, our aim is not to find all wavelengths that are statistically related to the trait (also known as multiple hypothesis testing), but instead we are focused on finding a reduced model consisting of a minimal subset of wavelengths that has similar predictive capability as the full model such that adding more wavelengths to the reduced model will not significantly improve its predictive accuracy [@juhopiironenProjectiveInferenceHighdimensional2020].
 
 ```{r}
 #| echo: FALSE
@@ -146,21 +153,31 @@ such that $|\boldsymbol{x_{s,i}}| = (p_{s} + 1) << |\boldsymbol{x_i}| = (p + 1) 
 
 ![Comparison between PLSR and the proposed Bayesian approach](paper_draft/figures/Method_flowchart.png){#fig-method_flowchart}
 
-#### Posterior projection of full model {#sec-methods_posterior_projection}
+#### Projection of full model to reduced model {#sec-methods_posterior_projection}
 
 <!-- [Alexey] Consider moving this detailed description to the supplement and inserting here a simple and succinct description of the algorithm. -->
 
-To formulate the reduced model, we use posterior projection [@juhopiironenProjectiveInferenceHighdimensional2020], which consists of replacing the posterior distribution of the parameters of the full model --e.g. $\boldsymbol{\theta}$ of the Bayesian regression model in @sec-full_bayesian_model -- with a simpler distribution $q(\theta_{*}$). The full model is also called the reference model and we denote posterior distribution of its parameters as $p(\boldsymbol{\theta}|\mathcal{D})$, where $\mathcal{D}$ is the training data. For the reference model in @sec-full_bayesian_model, restricting the model means setting some regression coefficients in $\boldsymbol{\beta}$ in the reference model equal to zero. The posterior projection is defined in terms of the loss in posterior predictive accuracy --in terms of the Kullback-Liebler or KL divergence-- when the submodel is used in place of the reference model. Specifically,
+To formulate the reduced model, we use predictive projection inference [@juhopiironenProjectiveInferenceHighdimensional2020], which consists of replacing the posterior distribution of the parameters of the full model with the posterior distribution of the reduced model. Since our aim is to transfer the predictive capabilities of the full model to a reduced one, the posterior projection is defined in terms of the loss in posterior predictive accuracy of the trait $y$ --in terms of the Kullback-Liebler or KL divergence-- when the reduced model is used in place of the reference model. For posterior samples $\{\beta^m, (\sigma^2)^m\}_{m=1}^M$ from the full Bayesian model (@sec-full_bayesian_model), and a candidate reduced model of size $s$ with input wavelength matrix $X_s$ (@eq-linear_equation_sub_model) it can be shown (refer @juhopiironenProjectiveInferenceHighdimensional2020 for a full derivation) that this loss is minimized when the parameters of the reduced candidate model has the following form:
+
+$$
+\begin{aligned}
+\beta_s^m = (X_s^TX_s)^{-1}X_s^T\mu^m(X) = (X_s^TX_s)^{-1}X_s^T(X\beta^m) \\
+(\sigma_s^2)^m = (\sigma^2)^m + \frac{1}{n} ||X_s\beta_s^m - X\beta^m||^2; m = \{1, ..., M\}
+\end{aligned}
+$$ {#eq-projected_parameters}\
+where $||a - b||^2$ –also called the L2 norm– computes the sum of the squared differences between corresponding elements of the two vectors $a$ and $b$. The solution for $\beta_s$ is familiar least squares solution for linear regression models, but now the trait observations $\boldsymbol{y}$ have been replaced by the posterior samples of the expected predictions $\{\mu^m(X) = X\beta^m\}_{m = 1}^M$ of the full Bayesian model. The projected variance of the reduced model $(\sigma_s^2)^m$ denotes that it is equal to the variance of the full model plus systematic variation captured by the full model but not by the reduced model. Hence, the predictive uncertainty of the reduced model is always greater than the reduced model which helps prevent over fitting of the reduced model @juhopiironenProjectiveInferenceHighdimensional2020 and give a better uncertainty measure when we trade off model complexity between the full and reduced models. To get to the final reduced model, we have two considerations: (1) the chosen wavelength bands for the model of size \$s\$, since a large number of candidate models exist for a given model size $s$, and (2) The size of the model $s$ which denotes the number of wavelengths included in the reduced model. Since this leads to a huge number of candidate models, we adopt the search heuristic which, starting from an intercept only reduced model, adds one wavelength at a time (using forward variable selection) which minimizes the KL-divergence among all the possible wavelengths upto a predetermined maximum number of wavelengths (40 wavelengths in our study). The final size of the model $s_{final} \leq 40$ is chosen which minimizes the k-cross validation root mean squared error (RMSE) between the full model and the reduced model. The details of the implementation are given in Supplementary Information SI; ??, and further details regarding the approach can be found in [@juhopiironenProjectiveInferenceHighdimensional2020].
+
+::: content-hidden
+Specifically,
 
 $$
 KL(p(\tilde{y}|\mathcal{D}) || q(\tilde{y}) ) = E_{\tilde{y}}(log(p(\tilde{y}|\mathcal{D})) - log(q(\tilde{y})))
-$$ {#eq-KL-divergence}
+$$
 
-We use the 'tilde' notation to denote future measurements of the trait, hence $\tilde{y}$ denotes future measurement of the trait . Here, $p(\tilde{y}|\mathcal{D})$ is the posterior predictive distribution of future measurements of the trait given the training data $\mathcal{D}$ for the reference model, $q(\tilde{y})$ is the distribution of $\tilde{y}$ from the reduced model, $E_{\tilde{y}}$ means the expectation over all possible future measurements of the trait.The objective of the posterior projection approach is to find the reduced model $q(\theta_{*})$ that minimizes @eq-KL-divergence. In our case, we will use the posterior projection to determine the complexity (i.e the number of input wavelengths to be used) of our linear spectral model.
-
+We use the 'tilde' notation to denote future measurements of the trait, hence $\tilde{y}$ denotes future measurement of the trait . Here, $p(\tilde{y}|\mathcal{D})$ is the posterior predictive distribution of future measurements of the trait given the training data $\mathcal{D}$ for the reference model, $q(\tilde{y})$ is the distribution of $\tilde{y}$ from the reduced model, $E_{\tilde{y}}$ means the expectation over all possible future measurements of the trait.The objective of the posterior projection approach is to find the reduced model $q(\theta_{*})$ that minimizes @eq-KL-divergence. In our case, we will use the posterior projection to determine the complexity (i.e the number of input wavelengths to be used) of our linear spectral model.\
+\
 Equation () gives us the optimal model for a given complexity i.e. for a given number of input wavelengths $p_*$. To determine the minimum value of $p_*$, we compare the predictive utility of the reference model and the set of reduced models for each $p_*$ over a validation set. For the validation set, we use K-fold cross validation, fitting and validating the reduced model K times to avoid over fitting. The entire methodology is summarized in @fig-method_flowchart.
 
-::: content-hidden
 Since we are working in a Bayesian framework, we choose the mean log predictive density (MLPD) as our predictive utility function as it not only compares the point predictions but also the predictive uncertainties associated with the reduced model. This gives MLPD a significant advantage over commonly used utility functions such as mean squared error (MSE).
 :::
 
@@ -168,7 +185,7 @@ Since we are working in a Bayesian framework, we choose the mean log predictive 
 
 For the PLSR algorithm, we standardized the input wavelengths and used the Predicted Residual Sum of Squares (PRESS) @allen1971 in cross validation to determine the number of orthogonal PLSR components.
 
-**TODO**: How we did the PLSR predictions for Figure 6.
+<!--# [Alexey] TODO: How we did the PLSR predictions for Figure 6.-->
 
 ## Analysis of results
 
@@ -238,7 +255,7 @@ Though the full Bayesian model has good predictive capabilities, it is neverthel
 #source("R_codes/Plotting/projpred_wavelength_selection.R")
 ```
 
-![K-fold cross validation results for selection of relevant spectra to form the submodel](paper_draft/figures/carotenoid_cv_results.png){#fig-carotenoid_variable_selection}
+![K-fold cross validation results for selection of relevant spectra to form the reduced model](paper_draft/figures/carotenoid_cv_results.png){#fig-carotenoid_variable_selection}
 
 <!-- [Alexey] We need to show the actual mean (+ error bar?) posterior coefficient values for the selected values. -->
 
