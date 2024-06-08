@@ -61,3 +61,75 @@ locations4 <- locations3 |>
   mutate(location_name = str_glue("{`Location Name`}, {State}"))
 
 write_csv(locations4, "locations4.csv")
+
+
+# getting the test and the composite files --------------------------------
+
+cabo_dataset <- readr :: read_csv("/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/NASA_proposal_3.1.2/ECOSIS_Data_download_Dhruva/cabo-2018-2019-leaf-level-spectra/metadata.csv")
+
+#for LMA
+
+cabo_dataset_lma_locations <- cabo_dataset |> 
+  filter(!is.na(LMA)) |> 
+  select(latitude, longitude) |> 
+  mutate(longitude = round(longitude, 1),
+         latitude = round(latitude, 1)) |> 
+  unique()
+
+cabo_dataset_car_locations <- cabo_dataset |> 
+  filter(!is.na(car_area)) |> 
+  select(latitude, longitude) |> 
+  mutate(longitude = round(longitude, 1),
+         latitude = round(latitude, 1)) |> 
+  unique()
+
+
+cabo_dataset_nitrogen_locations <- cabo_dataset |> 
+  filter(!is.na(Nmass)) |> 
+  select(latitude, longitude) |> 
+  mutate(longitude = round(longitude, 1),
+         latitude = round(latitude, 1)) |> 
+  unique()
+
+test_dataset <- cabo_dataset_car_locations |> 
+  bind_rows(cabo_dataset_lma_locations, cabo_dataset_nitrogen_locations) |> 
+  mutate(location_name = NA,
+         .before = latitude) |> 
+  mutate(trait = c(rep("Carotenoid_Area", nrow(cabo_dataset_car_locations)),
+                   rep("LMA", nrow(cabo_dataset_lma_locations)),
+                   rep("Nitrogen", nrow(cabo_dataset_nitrogen_locations))
+  ),
+  .after = longitude) |>
+  mutate(site_name = "cabo-2018-2019-leaf-level-spectra",
+         data_split_type  = "test")
+
+train_dataset <- readr :: read_csv("data/locations_of_study_sites_train.csv")
+# Uncomment the below only if you export the .csv file from the .xlsx file
+# train_dataset <- train_dataset[1:98,] |> 
+#   select(location_name : site_name) |> 
+#   mutate(data_split_type = "train")
+
+
+total_dataset <- bind_rows(train_dataset,
+                           test_dataset)
+
+# readr :: write_csv(train_dataset,
+#                    "data/locations_of_study_sites_train.csv")
+
+readr :: write_csv(test_dataset,
+                   "data/locations_of_study_sites_test.csv")
+
+readr :: write_csv(total_dataset, 
+                   "data/locations_of_study_sites.csv") 
+
+cabo_dataset_lma<- cabo_dataset |> 
+  filter(!is.na(car_area))
+#cabo_dataset_lma |> select(growth.form) |> table()
+functional_groups <- cabo_dataset_lma |> 
+  #filter(growth.form == "tree") |> 
+  select(functional.group) |> 
+  table()
+
+percent_functional_groups <- sort((functional_groups/sum(functional_groups)) *100,
+                                  decreasing = T)
+round(percent_functional_groups, 1)

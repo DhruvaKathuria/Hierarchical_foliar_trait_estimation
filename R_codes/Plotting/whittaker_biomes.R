@@ -8,7 +8,12 @@ library(terra)
 # data --------------------------------------------------------------------
 
 location_file <- readr :: read_csv("data/locations_of_study_sites.csv")
-
+location_file <- location_file |> 
+  mutate(trait = case_when(
+    data_split_type == "test" ~ "test",
+    TRUE ~ trait
+  )) |> 
+  unique()
 
 # prepare the raster stack for precipitation and temperature --------------
 # Low resolution raster datasets come with 'plotbiomes' package.
@@ -56,10 +61,10 @@ plot_3 <- whittaker_base_plot() +
              alpha = 1,
              position = position_jitter(width = 0.01 * diff(range(extractions$temperature)),
                                         height = 0.01 * diff(range(extractions$precipitation)))) +
-  scale_color_manual(values=c("#F8766D80", "#00BA3880", "#619CFF80"),
+  scale_color_manual(values=c("#F8766D80", "#00BA3880", "#619CFF80", "#80008080"),
                      name="",
                      #breaks=c("f", "r", "4"),
-                     labels=c("Carotenoid", "LMA", "Nitrogen")
+                     labels=c("Carotenoid (train)", "LMA (train)", "Nitrogen (train)", "CABO (test)")
                      ) 
 
 # adding the tag (b) for paper figure -------------------------------------
@@ -110,5 +115,5 @@ ggsave(filename = "paper_draft/figures/whittaker_biome.png",
        plot_4,
        dpi = 600,
        width = 9,
-       height = 4.5,
+       height = 4,
        units = "in")
