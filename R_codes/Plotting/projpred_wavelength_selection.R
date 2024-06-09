@@ -1,6 +1,7 @@
 # projpred files for each covariate
 # Carotenoid
 library(projpred)
+library(tidyverse)
 
 projpred_folder <- "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/Github_data/Hierarchical_foliar_trait_estimation/data/code_output_data/projpred_files/"
 
@@ -24,9 +25,12 @@ p1 +
   xlab("Predictor wavelength(nm)") +
   ylab ("Difference between submodel and full model") +
   labs(title = "Carotenoid", subtitle = NULL) + 
-  theme(strip.text = element_text(size = 12))
+  theme(strip.text = element_text(size = 12),
+        axis.text = element_text(size = 12),
+        axis.title = element_text(size = 12))
 
-ggsave(filename = "paper_draft/figures/carotenoid_cv_results.png")
+ggsave(filename = "paper_draft/figures/carotenoid_cv_results.png",
+       dpi = 300)
 
 #suggest_size(car_file, stat = "mse")
 
