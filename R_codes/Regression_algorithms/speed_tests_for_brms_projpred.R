@@ -27,6 +27,17 @@ brms_normal <- readRDS(paste0(data_folder,
                               date_for_brms_file,
                               ".rds"))
 
+newdata_rows <- sample(1:nrow(data_test_for_analysis), 50000, replace = T)
+data1 <- data_test_for_analysis[newdata_rows, ]
+rm(newdata_rows)
+
+m1_brms <- microbenchmark(
+  p_predict1  <- predict(brms_normal, data1, ndraws = 5000), 
+  times = 20
+  )
+
+saveRDS(m1_brms, file = str_glue("data/code_output_data/algorithm_computational_timings/brms_{trait_name1}.rds"))
+
 nsel <- nsel_vector[trait_name1]
 vsel <- readRDS(stringr :: str_glue("{data_folder}/data/code_output_data/projpred_files/vsel_{trait_name1}_nsel_{nsel}_{date_for_brms_file}.rds"))
 
@@ -34,19 +45,12 @@ prj <- projpred :: project(brms_normal, predictor_terms = vsel, ndraws = 5000)
 #prj_linpred <- proj_linpred(prj, newdata = data_test_for_analysis[1:2, ], integrated = FALSE)
 #prj_pred <- prj_linpred$pred
 
-
-newdata_rows <- sample(1:nrow(data_test_for_analysis), 100000, replace = T)
-data1 <- data_test_for_analysis[newdata_rows, ]
-rm(newdata_rows)
-
-microbenchmark(
-  p_predict1  <- predict(brms_normal, data_test_for_analysis, ndraws = 5000, times = 20)
+m1_projpred <- microbenchmark(
+  p_predict1  <- proj_predict(prj, newdata = data1), 
+  times = 20
 )
 
-
-system.time(predict(brms_normal, data1, 
-                    ndraws = 5000,
-                    summary = F))
+saveRDS(m1_projpred, file = str_glue("data/code_output_data/algorithm_computational_timings/projpred_{trait_name1}.rds"))
 
 system.time(prj_posterior <- proj_predict(prj, newdata = data1))
 
