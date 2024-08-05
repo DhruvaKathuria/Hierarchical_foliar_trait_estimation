@@ -4,6 +4,12 @@ format: pdf
 editor: visual
 ---
 
+Stuff on $\hat{r}$
+
+Since the input spectral wavelengths are highly correlated with each other, they contain redundant information about the underlying trait. Consequently, during the MCMC iterations, there will be some samples for which only one of these wavelengths will have a non-zero regression coefficient, while the others will be zero, leading to a large probability mass at zero. For instance, each of the first four wavelengths for carotenoid content with the largest absolute mean value for regression coefficients (SSI, Figure S?) have non-trivial probability mass at both zero and non-zero coefficient values. Although this does not cause any issues with predictions, it results in multimodal univariate posterior parameter distributions.
+
+In our analysis, we observe the same phenomenon, although the percentage of $\hat{r}$ greater than 1.1 is very low ($0\%$ for carotenoid content, $2\%$ for LMA, and $1\%$ for nitrogen), and most of the $\hat{r}$ values are very close to 1.
+
 # Finding reduced Bayesian model using predictive projection of the full model
 
 There are various ways to empirically find the reduced model including draw-by-draw approach [@goutisModelChoiceGeneralised1998], [@dupuisVariableSelectionQualitative2003] and the single point approach [@tranPredictiveLasso2012]. Here we use the clustered projection approach by [@juhopiironenProjectiveInferenceHighdimensional2020] which can be thought of as a unification of the above-mentioned approaches and give a nice tradeoff between speed and accuracy.
