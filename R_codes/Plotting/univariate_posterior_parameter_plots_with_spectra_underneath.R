@@ -3,6 +3,7 @@ library(ggplot2)
 library(patchwork)
 library(tidyverse)
 
+trait_name1 = "LMA"
 source("R_codes/input_parameter_file.R")
 
 color_vector = c("Carotenoid_Area" =  "#F8766D", 
@@ -73,7 +74,13 @@ for(trait_name1 in c("Carotenoid_Area", "LMA", "Nitrogen"))
 posterior_full_comp <- posterior_parameters_full[["Carotenoid_Area"]] / posterior_parameters_full[["LMA"]]/ posterior_parameters_full[["Nitrogen"]]
 posterior_reduced_comp <- posterior_parameters_reduced[["Carotenoid_Area"]] / posterior_parameters_reduced[["LMA"]]/ posterior_parameters_reduced[["Nitrogen"]]
 
-ggsave(filename = "paper_draft/figures/univariate_posterior_plots_without_underlying_spectra.png",
+ggsave(filename = "paper_draft/figures/univariate_posterior_plots_full_without_underlying_spectra.png",
+       posterior_full_comp,
+       width = 7.5,
+       height = 10,
+       units = "in")
+
+ggsave(filename = "paper_draft/figures/univariate_posterior_plots_reduced_y_axis_without_underlying_spectra.png",
        posterior_reduced_comp,
        width = 7.5,
        height = 10,
