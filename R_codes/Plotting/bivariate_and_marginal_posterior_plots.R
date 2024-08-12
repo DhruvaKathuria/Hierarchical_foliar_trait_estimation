@@ -1,5 +1,3 @@
-
-
 library(bayesplot)
 library(ggplot2)
 library(patchwork)

@@ -152,8 +152,8 @@ p <- ggplot(data, aes(x = V1, y = spectra_rank, group = trait_name, color = trai
         axis.title.y = element_blank(),
         axis.ticks.y = element_blank(),
         strip.text = element_blank(),
-        legend.position = "none",
-        axis.te)
+        legend.position = "none") +
+  xlab("")
 
 ggsave(p, filename = "paper_draft/figures/spectra_importance_3.png")
 
