@@ -21,4 +21,10 @@ supplementary_file.pdf
 supplementary_file.docx
 supplementary_file.html
 /paper_draft/figures
+<<<<<<< HEAD
 paper_draft/figures/ppt_for_figures.pptx
+=======
+*.aux
+*.log
+*.tex
+>>>>>>> 3106510f4dcfb363b3c1220fbdd297f63e92ecfa
