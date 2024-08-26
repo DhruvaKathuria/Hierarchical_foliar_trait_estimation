@@ -10,7 +10,6 @@ data_lma_train_complete.csv
 data_lma_test.csv
 prediction_files.csv
 supplementary_files
-paper_draft/figures/
 
 # Rendered final files --- typically not version controlled
 paper_manuscript.pdf
@@ -20,7 +19,7 @@ paper_manuscript.html
 supplementary_file.pdf
 supplementary_file.docx
 supplementary_file.html
-/paper_draft/figures
+
 <<<<<<< HEAD
 paper_draft/figures/ppt_for_figures.pptx
 =======
@@ -28,3 +27,4 @@ paper_draft/figures/ppt_for_figures.pptx
 *.log
 *.tex
 >>>>>>> 3106510f4dcfb363b3c1220fbdd297f63e92ecfa
+paper_draft/figures/figures_powerpoint.pptx

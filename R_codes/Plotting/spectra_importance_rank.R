@@ -10,6 +10,7 @@ library(viridis)  # for the viridis color scale
 library(ggrepel)  # for geom_text_repel
 
 # Setting global parameters -----------------------------------------------
+trait_name1 = "Carotenoid_Area"
 source("R_codes/input_parameter_file.R")
 source("R_codes/Regression_algorithms/data_preprocessing_for_algorithms.R")
 data_folder <- "/Users/dhruvakathuria/Library/Mobile Documents/com~apple~CloudDocs/NASA_work/Github_data/Hierarchical_foliar_trait_estimation"

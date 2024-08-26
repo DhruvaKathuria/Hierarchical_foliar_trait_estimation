@@ -46,9 +46,11 @@ prj <- projpred :: project(brms_normal, predictor_terms = vsel, ndraws = 5000)
 #prj_linpred <- proj_linpred(prj, newdata = data_test_for_analysis[1:2, ], integrated = FALSE)
 #prj_pred <- prj_linpred$pred
 
+rm(list = setdiff(ls(), c("data1" , "prj")))
+
 m1_projpred <- microbenchmark(
   p_predict1  <- proj_predict(prj, newdata = data1), 
-  times = 20
+  times = 1
 )
 
 saveRDS(m1_projpred, file = str_glue("data/code_output_data/algorithm_computational_timings/projpred_{trait_name1}.rds"))
