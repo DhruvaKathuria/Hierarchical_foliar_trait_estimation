@@ -174,16 +174,7 @@ For all three traits, the reduced Bayesian model performed comparably well to th
 
 As mentioned in @sec-methods_posterior_projection, the reduced model finds a minimal subset of wavelengths (which are not necessarily unique) such that adding more wavelengths to the model will not lead to a significant increase in the predictive accuracy when compared with the full model. We can, however, still use the spectral ranks (@fig-spectra_importance_4), to identify the VSWIR regions that are important for predicting a particular trait.
 
-For Car~A~ <!-- I suggest using the term "carotenoid content" throughout. DK_RESOLVED: done -->, the red-edge region -- characterized by a sudden increase in leaf reflectance usually between 700 nm to 750 nm [@cotrozziReflectanceSpectroscopyNovel2018] -- comprises the most important wavelength, along with moderately important wavelengths in the visible spectrum.<!-- "In line with previous research"-type statements should live in the discussion. DK_RESOLVED: done --> Additionally, we find a cluster of sensitive wavelength in the near infrared region (NIR) from 1150 nm - 1300 nm around a known secondary water-absorption band at 1240 nm [@ustin2020] and some wavelengths in the short wave infrared region (SWIR) region (1300 nm - 2500 nm). For N~M~ <!-- I might consider abbreviating this as %N_mass or something in the methods and then using that throughout. DK_RESOLVED: done throughout the paper -->, the red-edge again comprises the most important wavelength with the rest of the important wavelengths clustered around the region 1400 nm - 1900 nm and 2000-2500 nm in the SWIR region. The water absorption band at 1240 nm again has some moderately important wavelengths clustered around it. For LMA, wavelengths in the SWIR region are generally the most important: The two most important wavelengths fall in the 2000 - 2500 nm region, while a cluster of important wavelengths fall in the 1500-2000 nm region.
-
-```{r}
-#| echo: FALSE
-#source("R_codes/Plotting/spectra_importance_rank.R")
-```
-
-<!--# includes the plots for parameter uncertainty -->
-
-<!--# includes the speed comaparison -->
+For Car~A~, the most important wavelength is in the red-edge region---characterized by a sudden increase in leaf reflectance usually between 700 nm to 750 nm [@cotrozziReflectanceSpectroscopyNovel2018]---with additional important wavelengths in the visible spectrum. Additionally, we find a cluster of sensitive wavelength in the near infrared region (NIR) from 1150--1300 nm around a known secondary water-absorption band at 1240 nm [@ustin2020] and some wavelengths in the short wave infrared region (SWIR) region (1300--2500 nm). For N~M~, the red-edge again contains the most important wavelength with the rest of the important wavelengths clustered in the SWIR region around 1400--1900 nm and 2000--2500 nm. The water absorption band at 1240 nm also has some moderately important wavelengths clustered around it. For LMA, wavelengths in the SWIR region are generally the most important: The two most important wavelengths fall in the 2000--2500 nm region, while a cluster of important wavelengths fall in the 1500--2000 nm region.
 
 # Discussion
 
