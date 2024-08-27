@@ -178,39 +178,11 @@ For Car~A~, the most important wavelength is in the red-edge region---characteri
 
 # Discussion
 
-```{=html}
-<!--
-The structure of the discussion does not have to mirror the structure of the results.
-I think your discussion should have 3 major sections:
-(1) Comparing the Bayesian and PLSR approaches. This is mostly focused on methodological/statistical things.
-(2) Important spectral regions for traits. This should be more focused on ecology / biophysics. Notably, here, I would make sure to compare our important wavelengths against other PLSR studies where coefficients / important wavelengths are reported.
-(3) Future directions.
--->
-```
 ## Comparison of the algorithms
 
-<!-- I would drop this section. It's not that interesting. DK_RESOLVED: done -->
+In terms of accuracy, the proposed Bayesian algorithm works comparably to the PLSR algorithm while also providing some important advantages. First, the Bayesian method works in the original spectral space as opposed to a transformed latent scale, which makes the regression coefficients conceptually simpler to understand and allows more flexibility to apply the algorithms to different instruments with different spectral configurations. Since there is no spectral transformation, it paves the way for future work incorporating input spectral uncertainty in trait estimation. Input spectral uncertainty becomes especially important when statistical algorithms are applied to remote sensing data, such as airborne and satellite data, which are subject to errors due to the effects of various atmospheric and topographical factors on remote sensing retrievals [@thompsonOptimalEstimationImaging2018; @thompsonQuantifyingUncertaintyRemote2020].
 
-::: content-hidden
-For all three traits, although the overall fit of the models to the training data is satisfactory, certain discrepancies are associated with each trait fit. We assumed a normal model for each trait with the mean modeled as a linear combination of the input spectra and a constant error variance. For the carotenoid dataset, we can observe that the distribution of the data might be multimodal; for LMA, the observations are much more skewed than a normal distribution, leading to poor fits for the left and right tails and the peak of the distribution; for N~M~ data, the fit is much better, although there is a slight discrepancy in the left tail of the distribution. \@fig-posterior_predictive_checks thus points to further potential improvements in the model structure. To ensure a fair comparison with the PLSR approach, we do not fine-tune the Bayesian model but provide some suggestions for doing so in @sec-future_direction. However, we wanted to highlight the importance of posterior predictive checks, which serve as a valuable visual tool for iterative Bayesian model building.
-:::
-
-```{=html}
-<!--
-In this section, consider citing some papers from Combal on the use of prior information to help constrain biophysical retrievals --- 10.1051/agro:2002008, 10.1016/S0034-4257(02)00035-4. DK_RESOLVED: done
--->
-```
-In terms of accuracy, the proposed Bayesian algorithm works comparably to the PLSR algorithm with certain advantages over PLSR. First, the Bayesian method works in the original spectral space as opposed to a transformed latent scale making the regression coefficients conceptually simpler and allowing more flexibility to apply the algorithms to different instruments with different spectral configurations. Since there is no spectral transformation, it paves the way for future work incorporating input spectral uncertainty in trait estimation. Input spectral uncertainty becomes especially important when statistical algorithms are applied to remote sensing data, such as airborne and satellite data, which are subject to errors due to the effects of various atmospheric and topographical factors on remote sensing retrievals [@thompsonOptimalEstimationImaging2018; @thompsonQuantifyingUncertaintyRemote2020] . <!-- Good place to cite some of the ISOFIT papers -->
-
-<!-- There are other advantages to this, too. One is just conceptual simplicity of the coefficients. Another is greater flexibility to different instruments with different spectral configurations. DK_RESOLVED: added to the discussion-->
-
-Additionally, although PLSR methods can also account for predictive uncertainties using resampling techniques such as bootstrap [@singhImagingSpectroscopyAlgorithms2015a], this uncertainty attempts to approximate a non-informative posterior distribution by generally assuming that the training sample closely approximates the true population. This approach has been shown to produce inaccurate confidence intervals for small to moderate sample sizes [@chernick2009; @hesterberg2015]. The Bayesian method provides rigorous uncertainty quantification in the form of posterior predictive credible intervals, which are easier to interpret than frequentist confidence intervals. Since, we have posterior samples from the regression coefficients, in addition to univariate uncertainties, it also helps us approximate the joint posterior uncertainties in regression coefficients of the wavelengths, helping us understand how information with respect to a trait is shared across bands. Finally, the Bayesian paradigm allows for natural incorporation of prior information which has been shown to improve retrievals of biophysical variables from reflectance [@combalRetrievalCanopyBiophysical2003].
-
-<!-- Also a good place to mention that you are estimating a full posterior distribution, with not only univariate uncertainties but a full variance-covariance matrix, which allows you to account for autocorrelation in spectral bands (and, therefore, to borrow information across bands). DK_RESOLVED: added above-->
-
-::: content-hidden
-Additionally, it does not take into account any prior information we might have about the relationship between spectra and traits.
-:::
+Additionally, although PLSR methods can also account for predictive uncertainties using resampling techniques such as bootstrap [@singhImagingSpectroscopyAlgorithms2015a], this uncertainty attempts to approximate a non-informative posterior distribution by generally assuming that the training sample closely approximates the true population. This approach has been shown to produce inaccurate confidence intervals for small to moderate sample sizes [@chernick2009; @hesterberg2015]. The Bayesian method provides rigorous uncertainty quantification in the form of posterior predictive credible intervals, which are easier to interpret than frequentist confidence intervals. Furthermore, our Bayesian method provides not only estimates of univariate (band-specific) uncertainties but also an estimate of the full joint posterior uncertainties (variance-covariance matrix) in regression coefficients across all input bands, helping us understand how information with respect to a trait is shared across bands. Finally, the Bayesian paradigm allows for natural incorporation of prior information which has been shown to improve retrievals of biophysical variables from reflectance [@combalRetrievalCanopyBiophysical2003].
 
 ## Important spectral regions for traits
 
