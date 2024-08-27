@@ -35,29 +35,11 @@ The objective of this paper is to present a computationally efficient Bayesian r
 
 ## Study Area and Data
 
-::: content-hidden
-LMA influences leaf longevity, light interception by leaves, and affects photosynthetic productivity [@wright2004; @díaz2016; @reich2014; @wang2019; @cherif2023].
-:::
+To assess the feasibility of the proposed Bayesian method, we use paired observations of leaf reflectance spectra spanning wavelengths from 400 to 2400 nm and three important leaf traits: carotenoid content per unit area (Car~A~), nitrogen mass fraction (N~M~), and leaf mass per area (LMA). Carotenoids are leaf pigments crucial for photosynthesis, photooxidative protection, pigmentation, and phytohormone synthesis [@armstrongCarotenoidsGeneticsMolecular1996; @maokaCarotenoidsNaturalFunctional2020; @sunPlantCarotenoidsRecent2022]. Carotenoid-derived compounds affect the flavor and aroma of crops, as well as the development of defense-related plant compounds [@simkinCarotenoidsApocarotenoidsPlanta2021]. Leaf nitrogen is related to plant photosynthetic rate---most importantly through ribulose-1,5-bisphosphate carboxylase/oxygenase (Rubisco)---and is useful for parameterizing photosynthetic processes in ecosystem models [@evansPhotosynthesisNitrogenRelationships1989; @onoda2017; @evansNitrogenCostPhotosynthesis2019]. LMA is defined as the ratio of oven-dry mass (g) to the area of one side of a fresh leaf [@jacquemoudLeafOpticalProperties2019], and it is correlated with leaf longevity [@osnas2013], decomposition rate [@cornelissen1997], and photosynthetic and respiratory rates [@oren1986]. We obtained these data from the publicly available Ecological Spectral Information System (EcoSIS) library (https://ecosis.org).
 
-To assess the feasibility of the proposed Bayesian method, we use paired observations of leaf reflectance spectra spanning wavelengths from 400 to 2400 nm and three important leaf traits: carotenoid content per unit area (Car~A~) , nitrogen mass fraction (N~M~), and leaf mass per area (LMA), paired with hyperspectral reflectance data from 400 nm to 2400 nm from the publicly available Ecological Spectral Information System (EcoSIS) library (https://ecosis.org). LMA is defined as the ratio of oven-dry mass (g) to the area of one side of a fresh leaf ( @jacquemoudLeafOpticalProperties2019), and it is correlated with leaf longevity (@osnas2013), decomposition rate ( @cornelissen1997), and photosynthetic and respiratory rates (@oren1986). Leaf nitrogen is related to plant photosynthetic rate --most importantly through ribulose-1,5-bisphosphate carboxylase/oxygenase (Rubisco)-- and is useful for parameterizing photosynthetic processes in ecosystem models [@evansPhotosynthesisNitrogenRelationships1989; @onoda2017; @evansNitrogenCostPhotosynthesis2019]<!-- Also take a look at 10.1111/nph.14496. DK_RESOLVED: added citation -->. Carotenoids are leaf pigments crucial for photosynthesis, photooxidative protection, pigmentation, and phytohormone synthesis [@armstrongCarotenoidsGeneticsMolecular1996; @maokaCarotenoidsNaturalFunctional2020; @sunPlantCarotenoidsRecent2022]. Carotenoid-derived compounds affect the flavor and aroma of crops, as well as the development of defense-related plant compounds [@simkinCarotenoidsApocarotenoidsPlanta2021].
-
-The observations used for training the models span a wide range of climatic zones and biomes (@fig-studyarea). The three traits were also chosen because the number of training observations varies significantly across the three traits (Car~A~: 394, N~M~: 541, LMA: 5,934), which helps demonstrate the algorithm's accuracy across different training set sizes. To validate the algorithms, we hold out data collected as part of the Canadian Airborne Biodiversity Observatory (CABO; @kothari2023) from 2018-2019. The CABO dataset is chosen as it represents a comprehensive number of observations for all the analyzed traits (Car~A~: 1764, N~M~: 1746, LMA: 1792) across a wide variety of plant growth forms: broadleaf trees ($\sim 51.3 \%$), graminoids ($\sim 18.0 \%$), forbs ($\sim 12.5 \%$), shrubs ($\sim 10.6 \%$), conifer trees ($\sim 6.5 \%$), vines ($\sim 0.8 \%$), and ferns ($\sim 0.3 \%$). The CABO dataset was primarily collected in Eastern Canada, with the rest of the dataset collected in Western Canada and Australia. All the CABO study sites depicted in @fig-studyarea measure all three traits.
-
-```{r studyarea}
-#| echo: FALSE
-#| label: fig-studyarea
-#| fig-cap: "Study Area"
-#source("R_codes/Plotting/world_map_with_countries_used_highlighted.R")
-```
+The observations used for training the models span a wide range of climatic zones and biomes (@fig-studyarea). The three traits were also chosen because the number of training observations varies significantly across the three traits (Car~A~: 394, N~M~: 541, LMA: 5,934), which helps demonstrate the algorithm's accuracy across different training set sizes. To validate the algorithms, we hold out data collected as part of the Canadian Airborne Biodiversity Observatory [CABO; @kothari2023] from 2018-2019. The CABO dataset is chosen as it represents a comprehensive number of observations for all the analyzed traits (Car~A~: 1764, N~M~: 1746, LMA: 1792) across a wide variety of plant growth forms: broadleaf trees ($\sim 51.3 \%$), graminoids ($\sim 18.0 \%$), forbs ($\sim 12.5 \%$), shrubs ($\sim 10.6 \%$), conifer trees ($\sim 6.5 \%$), vines ($\sim 0.8 \%$), and ferns ($\sim 0.3 \%$). The CABO dataset was primarily collected in Eastern Canada, with the rest of the dataset collected in Western Canada and Australia. All the CABO study sites depicted in @fig-studyarea measure all three traits.
 
 ![(a) Locations of the study sites for each of the three traits. (b) Whittaker biomes denoting the variation of biome range for the analyzed datasets.](paper_draft/figures/study_site_plus_whittaker_biome.png){#fig-studyarea}
-
-```{r}
-#| echo: FALSE
-#source("R_codes/Plotting/study_sites_robinson_projection.R")
-#source("R_codes/Plotting/whittaker_biomes.R")
-#ppt_file = "paper_draft/figures/ppt_for_figures.pptx"
-```
 
 ## Data Processing
 
