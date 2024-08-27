@@ -161,66 +161,14 @@ For both Car~A~ and LMA data, both our Bayesian model and PLSR under-predicted h
 
 ## Reduced Bayesian model
 
-::: content-hidden
-Though the full Bayesian model has good predictive capabilities, it is nevertheless slow in predicting new data as it requires all 2001 spectral bands as input. <!-- [Alexey] How slow is it, in seconds? How much faster, in seconds, is the reduced model? -->
-
-To allow for fast computational speeds for the Bayesian method,
-
-In addition to faster computation, the projective inference also gives us an indication about the spectral wavelengths that are important for predicting a particular trait.
-:::
-
-We use the projective inference technique (@sec-methods_posterior_projection) to each of the three full Bayesian models. Using k-fold (5-fold for Car~A~ and N~M~; 3-fold for LMA) cross validation (@sec-methods_posterior_projection; SI ???), we find the minimal subset of wavelengths (SI ??), such that adding more wavelengths to the model does not increase predictive accuracy when compared with the full Bayesian model. <!-- I'm not sure that computational speed/efficiency is the best thing to emphasize about the reduced model. Instead, I think it may be better to focus on things like flexibility to different sensor configurations, reduced number of parameters, etc. -->
-
-```{r}
-#| echo: FALSE
-#source("R_codes/Plotting/projpred_wavelength_selection.R")
-```
-
-::: content-hidden
-![K-fold cross validation results for selection of relevant spectra to form the reduced model for carotenoid dataset. The dotted horizontal line represents the case when both the models have similar predictive accuracy for training data.](paper_draft/figures/carotenoid_cv_results.png){#fig-carotenoid_variable_selection}
-
-<!-- I might consider punting this figure to the Supplement. DK_RESOLVED: done -->
-:::
-
-This results in 14 wavelengths for Car~A~, 28 for N~M~, and 30 for LMA (@fig-spectra_importance_4). For some wavelengths, the regression coefficients exhibit much larger posterior intervals—such as at 1191 nm and 1194 nm for Car~A~ (@fig-univariate_posterior_parameter)—often overlapping zero. This might lead to the incorrect assumption that these wavelengths are not important. However, this arises because, conditional on other variables in the model, the wavelengths are strongly correlated with each other. While this is not problematic for prediction, it means that with this model and data, we cannot isolate the marginal influence of the individual wavelengths on the trait (Car~A~). We can only claim that a combination of these wavelengths influences the trait [@mcelreath2018]. In such cases, the posterior distributions of the regression coefficients align along a narrow ridge (SI, Figure S?), implying that, for each of the posterior samples, when the regression coefficient of one wavelength is large, the other is small. Consequently, a wide range of possible combinations of the two (or more) regression coefficients results in long univariate posterior parameter intervals.
+<-- TODO: Here (and elsewhere) fill in the supplementary information! -->
+We applied our projective inference technique (@sec-methods_posterior_projection) to each of the three full Bayesian models. Using k-fold (5-fold for Car~A~ and N~M~; 3-fold for LMA) cross validation (@sec-methods_posterior_projection; SI ???), we find the minimal subset of wavelengths (SI ??), such that adding more wavelengths to the model does not increase predictive accuracy when compared with the full Bayesian model. This results in 14 wavelengths for Car~A~, 28 for N~M~, and 30 for LMA (@fig-spectra_importance_4). For some wavelengths, the regression coefficients exhibit much larger posterior intervals---such as at 1191 nm and 1194 nm for Car~A~ (@fig-univariate_posterior_parameter)---often overlapping zero. This might lead to the incorrect assumption that these wavelengths are not important. However, this arises because, conditional on other variables in the model, the wavelengths are strongly correlated with each other. While this is not problematic for prediction, it means that with this model and data, we cannot isolate the marginal influence of the individual wavelengths on the trait (Car~A~). We can only claim that a combination of these wavelengths influences the trait [@mcelreath2018]. In such cases, the posterior distributions of the regression coefficients align along a narrow ridge (SI, Figure S?), implying that, for each of the posterior samples, when the regression coefficient of one wavelength is large, the other is small. Consequently, a wide range of possible combinations of the two (or more) regression coefficients results in long univariate posterior parameter intervals.
 
 ![Relevant wavelengths for each trait using predictive projection. The spectral ranks denote the order in which the wavelengths are selected to minimize the difference in predictive accuracy between the full and reduced models at each step.](paper_draft/figures/spectra_importance_with_spectra_ppt_added.png){#fig-spectra_importance_4}
 
-```{=html}
-<!--
-I suggest redrawing this figure as follows:
-1. Flip the axes, so the wavelengths are on the X axis (and the uncertainty ranges are vertical), and make the wavelengths actual quantitative values (not factors) so that we can see where on the spectrum they are.
-2. As in the "Relevant wavelengths" figure, make 3 versions of this graph --- one for each trait.
--->
-```
 ![Posterior distribution for the projected parameters of the reduced model. Wavelengths that are correlated to each other have wider posterior intervals, due to a wide range of possible values for any posterior sample. This implies that we cannot distinguish the individual effects of such wavelengths on the trait.](paper_draft/figures/univariate_posterior_plots_full_with_underlying_spectra.png){#fig-univariate_posterior_parameter}
 
-```{r}
-#| echo: FALSE
-#source("R_codes/Plotting/univariate_posterior_parameter_plots_with_spectra_underneath.R")
-```
-
-@fig-plsr_vs_bayesian_full_reduced (b and c) presents the comparison of the posterior predictive distribution between the full Bayesian model and the reduced model for the CABO dataset. We find that the RMSE and $R$ between the mean of the predictive distribution of the reduced model and the observations ($RMSE_{reduced}$ and $R_{reduced}$ respectively) are comparable to those of the full model predictions for Car~A~ ($RMSE_{reduced}$ = 3.72 $\mu \mathrm{g}~\mathrm{cm}^{-2}$; $R_{reduced}$ = 0.44), LMA ($RMSE_{reduced}$ = 30.96 $\mathrm{g}~\mathrm{m}^{-2}$ ; $R_{reduced}$ = 0.84), and N~M~ ($RMSE_{reduced}$ = 5.62 $\mathrm{mg}~g^{-1}$; $R_{reduced}$ = 0.61) but at a fraction of the computational cost. For predicting a large number of data, the posterior predictive technique can help speed up computation time. For instance, on a 32 GB 2022 Macbook Pro, we resampled (with replacement) the CABO data for each trait 50,000 times and computed the time to find posterior predictive distribution using both the full ( $t_{full}$) and reduced model ($t_{reduced}$) using 5000 posterior parameter samples. Using the R package *microbenchmark* [@mersmann2023], we found a considerable difference in the mean computational time for all three traits: Car~A~ ($t_{full}$ = 226 seconds, $t_{reduced}$ = 68 seconds) N~M~ ($t_{full}$ = 225 seconds, $t_{reduced}$ = 104 seconds) and LMA ( $t_{full}$ = 232 seconds , $t_{reduced}$ = 110 seconds). The reduced model also allows us to store posterior parameter samples for a select subset of the wavelengths as opposed to all wavelengths for the full model.
-
-::: content-hidden
-For example, if we want to find the posterior predictive distribution of a new dataset -- assuming naive multiplication of the mean term $X\beta$ ($X\beta_s$ for the reduced model) -- the increase in predictive speed is of the order $\frac{2001}{|a_s|}$, where $|a_s|$ is the number of wavelengths for the reduced model.
-:::
-
-```{=html}
-<!--
-Again, I find the "speed" argument here uncompelling unless you can show some *real* numbers on computational speed, *and* pair those with an argument about scaling this up to thousands of pixels. (E.g., A 5x speedup for a single regression that takes a few milliseconds is not that compelling, but when you do it for 100,000 pixels, it starts to matter).
-A more compelling argument might be about the number of parameters, especially the variance-covariance matrix. The size of the variance-covariance matrix in the betas (assuming we're not forcing it to be sparse/diagnoal?) is the square of the number of selected wavelengths. That's not a huge memory footprint --- even a 2100 x 2100 matrix is only 35 MB in memory in the least efficient representation --- but it is a large number of parameters (even if it's just the upper/lower diagonal).
--->
-```
-```{r}
-#| echo: FALSE
-#source("/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/R_codes/Plotting/posterior_predictions.R")
-```
-
-```{r}
-#| echo: FALSE
-#source("R_codes/Plotting/spectra_importance_rank.R")
-```
+For all three traits, the reduced Bayesian model performed comparably well to the full Bayesian model (@fig-plsr_vs_bayesian_full_reduced). We find that the RMSE and R between the posterior mean of the reduced model and the observations (RMSE~reduced~ and R~reduced~, respectively) are comparable to those of the full model predictions for Car~A~ (RMSE~reduced~ = 3.72 $\mu \mathrm{g}~\mathrm{cm}^{-2}$; R~reduced~ = 0.44), LMA (RMSE~reduced~ = 30.96 $\mathrm{g}~\mathrm{m}^{-2}$ ; R~reduced~ = 0.84), and N~M~ (RMSE~reduced~ = 5.62 $\mathrm{mg}~g^{-1}$; R~reduced~ = 0.61) but at a fraction of the computational cost. For predicting a large number of data, the posterior predictive technique can help speed up computation time. For instance, on a 32 GB 2022 Macbook Pro, we resampled (with replacement) the CABO data for each trait 50,000 times and computed the time to find posterior predictive distribution using both the full ( $t_{full}$) and reduced model ($t_{reduced}$) using 5000 posterior parameter samples. Using the R package `microbenchmark` [@mersmann2023], we found a considerable difference in the mean computational time for all three traits: Car~A~ ($t_{\mathrm{full}}$ = 226 seconds, $t_{\mathrm{reduced}}$ = 68 seconds) N~M~ ($t_{\mathrm{full}}$ = 225 seconds, $t_{\mathrm{reduced}}$ = 104 seconds) and LMA ( $t_{\mathrm{full}}$ = 232 seconds , $t_{\mathrm{reduced}}$ = 110 seconds). The reduced model also allows us to store posterior parameter samples for a select subset of the wavelengths as opposed to all wavelengths for the full model.
 
 ### Important spectral regions for traits
 
