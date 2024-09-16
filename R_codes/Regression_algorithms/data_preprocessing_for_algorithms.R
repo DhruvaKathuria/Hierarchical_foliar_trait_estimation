@@ -379,7 +379,7 @@ filter_vector_list <-
   )
 
 
-#We are first formulating the data frame which will be used for analysis
+#We are first formulating the data frame which will be used for analysis. These files are removed because they have the same observations as the other datasets
 sites_remove_vector <-
   c(
     "dried-leaf-spectra-to-estimate-leaf-morphology-and-biochemistry-for-northern-temperate-forests",

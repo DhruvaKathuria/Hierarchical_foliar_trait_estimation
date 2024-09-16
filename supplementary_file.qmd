@@ -1,14 +1,19 @@
 ---
-title: "supplementary_file"
-format: pdf
-editor: visual
+title: "Supplementary Information"
+format: 
+  pdf:
+   number-sections: true
+   mathspec: true
+   include-in-header: 
+      text: '\usepackage{lineno}\linenumbers'
+editor: source
+bibliography: references.bib
+csl: /Users/dhruvakathuria/Zotero/styles/apa.csl
+editor_options: 
+  chunk_output_type: console
+  markdown:
+    canonical: true
 ---
-
-Stuff on $\hat{r}$
-
-Since the input spectral wavelengths are highly correlated with each other, they contain redundant information about the underlying trait. Consequently, during the MCMC iterations, there will be some samples for which only one of these wavelengths will have a non-zero regression coefficient, while the others will be zero, leading to a large probability mass at zero. For instance, each of the first four wavelengths for carotenoid content with the largest absolute mean value for regression coefficients (SSI, Figure S?) have non-trivial probability mass at both zero and non-zero coefficient values. Although this does not cause any issues with predictions, it results in multimodal univariate posterior parameter distributions.
-
-In our analysis, we observe the same phenomenon, although the percentage of $\hat{r}$ greater than 1.1 is very low ($0\%$ for carotenoid content, $2\%$ for LMA, and $1\%$ for nitrogen), and most of the $\hat{r}$ values are very close to 1.
 
 # Finding reduced Bayesian model using predictive projection of the full model
 
@@ -22,7 +27,7 @@ For the reference and sub-model given in equations @eq-linear_model and @eq-line
 
 2.a) For a candidate wavelength, For every cluster $I_c$ in step 1, compute $\beta_l = (X_{cand}^{T} X_{cand})^{-1}X_{cand}^T\mu_l$, where $X_{sub}^{cand}$ has the candidate wavelength added to the already selected $k-1$ wavelengths, $\mu_l$ is the averaged prediction over cluster $c_l$, $l = \{1, .., C\}$ i.e. $\mu_l = \frac{1}{|c_l|}\sum_{m \in c_l}X_{all}\beta_{all}^m$. Note that this is the maximum likelihood estimate of $\beta$ for a linear regression model with Gaussian error, but now based on the predictions arising out of the reference model ($\mu_l$) instead of the noisy observations $y$.
 
-2.b) The variance can then be shown to be equal to $\sigma^2_c = \frac{1}{n} \sum_{i = 1}^{n} (\sigma_i^c)^2 + \frac{1}{n} ||X_{sub}\beta_c - \mu_c||^2$, where $\frac{1}{n} \sum_{i = 1}^{n} (\sigma_i^c)^2$ is the predictive variance of the $i^{th}$ prediction $\tilde{y}_i$ within the $c^{th}$ cluster and the second term denotes the variance added due to using the reduced model as opposed to the full model. This is shows that under the above formulation, the predictive variance of the reduced model can never be less than the full model which is helpful to avoid overfitting of the submodels. The choice of number of clusters $C$ can vary between 1 (where all the samples are clustered into 1 cluster) to $M$ (where each sample is assigned its own cluster) with the computational cost increasing as the number of clusters are increased. Choosing a small number of clusters (10-20) has been shown to give good accuracy while being computationally fast. The
+2.b) The variance can then be shown to be equal to $\sigma^2_c = \frac{1}{n} \sum_{i = 1}^{n} (\sigma_i^c)^2 + \frac{1}{n} ||X_{sub}\beta_c - \mu_c||^2$, where $\frac{1}{n} \sum_{i = 1}^{n} (\sigma_i^c)^2$ is the predictive variance of the $i^{th}$ prediction $\tilde{y}_i$ within the $c^{th}$ cluster and the second term denotes the variance added due to using the reduced model as opposed to the full model. This shows that under the above formulation, the predictive variance of the reduced model can never be less than the full model which is helpful to avoid overfitting of the submodels. The choice of number of clusters $C$ can vary between 1 (where all the samples are clustered into 1 cluster) to $M$ (where each sample is assigned its own cluster) with the computational cost increasing as the number of clusters are increased. Choosing a small number of clusters (10-20) has been shown to give good accuracy while being computationally fast. The
 
 2.c) The posterior predictive distribution of a candidate model is then calculated as a weighted sum of the posterior predictive distributions of each cluster$q(\tilde{y}) = \sum_{l = 1}^{C} w_l N(X_{cand}\beta_l, \sigma_l^2)$, where $w_l$ is fixed the fraction of total samples $M$ in cluster $c_l$ or $w_l = \frac{|c_l|}{M}$. We then add the wavelength for which the mean posterior predictive error compared with the observations is the lowest.
 
@@ -34,12 +39,7 @@ of the difference in the squared residuals between the two predictions. We selec
 
 # Figures
 
-```{r}
-#| echo: FALSE
-#source("R_codes/Plotting/posterior_parameter_full_model.R")
-```
-
-![Posterior samples for the four regression coefficients with the largest absolute mean values](paper_draft/figures/parameter_posterior_histogram.png){#suppfig-posterior_parameters_full_model}
+![Decrease in the root mean squared error between the full model and the reduced model as we add more wavelengths to the full model. The horizontal line at 0 represents the step where adding more wavelengths results in similar predictive accuracy between the full model and submodel according to the cross-validation root mean squared error. The bars represents one standard deviation in rmse for cross validation errors](paper_draft/figures/wavelength_selection_all_covariates.png)
 
 ```{r}
 #| echo: FALSE

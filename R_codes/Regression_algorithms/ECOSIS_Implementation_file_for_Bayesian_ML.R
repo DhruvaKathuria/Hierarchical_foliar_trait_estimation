@@ -6,7 +6,7 @@ library(units)
 #conflicts_prefer(base::intersect)
 
 mainDir = "data/raw_data"  
-#Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/"
+
 
 ###########Parameters to change in the code###################
 algorithm1 = "ridge" # can be PLSR, "Bayesian_linear_horseshoe; check "Apply_ML_and_prospect_algorithms.R" for various options on algorithms
@@ -17,7 +17,7 @@ source("R_codes/supporting_R_functions/Apply_ML_and_prospect_algorithms.R")
 
 # Function list start -----------------------------------------------------
 
-filter_spectra_data = function(x) # this function only works for Carotenoid data for filtering the spectra # need to solve the Github issue
+filter_spectra_data = function(x) 
 {
   spectra = readr :: read_csv(file = paste0(file.path(mainDir, x), "/", "spectra.csv"), show_col_types = FALSE)
   index_start = which(as.numeric(colnames(spectra)) == 400 )

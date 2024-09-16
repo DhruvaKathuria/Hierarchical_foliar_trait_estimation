@@ -143,20 +143,74 @@ data$spectra_rank <- as.numeric(data$spectra_rank)
 rank_range <- range(data$spectra_rank, na.rm = TRUE)
 breaks_at_5 <- seq(from = rank_range[1], to = rank_range[2], by = 5)
 
-p <- ggplot(data, aes(x = V1, y = spectra_rank, group = trait_name, color = trait_name)) +
-  geom_line() +
-  scale_y_continuous(trans = 'reverse',
-                     breaks = breaks_at_5, 
-                     labels = function(x) ifelse(x == na_rank_placeholder, "NA", x)) +
-  facet_wrap(~ trait_name, scales = "free_y", ncol = 1) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1),
-        axis.title.y = element_blank(),
-        axis.ticks.y = element_blank(),
-        strip.text = element_blank(),
-        legend.position = "none") +
-  xlab("")
+# plot the spectra with no important wavelengths highlighted on the x-axis
+# p <- ggplot(data, aes(x = V1, y = spectra_rank, group = trait_name, color = trait_name)) +
+#   geom_line() +
+#   scale_y_continuous(trans = 'reverse',
+#                      breaks = breaks_at_5, 
+#                      labels = function(x) ifelse(x == na_rank_placeholder, "NA", x)) +
+#   facet_wrap(~ trait_name, scales = "free_y", ncol = 1) +
+#   theme(axis.text.x = element_text(angle = 90, hjust = 1),
+#         axis.title.y = element_blank(),
+#         axis.ticks.y = element_blank(),
+#         strip.text = element_blank(),
+#         legend.position = "none") +
+#   xlab("")
+# 
+# ggsave(p, filename = "paper_draft/figures/spectra_importance_3.png")
 
-ggsave(p, filename = "paper_draft/figures/spectra_importance_3.png")
+
+# Plot the spectra importance with important wavelengths highlighted
+vec_list <- spectra_rank_plots <-  list()
+color_vector = c("Carotenoid_Area" =  "#F8766D", 
+                 "LMA" =   "#00BA38", 
+                 "Nitrogen" =  "#619CFF")
+
+trait_names_for_data <- c("Carotenoid_Area" =  "Carotenoid", 
+                          "LMA" =   "Leaf Mass per Area" , 
+                          "Nitrogen" = "Nitrogen" )
+
+for(trait_name1 in c("Carotenoid_Area", "LMA", "Nitrogen"))
+{
+  prj_mat <- readRDS(stringr :: str_glue("{data_folder}/data/code_output_data/projpred_files/{trait_name1}_posterior_parameter_matrix.rds"))
+  prj_mat2 <- prj_mat[, -c(1, ncol(prj_mat))]
+  wavelengths <- colnames(prj_mat2) |> 
+    str_split_i("b_x", 2) |> 
+    as.numeric()
+  
+  vec <- sort(wavelengths)
+  # Calculate the successive differences
+  diffs <- diff(vec)
+  # Find positions where the difference is less than 20
+  remove_positions <- which(diffs < 20) + 1
+  # Remove the second elements where the difference is less than 20
+  vec <- vec[-remove_positions]
+  vec_list[[trait_name1]] <- c(400, vec, 2400)
+  
+  spectra_rank_plots[[trait_name1]] <- data |> 
+    filter(trait_name == trait_names_for_data[trait_name1]) |> 
+    ggplot(aes(x = V1, y = spectra_rank)) +
+    geom_line(color = color_vector[trait_name1]) +
+    scale_x_continuous(breaks = vec_list[[trait_name1]]) +
+    scale_y_continuous(trans = 'reverse',
+                       breaks = breaks_at_5, 
+                       labels = function(x) ifelse(x == na_rank_placeholder, "NA", x)) +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1),
+          axis.title.y = element_blank(),
+          axis.ticks.y = element_blank(),
+          strip.text = element_blank(),
+          legend.position = "none") +
+    xlab("")
+  
+}
+
+spectra_comp_plot <- spectra_rank_plots[[1]] / spectra_rank_plots[[2]] /spectra_rank_plots[[3]]
+
+ggsave(filename = "paper_draft/figures/spectra_rank_without_spectra.png",
+       spectra_comp_plot,
+       width = 7.5,
+       height = 10,
+       units = "in")
 
 p2 <- data |> 
   ggplot(aes(x = V1, y = spectra_means)) +

@@ -1,0 +1,92 @@
+---
+title: "paper_trash"
+format: 
+  pdf:
+   number-sections: true
+   mathspec: true
+   include-in-header: 
+      text: '\usepackage{lineno}\linenumbers'
+editor: source
+bibliography: references.bib
+csl: /Users/dhruvakathuria/Zotero/styles/apa.csl
+editor_options: 
+  chunk_output_type: console
+  markdown:
+    canonical: true
+---
+
+# Abstract
+
+Leaf functional traits are leaf features that determine ecosystem functioning, plant growth regulation, and resource allocation. Most of these traits can be effectively derived from leaf reflectance measurements across the visibla to shortwave infrared range using various empirical and physical methods. Partial Least Squares Regression (PLSR) is a popular empirical approach due to its simplicity and computational efficiency; however, it has notable limitations. These include the need for transforming spectra into latent components, challenges in uncertainty quantification, optimal selection of the number of components, and difficulty in extending to more complex models. In this study, we introduce a Bayesian approach for predicting leaf traits from leaf reflectance data---ranging from 400 to 2400 nm in 1 nm spectral---that addresses these limitations. Our method eliminates the need for spectral transformation while enabling rigorous uncertainty quantification. We applied the Bayesian algorithm to predict three key traits: carotenoid content (Car~A~), nitrogen percentage mass (N~M~), and Leaf Mass per Area (LMA) . On an independent validation dataset, we find that, in terms of root mean square error (RMSE), our full Bayesian model performed as well or better than PLSR, with small improvements in predicting Car~A~ (RMSE~full~ = 3.62 $\mu \mathrm{g}~\mathrm{cm}^{-2}$; RMSE~PLSR~ = 3.67 $\mu \mathrm{g}~\mathrm{cm}^{-2}$) and LMA (RMSE~full~ = 31.15 $\mathrm{g}~\mathrm{m}^{-2}$; RMSE~PLSR~ = 31.79 $\mathrm{g}~\mathrm{m}^{-2}$) and large improvements in predicting N~M~ (RMSE~full~ = 5.79 $\mathrm{mg}~g^{-1}$; RMSE~PLSR~ = 7.17 $\mathrm{mg}~g^{-1}$). In terms of correlation (R), our Bayesian model performed similarly to PLSR for Car~A~ (R~full~ = 0.43; R~PLSR~ = 0.43 ) and LMA (R~full~ = 0.85; R~PLSR~ = 0.84) and slightly worse for N~M~ (R~full~ = 0.59, R~PLSR~ = 0.64). Our results demonstrate that the Bayesian approach performs comparably to PLSR but with added flexibility and robust uncertainty quantification. To enhance computational efficiency, we project the full Bayesian model to a reduced model that relies on a select subset of wavelengths: 14 for Car~A~, 28 for N~M~, and 30 for LMA. This reduced model maintains predictive performance similar to the full model while offering faster predictions and insights into trait-specific wavelength sensitivity. Unlike PLSR, the proposed Bayesian method is highly adaptable, providing a framework for future development of non-linear, hierarchical, and multivariate trait prediction models with comprehensive uncertainty quantification. This advancement paves the way for more sophisticated and reliable trait models in ecological research.
+
+# Introduction
+
+The National Academy of Sciences 2017 Decadal Survey specifically identifies the spatio-temporal distribution of plant functional traits as a crucial objective (E-1a). Plant functional traits are also identified as an Essential Biodiversity Variable [@pereira2013; @pettorelli2016]. As plants' primary photosynthetic organs, leaves drive the dynamic of terrestrial ecosystems. As a result, leaf traits are used as input parameters in global ecosystem models to account for photosynthetic capacity, plant growth, and biogeochemical cycles, and uncertainty and variability in leaf traits are major sources of uncertainty in model predictions of ecosystem composition and function [@wullschleger2014; @friedlingstein2006; @shiklomanovStructureParameterUncertainty2020].
+
+# Materials and Methods
+
+## Study Area and Data
+
+To avoid replication of effort in acquiring trait datasets from the ECOSIS website, the entire workflow and associated R scripts for downloading the data from the ECOSIS website and compiling/processing the data to user-defined units is given at <https://github.com/DhruvaKathuria/Hierarchical_foliar_trait_estimation>.
+
+## Model description
+
+Formulating appropriate priors is essential for high dimensional problems (as is the case here, with 2001 spectral bands) to avoid overfitting. Next, we project the Bayesian model to a simpler model using predictive projection inference [@piironen2020] to enhance computational speed without significantly reducing predictive accuracy. Unlike the full Bayesian model, the projected model requires a subset of input spectral bands to predict new data.
+
+### Parameter Estimation
+
+For computing the posterior probability distribution, we use the probabilistic programming language Stan [@standevelopmentteam2018] which uses Markov chain Monte Carlo (MCMC) algorithms such as the Hamiltonian Monte Carlo (HMC) [@duaneHybridMonteCarlo1987] and its extension the No-U-Turn Sampler (NUTS) [@hoffmanNoUTurnSamplerAdaptively2014]. These algorithms work well with high dimensional models and can be used with any prior distribution [@hoffmanNoUTurnSamplerAdaptively2014; @betancourtConceptualIntroductionHamiltonian2017; @burknerBrmsPackageBayesian2017].
+
+After fitting the Bayesian model using training data, they, in essence, become data generating models.
+
+Posterior predictive checks serve as an important visual tool to assess how well the model agrees with the training data.
+
+# Results
+
+##Stuff on r_hat
+
+Since the input spectral wavelengths are highly correlated with each other, they contain redundant information about the underlying trait. Consequently, during the MCMC iterations, there will be some samples for which only one of these wavelengths will have a non-zero regression coefficient, while the others will be zero, leading to a large probability mass at zero. For instance, each of the first four wavelengths for carotenoid content with the largest absolute mean value for regression coefficients (SSI, Figure S?) have non-trivial probability mass at both zero and non-zero coefficient values. Although this does not cause any issues with predictions, it results in multimodal univariate posterior parameter distributions.
+
+In our analysis, we observe the same phenomenon, although the percentage of $\hat{r}$ greater than 1.1 is very low ($0\%$ for carotenoid content, $2\%$ for LMA, and $1\%$ for nitrogen), and most of the $\hat{r}$ values are very close to 1.
+
+```{r}
+#| echo: FALSE
+#source("R_codes/Plotting/posterior_parameter_full_model.R")
+```
+
+![Posterior samples for the four regression coefficients with the largest absolute mean values](paper_draft/figures/parameter_posterior_histogram.png){#suppfig-posterior_parameters_full_model}
+
+## Discussion
+
+### Comparison of algorithms
+
+this uncertainty attempts to approximate a non-informative posterior distribution by generally assuming that the training sample closely approximates the true population.
+
+### Important spectral regions for traits
+
+These findings are also consistent with previous studies [see reviews @homolovaReviewOpticalbasedRemote2013 and @bergerCropNitrogenMonitoring2020 for comprehensive reviews].
+
+### Limitations and Future Directions
+
+It is an exciting time for hyperspectral imaging spectroscopy with the recently launched and upcoming satellite missions, such as PRecursore IperSpettrale della Missione Applicativa [PRISMA, @cogliati2021], Earth Surface Mineral Dust Source Investigation [EMIT, @green2022], Environmental Mapping and Analysis Program [EnMAP, @guanter2015], Surface Biology and Geology [SBG, @cawse-nicholson2021], and Copernicus Hyperspectral Imaging Mission for the Environment [CHIME, @nieke2023], which are poised to provide vast troves of VSWIR data globally.
+
+The posterior predictive checks (@fig-posterior_predictive_checks) or other formal measures of model comparison [@gelmanBayesianWorkflow2020] can be used to select the appropriate model.
+
+# Conclusion
+
+In this paper, we present a computationally efficient Bayesian framework that estimates traits directly from reflectance spectra without latent transformation while rigorously propagating uncertainties. The results show that the Bayesian model performs comparably to the PLSR approach in terms of Root Mean Square Error (RMSE) for the three traits examined, while providing the advantages of working in the original spectral space, selecting relevant wavelengths for predictions, and offering posterior predictive uncertainties, which aid in assessing the variability of predictions on new datasets. The Bayesian framework is extendable to more complex models–such as non-linear models, hierarchical Bayesian models and multivariate trait prediction models–, can integrate with physical models and account for measurement errors of different instruments.
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
