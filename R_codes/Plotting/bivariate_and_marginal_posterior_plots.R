@@ -2,6 +2,7 @@ library(bayesplot)
 library(ggplot2)
 library(patchwork)
 library(tidyverse)
+trait_name1 = "Carotenoid_Area"
 source("R_codes/input_parameter_file.R")
 color_scheme_set("pink")
 
@@ -17,8 +18,11 @@ bayesplot_theme_set(ggplot2::theme_bw())
 mcmc_pairs1 <- mcmc_pairs(prj_mat, pars = c(colnames(prj_mat)[2:6], "sigma"),
            off_diag_args = list(size = 1.5))
 
+plot(mcmc_pairs1)
 ggsave(filename = str_glue("paper_draft/figures/bivariate_plots_for_{trait_name1}.png"),
-       plot = mcmc_pairs1)
+       plot = mcmc_pairs1,
+       width = 8.5,
+       height = 8.5)
 
 # marginal plots
 mcmc_intervals1 <- mcmc_intervals(prj_mat,

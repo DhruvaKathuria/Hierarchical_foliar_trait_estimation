@@ -1,7 +1,7 @@
 library(dimreduce)
 
 # Setting global parameters -----------------------------------------------
-trait_name1 = "Carotenoid_Area"
+trait_name1 = "Nitrogen"
 source("R_codes/input_parameter_file.R")
 
 # source the data preprocessing code --------------------------------------
