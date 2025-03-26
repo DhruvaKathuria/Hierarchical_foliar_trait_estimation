@@ -1,7 +1,7 @@
 ---
 title: "A Bayesian Approach to Hyperspectral Leaf Trait Prediction with Uncertainty Quantification"
 format: 
-  docx:
+  pdf:
    number-sections: true
    mathspec: true
    include-in-header: 
@@ -27,10 +27,6 @@ editor_options:
 3.  To enhance computational efficiency, we project the full Bayesian model to a reduced model that relies on a select subset of wavelengths: 14 for Car~A~, 28 for N~M~, and 30 for LMA. This reduced model maintains predictive performance like the full model while offering faster predictions and insights into trait-specific wavelength sensitivity.
 
 4.  The proposed Bayesian method is highly adaptable, providing a framework for future development of non-linear, hierarchical, and multivariate trait prediction models with rigorous uncertainty quantification.
-
-# Data/code availability statement
-
-The code is available in zip file. Though all the data is acquired from ECOSIS, the processed data for carotenoid trait has been added so that the reviewers can run the code.
 
 # Keywords
 
