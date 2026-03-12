@@ -11,7 +11,7 @@ header-includes:
   - \doublespacing
 editor: source
 bibliography: references.bib
-csl: /Users/dhruvakathuria/Zotero/styles/apa.csl
+#csl: /Users/dhruvakathuria/Zotero/styles/apa.csl
 editor_options: 
   chunk_output_type: console
   markdown:
@@ -20,13 +20,7 @@ editor_options:
 
 # Abstract
 
-1.  Leaf functional traits are leaf features that determine ecosystem functioning, plant growth regulation, and resource allocation. Most of these traits can be effectively derived from leaf reflectance measurements across the visible to shortwave infrared range using various empirical and physical methods. Partial Least Squares Regression (PLSR) is a popular empirical approach due to its simplicity and computational efficiency; however, it has notable limitations. These include the need for transforming spectra into latent components, challenges in uncertainty quantification, optimal selection of the number of components, and difficulty in extending to more complex models.
-
-2.  In this study, we introduce a Bayesian approach for predicting leaf traits from leaf reflectance data---ranging from 400 to 2400 nm in 1 nm spectral---that addresses these limitations. Our method eliminates the need for spectral transformation while enabling rigorous uncertainty quantification. We applied the Bayesian algorithm to predict three key traits: carotenoid content (Car~A~), nitrogen percentage mass (N~M~), and Leaf Mass per Area (LMA). On an independent validation dataset, we find that the Bayesian approach performs comparably to PLSR but with added flexibility and robust uncertainty quantification.
-
-3.  To enhance computational efficiency, we project the full Bayesian model to a reduced model that relies on a select subset of wavelengths: 14 for Car~A~, 28 for N~M~, and 30 for LMA. This reduced model maintains predictive performance like the full model while offering faster predictions and insights into trait-specific wavelength sensitivity.
-
-4.  The proposed Bayesian method is highly adaptable, providing a framework for future development of non-linear, hierarchical, and multivariate trait prediction models with rigorous uncertainty quantification.
+Leaf functional traits are leaf features that determine ecosystem functioning, plant growth regulation, and resource allocation. Most of these traits can be effectively derived from leaf reflectance measurements across the visible to shortwave infrared range using various empirical and physical methods. Partial Least Squares Regression (PLSR) is a popular empirical approach due to its simplicity and computational efficiency; however, it has notable limitations. These include the need for transforming spectra into latent components, challenges in uncertainty quantification, optimal selection of the number of components, and difficulty in extending to more complex models. In this study, we present a Bayesian approach for predicting leaf traits from leaf reflectance data---ranging from 400 to 2400 nm in 1 nm spectral---that addresses these limitations. Our method eliminates the need for spectral transformation while enabling rigorous uncertainty quantification. We applied the Bayesian algorithm to predict three key traits: carotenoid content (Car~A~), nitrogen percentage mass (N~M~), and Leaf Mass per Area (LMA). On an independent validation dataset, we find that the Bayesian approach performs comparably to PLSR but with added flexibility and robust uncertainty quantification. To enhance computational efficiency, we project the full Bayesian model to a reduced model that relies on a select subset of wavelengths: 14 for Car~A~, 28 for N~M~, and 30 for LMA. This reduced model maintains predictive performance like the full model while offering faster predictions and insights into trait-specific wavelength sensitivity. The Bayesian method is highly adaptable, providing a framework for future development of non-linear, hierarchical, and multivariate trait prediction models with rigorous uncertainty quantification.
 
 # Keywords
 
