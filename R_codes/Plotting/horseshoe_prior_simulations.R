@@ -7,7 +7,7 @@ library(ggplot2)
 m_eff <- 0.05
 nu <- 4
 s = 2
-n_sim <- 100000
+n_sim <- 5000000
 
 set.seed(100)
 # simulating from regularized horseshoe
@@ -39,29 +39,52 @@ hist(beta_j_normal, 1e4, freq = FALSE, col = "red")
 
 beta_df <- data.frame(value =  c(beta_j, beta_j_normal),
                       prior = rep(c("horseshoe", "gaussian"), each = n_sim))
+# 
+# density_df <- data.frame(value =  c(density_j, density_j_normal),
+#                       prior = rep(c("horseshoe", "gaussian"), each = n_sim))
+# density_df <- density_df |> bind_cols(beta_df[, -2])
+# colnames(density_df) <- c("density", "prior", "beta")
+# 
+# 
+# histogram_plot <- ggplot(beta_df, aes(x = value, color = prior)) +
+#   geom_histogram(binwidth = 0.1) +
+# #geom_freqpoly(linewidth = 0.5) +
+#   facet_wrap(~prior) +
+#   coord_cartesian (xlim = c(-5, 5))
+# 
+# density_plot <- ggplot(density_df, aes(x = beta, y = density,  color = prior)) +
+#   #geom_histogram() +
+#   geom_smooth(method = "loess", se = F, span = 0.005) +
+#   #facet_wrap(~prior) +
+#   coord_cartesian (ylim = c(0, 5), xlim = c(-5, 5))
+# 
+# #density_plot/histogram_plot
+# density_plot
 
-density_df <- data.frame(value =  c(density_j, density_j_normal),
-                      prior = rep(c("horseshoe", "gaussian"), each = n_sim))
-density_df <- density_df |> bind_cols(beta_df[, -2])
-colnames(density_df) <- c("density", "prior", "beta")
+hist_plot <- ggplot(beta_df, aes(x = value, fill = prior)) +
+  geom_histogram(
+    aes(y = after_stat(density)),
+    binwidth = 0.003,        # 👈 very small bins (adjust if needed)
+    alpha = 0.4,
+    position = "identity"
+  ) +
+  coord_cartesian(xlim = c(-5, 5), ylim = c(0, 3)) +
+  labs(
+    x = "beta",
+    y = "Density"
+    #title = "Regularized Horseshoe vs Gaussian Prior"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.position = "top",
+    panel.grid.minor = element_blank(),
+    panel.grid.major = element_blank()
+  )
 
+hist_plot
 
-histogram_plot <- ggplot(beta_df, aes(x = value, color = prior)) +
-  geom_histogram(binwidth = 0.1) +
-#geom_freqpoly(linewidth = 0.5) +
-  facet_wrap(~prior) +
-  coord_cartesian (xlim = c(-5, 5))
-
-density_plot <- ggplot(density_df, aes(x = beta, y = density,  color = prior)) +
-  #geom_histogram() +
-  geom_smooth(method = "loess", se = F, span = 0.005) +
-  #facet_wrap(~prior) +
-  coord_cartesian (ylim = c(0, 1), xlim = c(-5, 5))
-
-#density_plot/histogram_plot
-density_plot
-
-ggsave(filename = "paper_draft/figures/horseshoe_vs_gaussian.png")
-       #height = 6,
-       #width = 6,
-       #units = "in")
+ggsave(filename = "paper_draft/figures/horseshoe_vs_gaussian.png",
+       hist_plot,
+       height = 6,
+       width = 7,
+       units = "in")
