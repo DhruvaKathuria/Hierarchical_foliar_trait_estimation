@@ -1,7 +1,7 @@
 ---
 title: "Supplementary Information (SI)"
 format: 
-  pdf:
+  docx:
    number-sections: true
    mathspec: true
    include-in-header: 
@@ -10,7 +10,7 @@ crossref:
   fig-title: Figure S
 editor: source
 bibliography: references.bib
-csl: /Users/dhruvakathuria/Zotero/styles/apa.csl
+csl: styles/apa.csl
 editor_options: 
   chunk_output_type: console
   markdown:
