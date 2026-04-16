@@ -6,7 +6,7 @@ Estimating  foliar plant function traits using hyperspectral data.
 
 ## Regression Analysis
 ### Bayesian Analysis
-
+The Bayesian algorithms are in R_codes/Regression_algorithms
 1) Run the file supervised_pc_and_raw_spectra_bayesian.R with the prediction algorithm set to "raw_spectra". This will output and save a brms file which will have the MCMC samples from the fitted model. This uses all of the spectra.
 
 2) Next run "covariate_reduction.R" to run the analysis to find the best subset of spectra which gives similar prediction as the full model. This requires the output brms file saved in the above step.
