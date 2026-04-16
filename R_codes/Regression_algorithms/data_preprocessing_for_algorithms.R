@@ -526,7 +526,7 @@ if(prediction_algorithm == "raw_spectra")
     bind_cols(x_test) |> 
     mutate(trait = y_test)
 
-  par_ratio1 = 0.05
+  par_ratio1 = 0.025
 }
 
 
