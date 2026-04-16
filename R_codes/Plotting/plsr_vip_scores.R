@@ -43,3 +43,37 @@ ggsave(filename = "paper_draft/figures/plsr_vip_scores.png",
        width = 7.5,
        height = 10,
        units = "in")
+
+
+# regression coefficients
+plsr_regression_coefs = list()
+
+for(trait_name1 in c("Carotenoid_Area", "LMA", "Nitrogen"))
+{
+  
+  plsr_regression_coefs[[trait_name1]] <- plsr_df |> 
+    filter(trait == trait_names_for_plots[trait_name1]) |> 
+    ggplot(aes(x = wavelengths, y = coefficients)) +
+    geom_line(color = color_vector[trait_name1]) +
+    geom_hline(yintercept = 0, linetype = "dashed", color = "black") +
+    scale_x_continuous(
+      limits = c(400, 2400),
+      breaks = seq(400, 2400, by = 200)  # optional, cleaner ticks
+    ) +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1),
+          axis.title.y = element_blank(),
+          axis.ticks.y = element_blank(),
+          strip.text = element_blank(),
+          legend.position = "none") +
+    xlab("")
+  
+}
+
+plsr_regression_coefs_comp_plot <- plsr_regression_coefs[[1]] / plsr_regression_coefs[[2]] /plsr_regression_coefs[[3]]
+plsr_regression_coefs_comp_plot
+
+ggsave(filename = "paper_draft/figures/plsr_regression_coefs.png",
+       plsr_regression_coefs_comp_plot,
+       width = 7.5,
+       height = 10,
+       units = "in")

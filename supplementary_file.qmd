@@ -1,16 +1,21 @@
 ---
 title: "Supplementary Information (SI)"
 format: 
-  docx:
-   number-sections: true
-   mathspec: true
-   include-in-header: 
-      text: '\usepackage{lineno}\linenumbers'
+  pdf:
+    pdf-engine: xelatex
+    number-sections: true
+    mathspec: true
+    hyperrefoptions:
+      - pageanchor=false
+      - hyperindex=false
+      - hyperfootnotes=false
+    include-in-header: 
+      text: |
+        \usepackage{lineno}
+        \linenumbers
 crossref:
-  fig-title: Figure S
+  fig-title: "Figure S"
 editor: source
-bibliography: references.bib
-csl: styles/apa.csl
 editor_options: 
   chunk_output_type: console
   markdown:
