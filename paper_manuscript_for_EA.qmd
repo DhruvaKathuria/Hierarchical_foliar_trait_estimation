@@ -1,16 +1,7 @@
 ---
 title: "A Bayesian Approach to Hyperspectral Leaf Trait Prediction with Uncertainty Quantification"
 format: 
-  pdf:
-    number-sections: true
-    mainfont: "Times New Roman"
-    fontsize: 12pt
-    mathspec: true
-    include-in-header: 
-      text: |
-        \usepackage{lineno}
-        \linenumbers
-        \raggedright
+  latex: default
 header-includes:
   - \usepackage{setspace}
   - \doublespacing
