@@ -66,9 +66,9 @@ Kothari, S., et al. (2023) — see manuscript reference list and `datasets_​us
 |---|---|---|
 | `genus_​species1` | categorical | Genus and species (scientific name) of the sampled plant, extracted from each dataset's metadata during cleaning; `NA` where not resolvable. |
 | `family1` | categorical | Taxonomic family, looked up from `genus_​species1`; `NA` where not resolvable. |
-| `growth_​form` | categorical | Growth form of the species (e.g., tree, shrub, herbaceous, grass, vine), from `data/Species_​data/Species_​attribute_​data.csv`; `NA` where not available. |
-| `phenology` | categorical | Leaf phenology of the species (deciduous or evergreen), from `data/Species_​data/Species_​attribute_​data.csv`; `NA` where not available. |
-| `leaf` | categorical | Leaf morphology of the species (broad or needle), from `data/Species_​data/Species_​attribute_​data.csv`; `NA` where not available. |
+| `growth_​form` | categorical | Growth form of the species (e.g., tree, shrub, herbaceous, grass, vine); `NA` where not available. |
+| `phenology` | categorical | Leaf phenology of the species (deciduous or evergreen); `NA` where not available. |
+| `leaf` | categorical | Leaf morphology of the species (broad or needle); `NA` where not available. |
 | `leaf_​classification` | categorical | Combined leaf/​growth-form classification (`broadleaf`, `needle`, `grass`, `herbaceous`); `NA` where not available. |
 | `manufacturer` | categorical | Manufacturer of the spectroradiometer used to collect the reflectance spectrum. |
 | `model` | categorical | Instrument model of the spectroradiometer used. |
@@ -81,7 +81,7 @@ Kothari, S., et al. (2023) — see manuscript reference list and `datasets_​us
 | Column | Type | Description |
 |---|---|---|
 | `Scientific_​name` | categorical | Genus and species (scientific name), used as the join key against `genus_​species1` in other files. |
-| `Growth_​form` | categorical | Growth form of the species (tree, shrub, herbaceous, grass, or vine), or `"Data unavailable"` where the Wikipedia-scraping classification could not determine a value. |
+| `Growth_​form` | categorical | Growth form of the species (tree, shrub, herbaceous, grass, or vine), or `"Data unavailable"`.  |
 | `Phenology` | categorical | Leaf phenology of the species (deciduous or evergreen), or `"Data unavailable"` where not determinable. |
 | `Leaf` | categorical | Leaf morphology of the species (broad or needle), or `"Data unavailable"` where not determinable. |
 
