@@ -34,7 +34,6 @@ Kothari, S., et al. (2023) — see manuscript reference list and `datasets_​us
 | `data/​datasets_​used.csv` | List of the final EcoSIS datasets used in the analysis, one row per (trait, dataset) pair, with a link to the EcoSIS record for that dataset. |
 | `data/​data_​train_​Carotenoid_​Area.csv` | Example training data (spectra + trait value + species/growth-form metadata) used to fit the Carotenoid Area (Car_A) models. |
 | `data/​data_​test_​Carotenoid_​Area.csv` | Held-out CABO test data (spectra + trait value + species/growth-form metadata) used to evaluate the Carotenoid Area (Car_A) models. |
-| `data/​Species_​data/​Species_​attribute_​data.csv` | Lookup table mapping each species' scientific name to a taxonomic family, growth form, phenology, and leaf-type classification (compiled with the assistance of a large language model, cross-checked against Wikipedia). |
 | `data/​Species_​data/​Species_​attribute_​data_​Dhruva.csv` | Earlier/intermediate growth-form/phenology/leaf-type lookup table, populated and appended to by `get_​growth_​form_​phenology_​leaf_​type_​etc_​from_​Wiki.R` via Wikipedia scraping; superseded by `data/​Species_​data/​Species_​attribute_​data.csv` (the table actually used in the final analysis) but retained here since it is read from and written to by that script. |
 | `data/​USDA_​Plant_​database.txt` | USDA PLANTS database export, used by `03_​adding_​genus_​species_​info.R` as a fallback lookup to resolve a species' scientific name when a dataset's raw metadata only provides a USDA plant symbol. |
 | `R_​codes/​Regression_​algorithms/​supervised_​pc_​and_​raw_​spectra_​bayesian.R` | **Main model-fitting script.** Fits the full Bayesian prior regression model of a leaf trait on the reflectance spectrum. Sources `input_​parameter_​file.R` for global settings; for the packaged example it reads `data_​train_​Carotenoid_​Area.csv` directly (the line sourcing `data_​preprocessing_​for_​algorithms.R`, which rebuilds the training data from all raw EcoSIS datasets, is commented out and only needed if re-running the full multi-dataset pipeline). |
@@ -77,15 +76,6 @@ Kothari, S., et al. (2023) — see manuscript reference list and `datasets_​us
 | `site_​name` | categorical | EcoSIS package (dataset) identifier/​slug the observation was drawn from. |
 | `x400` … `x2400` | numeric | Percent leaf reflectance at each 1 nm wavelength band from 400 nm to 2400 nm (2001 columns total). Column name `x<wavelength>` gives the band center in nanometers. |
 
-### `data/Species_​data/Species_​attribute_​data.csv`
-| Column | Type | Description |
-|---|---|---|
-| `Scientific_​name` | categorical | Genus and species (scientific name) |
-| `Family` | categorical | Taxonomic family of the species. |
-| `Growth_​form` | categorical | Growth form of the species (tree, shrub, herbaceous, grass, or vine). |
-| `Phenology` | categorical | Leaf phenology of the species (deciduous or evergreen). |
-| `Leaf` | categorical | Leaf morphology of the species (broad or needle). |
-| `leaf_​classification` | categorical | Combined leaf/​growth-form classification (broadleaf, needle, grass, or herbaceous). |
 
 ### `data/​Species_​data/​Species_​attribute_​data_​Dhruva.csv`
 | Column | Type | Description |
