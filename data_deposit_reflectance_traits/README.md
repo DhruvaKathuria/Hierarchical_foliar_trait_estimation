@@ -9,10 +9,11 @@ header-includes:
 This deposit contains the reflectance and trait data, and the R code used to obtain, clean, and
 model it, for the leaf-trait–spectra analyses reported in the manuscript. Data files retain the
 genus/species, family, growth form, phenology, and leaf-type columns produced during data cleaning
-(see `R_​codes/​Getting_​and_​cleaning_​ECOSIS_​data/​03_​adding_​genus_​species_​info.R` and
-`get_​growth_​form_​phenology_​leaf_​type_​etc_​from_​Wiki.R` in the project GitHub repository <https://github.com/DhruvaKathuria/Hierarchical_foliar_trait_estimation>) and used
-by the outlier-filtering step in the regression pipeline (`filter_​out_​error_​groups()`); these
-columns are not the subject of the manuscript's analyses but are documented below for completeness.
+and used by the outlier-filtering step in the regression pipeline (`filter_​out_​error_​groups()`);
+these columns are not the subject of the manuscript's analyses, but the scripts that produced them
+(`03_​adding_​genus_​species_​info.R` and `get_​growth_​form_​phenology_​leaf_​type_​etc_​from_​Wiki.R`) and
+the data files those scripts require are included in this deposit and documented below for
+completeness.
 
 ## Data Access
 
@@ -33,13 +34,17 @@ Kothari, S., et al. (2023) — see manuscript reference list and `datasets_​us
 | `data/​datasets_​used.csv` | List of the final EcoSIS datasets used in the analysis, one row per (trait, dataset) pair, with a link to the EcoSIS record for that dataset. |
 | `data/​data_​train_​Carotenoid_​Area.csv` | Example training data (spectra + trait value + species/growth-form metadata) used to fit the Carotenoid Area (Car_A) models. |
 | `data/​data_​test_​Carotenoid_​Area.csv` | Held-out CABO test data (spectra + trait value + species/growth-form metadata) used to evaluate the Carotenoid Area (Car_A) models. |
-| `data/​Species_​data/​Species_​attribute_​data.csv` | Lookup table mapping each species' scientific name to a growth form, phenology, and leaf-type classification (compiled with the assistance of a large language model, cross-checked against Wikipedia). |
+| `data/​Species_​data/​Species_​attribute_​data.csv` | Lookup table mapping each species' scientific name to a taxonomic family, growth form, phenology, and leaf-type classification (compiled with the assistance of a large language model, cross-checked against Wikipedia). |
+| `data/​Species_​data/​Species_​attribute_​data_​Dhruva.csv` | Earlier/intermediate growth-form/phenology/leaf-type lookup table, populated and appended to by `get_​growth_​form_​phenology_​leaf_​type_​etc_​from_​Wiki.R` via Wikipedia scraping; superseded by `data/​Species_​data/​Species_​attribute_​data.csv` (the table actually used in the final analysis) but retained here since it is read from and written to by that script. |
+| `data/​USDA_​Plant_​database.txt` | USDA PLANTS database export, used by `03_​adding_​genus_​species_​info.R` as a fallback lookup to resolve a species' scientific name when a dataset's raw metadata only provides a USDA plant symbol. |
 | `R_​codes/​Regression_​algorithms/​supervised_​pc_​and_​raw_​spectra_​bayesian.R` | **Main model-fitting script.** Fits the full Bayesian prior regression model of a leaf trait on the reflectance spectrum. Sources `input_​parameter_​file.R` for global settings; for the packaged example it reads `data_​train_​Carotenoid_​Area.csv` directly (the line sourcing `data_​preprocessing_​for_​algorithms.R`, which rebuilds the training data from all raw EcoSIS datasets, is commented out and only needed if re-running the full multi-dataset pipeline). |
 | `R_​codes/​Regression_​algorithms/​covariate_​reduction_​of_​full_​Baysian_​model.R` | **Main wavelength-selection script.** Performs projection predictive variable selection on a previously fitted `brms` model (loaded from an `.rds` file — either produced locally by `supervised_​pc_​and_​raw_​spectra_​bayesian.R`, or the corresponding example object hosted at the Zenodo repository linked in the Open Research Statement above). Runs a fast approximate `varsel()` pass (for exploratory speed, not used in the paper) followed by the full `cv_​varsel()` k-fold (K = 5) forward-search cross-validation used in the paper, identifying the reduced set of wavelengths that best predict the trait, and plots the cross-validated RMSE as a function of the number of wavelengths retained. |
 | `R_​codes/​Getting_​and_​cleaning_​ECOSIS_​data/​01_​get_​data_​ecosis.R` | Queries the EcoSIS API for the first 200 datasets(the number 200 is arbitrary, and was chosen since at the time of download, none of the analyzed trait had more than 200 datasets) registered in EcoSIS, filters to datasets whose `Target Type` metadata field includes `"leaf"`(`leaf` denotes leaf spectra as opposed to `canopy` spectra), and downloads the spectra and trait metadata for each retained dataset. |
 | `R_​codes/Getting_​and_​cleaning_​ECOSIS_​data/02_​create_​parquet_​metadata.R` | Standardizes each dataset's raw trait metadata: assigns a `sample_​id`, records whether the spectral values are reflectance-only, and maps each trait name to its corresponding raw column name and units, based on `trait_​and_​sample_​id_​Database_​for_​ECOSIS_​Data.R`. |
 | `R_​codes/Getting_​and_​cleaning_​ECOSIS_​data/Creating_​folder_​for_​further_​data_​cleaning_​and moving_​data_​there.R` | Helper function that creates a subfolder and moves the raw downloaded `spectra.csv`/​`metadata.csv` files into it prior to per-dataset cleaning. |
 | `R_​codes/Getting_​and_​cleaning_​ECOSIS_​data/Further_​data_​cleaning/*.R` | Dataset-specific cleaning scripts. Each script splits a dataset's raw combined file into `spectra.csv`/​`metadata.csv` and/​or filters records to reflectance-only measurements (400–2400 nm, 1 nm sampling, 2001 continuous bands), as required for that dataset. |
+| `R_​codes/​Getting_​and_​cleaning_​ECOSIS_​data/​03_​adding_​genus_​species_​info.R` | Adds `genus_​species1` and `family1` taxonomy columns to each dataset's `metadata_​updated.parquet` by parsing genus/species (or a single scientific-name/USDA-symbol column, using `data/​USDA_​Plant_​database.txt` as a fallback lookup) from the raw EcoSIS metadata, then querying NCBI (via the `taxize` package) for the taxonomic family. **Requires the full `data/​raw_​data/​` folder (not included in this deposit) to run** and is included for reference/completeness only. |
+| `R_​codes/​Getting_​and_​cleaning_​ECOSIS_​data/​get_​growth_​form_​phenology_​leaf_​type_​etc_​from_​Wiki.R` | For each unique `genus_​species1` value in a dataset's `metadata_​updated.parquet` (produced by `03_​adding_​genus_​species_​info.R`), scrapes the species' Wikipedia page and classifies its growth form, phenology, and leaf type by counting keyword occurrences in the article text, then appends the results to `data/​Species_​data/​Species_​attribute_​data_​Dhruva.csv`. **Requires the full `data/​raw_​data/​` folder (not included in this deposit) to run** and is included for reference/completeness only. |
 | `R_​codes/supporting_​R_​functions/getting_​traits_​data.R` | Functions used by `02_​create_​parquet_​metadata.R` to match a trait name (e.g., "Nitrogen") to the corresponding raw column name in each dataset's metadata file. |
 | `R_​codes/supporting_​R_​functions/trait_​and_​sample_​id_​Database_​for_​ECOSIS_​Data.R` | Lookup tables of trait name synonyms, sample ID column names, units, EcoSIS paper links, and spectral-instrument metadata, used across all cleaning scripts. |
 | `R_​codes/supporting_​R_​functions/Steps_​to_​Add_​Metadata_​for_​a_​Trait_​in_​a_​dataset.R` | Documentation script (not executed as part of the pipeline) describing the manual workflow followed to add a new trait/​dataset combination to the standardized metadata. |
@@ -76,10 +81,29 @@ Kothari, S., et al. (2023) — see manuscript reference list and `datasets_​us
 | Column | Type | Description |
 |---|---|---|
 | `Scientific_​name` | categorical | Genus and species (scientific name) |
+| `Family` | categorical | Taxonomic family of the species. |
 | `Growth_​form` | categorical | Growth form of the species (tree, shrub, herbaceous, grass, or vine). |
 | `Phenology` | categorical | Leaf phenology of the species (deciduous or evergreen). |
 | `Leaf` | categorical | Leaf morphology of the species (broad or needle). |
 | `leaf_​classification` | categorical | Combined leaf/​growth-form classification (broadleaf, needle, grass, or herbaceous). |
 
+### `data/​Species_​data/​Species_​attribute_​data_​Dhruva.csv`
+| Column | Type | Description |
+|---|---|---|
+| `Scientific_​name` | categorical | Genus and species (scientific name), used as the join key against `genus_​species1` in other files. |
+| `Growth_​form` | categorical | Growth form of the species (tree, shrub, herbaceous, grass, or vine), or `"Data unavailable"` where the Wikipedia-scraping classification could not determine a value. |
+| `Phenology` | categorical | Leaf phenology of the species (deciduous or evergreen), or `"Data unavailable"` where not determinable. |
+| `Leaf` | categorical | Leaf morphology of the species (broad or needle), or `"Data unavailable"` where not determinable. |
+
+### `data/​USDA_​Plant_​database.txt`
+| Column | Type | Description |
+|---|---|---|
+| `Symbol` | categorical | USDA PLANTS Database plant symbol (short code) uniquely identifying a species. |
+| `Synonym Symbol` | categorical | USDA PLANTS Database symbol for a taxonomic synonym of this species, where applicable. |
+| `Scientific Name with Author` | text | Full scientific name, including the taxonomic authority. |
+| `Common Name` | text | Common (vernacular) name of the species. |
+| `Family` | categorical | Taxonomic family of the species. |
+
 Missing/​null values in all files are encoded as `NA`.
-The urls and the download dates for each dataset is given in 'data/datasets_used.csv'. 
+The files 'USDA_Plant_database.txt' and 'Species_attribute_data_Dhruva.csv' were created by the authors of this study by consulting different ecological websites and Wikipedia as well via some assistance from Large Language models.
+The urls and the download dates for each ECOSIS dataset is given in 'data/datasets_used.csv'. 
