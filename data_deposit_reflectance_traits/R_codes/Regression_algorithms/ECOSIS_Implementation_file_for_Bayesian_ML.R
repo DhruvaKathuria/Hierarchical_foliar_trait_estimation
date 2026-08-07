@@ -1,0 +1,192 @@
+library(tidyverse)
+library(arrow)
+library(units)
+#library(conflicted)
+#conflicts_prefer(dplyr::select)
+#conflicts_prefer(base::intersect)
+
+mainDir = "data/raw_data"  
+
+
+###########Parameters to change in the code###################
+algorithm1 = "PLSR" # can be PLSR, "Bayesian_linear_horseshoe; check "Apply_ML_and_prospect_algorithms.R" for various options on algorithms
+filtering_type = "Global" # "Global", "Site_specific"
+get_only_train_test_indices = T # we set this value to T if we do not want to run the regression algorithm and only want the train/test split indices. This is helpful if I am exploring some new regression approach and I can just call this R file from another R code to get the indices and the input matrices
+source("R_codes/supporting_R_functions/Apply_ML_and_prospect_algorithms.R")
+
+
+# Function list start -----------------------------------------------------
+
+filter_spectra_data = function(x) 
+{
+  spectra = readr :: read_csv(file = paste0(file.path(mainDir, x), "/", "spectra.csv"), show_col_types = FALSE)
+  index_start = which(as.numeric(colnames(spectra)) == 400 )
+  index_end = which(as.numeric(colnames(spectra)) == 2400)
+  
+  if(length(index_start)!= 0 & length(index_end)!=0)
+  {
+    if((index_end - index_start) == 2000)
+    {
+    spectra_filtered = spectra[, index_start:index_end]
+    }else{spectra_filtered = NA}} else{spectra_filtered = NA}
+
+}
+
+look_and_correct_for_spectra_scaling_errors <- function(spectra_data)
+{
+  if(is_tibble(spectra_data))
+  {
+    fraction_of_observations_with_error = apply(spectra_data, 1, function(y) {length(which(y[500:700] > 1))/ length(y[500:700])})
+    if(all(fraction_of_observations_with_error == 0))
+    {
+      spectra_data = spectra_data
+    }else if(all(fraction_of_observations_with_error > 0.7))
+    {
+      spectra_data = spectra_data/100
+    }else{
+      print("Need to investigate")
+      stop
+    }
+  }else{spectra_data = NA}
+  spectra_data
+  
+}
+
+
+filter_trait_data_and_metadata = function(x, trait_name1) # attaches the trait value and also the metadata associated with species as well as the instrument error
+{
+  metadata_arrow_version = read_parquet(paste0(file.path(mainDir, x), "/", "metadata_updated.parquet"))
+  name_for_trait = attributes(metadata_arrow_version)$trait_names[[trait_name1]][["trait_name"]]
+  units_for_trait = attributes(metadata_arrow_version)$trait_names[[trait_name1]][["units"]]
+  
+  names(metadata_arrow_version) = tolower(names(metadata_arrow_version))
+  trait_value = as.numeric(unlist(metadata_arrow_version[name_for_trait]))
+  
+  if(!(trait_name1 %in% c("delta_C13", "delta_N15"))) # only delta_C13 and delta_N15 can have negative names (Source: figure in Phil Townsend paper)
+  {
+    trait_value[trait_value < 0] = NA
+  }
+  
+  trait_value = trait_value * as_units(units_for_trait)
+  
+  if(trait_name1 == "Carotenoid_Area") # instead of the for loop, for each trait I need to make a list like the ones I made in "trait_and_sample_id_Database_for_ECOSIS_Data.R" which connects the trait_name and the chosen unit
+  {
+    trait_value = set_units(trait_value, microgram/cm^2)
+  }
+  
+  if(trait_name1 == "LMA") # instead of the for loop, for each trait I need to make a list like the ones I made in "trait_and_sample_id_Database_for_ECOSIS_Data.R" which connects the trait_name and the chosen unit
+  {
+    trait_value = set_units(trait_value, gram/m^2)
+  }
+  
+  if(trait_name1 == "Nitrogen")
+  {
+    trait_value = set_units(trait_value, mg/g)
+  }
+  
+  metadata_merged = merge(metadata_arrow_version, database_for_metadata, by.x = "genus_species1" , by.y = "Scientific_name", all.x = TRUE)
+  metadata_merged = metadata_merged |> 
+    select(genus_species1, family1, Growth_form, Phenology, Leaf, leaf_classification, manufacturer, model)
+  metadata_merged$trait = trait_value
+  metadata_merged$site_name = rep(x, nrow(metadata_merged))
+  metadata_merged
+}
+
+filter_trait_data_and_metadata_without_error <- function(x, trait_name)
+{
+  return(tryCatch(
+    filter_trait_data_and_metadata(x, trait_name), 
+    error=function(e) NA)) 
+}
+
+get_indices_subset_function <- function(data_frame1, filtering_type, test_site, fraction_split) # get the indices for the training and testing data according to whether the split is to made globally or site-wise
+{
+  if(filtering_type == "Global")
+  {
+    indices_subset = sample(1:nrow(data_frame1), fraction_split * nrow(data_frame1))
+  }else if(filtering_type == "Site_specific")
+  {
+    indices_subset = which(data_frame1$site_name != test_site)
+  }
+  indices_subset
+}
+
+get_test_data_frame_predictions = function(indices_subset, algorithm1) # gives the test dataframe along with the predictions based on algorithm1. The data frame also contains the metadata useful for further exploratory analysis
+{
+  Y_train = as.numeric(trait_and_metadata_dataframe$trait[indices_subset ])
+  Y_test = as.numeric(trait_and_metadata_dataframe$trait[-indices_subset ])
+  X_train = spectra_df[indices_subset, ]
+  X_test = spectra_df[-indices_subset, ]
+  Regression_apply2 = apply_regression_algorithm2 (algorithm1, X_train, Y_train, X_test, Y_test)
+  data_mat_out = trait_and_metadata_dataframe[-indices_subset, ]
+  data_mat_out$pred = Regression_apply2$predictions
+  data_mat_out
+}
+
+
+###############################################Datasets########################################################################
+#Github_dir = "/Users/dhruvakathuria/Documents/GitHub/Hierarchical_foliar_trait_estimation/"
+database_for_metadata = readr :: read_csv("data/Species_data/Species_attribute_data.csv") 
+datasets_already_processed =  list.files(mainDir, 
+                                         recursive = T, 
+                                         pattern = "traits_already_done_for_metadata.txt") 
+# we take the datasets for which atleast one of the traits has been processed
+indices_of_datasets_containing_trait_name =  unlist(lapply(datasets_already_processed, function(x)
+{
+  read_file1 = readr :: read_lines(file.path(mainDir, x))
+  trait_name1 %in% read_file1
+})
+)
+
+datasets_to_take_for_trait = unlist(lapply(datasets_already_processed[indices_of_datasets_containing_trait_name], function(x) strsplit(x, "/traits_already_done_for_metadata.txt" )[[1]])) 
+
+spectra_filtered = lapply(datasets_to_take_for_trait, filter_spectra_data)
+spectra_filtered = lapply(spectra_filtered, look_and_correct_for_spectra_scaling_errors)
+indices_spectra_to_take = which(sapply(spectra_filtered, length) == 2001)
+
+#trait_and_metadata_dataframe_list = lapply(datasets_to_take_for_trait, function(x){ return(tryCatch(filter_trait_data_and_metadata(x = x, trait_name1 =  "Nitrogen"), error=function(e) NA)) })
+trait_and_metadata_dataframe_list = lapply(datasets_to_take_for_trait, filter_trait_data_and_metadata_without_error, trait_name = trait_name1)
+
+indices_to_take_metadata = which(sapply(trait_and_metadata_dataframe_list, length) != 1)
+indices_to_take = intersect(indices_spectra_to_take, indices_to_take_metadata)
+## IMP: Need to have a check which confirms that the units of each list are the same
+
+spectra_df = do.call(rbind, spectra_filtered[indices_to_take])
+trait_and_metadata_dataframe = do.call(rbind, trait_and_metadata_dataframe_list[indices_to_take])
+#################################################################################################################
+
+## The below is just a quick fix (Just for Caretonoid) for a first pass at data. Will be replaced by a more formal approach for dealing with spectra
+# fixing the spectra range based on seeing what is the extent of spectra variation in the data
+# Uncomment the for loop if you want to see what colnames we have for spectra
+
+# for(i in 1:length(datasets_to_take_for_trait))
+# {
+#   spectra = readr :: read_csv(file = paste0(file.path(mainDir, datasets_to_take_for_trait[i]), "/", "spectra.csv"), show_col_types = FALSE)
+#   print(datasets_to_take_for_trait[i])
+#   print(colnames(spectra)[1])
+#   print(colnames(spectra)[ncol(spectra)])
+#   print(ncol(spectra))
+#   print(as.numeric(colnames(spectra)[ncol(spectra)]) - as.numeric(colnames(spectra)[1]))
+#   print(which(is.na(spectra)))
+# }
+
+
+set.seed(100)
+if(filtering_type == "Global")
+{
+  indices_subset = get_indices_subset_function(trait_and_metadata_dataframe, filtering_type = "Global", test_site = "None", fraction_split = 0.7)
+  if(get_only_train_test_indices == F)
+  {
+    data_mat_test =   get_test_data_frame_predictions(indices_subset, algorithm1)
+  }
+}else if (filtering_type == "Site_specific") 
+{
+  indices_subset = lapply(datasets_to_take_for_trait, get_indices_subset_function, filtering_type = "Site_specific", data_frame1 = trait_and_metadata_dataframe, fraction_split = 0.7)
+  if(get_only_train_test_indices == F)
+  {
+    data_mat_test = lapply(indices_subset, get_test_data_frame_predictions, algorithm1 = algorithm1) 
+    names(data_mat_test) = datasets_to_take_for_trait
+  }
+}
+
+
