@@ -52,13 +52,17 @@ study_sites <- ggplot() +
                     #breaks=c("f", "r", "4"),
                     labels=c("Carotenoid", "LMA", "Nitrogen")
                     ) +
-  theme(legend.position = "none",
-        legend.text = element_text(size = 12), # Increase legend text size
-        legend.title = element_text(size = 14),
-        plot.tag = element_text(size = 16, 
-                                face = "bold",
-                                family = "serif")
-        )  +
+  theme(
+    legend.position = "none",
+    legend.text = element_text(size = 12),
+    legend.title = element_text(size = 14),
+    plot.tag = element_text(size = 16, face = "bold", family = "serif"),
+    
+    # ---- Axis font size changes ----
+    axis.text = element_text(size = 12),   # Tick label font size (both axes)
+    axis.title = element_text(size = 14)   # Axis title font size (both axes)
+    # --------------------------------
+  ) +
   labs(tag = "(a)")
 
 study_sites
@@ -66,6 +70,6 @@ study_sites
 ggsave(filename = "paper_draft/figures/study_sites.png",
        study_sites,
        dpi = 600,
-       width = 9,
-       height = 4,
+       width = 8.5,
+       height = 5,
        units = "in")

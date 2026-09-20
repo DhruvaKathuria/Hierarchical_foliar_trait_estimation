@@ -72,11 +72,18 @@ plot_3 <- whittaker_base_plot() +
 
 plot_4 <- plot_3 + 
   theme_bw() +
-  theme(plot.tag = element_text(size = 16, 
-                                face = "bold",
-                                family = "serif"),
-        axis.text = element_text(size = 12),
-        axis.title = element_text(size = 12)
+  theme(
+    plot.tag = element_text(size = 16, 
+                            face = "bold",
+                            family = "serif"),
+    axis.text  = element_text(size = 12),
+    axis.title = element_text(size = 12),
+    
+    # ---- Legend font size changes ----
+    legend.text  = element_text(size = 13),  # Size of the label text (e.g., "Carotenoid (train)")
+    legend.title = element_text(size = 14),  # Size of the legend title (empty string here, but good practice)
+    legend.key.size = unit(1.2, "lines")     # Optionally increase the legend key/icon size too
+    # ----------------------------------
   ) +
   labs(tag = "(b)") 
   
@@ -114,6 +121,6 @@ plot_4 <- plot_3 +
 ggsave(filename = "paper_draft/figures/whittaker_biome.png",
        plot_4,
        dpi = 600,
-       width = 9,
-       height = 4,
+       width = 8.5,
+       height = 5.5,
        units = "in")

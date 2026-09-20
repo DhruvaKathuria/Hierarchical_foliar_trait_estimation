@@ -62,14 +62,15 @@ full_model_predictions <- ggplot(prediction_files_edit %>%
   theme(strip.text.x = element_blank(), 
         axis.title.x = element_blank(),  
         axis.title.y = element_blank(),
+        axis.text = element_text(size = 10),
         legend.position = "bottom") 
 
 print(full_model_predictions)
 
-ggsave(filename = "paper_draft/figures/prediction_bayesian_plsr_comparison.png"
-       #width  = 8,
-       #height = 6,
-       #units = "in"
+ggsave(filename = "paper_draft/figures/prediction_bayesian_plsr_comparison.png",
+       width  = 6.83,
+       height = 5.6,
+       units = "in"
        )
 
 
@@ -107,14 +108,15 @@ reduced_model_predictions <- prediction_files_edit |>
   theme(strip.text.x = element_blank(), 
         axis.title.x = element_blank(),  
         axis.title.y = element_blank(),
+        axis.text = element_text(size = 10),
         legend.position = "bottom") 
 
 print(reduced_model_predictions)
 
 ggsave(filename = "paper_draft/figures/prediction_bayesian_full_model_reduced_model.png",
-       #width  = 8,
-       #height = 6,
-       #units = "in"
-       )
+       width  = 6.83,
+       height = 5.6,
+       units = "in"
+)
 
   
